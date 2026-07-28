@@ -1,0 +1,31 @@
+{% extends "base.html.j2" %}
+{% block content %}
+<div class="docs-container">
+  <span class="docs-eyebrow">Learning patterns</span>
+  <h1>What pattern should I use for this learning need?</h1>
+  <p class="docs-lede">Patterns are platform-neutral. Each can have more than one component or platform implementation, but its learning purpose stays stable. Do not create a new component before checking whether an existing pattern and variant can serve the need.</p>
+
+  {% for p in patterns %}
+  <article class="docs-module" id="{{ p.id }}">
+    <h2 style="text-transform:none; font-size:1.4rem; color:var(--docs-blue-dark); font-family:var(--docs-font-heading); letter-spacing:normal;">{{ p.name }}</h2>
+    <p><strong>Purpose:</strong> {{ p.purpose }}</p>
+    <div class="docs-use-avoid">
+      <div class="docs-use-avoid__col docs-use-avoid__col--use">
+        <h3>Use when</h3>
+        <p style="font-size:0.94rem;">{{ p.useWhen }}</p>
+      </div>
+      <div class="docs-use-avoid__col docs-use-avoid__col--avoid">
+        <h3>Avoid when</h3>
+        <p style="font-size:0.94rem;">{{ p.avoidWhen }}</p>
+      </div>
+    </div>
+    <p style="margin-top:var(--docs-space-3); font-size:0.9rem; color:var(--docs-muted);">{{ p.platformNote }}</p>
+    <div class="docs-related-list" style="margin-top:var(--docs-space-2);">
+      {% for c in p.components %}
+      <a class="docs-tag" href="{{ base }}components/{{ c }}/index.html">{{ component_names.get(c, c) }} →</a>
+      {% endfor %}
+    </div>
+  </article>
+  {% endfor %}
+</div>
+{% endblock %}

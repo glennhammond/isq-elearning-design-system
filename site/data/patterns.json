@@ -1,0 +1,110 @@
+[
+  {
+    "id": "section-opener",
+    "name": "Section opener",
+    "purpose": "Orient the learner at a genuine structural transition.",
+    "useWhen": "A major section genuinely begins — not every subtopic.",
+    "avoidWhen": "Used for every heading change, which flattens its meaning.",
+    "components": ["section-opener"],
+    "platformNote": "Rise: native banner or the approved custom section opener."
+  },
+  {
+    "id": "explanation",
+    "name": "Explanation",
+    "purpose": "Introduce and explain a concept with clear hierarchy and readable density.",
+    "useWhen": "Building core knowledge the learner needs before acting on it.",
+    "avoidWhen": "The content is really a single retainable point — use Key message instead.",
+    "components": ["split-card", "panel"],
+    "platformNote": "Rise: native image-and-text is preferred; split card only where the image adds real meaning."
+  },
+  {
+    "id": "key-message",
+    "name": "Key message",
+    "purpose": "Isolate the one point a learner should retain.",
+    "useWhen": "One legal threshold, definition or critical reminder.",
+    "avoidWhen": "Routine supporting detail, or more than one message in a single panel.",
+    "components": ["key-message"],
+    "platformNote": "One to three sentences. Use ordinary body text with a subheading as the fallback."
+  },
+  {
+    "id": "legislation",
+    "name": "Legislation or authority",
+    "purpose": "Separate source requirements from plain-English interpretation.",
+    "useWhen": "A specific Act, regulation or section underpins a requirement.",
+    "avoidWhen": "A general policy statement with no legislative source — use a standard content panel.",
+    "components": ["legislation-panel"],
+    "platformNote": "Always name the instrument precisely and keep the plain-English summary visibly separate from the quoted source."
+  },
+  {
+    "id": "scenario-stage",
+    "name": "Scenario stage",
+    "purpose": "Present new context or evidence from the decision-maker's perspective.",
+    "useWhen": "A discrete context, update, observation or piece of evidence within a running scenario.",
+    "avoidWhen": "General explanation unrelated to the scenario — use a split card or standard panel.",
+    "components": ["scenario-stage"],
+    "platformNote": "Keep one stable visual environment and decision-maker perspective across a whole scenario."
+  },
+  {
+    "id": "decision-point",
+    "name": "Decision point",
+    "purpose": "Require a realistic professional judgement and reveal the reasoning behind it.",
+    "useWhen": "A genuine professional juncture with credible distractors and consequential feedback.",
+    "avoidWhen": "An obvious answer with implausible distractors — use a native knowledge check for simple recall instead.",
+    "components": ["decision-point"],
+    "platformNote": "Feedback must explain why an option is appropriate, not only whether it was selected."
+  },
+  {
+    "id": "feedback",
+    "name": "Feedback",
+    "purpose": "Explain why a choice is appropriate, not only whether it is correct.",
+    "useWhen": "Immediately after every decision, revealed in place.",
+    "avoidWhen": "As a generic correct/incorrect message with no reasoning.",
+    "components": ["decision-point"],
+    "platformNote": "Announce revealed feedback appropriately; place it immediately after the action that caused it."
+  },
+  {
+    "id": "process",
+    "name": "Process",
+    "purpose": "Present actions or stages in a meaningful, genuinely ordered sequence.",
+    "useWhen": "Order is real and matters to the outcome.",
+    "avoidWhen": "The steps are not truly sequential — a card grid or list communicates it more honestly.",
+    "components": ["process"],
+    "platformNote": "Use numbering only where the number carries meaning."
+  },
+  {
+    "id": "comparison",
+    "name": "Comparison",
+    "purpose": "Clarify differences between roles, responses or alternatives.",
+    "useWhen": "Two related audiences or positions need to be held side by side, with parallel categories.",
+    "avoidWhen": "More than a handful of items — use a card grid or table instead.",
+    "components": ["role-split"],
+    "platformNote": "Keep categories parallel and the differences explicit; this is the pattern behind the shared Role split component — course-specific one-off comparisons (see Governance) should be migrated to it."
+  },
+  {
+    "id": "reflection",
+    "name": "Reflection",
+    "purpose": "Prompt considered application without adding unnecessary interaction.",
+    "useWhen": "A short self-assessment or reflective prompt genuinely aids transfer.",
+    "avoidWhen": "As a large, decorative treatment — the legacy Editorial reflection component exists only for backwards compatibility.",
+    "components": ["self-assessment"],
+    "platformNote": "Prefer native statement/reflection blocks or a compact approved panel; use the self-assessment table only where a structured rating genuinely helps."
+  },
+  {
+    "id": "resource",
+    "name": "Resource",
+    "purpose": "Explain what a linked item is, why it matters and what will happen when it opens.",
+    "useWhen": "A supplementary document or external guidance needs context before the click.",
+    "avoidWhen": "Essential learning is available only through the external link — bring it into the course itself.",
+    "components": ["resource-card"],
+    "platformNote": "Name the resource and why it matters; a native attachment or text link is the fallback for lighter cases."
+  },
+  {
+    "id": "section-summary",
+    "name": "Section summary",
+    "purpose": "Close a major section and reinforce the intended learning.",
+    "useWhen": "The end of a major section, before a genuine transition.",
+    "avoidWhen": "After every subtopic.",
+    "components": ["footer-band"],
+    "platformNote": "Three to five concise points; the dark/footer band gives it a deliberate structural close."
+  }
+]

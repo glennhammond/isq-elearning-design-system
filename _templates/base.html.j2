@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ title }} — ISQ eLearning Design System</title>
+<meta name="description" content="{{ description }}">
+<link rel="stylesheet" href="{{ base }}assets/css/tokens.css">
+<link rel="stylesheet" href="{{ base }}assets/css/base.css">
+<link rel="stylesheet" href="{{ base }}assets/css/layout.css">
+<link rel="stylesheet" href="{{ base }}assets/css/components.css">
+<link rel="stylesheet" href="{{ base }}assets/css/documentation.css">
+</head>
+<body>
+<a class="docs-skip-link" href="#docs-main">Skip to content</a>
+<div class="docs-shell">
+  <header class="docs-header">
+    <div class="docs-header__inner">
+      <a class="docs-logo" href="{{ base }}index.html">ISQ <span>eLearning Design System</span></a>
+      <button class="docs-nav-toggle" aria-expanded="false" aria-controls="docs-primary-nav">Menu</button>
+      <nav class="docs-primary-nav" id="docs-primary-nav" aria-label="Primary">
+        <a class="docs-nav-link" href="{{ base }}overview/index.html" {% if section=='overview' %}aria-current="page"{% endif %}>Overview</a>
+        <a class="docs-nav-link" href="{{ base }}foundations/index.html" {% if section=='foundations' %}aria-current="page"{% endif %}>Foundations</a>
+        <a class="docs-nav-link" href="{{ base }}patterns/index.html" {% if section=='patterns' %}aria-current="page"{% endif %}>Learning patterns</a>
+        <a class="docs-nav-link" href="{{ base }}components/index.html" {% if section=='components' %}aria-current="page"{% endif %}>Components</a>
+        <a class="docs-nav-link" href="{{ base }}platforms/rise/index.html" {% if section=='platforms' %}aria-current="page"{% endif %}>Platforms</a>
+        <a class="docs-nav-link" href="{{ base }}media/index.html" {% if section=='media' %}aria-current="page"{% endif %}>Imagery &amp; media</a>
+        <a class="docs-nav-link" href="{{ base }}resources/index.html" {% if section=='resources' %}aria-current="page"{% endif %}>Resources</a>
+        <a class="docs-nav-link" href="{{ base }}governance/index.html" {% if section=='governance' %}aria-current="page"{% endif %}>Governance</a>
+        <a class="docs-nav-link" href="{{ base }}changelog/index.html" {% if section=='changelog' %}aria-current="page"{% endif %}>Changelog</a>
+      </nav>
+      <div class="docs-search docs-search-wrap" role="search">
+        <label class="docs-visually-hidden" for="docs-search-input">Search the design system</label>
+        <input id="docs-search-input" type="search" placeholder="Search components, classes, patterns…" data-docs-search-input data-base="{{ base }}" autocomplete="off">
+      </div>
+      <div class="docs-search-results" data-docs-search-results hidden></div>
+    </div>
+  </header>
+
+  <main class="docs-main" id="docs-main">
+{% block content %}{% endblock %}
+  </main>
+
+  <footer class="docs-footer">
+    <div class="docs-footer__inner">
+      <div>
+        <h2>System</h2>
+        <ul>
+          <li><a href="{{ base }}overview/index.html">Overview</a></li>
+          <li><a href="{{ base }}governance/index.html">Governance</a></li>
+          <li><a href="{{ base }}changelog/index.html">Changelog</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Reference</h2>
+        <ul>
+          <li><a href="{{ base }}foundations/index.html">Foundations</a></li>
+          <li><a href="{{ base }}patterns/index.html">Learning patterns</a></li>
+          <li><a href="{{ base }}components/index.html">Components</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Platforms</h2>
+        <ul>
+          <li><a href="{{ base }}platforms/rise/index.html">Rise</a></li>
+          <li><a href="{{ base }}platforms/connect-learn/index.html">Connect &amp; Learn</a></li>
+          <li><a href="{{ base }}platforms/storyline/index.html">Storyline</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Accessibility</h2>
+        <p>Designed to support accessibility and tested against the documented design-system checklist.</p>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script src="{{ base }}assets/js/navigation.js"></script>
+<script src="{{ base }}assets/js/search.js"></script>
+<script src="{{ base }}assets/js/filters.js"></script>
+<script src="{{ base }}assets/js/component-preview.js"></script>
+</body>
+</html>

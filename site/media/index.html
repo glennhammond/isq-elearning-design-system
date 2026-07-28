@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Imagery & media — ISQ eLearning Design System</title>
+<meta name="description" content="Taxonomy, photography direction, dimensions and accessibility.">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<link rel="stylesheet" href="../assets/css/base.css">
+<link rel="stylesheet" href="../assets/css/layout.css">
+<link rel="stylesheet" href="../assets/css/components.css">
+<link rel="stylesheet" href="../assets/css/documentation.css">
+</head>
+<body>
+<a class="docs-skip-link" href="#docs-main">Skip to content</a>
+<div class="docs-shell">
+  <header class="docs-header">
+    <div class="docs-header__inner">
+      <a class="docs-logo" href="../index.html">ISQ <span>eLearning Design System</span></a>
+      <button class="docs-nav-toggle" aria-expanded="false" aria-controls="docs-primary-nav">Menu</button>
+      <nav class="docs-primary-nav" id="docs-primary-nav" aria-label="Primary">
+        <a class="docs-nav-link" href="../overview/index.html" >Overview</a>
+        <a class="docs-nav-link" href="../foundations/index.html" >Foundations</a>
+        <a class="docs-nav-link" href="../patterns/index.html" >Learning patterns</a>
+        <a class="docs-nav-link" href="../components/index.html" >Components</a>
+        <a class="docs-nav-link" href="../platforms/rise/index.html" >Platforms</a>
+        <a class="docs-nav-link" href="../media/index.html" aria-current="page">Imagery &amp; media</a>
+        <a class="docs-nav-link" href="../resources/index.html" >Resources</a>
+        <a class="docs-nav-link" href="../governance/index.html" >Governance</a>
+        <a class="docs-nav-link" href="../changelog/index.html" >Changelog</a>
+      </nav>
+      <div class="docs-search docs-search-wrap" role="search">
+        <label class="docs-visually-hidden" for="docs-search-input">Search the design system</label>
+        <input id="docs-search-input" type="search" placeholder="Search components, classes, patterns…" data-docs-search-input data-base="../" autocomplete="off">
+      </div>
+      <div class="docs-search-results" data-docs-search-results hidden></div>
+    </div>
+  </header>
+
+  <main class="docs-main" id="docs-main">
+
+<div class="docs-page-with-sidebar">
+  <nav class="docs-side-nav" aria-label="On this page">
+    <h2>Imagery &amp; media</h2>
+    <ul>
+      <li><a href="#taxonomy">Image taxonomy</a></li>
+      <li><a href="#editorial">Photography direction</a></li>
+      <li><a href="#child-safety">Child-safety imagery</a></li>
+      <li><a href="#dimensions">Dimensions &amp; safe areas</a></li>
+      <li><a href="#video">Video &amp; audio</a></li>
+      <li><a href="#accessibility">Accessibility</a></li>
+      <li><a href="#formats">File formats</a></li>
+    </ul>
+  </nav>
+  <div>
+    <span class="docs-eyebrow">Imagery &amp; media</span>
+    <h1>Digital learning imagery and media standards</h1>
+    <p class="docs-lede">Media is used to orient, explain, demonstrate and humanise learning — never merely to fill space. Remove the asset mentally: if the learning is unchanged and it contributes no useful context, omit it.</p>
+
+    <div class="docs-module" id="taxonomy">
+      <h2>Image taxonomy</h2>
+      <table class="docs-field-table">
+        <thead><tr><th>Type</th><th>Purpose</th><th>Typical use</th><th>Avoid</th></tr></thead>
+        <tbody>
+          <tr><td>Hero / opener</td><td>Establish place, tone and major transition.</td><td>Course covers, section openers.</td><td>Embedded titles, edge-critical subjects.</td></tr>
+          <tr><td>Context image</td><td>Ground an explanation in a real environment.</td><td>Split cards, image-and-text.</td><td>Generic stock unrelated to content.</td></tr>
+          <tr><td>Scenario image</td><td>Support a consistent decision-maker perspective.</td><td>Scenario stages, evidence reveals.</td><td>Changing characters or style mid-scenario.</td></tr>
+          <tr><td>Evidence / object</td><td>Show a document, device, location or artefact.</td><td>Forms, emails, policy documents.</td><td>Tiny text or inaccessible detail.</td></tr>
+          <tr><td>Diagram / model</td><td>Explain relationships, processes or systems.</td><td>Frameworks, pathways, comparisons.</td><td>Dense infographic posters.</td></tr>
+          <tr><td>Interface screenshot</td><td>Show a specific digital action or state.</td><td>Software guidance, labelled graphics.</td><td>Whole-screen captures with unreadable text.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="docs-module" id="editorial">
+      <h2>Photography and editorial direction</h2>
+      <p>Contemporary Australian schools, workplaces and professional-learning contexts. Natural or soft directional light. Authentic professional behaviour, restrained expression. Clear subject hierarchy with room for responsive crop. Stable locations, subject scale and treatment throughout a scenario.</p>
+    </div>
+
+    <div class="docs-module" id="child-safety">
+      <h2>Sensitive subject and child-safety imagery</h2>
+      <ul>
+        <li>Students are usually shown from behind, in silhouette, partially obscured or out of focus.</li>
+        <li>No distress performance — avoid visible fear, injury, crying, confrontation.</li>
+        <li>Prefer the principal, teacher or decision-maker viewpoint.</li>
+        <li>Avoid students entirely in the most sensitive legal, abuse or consequence sections.</li>
+        <li>Sensitive assets require explicit learning-design and stakeholder review before release.</li>
+      </ul>
+    </div>
+
+    <div class="docs-module" id="dimensions">
+      <h2>Dimensions, ratios and safe areas</h2>
+      <table class="docs-field-table">
+        <thead><tr><th>Canvas</th><th>Primary use</th><th>Format</th></tr></thead>
+        <tbody>
+          <tr><td>1920 × 1080 (16:9)</td><td>Course covers, heroes, full-width photography, video</td><td>JPEG/WebP; MP4 for video</td></tr>
+          <tr><td>1600 × 1000 (8:5)</td><td>Diagrams, labelled graphics, carousels</td><td>PNG for diagrams; JPEG for photography</td></tr>
+          <tr><td>1200 × 900 (4:3)</td><td>Image-and-text, split components</td><td>JPEG</td></tr>
+          <tr><td>1200 × 800 (3:2)</td><td>Cards, galleries, timelines</td><td>JPEG, consistent crop across a set</td></tr>
+          <tr><td>1200 × 1200 (1:1)</td><td>Profiles, flashcards, quiz options</td><td>JPEG or transparent PNG</td></tr>
+        </tbody>
+      </table>
+      <div class="docs-note">Safe-area rule: central 60–70% for covers/backgrounds, 80% for cards, 90% for inline images. Reserve ~40–50% clear negative space where text will overlay an image.</div>
+    </div>
+
+    <div class="docs-module" id="video">
+      <h2>Video and audio</h2>
+      <p>1920×1080 preferred (1280×720 acceptable where bandwidth requires it). Concise segments, clear chaptering, minimal decorative transitions. Accurate synchronised captions always; a transcript where it supports access, search, review or reuse.</p>
+    </div>
+
+    <div class="docs-module" id="accessibility">
+      <h2>Accessibility</h2>
+      <table class="docs-field-table">
+        <thead><tr><th>Media type</th><th>Minimum requirement</th></tr></thead>
+        <tbody>
+          <tr><td>Informative photograph</td><td>Alt text communicates instructional purpose, not every visible detail.</td></tr>
+          <tr><td>Decorative image</td><td>Marked decorative or empty alt text where supported.</td></tr>
+          <tr><td>Complex diagram</td><td>Concise alt summary plus adjacent written explanation or accessible table.</td></tr>
+          <tr><td>Video</td><td>Accurate captions; transcript where appropriate.</td></tr>
+        </tbody>
+      </table>
+      <div class="docs-note">Describe media as produced to support accessibility and tested against the agreed checklist — never an unqualified compliance claim without an audit.</div>
+    </div>
+
+    <div class="docs-module" id="formats">
+      <h2>File formats</h2>
+      <table class="docs-field-table">
+        <thead><tr><th>Format</th><th>Best for</th><th>Avoid</th></tr></thead>
+        <tbody>
+          <tr><td>JPEG</td><td>Photography, natural scenes, gradients</td><td>Logos, screenshots, transparency</td></tr>
+          <tr><td>PNG</td><td>Screenshots, diagrams, flat graphics, transparency</td><td>Large photographs</td></tr>
+          <tr><td>SVG</td><td>Logos, icons, simple vector diagrams</td><td>Complex photographic content</td></tr>
+          <tr><td>MP4 / H.264</td><td>Broadly compatible video delivery</td><td>Unnecessarily high bitrates</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:0.9rem; color:var(--docs-muted);">Naming pattern: <code>project-topic-purpose-variant-ratio-v01.ext</code>. No live photography library has been supplied to this site yet — see Resources for the placeholder status of media templates.</p>
+    </div>
+  </div>
+</div>
+
+  </main>
+
+  <footer class="docs-footer">
+    <div class="docs-footer__inner">
+      <div>
+        <h2>System</h2>
+        <ul>
+          <li><a href="../overview/index.html">Overview</a></li>
+          <li><a href="../governance/index.html">Governance</a></li>
+          <li><a href="../changelog/index.html">Changelog</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Reference</h2>
+        <ul>
+          <li><a href="../foundations/index.html">Foundations</a></li>
+          <li><a href="../patterns/index.html">Learning patterns</a></li>
+          <li><a href="../components/index.html">Components</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Platforms</h2>
+        <ul>
+          <li><a href="../platforms/rise/index.html">Rise</a></li>
+          <li><a href="../platforms/connect-learn/index.html">Connect &amp; Learn</a></li>
+          <li><a href="../platforms/storyline/index.html">Storyline</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Accessibility</h2>
+        <p>Designed to support accessibility and tested against the documented design-system checklist.</p>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script src="../assets/js/navigation.js"></script>
+<script src="../assets/js/search.js"></script>
+<script src="../assets/js/filters.js"></script>
+<script src="../assets/js/component-preview.js"></script>
+</body>
+</html>

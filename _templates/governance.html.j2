@@ -1,0 +1,105 @@
+{% extends "base.html.j2" %}
+{% block content %}
+<div class="docs-page-with-sidebar">
+  <nav class="docs-side-nav" aria-label="On this page">
+    <h2>Governance</h2>
+    <ul>
+      <li><a href="#lifecycle">Component lifecycle</a></li>
+      <li><a href="#statuses">Status definitions</a></li>
+      <li><a href="#contribution">Contribution model</a></li>
+      <li><a href="#ownership">Ownership</a></li>
+      <li><a href="#versioning">Versioning</a></li>
+      <li><a href="#accessibility-claim">Accessibility claim wording</a></li>
+      <li><a href="#source-of-truth">Source-of-truth hierarchy</a></li>
+      <li><a href="#audit">Audit findings</a></li>
+      <li><a href="#decisions">Open decisions</a></li>
+    </ul>
+  </nav>
+  <div>
+    <span class="docs-eyebrow">Governance</span>
+    <h1>Ownership, status, versioning and quality</h1>
+    <p class="docs-lede">A design system becomes durable through ownership, review and evidence — proportionate, practical and visible enough to prevent uncontrolled variation.</p>
+
+    <div class="docs-module" id="lifecycle">
+      <h2>Component lifecycle</h2>
+      <p>Proposed → Experimental → Approved → Core → (Legacy / Deprecated). A component enters the approved system only when its purpose, use rules, anatomy, variants, accessibility, responsive behaviour, implementation type, status and owner are documented.</p>
+    </div>
+
+    <div class="docs-module" id="statuses">
+      <h2>Status definitions</h2>
+      <table class="docs-field-table">
+        <thead><tr><th>Status</th><th>Meaning</th><th>Course-builder action</th></tr></thead>
+        <tbody>
+          <tr><td><span class="docs-status docs-status--foundation">Foundation</span></td><td>A stable token or rule used across the system.</td><td>High confidence; change centrally and infrequently.</td></tr>
+          <tr><td><span class="docs-status docs-status--core">Core</span></td><td>Widely used, structural, proven behaviour.</td><td>Use as the default where the learning job matches.</td></tr>
+          <tr><td><span class="docs-status docs-status--approved">Approved</span></td><td>Defined and tested for specified contexts.</td><td>Use according to its documented rules.</td></tr>
+          <tr><td><span class="docs-status docs-status--experimental">Experimental</span></td><td>Being trialled; specifications may change.</td><td>Use only in an agreed pilot.</td></tr>
+          <tr><td><span class="docs-status docs-status--course-specific">Course-specific</span></td><td>Valid within a named course family, not yet generalised.</td><td>Do not reuse without review.</td></tr>
+          <tr><td><span class="docs-status docs-status--legacy">Legacy</span></td><td>Supported only for existing content.</td><td>Do not select for new work.</td></tr>
+          <tr><td><span class="docs-status docs-status--deprecated">Deprecated</span></td><td>Scheduled for removal or replacement.</td><td>Do not add; follow migration guidance.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="docs-module" id="contribution">
+      <h2>Contribution model</h2>
+      <p>Propose → Prototype → Review → Document → Approve → Release → Evaluate. A proposal must identify the recurring need, existing options already considered, proposed anatomy, accessibility implications, likely reuse and ownership cost — before any code is written.</p>
+    </div>
+
+    <div class="docs-module" id="ownership">
+      <h2>Ownership</h2>
+      <table class="docs-field-table">
+        <tbody>
+          <tr><th>System owner</th><td>Maintains strategic direction, architecture, documentation hierarchy and roadmap.</td></tr>
+          <tr><th>Design and development steward</th><td>Maintains components, source code, versioning, implementation standards and technical quality.</td></tr>
+          <tr><th>Learning design reviewer</th><td>Confirms patterns and interactions support a real learning purpose.</td></tr>
+          <tr><th>Accessibility reviewer</th><td>Checks semantics, keyboard use, contrast, focus, responsive behaviour and alternatives.</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:0.9rem; color:var(--docs-muted);">One person may hold several roles during early stages — the responsibilities must still be named, not assumed to happen automatically. No formal system owner has been confirmed yet (see Open decisions).</p>
+    </div>
+
+    <div class="docs-module" id="versioning">
+      <h2>Versioning</h2>
+      <p>Token changes are major versions and require a visual regression check across everything. Component additions are minor versions, affecting only what adopts them. Binding fixes are patches. Never silently overwrite a stylesheet a published course already depends on — release a new immutable version.</p>
+    </div>
+
+    <div class="docs-module" id="accessibility-claim">
+      <h2>Accessibility claim wording</h2>
+      <div class="docs-note"><strong>Approved wording:</strong> "Designed to support accessibility and tested against the documented design-system checklist." Never an unqualified compliance claim without an appropriate audit.</div>
+    </div>
+
+    <div class="docs-module" id="source-of-truth">
+      <h2>Source-of-truth hierarchy</h2>
+      <p>The umbrella publication decides what the system is. Platform guides decide how it's implemented. Production code governs the current rendered implementation and must be reconciled with documentation at release. This live catalogue demonstrates the current approved system — see <a href="{{ base }}overview/index.html#hierarchy">Overview</a> for the full document family.</p>
+    </div>
+
+    <div class="docs-module" id="audit">
+      <h2>Audit findings (July 2026, this release)</h2>
+      <p>Findings from reconciling the six source documents against the production CSS, the supplied screenshots and the supplied HTML source examples.</p>
+      <ul>
+        <li><strong>Undocumented shipped component.</strong> <code>.isq-self-assessment</code> (14 classes) exists in the production CSS and renders in the live Child Protection course, but appeared in none of the six governing documents. A first specification has been drafted for this release from the CSS and a supplied screenshot — see <a href="{{ base }}components/self-assessment/index.html">Self-assessment</a>. It ships as Course-specific pending verification against real exported markup.</li>
+        <li><strong>Course-specific comparisons bypass the shared component.</strong> The live course's "Significant harm / Parent test" flip cards and "Able / Willing" comparison use bespoke, inline-styled markup (<code>.isq-test-cards</code>, <code>.isq-able-willing</code>) with locally redefined tokens (e.g. a gold value of <code>#D9A928</code>, distinct from the shared <code>--isq-yellow: #FFC72A</code>) rather than the shared <code>.isq-role-split</code> component. This is exactly the drift Document 2's "do not duplicate shared CSS" rule exists to prevent — flagged for migration, not fixed silently.</li>
+        <li><strong>Status vocabulary mismatch.</strong> Document 2 labels the Divider component "Restricted," a status outside the seven confirmed in Document 1's lifecycle model. Folded into <strong>Experimental</strong> here, matching Document 1's own component-audit note.</li>
+        <li><strong>Naming instability.</strong> Document 1's own audit flags <code>.isq-role-split</code> as "confirm naming." This catalogue settles on <strong>Role split</strong>, matching the CSS class.</li>
+        <li><strong>Missing class-index entries.</strong> <code>.isq-band</code>, <code>.isq-grid</code>/<code>--two</code>/<code>--three</code> and <code>.isq-process</code> are named as primitives in Document 2's prose but were absent from its technical class index. Corrected in this catalogue's component data.</li>
+        <li><strong>Colour-value drift between sibling documents.</strong> The Connect &amp; Learn 2027 blueprint's indicative palette (e.g. Positive <code>#1E6B45</code>, Negative <code>#A03232</code>) differs slightly from the production Rise CSS (<code>--isq-success: #266141</code>, <code>--isq-error: #A22B2A</code>). This site renders the CSS values as the current source of truth; the blueprint's figures remain explicitly indicative-only.</li>
+      </ul>
+    </div>
+
+    <div class="docs-module" id="decisions">
+      <h2>Open decisions</h2>
+      <table class="docs-field-table">
+        <thead><tr><th>Decision</th><th>Why it matters</th></tr></thead>
+        <tbody>
+          <tr><td>Formal system owner and approval path</td><td>Determines decision rights and ongoing maintenance.</td></tr>
+          <tr><td><code>--isq-warning</code> sharing its value with charcoal</td><td>Confirm this is intentional before treating it as settled.</td></tr>
+          <tr><td>Self-assessment component sign-off</td><td>Currently a drafted spec, not a verified one.</td></tr>
+          <tr><td>Able/Willing and test-card migration to Role split</td><td>Prevents further token drift in the live course.</td></tr>
+          <tr><td>Next CSS release number and immutable hosting path</td><td>Protects published courses from unplanned visual change.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}

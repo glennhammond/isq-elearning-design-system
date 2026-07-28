@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Self-assessment — ISQ eLearning Design System</title>
+<meta name="description" content="A structured confidence or knowledge self-rating table — the learner rates each statement against a shared scale (e.g. Not at all confident → Very confident).">
+<link rel="stylesheet" href="../../assets/css/tokens.css">
+<link rel="stylesheet" href="../../assets/css/base.css">
+<link rel="stylesheet" href="../../assets/css/layout.css">
+<link rel="stylesheet" href="../../assets/css/components.css">
+<link rel="stylesheet" href="../../assets/css/documentation.css">
+</head>
+<body>
+<a class="docs-skip-link" href="#docs-main">Skip to content</a>
+<div class="docs-shell">
+  <header class="docs-header">
+    <div class="docs-header__inner">
+      <a class="docs-logo" href="../../index.html">ISQ <span>eLearning Design System</span></a>
+      <button class="docs-nav-toggle" aria-expanded="false" aria-controls="docs-primary-nav">Menu</button>
+      <nav class="docs-primary-nav" id="docs-primary-nav" aria-label="Primary">
+        <a class="docs-nav-link" href="../../overview/index.html" >Overview</a>
+        <a class="docs-nav-link" href="../../foundations/index.html" >Foundations</a>
+        <a class="docs-nav-link" href="../../patterns/index.html" >Learning patterns</a>
+        <a class="docs-nav-link" href="../../components/index.html" aria-current="page">Components</a>
+        <a class="docs-nav-link" href="../../platforms/rise/index.html" >Platforms</a>
+        <a class="docs-nav-link" href="../../media/index.html" >Imagery &amp; media</a>
+        <a class="docs-nav-link" href="../../resources/index.html" >Resources</a>
+        <a class="docs-nav-link" href="../../governance/index.html" >Governance</a>
+        <a class="docs-nav-link" href="../../changelog/index.html" >Changelog</a>
+      </nav>
+      <div class="docs-search docs-search-wrap" role="search">
+        <label class="docs-visually-hidden" for="docs-search-input">Search the design system</label>
+        <input id="docs-search-input" type="search" placeholder="Search components, classes, patterns…" data-docs-search-input data-base="../../" autocomplete="off">
+      </div>
+      <div class="docs-search-results" data-docs-search-results hidden></div>
+    </div>
+  </header>
+
+  <main class="docs-main" id="docs-main">
+
+<div class="docs-container">
+  <p style="font-size:0.85rem;"><a href="../../components/index.html">← Components</a></p>
+
+  <div class="docs-detail-header">
+    <div>
+      <span class="docs-eyebrow">Scenario component</span>
+      <h1 style="margin-bottom:6px;">Self-assessment</h1>
+      <p class="docs-lede" style="font-size:1.02rem;">A structured confidence or knowledge self-rating table — the learner rates each statement against a shared scale (e.g. Not at all confident → Very confident).</p>
+      <div class="docs-detail-header__meta">
+        <span class="docs-status docs-status--course-specific">course specific</span>
+        <span>Version introduced: 1.0.0 (undocumented until this release)</span>
+        <span>Platforms: Rise</span>
+        <span>Owner: Design and development steward — spec drafted from CSS and screenshot; pending sign-off</span>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="docs-note docs-note--flag">
+    <strong>Course specific.</strong>
+    Built for a specialised need and not yet generalised. Do not reuse without review.
+    
+  </div>
+  
+
+  <div class="docs-module">
+    <h2>Live preview</h2>
+    <div class="docs-preview" data-docs-preview>
+      <div class="docs-preview__bar">
+        <span>Rendered with production Rise CSS</span>
+        <div class="docs-preview__toggle">
+          <button type="button" data-docs-preview-mode="desktop" aria-pressed="true">Desktop</button>
+          <button type="button" data-docs-preview-mode="mobile" aria-pressed="false">Mobile</button>
+        </div>
+      </div>
+      <div class="docs-preview__frame">
+        <link rel="stylesheet" href="../../assets/vendor/isq-rise-components-v1.0.0.css">
+        <!-- Illustrative markup drafted from the screenshot and CSS class names — verify against the real exported course before treating as canonical -->
+<section class="isq-self-assessment" aria-labelledby="sa-title">
+  <span class="isq-eyebrow">Self-reflection</span>
+  <h2 class="isq-heading isq-heading--h2" id="sa-title">How confident do you feel?</h2>
+  <p class="isq-body--intro">Rate your current confidence in each area. There are no right or wrong answers.</p>
+  <table class="isq-self-assessment__table">
+    <caption class="isq-visually-hidden">Confidence self-rating</caption>
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">Not at all confident</th>
+        <th scope="col">Somewhat confident</th>
+        <th scope="col">Confident</th>
+        <th scope="col">Very confident</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="isq-self-assessment__row">
+        <th scope="row"><span class="isq-self-assessment__number">1</span> Understanding your personal reporting obligations</th>
+        <td><label class="isq-self-assessment__choice"><input class="isq-self-assessment__radio" type="radio" name="sa-1"><span class="isq-visually-hidden">Not at all confident</span></label></td>
+        <td><label class="isq-self-assessment__choice"><input class="isq-self-assessment__radio" type="radio" name="sa-1"><span class="isq-visually-hidden">Somewhat confident</span></label></td>
+        <td><label class="isq-self-assessment__choice"><input class="isq-self-assessment__radio" type="radio" name="sa-1"><span class="isq-visually-hidden">Confident</span></label></td>
+        <td><label class="isq-self-assessment__choice"><input class="isq-self-assessment__radio" type="radio" name="sa-1"><span class="isq-visually-hidden">Very confident</span></label></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="isq-self-assessment__actions">
+    <button class="isq-button isq-button--primary">Save my reflection</button>
+    <button class="isq-button isq-button--light">Reset</button>
+  </div>
+</section>
+      </div>
+    </div>
+    <p style="font-size:0.85rem; color:var(--docs-muted); margin-top:8px;">Light background shown; verify against a tinted or dark surface where the component is used that way in course.</p>
+  </div>
+
+  <div class="docs-module">
+    <h2>Use when / avoid when</h2>
+    <div class="docs-use-avoid">
+      <div class="docs-use-avoid__col docs-use-avoid__col--use">
+        <h3>Use when</h3>
+        <ul><li>A short set of statements benefits from a consistent, comparable rating scale, typically at the close of a section as a reflective checkpoint.</li></ul>
+      </div>
+      <div class="docs-use-avoid__col docs-use-avoid__col--avoid">
+        <h3>Avoid when</h3>
+        <ul><li>A single reflective prompt — use the native reflection block instead.</li><li>As a graded or assessed instrument — this component is explicitly framed as having no right or wrong answers.</li></ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="docs-module">
+    <h2>Anatomy</h2>
+    <ul><li>Header (eyebrow “Self-reflection”, heading, short intro)</li><li>Column headers naming each scale point</li><li>Numbered rows, each pairing a statement with radio options across the scale (.isq-self-assessment__row / __table)</li><li>Actions: save and reset (.isq-self-assessment__actions)</li></ul>
+  </div>
+
+  
+
+  <div class="docs-module">
+    <h2>States</h2>
+    <div class="docs-related-list"><span class="docs-tag">unanswered</span><span class="docs-tag">selected</span><span class="docs-tag">saved</span></div>
+  </div>
+
+  <div class="docs-module">
+    <h2>Responsive behaviour</h2>
+    <p>The scale table is the component most at risk on narrow screens — columns of radio buttons do not fit a 375px viewport without horizontal scrolling or restructuring. Recommend a per-row accordion or stacked-scale layout on mobile (see Known limitations); this has not yet been confirmed against the published output.</p>
+  </div>
+
+  <div class="docs-module">
+    <h2>Accessibility</h2>
+    <ul><li>Each row must be a fieldset with a legend naming the statement; each scale point must be a real radio input with a visible, associated text label — never an unlabelled circle.</li><li>The numbered badge (1, 2…) is decorative and must not be the only way the statement is identified to assistive technology.</li><li>“Save my reflection” must confirm the save state to the user (e.g. a status region), and “Reset” must not silently clear a response without confirmation given there is explicit save action.</li></ul>
+  </div>
+
+  <div class="docs-module">
+    <h2>Implementation</h2>
+    <p><strong>Type:</strong> custom-html-js</p>
+    <p><strong>Dependencies:</strong> Scoped JavaScript to manage save/reset state; must support multiple instances per lesson.</p>
+  </div>
+
+  <div class="docs-module">
+    <h2>Code</h2>
+    <div class="docs-code">
+      <span class="docs-code__label">HTML</span>
+      <button class="docs-copy-btn" type="button" data-docs-copy="code-self-assessment">Copy</button>
+      <pre><code id="code-self-assessment"><!-- Illustrative markup drafted from the screenshot and CSS class names — verify against the real exported course before treating as canonical -->
+<section class="isq-self-assessment" aria-labelledby="sa-title">
+  <span class="isq-eyebrow">Self-reflection</span>
+  <h2 class="isq-heading isq-heading--h2" id="sa-title">How confident do you feel?</h2>
+  <p class="isq-body--intro">Rate your current confidence in each area. There are no right or wrong answers.</p>
+  <table class="isq-self-assessment__table">
+    <caption class="isq-visually-hidden">Confidence self-rating</caption>
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">Not at all confident</th>
+        <th scope="col">Somewhat confident</th>
+        <th scope="col">Confident</th>
+        <th scope="col">Very confident</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="isq-self-assessment__row">
+        <th scope="row"><span class="isq-self-assessment__number">1</span> Understanding your personal reporting obligations</th>
+        <td><label class="isq-self-assessment__choice"><input class="isq-self-assessment__radio" type="radio" name="sa-1"><span class="isq-visually-hidden">Not at all confident</span></label></td>
+        <td><label class="isq-self-assessment__choice"><input class="isq-self-assessment__radio" type="radio" name="sa-1"><span class="isq-visually-hidden">Somewhat confident</span></label></td>
+        <td><label class="isq-self-assessment__choice"><input class="isq-self-assessment__radio" type="radio" name="sa-1"><span class="isq-visually-hidden">Confident</span></label></td>
+        <td><label class="isq-self-assessment__choice"><input class="isq-self-assessment__radio" type="radio" name="sa-1"><span class="isq-visually-hidden">Very confident</span></label></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="isq-self-assessment__actions">
+    <button class="isq-button isq-button--primary">Save my reflection</button>
+    <button class="isq-button isq-button--light">Reset</button>
+  </div>
+</section></code></pre>
+    </div>
+    <p style="font-size:0.85rem; color:var(--docs-muted); margin-top:8px;">Classes used: <code>.isq-self-assessment</code>, <code>.isq-self-assessment__actions</code>, <code>.isq-self-assessment__body</code>, <code>.isq-self-assessment__choice</code>, <code>.isq-self-assessment__corner</code>, <code>.isq-self-assessment__feedback</code>, <code>.isq-self-assessment__intro</code>, <code>.isq-self-assessment__mobile-scale</code>, <code>.isq-self-assessment__number</code>, <code>.isq-self-assessment__prompt</code>, <code>.isq-self-assessment__radio</code>, <code>.isq-self-assessment__row</code>, <code>.isq-self-assessment__scale-label</code>, <code>.isq-self-assessment__table</code></p>
+    <p style="font-size:0.85rem;"><a href="../../platforms/rise/index.html">Production stylesheet reference →</a></p>
+  </div>
+
+  <div class="docs-module">
+    <h2>Related items</h2>
+    <p><strong>Related patterns:</strong>
+    <a class="docs-tag" href="../../patterns/index.html#reflection">Reflection</a> 
+    </p>
+    <p><strong>Related components:</strong>
+    <a class="docs-tag" href="../../components/decision-point/index.html">Decision point</a> 
+    </p>
+  </div>
+
+  <div class="docs-module">
+    <h2>Governance metadata</h2>
+    <table class="docs-field-table">
+      <tbody>
+        <tr><th>Owner</th><td>Design and development steward — spec drafted from CSS and screenshot; pending sign-off</td></tr>
+        <tr><th>Status</th><td>Course specific</td></tr>
+        <tr><th>Version introduced</th><td>1.0.0 (undocumented until this release)</td></tr>
+        <tr><th>Last reviewed</th><td>2026-07</td></tr>
+        <tr><th>Known limitations</th><td><ul style="margin:0; padding-left:1.1em;"><li>This component ships in the production CSS (14 classes) and in the live Child Protection course but appears in none of the six source documents. This entry is a first specification drafted from the class names, the supplied screenshot and standard accessible-rating-table practice — it has not been verified against the actual rendered markup or tested for keyboard/mobile behaviour, and should be confirmed against a real exported course before its status is upgraded from Course-specific.</li></ul></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+  </main>
+
+  <footer class="docs-footer">
+    <div class="docs-footer__inner">
+      <div>
+        <h2>System</h2>
+        <ul>
+          <li><a href="../../overview/index.html">Overview</a></li>
+          <li><a href="../../governance/index.html">Governance</a></li>
+          <li><a href="../../changelog/index.html">Changelog</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Reference</h2>
+        <ul>
+          <li><a href="../../foundations/index.html">Foundations</a></li>
+          <li><a href="../../patterns/index.html">Learning patterns</a></li>
+          <li><a href="../../components/index.html">Components</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Platforms</h2>
+        <ul>
+          <li><a href="../../platforms/rise/index.html">Rise</a></li>
+          <li><a href="../../platforms/connect-learn/index.html">Connect &amp; Learn</a></li>
+          <li><a href="../../platforms/storyline/index.html">Storyline</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Accessibility</h2>
+        <p>Designed to support accessibility and tested against the documented design-system checklist.</p>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script src="../../assets/js/navigation.js"></script>
+<script src="../../assets/js/search.js"></script>
+<script src="../../assets/js/filters.js"></script>
+<script src="../../assets/js/component-preview.js"></script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+{% extends "base.html.j2" %}
+{% block content %}
+<div class="docs-page-with-sidebar">
+  <nav class="docs-side-nav" aria-label="On this page">
+    <h2>Rise</h2>
+    <ul>
+      <li><a href="#architecture">Delivery architecture</a></li>
+      <li><a href="#decision">Native / custom / post-publish</a></li>
+      <li><a href="#stylesheet">Stylesheet &amp; hosting</a></li>
+      <li><a href="#publishing">Publishing workflow</a></li>
+      <li><a href="#xapi">xAPI &amp; completion</a></li>
+      <li><a href="#troubleshooting">Troubleshooting</a></li>
+    </ul>
+    <h2>Other platforms</h2>
+    <ul>
+      <li><a href="{{ base }}platforms/connect-learn/index.html">Connect &amp; Learn / Moodle</a></li>
+      <li><a href="{{ base }}platforms/storyline/index.html">Storyline</a></li>
+    </ul>
+  </nav>
+  <div>
+    <span class="docs-eyebrow">Platform implementation</span>
+    <h1>Articulate Rise</h1>
+    <p class="docs-lede">Rise is the first mature implementation of the ISQ eLearning Design System. It uses a controlled hybrid model: native capability where it communicates clearly, custom code reserved for recurring needs Rise cannot adequately express.</p>
+
+    <div class="docs-module" id="architecture">
+      <h2>Delivery architecture — three coordinated layers</h2>
+      <table class="docs-field-table">
+        <thead><tr><th>Layer</th><th>Best used for</th><th>Key constraints</th></tr></thead>
+        <tbody>
+          <tr><td>Native Rise blocks</td><td>General prose, images, standard accordions/tabs, simple knowledge checks, navigation, built-in accessibility behaviour.</td><td>Limited visual control; rendered HTML can change when Rise updates.</td></tr>
+          <tr><td>Custom code blocks</td><td>Reusable editorial panels, scenario stages, specialised comparisons, decisions, tabs and resource treatments.</td><td>Runs within Rise containment; links, iframe behaviour and script loading must be tested in published output.</td></tr>
+          <tr><td>Post-publish CSS</td><td>Heading hierarchy, selected native block styling, spacing and platform continuity after export.</td><td>Must be re-applied after every export; selectors can be fragile and should be tightly scoped.</td></tr>
+          <tr><td>External hosting</td><td>Shared CSS, images and selected media from approved storage.</td><td>Requires stable URLs, correct MIME types, CORS, cache management and availability.</td></tr>
+        </tbody>
+      </table>
+      <div class="docs-note">Custom blocks should be self-contained in structure but not duplicate shared CSS. A block loads the one approved stylesheet and uses namespaced <code>isq-</code> classes; course-specific inline CSS should be exceptional and documented.</div>
+    </div>
+
+    <div class="docs-module" id="decision">
+      <h2>Native, custom and post-publish decisions</h2>
+      <p>Choose the least complex implementation that fully serves the learning purpose:</p>
+      <ol>
+        <li>Can a native Rise block communicate the content clearly? If yes, use native.</li>
+        <li>Is the requirement recurring across courses? If yes, assess an existing or propose a reusable custom component.</li>
+        <li>Does the custom treatment add real learning or communication value? If not, don't customise.</li>
+        <li>Can the pattern remain accessible and responsive in published output? Test before approving.</li>
+        <li>Does it require styling Rise-generated markup? Use tightly scoped post-publish CSS only, after export testing.</li>
+      </ol>
+    </div>
+
+    <div class="docs-module" id="stylesheet">
+      <h2>Stylesheet delivery &amp; hosting</h2>
+      <p>Reference an <strong>immutable</strong> version once a course is published — do not silently overwrite a stylesheet already consumed by a live course. A <code>latest</code>/<code>test</code> alias may be used only in development.</p>
+      <pre><code>&lt;link rel="stylesheet" type="text/css"
+      href="https://xapistorage28032026.blob.core.windows.net/xapitestcourses/css/isq-rise-components-v1.0.0.css"&gt;</code></pre>
+      <p style="font-size:0.9rem; color:var(--docs-muted);">Current production version: <strong>1.0.0</strong> (internal header states v1.0.0; the filename on disk read by this site is <code>isq-rise-components-v1_0_0.css</code>). Next release should adopt <code>isq-elearning-rise-v1.1.0.css</code> naming per the umbrella system's naming resolution.</p>
+    </div>
+
+    <div class="docs-module" id="publishing">
+      <h2>Publishing workflow</h2>
+      <ol>
+        <li><strong>Author</strong> — build the Rise course using approved native and custom blocks.</li>
+        <li><strong>Preview</strong> — desktop, tablet, mobile and keyboard checks in Rise preview.</li>
+        <li><strong>Export</strong> — apply agreed xAPI completion and tracking settings.</li>
+        <li><strong>Enhance</strong> — inject approved post-publish CSS and package assets.</li>
+        <li><strong>Validate</strong> — test launch, links, tracking, styling and completion in the published package.</li>
+        <li><strong>Release</strong> — record version, package and stylesheet dependency.</li>
+      </ol>
+    </div>
+
+    <div class="docs-module" id="xapi">
+      <h2>xAPI, hosting and versioning</h2>
+      <p>Completion and tracking settings are applied at export and validated in the published package — never simulated. Rollback: retain previous production CSS files and document which courses consume each version. Every release records a changelog of added, changed, fixed, deprecated and removed patterns.</p>
+    </div>
+
+    <div class="docs-module" id="troubleshooting">
+      <h2>Troubleshooting</h2>
+      <table class="docs-field-table">
+        <thead><tr><th>Symptom</th><th>Likely cause</th><th>First response</th></tr></thead>
+        <tbody>
+          <tr><td>Styles missing</td><td>Stylesheet blocked, cached or wrong URL/MIME type.</td><td>Open the CSS URL directly; check the network request and version.</td></tr>
+          <tr><td>Only some blocks fail</td><td>Class-name mismatch or legacy HTML structure.</td><td>Compare markup with the approved example and this site's class index.</td></tr>
+          <tr><td>Post-publish styling disappears</td><td>Export replaced the modified files.</td><td>Re-run the documented enhancement step after every export.</td></tr>
+          <tr><td>Interaction works once only</td><td>Global IDs/variables or unscoped event handlers.</td><td>Scope queries and state to each component root.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}

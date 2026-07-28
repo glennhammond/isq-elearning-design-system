@@ -1,0 +1,35 @@
+{% extends "base.html.j2" %}
+{% block content %}
+<div class="docs-container">
+  <span class="docs-eyebrow">Templates &amp; resources</span>
+  <h1>Where is the relevant template or production resource?</h1>
+  <p class="docs-lede">v1 placeholder links are used where source assets are not yet available; the structure is ready to accept them as they are produced.</p>
+
+  <div class="docs-grid docs-grid--3">
+    {% for r in resources %}
+    <div class="docs-card" style="cursor:default;">
+      <div class="docs-card__top">
+        <h3>{{ r.title }}</h3>
+        <span class="docs-tag">{{ r.status }}</span>
+      </div>
+      <p>{{ r.body }}</p>
+    </div>
+    {% endfor %}
+  </div>
+
+  <div class="docs-module" style="margin-top:var(--docs-space-6);">
+    <h2>QA checklists (from the source Templates and Production Resources guide)</h2>
+    <table class="docs-field-table">
+      <thead><tr><th>Checklist</th><th>When used</th></tr></thead>
+      <tbody>
+        <tr><td>Component approval</td><td>New or materially changed reusable component.</td></tr>
+        <tr><td>Course design review</td><td>Before final content approval.</td></tr>
+        <tr><td>Accessibility review</td><td>Before publication and after significant interaction change.</td></tr>
+        <tr><td>Published-package test</td><td>After every export and enhancement step.</td></tr>
+        <tr><td>Regression test</td><td>After shared CSS or script release.</td></tr>
+        <tr><td>Media QA</td><td>Before asset approval.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

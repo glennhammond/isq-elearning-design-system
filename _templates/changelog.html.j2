@@ -1,0 +1,22 @@
+{% extends "base.html.j2" %}
+{% block content %}
+<div class="docs-container--standard" style="margin:0 auto; padding: var(--docs-space-6) var(--docs-space-4);">
+  <span class="docs-eyebrow">Changelog</span>
+  <h1>Changelog</h1>
+  <p class="docs-lede">Records added, changed, fixed, deprecated and removed items per release, from this catalogue's first version.</p>
+
+  {% for release in releases %}
+  <div class="docs-release">
+    <span class="docs-release__version">v{{ release.version }}</span><span class="docs-release__date">{{ release.date }}</span>
+    {% for kind, items in release.changes.items() %}
+      {% if items %}
+      <div>
+        <span class="docs-change-kind">{{ kind }}</span>
+        <ul>{% for i in items %}<li>{{ i }}</li>{% endfor %}</ul>
+      </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Foundations — ISQ eLearning Design System</title>
+<meta name="description" content="Colour, typography, spacing, widths, radius and focus.">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<link rel="stylesheet" href="../assets/css/base.css">
+<link rel="stylesheet" href="../assets/css/layout.css">
+<link rel="stylesheet" href="../assets/css/components.css">
+<link rel="stylesheet" href="../assets/css/documentation.css">
+</head>
+<body>
+<a class="docs-skip-link" href="#docs-main">Skip to content</a>
+<div class="docs-shell">
+  <header class="docs-header">
+    <div class="docs-header__inner">
+      <a class="docs-logo" href="../index.html">ISQ <span>eLearning Design System</span></a>
+      <button class="docs-nav-toggle" aria-expanded="false" aria-controls="docs-primary-nav">Menu</button>
+      <nav class="docs-primary-nav" id="docs-primary-nav" aria-label="Primary">
+        <a class="docs-nav-link" href="../overview/index.html" >Overview</a>
+        <a class="docs-nav-link" href="../foundations/index.html" aria-current="page">Foundations</a>
+        <a class="docs-nav-link" href="../patterns/index.html" >Learning patterns</a>
+        <a class="docs-nav-link" href="../components/index.html" >Components</a>
+        <a class="docs-nav-link" href="../platforms/rise/index.html" >Platforms</a>
+        <a class="docs-nav-link" href="../media/index.html" >Imagery &amp; media</a>
+        <a class="docs-nav-link" href="../resources/index.html" >Resources</a>
+        <a class="docs-nav-link" href="../governance/index.html" >Governance</a>
+        <a class="docs-nav-link" href="../changelog/index.html" >Changelog</a>
+      </nav>
+      <div class="docs-search docs-search-wrap" role="search">
+        <label class="docs-visually-hidden" for="docs-search-input">Search the design system</label>
+        <input id="docs-search-input" type="search" placeholder="Search components, classes, patterns…" data-docs-search-input data-base="../" autocomplete="off">
+      </div>
+      <div class="docs-search-results" data-docs-search-results hidden></div>
+    </div>
+  </header>
+
+  <main class="docs-main" id="docs-main">
+
+<div class="docs-page-with-sidebar">
+  <nav class="docs-side-nav" aria-label="On this page">
+    <h2>Foundations</h2>
+    <ul>
+      <li><a href="#colour">Colour</a></li>
+      <li><a href="#typography">Typography</a></li>
+      <li><a href="#spacing">Spacing</a></li>
+      <li><a href="#widths">Widths</a></li>
+      <li><a href="#radius">Radius</a></li>
+      <li><a href="#focus">Focus &amp; accessibility</a></li>
+    </ul>
+  </nav>
+  <div>
+    <span class="docs-eyebrow">Foundations</span>
+    <h1>Stable decisions used across every implementation</h1>
+    <p class="docs-lede">Foundations change slowly and centrally. Components and platform variants consume them rather than redefining them. Every value below is the token exactly as declared in the production Rise stylesheet.</p>
+
+    
+    <div class="docs-module" id="colour">
+      <h2>Colour</h2>
+      <table class="docs-field-table">
+        <thead><tr><th>Token</th><th>Value</th><th>Purpose</th><th>Contrast on white</th></tr></thead>
+        <tbody>
+          
+          <tr>
+            <td><span class="docs-swatch" style="background:#005680"></span><code>--isq-blue</code></td>
+            <td>#005680</td>
+            <td>Primary controls, active states, links, structural emphasis</td>
+            <td>7.6:1</td>
+          </tr>
+          
+          <tr>
+            <td><span class="docs-swatch" style="background:#073B58"></span><code>--isq-blue-dark</code></td>
+            <td>#073B58</td>
+            <td>Headings, dark panels, hover states</td>
+            <td>11.2:1</td>
+          </tr>
+          
+          <tr>
+            <td><span class="docs-swatch" style="background:#062F46"></span><code>--isq-blue-deep</code></td>
+            <td>#062F46</td>
+            <td>Darkest gradient stop, deep structural tone</td>
+            <td>13.6:1</td>
+          </tr>
+          
+          <tr>
+            <td><span class="docs-swatch" style="background:#FFC72A"></span><code>--isq-yellow</code></td>
+            <td>#FFC72A</td>
+            <td>Selective accent — rules, markers, focus. Never a dominant field, never body or eyebrow text on light surfaces</td>
+            <td>1.6:1 (non-text use only)</td>
+          </tr>
+          
+          <tr>
+            <td><span class="docs-swatch" style="background:#333333"></span><code>--isq-charcoal</code></td>
+            <td>#333333</td>
+            <td>Body text</td>
+            <td>12.6:1</td>
+          </tr>
+          
+          <tr>
+            <td><span class="docs-swatch" style="background:#526874"></span><code>--isq-muted</code></td>
+            <td>#526874</td>
+            <td>Secondary text and metadata</td>
+            <td>5.9:1</td>
+          </tr>
+          
+          <tr>
+            <td><span class="docs-swatch" style="background:#CFE0E7"></span><code>--isq-border</code></td>
+            <td>#CFE0E7</td>
+            <td>Borders and separators</td>
+            <td>n/a — non-text</td>
+          </tr>
+          
+          <tr>
+            <td><span class="docs-swatch" style="background:#E6EEF2"></span><code>--isq-tint</code></td>
+            <td>#E6EEF2</td>
+            <td>Tinted panel surfaces</td>
+            <td>n/a — surface only</td>
+          </tr>
+          
+          <tr>
+            <td><span class="docs-swatch" style="background:#F3F7F9"></span><code>--isq-pale</code></td>
+            <td>#F3F7F9</td>
+            <td>Neutral grouped surfaces</td>
+            <td>n/a — surface only</td>
+          </tr>
+          
+          <tr>
+            <td><span class="docs-swatch" style="background:#EAF6FA"></span><code>--isq-ice</code></td>
+            <td>#EAF6FA</td>
+            <td>Selected and informational surfaces</td>
+            <td>n/a — surface only</td>
+          </tr>
+          
+          <tr>
+            <td><span class="docs-swatch" style="background:#266141"></span><code>--isq-success</code></td>
+            <td>#266141</td>
+            <td>Correct / completed state. Always paired with a text label, never colour alone</td>
+            <td>6.8:1</td>
+          </tr>
+          
+          <tr>
+            <td><span class="docs-swatch" style="background:#333333"></span><code>--isq-warning</code></td>
+            <td>#333333</td>
+            <td>Warning-state text, used on the warning-pale surface<div class="docs-note docs-note--flag" style="margin-top:6px;">Shares its value with Charcoal rather than a distinct hue. Confirm this is intentional (text stays readable on a pale-yellow surface) before treating it as settled — see Decisions.</div></td>
+            <td>12.6:1</td>
+          </tr>
+          
+          <tr>
+            <td><span class="docs-swatch" style="background:#FFF7DF"></span><code>--isq-warning-pale</code></td>
+            <td>#FFF7DF</td>
+            <td>Warning-state background</td>
+            <td>n/a — surface only</td>
+          </tr>
+          
+          <tr>
+            <td><span class="docs-swatch" style="background:#A22B2A"></span><code>--isq-error</code></td>
+            <td>#A22B2A</td>
+            <td>Incorrect / error state. Always paired with a text label</td>
+            <td>6.1:1</td>
+          </tr>
+          
+        </tbody>
+      </table>
+      <p style="margin-top:var(--docs-space-3); font-size:0.9rem; color:var(--docs-muted);">ISQ Yellow is an accent, never a large dominant surface — reserve it for rules, markers and focus states. Status is always communicated with a text label as well as colour.</p>
+    </div>
+
+    <div class="docs-module" id="typography">
+      <h2>Typography</h2>
+      <p>A geometric sans for headings, a readable humanist sans for body text, sentence case throughout.</p>
+      <table class="docs-field-table">
+        <thead><tr><th>Role</th><th>Class</th><th>Use</th></tr></thead>
+        <tbody>
+          
+          <tr><td>Display</td><td><code>isq-heading--xl</code></td><td>Section openers and course-level statements only</td></tr>
+          
+          <tr><td>Large</td><td><code>isq-heading--large / --h1</code></td><td>Primary topic and major content-block headings</td></tr>
+          
+          <tr><td>Medium</td><td><code>isq-heading--medium / --h2</code></td><td>Subsections, cards and activities</td></tr>
+          
+          <tr><td>Small</td><td><code>isq-heading--small / --h3</code></td><td>Minor headings and compact components</td></tr>
+          
+          <tr><td>Eyebrow</td><td><code>isq-eyebrow</code></td><td>Short uppercase content-type label</td></tr>
+          
+          <tr><td>Body</td><td><code>isq-body</code></td><td>Running content at generous line height</td></tr>
+          
+          <tr><td>Intro</td><td><code>isq-body--intro</code></td><td>Short orienting paragraph beneath a heading</td></tr>
+          
+        </tbody>
+      </table>
+      <div class="docs-code" style="margin-top:var(--docs-space-3);">
+        <span class="docs-code__label">Font stacks</span>
+        <pre><code>Heading: "Century Gothic", "Avenir Next", Avenir, Futura, Arial, sans-serif
+Body: "Open Sans", Arial, sans-serif</code></pre>
+      </div>
+      <div class="docs-note">Rise loads a licensed Century Gothic woff2 for headings in the actual courses. This reference site has not been supplied that font file, so it renders the heading stack's next available match (Poppins, loaded locally) with the full stack declared as documented. Swap in the licensed woff2 the moment it is available — no other change is required.</div>
+    </div>
+
+    <div class="docs-module" id="spacing">
+      <h2>Spacing</h2>
+      <p>A single scale used everywhere. One-off gaps are the fastest way to make a restrained system look inconsistent.</p>
+      <div style="display:flex; gap:12px; align-items:flex-end; flex-wrap:wrap;">
+        
+        <div style="text-align:center;">
+          <div style="width:4px; height:4px; background:var(--docs-blue); border-radius:3px; margin:0 auto 6px;"></div>
+          <code style="font-size:0.8rem;">4px</code>
+        </div>
+        
+        <div style="text-align:center;">
+          <div style="width:8px; height:8px; background:var(--docs-blue); border-radius:3px; margin:0 auto 6px;"></div>
+          <code style="font-size:0.8rem;">8px</code>
+        </div>
+        
+        <div style="text-align:center;">
+          <div style="width:16px; height:16px; background:var(--docs-blue); border-radius:3px; margin:0 auto 6px;"></div>
+          <code style="font-size:0.8rem;">16px</code>
+        </div>
+        
+        <div style="text-align:center;">
+          <div style="width:24px; height:24px; background:var(--docs-blue); border-radius:3px; margin:0 auto 6px;"></div>
+          <code style="font-size:0.8rem;">24px</code>
+        </div>
+        
+        <div style="text-align:center;">
+          <div style="width:32px; height:32px; background:var(--docs-blue); border-radius:3px; margin:0 auto 6px;"></div>
+          <code style="font-size:0.8rem;">32px</code>
+        </div>
+        
+        <div style="text-align:center;">
+          <div style="width:48px; height:48px; background:var(--docs-blue); border-radius:3px; margin:0 auto 6px;"></div>
+          <code style="font-size:0.8rem;">48px</code>
+        </div>
+        
+        <div style="text-align:center;">
+          <div style="width:64px; height:64px; background:var(--docs-blue); border-radius:3px; margin:0 auto 6px;"></div>
+          <code style="font-size:0.8rem;">64px</code>
+        </div>
+        
+      </div>
+    </div>
+
+    <div class="docs-module" id="widths">
+      <h2>Widths</h2>
+      <p>Four content widths cover nearly every layout need.</p>
+      <table class="docs-field-table">
+        <thead><tr><th>Name</th><th>Token</th><th>Value</th></tr></thead>
+        <tbody>
+          
+          <tr><td>Narrow</td><td><code>--isq-width-narrow</code></td><td>760px</td></tr>
+          
+          <tr><td>Standard</td><td><code>--isq-width-standard</code></td><td>960px</td></tr>
+          
+          <tr><td>Wide</td><td><code>--isq-width-wide</code></td><td>1120px</td></tr>
+          
+          <tr><td>Full</td><td><code>--isq-width-full</code></td><td>1280px</td></tr>
+          
+        </tbody>
+      </table>
+    </div>
+
+    <div class="docs-module" id="radius">
+      <h2>Radius</h2>
+      <p>Three radii, used to express hierarchy rather than decoration.</p>
+      <table class="docs-field-table">
+        <thead><tr><th>Name</th><th>Token</th><th>Value</th><th>Use</th></tr></thead>
+        <tbody>
+          
+          <tr><td>Small</td><td><code>--isq-radius-small</code></td><td>10px</td><td>Controls, buttons, small elements</td></tr>
+          
+          <tr><td>Medium</td><td><code>--isq-radius-medium</code></td><td>16px</td><td>Cards</td></tr>
+          
+          <tr><td>Large</td><td><code>--isq-radius-large</code></td><td>22px</td><td>Panels</td></tr>
+          
+        </tbody>
+      </table>
+    </div>
+
+    <div class="docs-module" id="focus">
+      <h2>Focus &amp; accessibility foundations</h2>
+      <p>Keyboard focus is never removed or hidden. Every interactive element carries a visible focus treatment with sufficient contrast and offset.</p>
+      <div class="docs-note">State (selected, correct, incorrect, disabled) is always reinforced by text, icon or structural cue as well as colour — colour is never the only signal.</div>
+      <p style="margin-top:var(--docs-space-3);"><strong>Breakpoint:</strong> 760px — two-column layouts and grids restack to one column at this width.</p>
+    </div>
+    
+  </div>
+</div>
+
+  </main>
+
+  <footer class="docs-footer">
+    <div class="docs-footer__inner">
+      <div>
+        <h2>System</h2>
+        <ul>
+          <li><a href="../overview/index.html">Overview</a></li>
+          <li><a href="../governance/index.html">Governance</a></li>
+          <li><a href="../changelog/index.html">Changelog</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Reference</h2>
+        <ul>
+          <li><a href="../foundations/index.html">Foundations</a></li>
+          <li><a href="../patterns/index.html">Learning patterns</a></li>
+          <li><a href="../components/index.html">Components</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Platforms</h2>
+        <ul>
+          <li><a href="../platforms/rise/index.html">Rise</a></li>
+          <li><a href="../platforms/connect-learn/index.html">Connect &amp; Learn</a></li>
+          <li><a href="../platforms/storyline/index.html">Storyline</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Accessibility</h2>
+        <p>Designed to support accessibility and tested against the documented design-system checklist.</p>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script src="../assets/js/navigation.js"></script>
+<script src="../assets/js/search.js"></script>
+<script src="../assets/js/filters.js"></script>
+<script src="../assets/js/component-preview.js"></script>
+</body>
+</html>

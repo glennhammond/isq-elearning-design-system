@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Divider — ISQ eLearning Design System</title>
+<meta name="description" content="Transitions between adjoining structural surfaces with an angled decorative edge.">
+<link rel="stylesheet" href="../../assets/css/tokens.css">
+<link rel="stylesheet" href="../../assets/css/base.css">
+<link rel="stylesheet" href="../../assets/css/layout.css">
+<link rel="stylesheet" href="../../assets/css/components.css">
+<link rel="stylesheet" href="../../assets/css/documentation.css">
+</head>
+<body>
+<a class="docs-skip-link" href="#docs-main">Skip to content</a>
+<div class="docs-shell">
+  <header class="docs-header">
+    <div class="docs-header__inner">
+      <a class="docs-logo" href="../../index.html">ISQ <span>eLearning Design System</span></a>
+      <button class="docs-nav-toggle" aria-expanded="false" aria-controls="docs-primary-nav">Menu</button>
+      <nav class="docs-primary-nav" id="docs-primary-nav" aria-label="Primary">
+        <a class="docs-nav-link" href="../../overview/index.html" >Overview</a>
+        <a class="docs-nav-link" href="../../foundations/index.html" >Foundations</a>
+        <a class="docs-nav-link" href="../../patterns/index.html" >Learning patterns</a>
+        <a class="docs-nav-link" href="../../components/index.html" aria-current="page">Components</a>
+        <a class="docs-nav-link" href="../../platforms/rise/index.html" >Platforms</a>
+        <a class="docs-nav-link" href="../../media/index.html" >Imagery &amp; media</a>
+        <a class="docs-nav-link" href="../../resources/index.html" >Resources</a>
+        <a class="docs-nav-link" href="../../governance/index.html" >Governance</a>
+        <a class="docs-nav-link" href="../../changelog/index.html" >Changelog</a>
+      </nav>
+      <div class="docs-search docs-search-wrap" role="search">
+        <label class="docs-visually-hidden" for="docs-search-input">Search the design system</label>
+        <input id="docs-search-input" type="search" placeholder="Search components, classes, patterns…" data-docs-search-input data-base="../../" autocomplete="off">
+      </div>
+      <div class="docs-search-results" data-docs-search-results hidden></div>
+    </div>
+  </header>
+
+  <main class="docs-main" id="docs-main">
+
+<div class="docs-container">
+  <p style="font-size:0.85rem;"><a href="../../components/index.html">← Components</a></p>
+
+  <div class="docs-detail-header">
+    <div>
+      <span class="docs-eyebrow">Structural component</span>
+      <h1 style="margin-bottom:6px;">Divider</h1>
+      <p class="docs-lede" style="font-size:1.02rem;">Transitions between adjoining structural surfaces with an angled decorative edge.</p>
+      <div class="docs-detail-header__meta">
+        <span class="docs-status docs-status--experimental">experimental</span>
+        <span>Version introduced: 1.0.0</span>
+        <span>Platforms: Rise</span>
+        <span>Owner: Design and development steward</span>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="docs-note docs-note--flag">
+    <strong>Experimental.</strong>
+    Being evaluated — specifications may change. Use only in an agreed pilot.
+    
+  </div>
+  
+
+  <div class="docs-module">
+    <h2>Live preview</h2>
+    <div class="docs-preview" data-docs-preview>
+      <div class="docs-preview__bar">
+        <span>Rendered with production Rise CSS</span>
+        <div class="docs-preview__toggle">
+          <button type="button" data-docs-preview-mode="desktop" aria-pressed="true">Desktop</button>
+          <button type="button" data-docs-preview-mode="mobile" aria-pressed="false">Mobile</button>
+        </div>
+      </div>
+      <div class="docs-preview__frame">
+        <link rel="stylesheet" href="../../assets/vendor/isq-rise-components-v1.0.0.css">
+        <div class="isq-divider-angle isq-divider-angle--blue-to-tint" aria-hidden="true"></div>
+      </div>
+    </div>
+    <p style="font-size:0.85rem; color:var(--docs-muted); margin-top:8px;">Light background shown; verify against a tinted or dark surface where the component is used that way in course.</p>
+  </div>
+
+  <div class="docs-module">
+    <h2>Use when / avoid when</h2>
+    <div class="docs-use-avoid">
+      <div class="docs-use-avoid__col docs-use-avoid__col--use">
+        <h3>Use when</h3>
+        <ul><li>Rare and purposeful surface transitions only.</li></ul>
+      </div>
+      <div class="docs-use-avoid__col docs-use-avoid__col--avoid">
+        <h3>Avoid when</h3>
+        <ul><li>As a routine section separator — spacing and headings do that job more accessibly.</li></ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="docs-module">
+    <h2>Anatomy</h2>
+    <ul><li>Angled edge (.isq-divider-angle)</li><li>Direction/colour modifier</li></ul>
+  </div>
+
+  
+  <div class="docs-module">
+    <h2>Variants</h2>
+    <div class="docs-related-list"><code class="docs-tag">isq-divider-angle--blue-to-tint</code><code class="docs-tag">isq-divider-angle--blue-to-white</code><code class="docs-tag">isq-divider-angle--tint-to-blue</code><code class="docs-tag">isq-divider-angle--tint-to-white</code><code class="docs-tag">isq-divider-angle--white-to-blue</code><code class="docs-tag">isq-divider-angle--white-to-tint</code></div>
+  </div>
+  
+
+  <div class="docs-module">
+    <h2>States</h2>
+    <div class="docs-related-list"><span class="docs-tag">default</span></div>
+  </div>
+
+  <div class="docs-module">
+    <h2>Responsive behaviour</h2>
+    <p>Purely decorative — no content to preserve, but the angle should not obscure adjacent text at narrow widths.</p>
+  </div>
+
+  <div class="docs-module">
+    <h2>Accessibility</h2>
+    <ul><li>Purely decorative — must be aria-hidden.</li></ul>
+  </div>
+
+  <div class="docs-module">
+    <h2>Implementation</h2>
+    <p><strong>Type:</strong> css-foundation</p>
+    <p><strong>Dependencies:</strong> Production CSS only.</p>
+  </div>
+
+  <div class="docs-module">
+    <h2>Code</h2>
+    <div class="docs-code">
+      <span class="docs-code__label">HTML</span>
+      <button class="docs-copy-btn" type="button" data-docs-copy="code-divider">Copy</button>
+      <pre><code id="code-divider"><div class="isq-divider-angle isq-divider-angle--blue-to-tint" aria-hidden="true"></div></code></pre>
+    </div>
+    <p style="font-size:0.85rem; color:var(--docs-muted); margin-top:8px;">Classes used: <code>.isq-divider-angle</code>, <code>.isq-divider-angle--blue-to-tint</code>, <code>.isq-divider-angle--blue-to-white</code>, <code>.isq-divider-angle--tint-to-blue</code>, <code>.isq-divider-angle--tint-to-white</code>, <code>.isq-divider-angle--white-to-blue</code>, <code>.isq-divider-angle--white-to-tint</code></p>
+    <p style="font-size:0.85rem;"><a href="../../platforms/rise/index.html">Production stylesheet reference →</a></p>
+  </div>
+
+  <div class="docs-module">
+    <h2>Related items</h2>
+    <p><strong>Related patterns:</strong>
+    —
+    </p>
+    <p><strong>Related components:</strong>
+    —
+    </p>
+  </div>
+
+  <div class="docs-module">
+    <h2>Governance metadata</h2>
+    <table class="docs-field-table">
+      <tbody>
+        <tr><th>Owner</th><td>Design and development steward</td></tr>
+        <tr><th>Status</th><td>Experimental</td></tr>
+        <tr><th>Version introduced</th><td>1.0.0</td></tr>
+        <tr><th>Last reviewed</th><td>2026-07</td></tr>
+        <tr><th>Known limitations</th><td><ul style="margin:0; padding-left:1.1em;"><li>Document 1's own component audit calls this “Experimental / decorative — review actual use and reduce if necessary”; Document 2 separately labelled it “Restricted”, a status outside the confirmed seven-value lifecycle — folded into Experimental here. Six directional variants for a component flagged for reduction is itself worth reviewing.</li></ul></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+  </main>
+
+  <footer class="docs-footer">
+    <div class="docs-footer__inner">
+      <div>
+        <h2>System</h2>
+        <ul>
+          <li><a href="../../overview/index.html">Overview</a></li>
+          <li><a href="../../governance/index.html">Governance</a></li>
+          <li><a href="../../changelog/index.html">Changelog</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Reference</h2>
+        <ul>
+          <li><a href="../../foundations/index.html">Foundations</a></li>
+          <li><a href="../../patterns/index.html">Learning patterns</a></li>
+          <li><a href="../../components/index.html">Components</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Platforms</h2>
+        <ul>
+          <li><a href="../../platforms/rise/index.html">Rise</a></li>
+          <li><a href="../../platforms/connect-learn/index.html">Connect &amp; Learn</a></li>
+          <li><a href="../../platforms/storyline/index.html">Storyline</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Accessibility</h2>
+        <p>Designed to support accessibility and tested against the documented design-system checklist.</p>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script src="../../assets/js/navigation.js"></script>
+<script src="../../assets/js/search.js"></script>
+<script src="../../assets/js/filters.js"></script>
+<script src="../../assets/js/component-preview.js"></script>
+</body>
+</html>

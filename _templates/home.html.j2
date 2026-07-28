@@ -1,0 +1,65 @@
+{% extends "base.html.j2" %}
+{% block content %}
+<section class="docs-hero">
+  <div class="docs-hero__inner">
+    <span class="docs-eyebrow">ISQ eLearning Design System</span>
+    <h1>One design language, defined once, consumed everywhere.</h1>
+    <p class="docs-lede docs-hero__statement">Strategy · foundations · learning patterns · components · platform implementation · governance</p>
+    <p class="docs-lede">This is the live operational reference for ISQ digital learning design and development. It connects learning design, visual design, interaction design and technical delivery across Articulate Rise, Connect &amp; Learn and future ISQ digital learning products. Rise is the system's first mature implementation — this is not a Rise-only component library.</p>
+    <div class="docs-hero__actions">
+      <a class="docs-btn docs-btn--primary" href="{{ base }}components/index.html">Explore components</a>
+      <a class="docs-btn docs-btn--secondary" href="{{ base }}patterns/index.html">Choose a learning pattern</a>
+      <a class="docs-btn docs-btn--secondary" href="{{ base }}platforms/rise/index.html">View Rise implementation</a>
+      <a class="docs-btn docs-btn--secondary" href="{{ base }}resources/index.html">Templates &amp; resources</a>
+    </div>
+  </div>
+</section>
+
+<section class="docs-quick-paths docs-container--standard" style="margin:0 auto;">
+  <div class="docs-section-title"><h2>Quick paths</h2></div>
+  <div class="docs-grid docs-grid--3">
+    {% for path in quick_paths %}
+    <a class="docs-card" href="{{ base }}{{ path.url }}">
+      <h3>{{ path.title }}</h3>
+      <p>{{ path.body }}</p>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="docs-quick-paths docs-container--standard" style="margin:0 auto;">
+  <div class="docs-section-title"><h2>System architecture</h2></div>
+  <div class="docs-grid docs-grid--3">
+    {% for layer in architecture %}
+    <div class="docs-card" style="cursor:default;">
+      <span class="docs-eyebrow">{{ layer.eyebrow }}</span>
+      <h3>{{ layer.title }}</h3>
+      <p>{{ layer.body }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="docs-quick-paths docs-container--standard" style="margin:0 auto;">
+  <div class="docs-section-title"><h2>Current state</h2></div>
+  <div class="docs-state-summary">
+    <div class="docs-state-summary__item"><span class="docs-state-summary__number">{{ stats.version }}</span><span class="docs-state-summary__label">Current version</span></div>
+    <div class="docs-state-summary__item"><span class="docs-state-summary__number">{{ stats.approved }}</span><span class="docs-state-summary__label">Core / approved components</span></div>
+    <div class="docs-state-summary__item"><span class="docs-state-summary__number">{{ stats.experimental_course }}</span><span class="docs-state-summary__label">Experimental / course-specific</span></div>
+    <div class="docs-state-summary__item"><span class="docs-state-summary__number">{{ stats.legacy }}</span><span class="docs-state-summary__label">Legacy</span></div>
+  </div>
+  <p style="margin-top: var(--docs-space-3); color: var(--docs-muted); font-size:0.9rem;">Last updated {{ stats.updated }} · Roadmap stage: {{ stats.roadmap_stage }}</p>
+</section>
+
+<section class="docs-quick-paths docs-container--standard" style="margin:0 auto;">
+  <div class="docs-section-title"><h2>Featured references</h2></div>
+  <div class="docs-grid docs-grid--4">
+    {% for ref in featured %}
+    <a class="docs-card" href="{{ base }}{{ ref.url }}">
+      <h3>{{ ref.title }}</h3>
+      <p>{{ ref.body }}</p>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,106 @@
+{% extends "base.html.j2" %}
+{% block content %}
+<div class="docs-page-with-sidebar">
+  <nav class="docs-side-nav" aria-label="On this page">
+    <h2>Foundations</h2>
+    <ul>
+      <li><a href="#colour">Colour</a></li>
+      <li><a href="#typography">Typography</a></li>
+      <li><a href="#spacing">Spacing</a></li>
+      <li><a href="#widths">Widths</a></li>
+      <li><a href="#radius">Radius</a></li>
+      <li><a href="#focus">Focus &amp; accessibility</a></li>
+    </ul>
+  </nav>
+  <div>
+    <span class="docs-eyebrow">Foundations</span>
+    <h1>Stable decisions used across every implementation</h1>
+    <p class="docs-lede">Foundations change slowly and centrally. Components and platform variants consume them rather than redefining them. Every value below is the token exactly as declared in the production Rise stylesheet.</p>
+
+    {% for f in foundations %}
+    <div class="docs-module" id="colour">
+      <h2>Colour</h2>
+      <table class="docs-field-table">
+        <thead><tr><th>Token</th><th>Value</th><th>Purpose</th><th>Contrast on white</th></tr></thead>
+        <tbody>
+          {% for t in f.tokens %}
+          <tr>
+            <td><span class="docs-swatch" style="background:{{ t.value }}"></span><code>{{ t.token }}</code></td>
+            <td>{{ t.value }}</td>
+            <td>{{ t.purpose }}{% if t.flag %}<div class="docs-note docs-note--flag" style="margin-top:6px;">{{ t.flag }}</div>{% endif %}</td>
+            <td>{{ t.onWhiteContrast }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <p style="margin-top:var(--docs-space-3); font-size:0.9rem; color:var(--docs-muted);">ISQ Yellow is an accent, never a large dominant surface — reserve it for rules, markers and focus states. Status is always communicated with a text label as well as colour.</p>
+    </div>
+
+    <div class="docs-module" id="typography">
+      <h2>Typography</h2>
+      <p>{{ f.typography.intro }}</p>
+      <table class="docs-field-table">
+        <thead><tr><th>Role</th><th>Class</th><th>Use</th></tr></thead>
+        <tbody>
+          {% for r in f.typography.roles %}
+          <tr><td>{{ r.role }}</td><td><code>{{ r.class }}</code></td><td>{{ r.use }}</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <div class="docs-code" style="margin-top:var(--docs-space-3);">
+        <span class="docs-code__label">Font stacks</span>
+        <pre><code>Heading: {{ f.typography.headingStack }}
+Body: {{ f.typography.bodyStack }}</code></pre>
+      </div>
+      <div class="docs-note">{{ f.typography.note }}</div>
+    </div>
+
+    <div class="docs-module" id="spacing">
+      <h2>Spacing</h2>
+      <p>{{ f.spacing.intro }}</p>
+      <div style="display:flex; gap:12px; align-items:flex-end; flex-wrap:wrap;">
+        {% for s in f.spacing.scale %}
+        <div style="text-align:center;">
+          <div style="width:{{ s }}px; height:{{ s }}px; background:var(--docs-blue); border-radius:3px; margin:0 auto 6px;"></div>
+          <code style="font-size:0.8rem;">{{ s }}px</code>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="docs-module" id="widths">
+      <h2>Widths</h2>
+      <p>{{ f.widths.intro }}</p>
+      <table class="docs-field-table">
+        <thead><tr><th>Name</th><th>Token</th><th>Value</th></tr></thead>
+        <tbody>
+          {% for w in f.widths.entries %}
+          <tr><td>{{ w.name }}</td><td><code>{{ w.token }}</code></td><td>{{ w.value }}</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="docs-module" id="radius">
+      <h2>Radius</h2>
+      <p>{{ f.radius.intro }}</p>
+      <table class="docs-field-table">
+        <thead><tr><th>Name</th><th>Token</th><th>Value</th><th>Use</th></tr></thead>
+        <tbody>
+          {% for r in f.radius.entries %}
+          <tr><td>{{ r.name }}</td><td><code>{{ r.token }}</code></td><td>{{ r.value }}</td><td>{{ r.use }}</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="docs-module" id="focus">
+      <h2>Focus &amp; accessibility foundations</h2>
+      <p>{{ f.focus.intro }}</p>
+      <div class="docs-note">{{ f.focus.rule }}</div>
+      <p style="margin-top:var(--docs-space-3);"><strong>Breakpoint:</strong> {{ f.breakpoint }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends "base.html.j2" %}
+{% block content %}
+<div class="docs-container">
+  <span class="docs-eyebrow">Components</span>
+  <h1>Component catalogue</h1>
+  <p class="docs-lede">Grouped by structural, content, scenario, interaction, support and legacy. Every component carries a visible status — text and colour, never colour alone.</p>
+
+  <div class="docs-filter-bar" data-docs-filter-bar>
+    <div class="docs-filter-group">
+      <label for="filter-category">Category</label>
+      <select id="filter-category" name="category">
+        <option value="">All categories</option>
+        {% for c in categories %}<option value="{{ c }}">{{ c|capitalize }}</option>{% endfor %}
+      </select>
+    </div>
+    <div class="docs-filter-group">
+      <label for="filter-status">Status</label>
+      <select id="filter-status" name="status">
+        <option value="">All statuses</option>
+        {% for s in statuses %}<option value="{{ s }}">{{ s|replace('-', ' ')|capitalize }}</option>{% endfor %}
+      </select>
+    </div>
+    <div class="docs-filter-group">
+      <label for="filter-implementation">Implementation</label>
+      <select id="filter-implementation" name="implementation">
+        <option value="">All implementations</option>
+        {% for i in implementations %}<option value="{{ i }}">{{ i }}</option>{% endfor %}
+      </select>
+    </div>
+    <span class="docs-filter-count" data-docs-filter-count>{{ components|length }} components</span>
+  </div>
+
+  <div class="docs-grid docs-grid--3">
+    {% for c in components %}
+    <a class="docs-card" data-docs-filterable
+       data-category="{{ c.category }}"
+       data-status="{{ c.status }}"
+       data-implementation="{{ c.implementation|join(' ') }}"
+       href="{{ base }}components/{{ c.id }}/index.html">
+      <div class="docs-card__top">
+        <h3>{{ c.name }}</h3>
+        <span class="docs-status docs-status--{{ c.status }}">{{ c.status|replace('-', ' ') }}</span>
+      </div>
+      <p>{{ c.purpose }}</p>
+      <div class="docs-card__meta">
+        <span class="docs-tag">{{ c.category|capitalize }}</span>
+        {% for p in c.platforms %}<span class="docs-tag">{{ p|capitalize }}</span>{% endfor %}
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

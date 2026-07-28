@@ -1,0 +1,23 @@
+[
+  {
+    "version": "0.1.0",
+    "date": "July 2026",
+    "changes": {
+      "Added": [
+        "Initial live reference site: Overview, Foundations, Learning patterns, Component catalogue, Platform implementation (Rise, Connect & Learn, Storyline), Imagery & media, Resources, Governance, Changelog.",
+        "Component data model and JSON source covering foundations, 11 learning patterns and 21 components.",
+        "Client-side search index and filterable component catalogue.",
+        "A first specification for the previously undocumented Self-assessment component."
+      ],
+      "Changed": [
+        "Divider status reconciled from Document 2's \"Restricted\" to the confirmed lifecycle status Experimental.",
+        "Role split adopted as the canonical name for the previously unsettled Role comparison / Role split naming."
+      ],
+      "Fixed": [
+        "Grid, Band and Process added to the component data model after being found in the production CSS and Document 2's prose but missing from its technical class index."
+      ],
+      "Deprecated": [],
+      "Removed": []
+    }
+  }
+]

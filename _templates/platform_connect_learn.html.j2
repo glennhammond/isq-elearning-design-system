@@ -1,0 +1,42 @@
+{% extends "base.html.j2" %}
+{% block content %}
+<div class="docs-container--standard" style="margin:0 auto; padding: var(--docs-space-6) var(--docs-space-4);">
+  <span class="docs-eyebrow">Platform implementation</span>
+  <h1>Connect &amp; Learn / Moodle</h1>
+  <p class="docs-lede">Connect &amp; Learn is the platform-level implementation of the shared system. Full strategic and experience detail lives in the <strong>Connect &amp; Learn 2027 Experience Blueprint</strong> (Glenn Hammond, v1.0, July 2026) — this page summarises its relationship to the design system rather than duplicating it.</p>
+
+  <div class="docs-module">
+    <h2>Relationship to the shared system</h2>
+    <p>Connect &amp; Learn 2027 does not propose a new design language. The colour roles, typography, spacing scale, component patterns, photography direction and accessibility position all originate in this design system. The proposal is that the existing language is promoted from a course-level asset to a platform-level one.</p>
+  </div>
+
+  <div class="docs-module">
+    <h2>Three tiers of Moodle control</h2>
+    <table class="docs-field-table">
+      <thead><tr><th>Tier</th><th>Control</th><th>Examples</th></tr></thead>
+      <tbody>
+        <tr><td>Tier 1 — Full control</td><td>Custom pages with complete markup control.</td><td>Connect &amp; Learn Home, My Learning, category pages, search results.</td></tr>
+        <tr><td>Tier 2 — Strong influence</td><td>Course format and summary templating.</td><td>Course landing pages, section headers, activity cards.</td></tr>
+        <tr><td>Tier 3 — Themed only</td><td>Moodle's own interface — type, colour, spacing and buttons inherit the system; structure does not change.</td><td>Quiz, forums, assignment submission, grades, profile.</td></tr>
+      </tbody>
+    </table>
+    <div class="docs-note">Coherence does not require uniformity. What breaks the sense of one product is visual and behavioural inconsistency, not structural variation — and that stays entirely within this system's control.</div>
+  </div>
+
+  <div class="docs-module">
+    <h2>Shared components</h2>
+    <p>Eight Rise components are adopted into the Connect &amp; Learn component library unchanged: button, message panel (callout), tabs, section opener, split card, resource panel, accordion, progress indicator. The Learning card, Learning Status Bar, filter bar, empty state and course launch panel are new, platform-level components documented in the blueprint rather than this Rise-focused catalogue.</p>
+  </div>
+
+  <div class="docs-module">
+    <h2>Implementation status</h2>
+    <p>Strategic direction, not yet built. Status: <strong>for discussion and approval</strong> (blueprint v1.0, July 2026). Five decisions are pending stakeholder sign-off, including a technical discovery spike on whether personal state data (mandatory status, due dates) is available to display — see the blueprint's Section 19 decision register.</p>
+  </div>
+
+  <div class="docs-module">
+    <h2>Current and future scope</h2>
+    <p>January 2027 launch scope: Connect &amp; Learn Home, My Learning, ~10 priority course landing pages, 5–6 category pages, webinar/resource templates, and platform-wide navigation and styling. Learning pathways, full catalogue metadata and the brand alignment pass are deliberately later.</p>
+    <p style="font-size:0.85rem; color:var(--docs-muted);">Full detail: the source PDF supplied for this project (not yet published to this site as a standalone document).</p>
+  </div>
+</div>
+{% endblock %}

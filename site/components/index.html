@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Components — ISQ eLearning Design System</title>
+<meta name="description" content="The full component catalogue, filterable by category, status and platform.">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<link rel="stylesheet" href="../assets/css/base.css">
+<link rel="stylesheet" href="../assets/css/layout.css">
+<link rel="stylesheet" href="../assets/css/components.css">
+<link rel="stylesheet" href="../assets/css/documentation.css">
+</head>
+<body>
+<a class="docs-skip-link" href="#docs-main">Skip to content</a>
+<div class="docs-shell">
+  <header class="docs-header">
+    <div class="docs-header__inner">
+      <a class="docs-logo" href="../index.html">ISQ <span>eLearning Design System</span></a>
+      <button class="docs-nav-toggle" aria-expanded="false" aria-controls="docs-primary-nav">Menu</button>
+      <nav class="docs-primary-nav" id="docs-primary-nav" aria-label="Primary">
+        <a class="docs-nav-link" href="../overview/index.html" >Overview</a>
+        <a class="docs-nav-link" href="../foundations/index.html" >Foundations</a>
+        <a class="docs-nav-link" href="../patterns/index.html" >Learning patterns</a>
+        <a class="docs-nav-link" href="../components/index.html" aria-current="page">Components</a>
+        <a class="docs-nav-link" href="../platforms/rise/index.html" >Platforms</a>
+        <a class="docs-nav-link" href="../media/index.html" >Imagery &amp; media</a>
+        <a class="docs-nav-link" href="../resources/index.html" >Resources</a>
+        <a class="docs-nav-link" href="../governance/index.html" >Governance</a>
+        <a class="docs-nav-link" href="../changelog/index.html" >Changelog</a>
+      </nav>
+      <div class="docs-search docs-search-wrap" role="search">
+        <label class="docs-visually-hidden" for="docs-search-input">Search the design system</label>
+        <input id="docs-search-input" type="search" placeholder="Search components, classes, patterns…" data-docs-search-input data-base="../" autocomplete="off">
+      </div>
+      <div class="docs-search-results" data-docs-search-results hidden></div>
+    </div>
+  </header>
+
+  <main class="docs-main" id="docs-main">
+
+<div class="docs-container">
+  <span class="docs-eyebrow">Components</span>
+  <h1>Component catalogue</h1>
+  <p class="docs-lede">Grouped by structural, content, scenario, interaction, support and legacy. Every component carries a visible status — text and colour, never colour alone.</p>
+
+  <div class="docs-filter-bar" data-docs-filter-bar>
+    <div class="docs-filter-group">
+      <label for="filter-category">Category</label>
+      <select id="filter-category" name="category">
+        <option value="">All categories</option>
+        <option value="content">Content</option><option value="interaction">Interaction</option><option value="legacy">Legacy</option><option value="scenario">Scenario</option><option value="structural">Structural</option><option value="support">Support</option>
+      </select>
+    </div>
+    <div class="docs-filter-group">
+      <label for="filter-status">Status</label>
+      <select id="filter-status" name="status">
+        <option value="">All statuses</option>
+        <option value="foundation">Foundation</option><option value="core">Core</option><option value="approved">Approved</option><option value="experimental">Experimental</option><option value="course-specific">Course specific</option><option value="legacy">Legacy</option>
+      </select>
+    </div>
+    <div class="docs-filter-group">
+      <label for="filter-implementation">Implementation</label>
+      <select id="filter-implementation" name="implementation">
+        <option value="">All implementations</option>
+        <option value="css-foundation">css-foundation</option><option value="custom-html">custom-html</option><option value="custom-html-js">custom-html-js</option>
+      </select>
+    </div>
+    <span class="docs-filter-count" data-docs-filter-count>23 components</span>
+  </div>
+
+  <div class="docs-grid docs-grid--3">
+    
+    <a class="docs-card" data-docs-filterable
+       data-category="structural"
+       data-status="foundation"
+       data-implementation="css-foundation"
+       href="../components/panel/index.html">
+      <div class="docs-card__top">
+        <h3>Panel</h3>
+        <span class="docs-status docs-status--foundation">foundation</span>
+      </div>
+      <p>The shared bordered, rounded content container that nearly every other component is built from.</p>
+      <div class="docs-card__meta">
+        <span class="docs-tag">Structural</span>
+        <span class="docs-tag">Rise</span>
+      </div>
+    </a>
+    
+    <a class="docs-card" data-docs-filterable
+       data-category="support"
+       data-status="core"
+       data-implementation="css-foundation"
+       href="../components/button/index.html">
+      <div class="docs-card__top">
+        <h3>Button</h3>
+        <span class="docs-status docs-status--core">core</span>
+      </div>
+      <p>Primary, secondary and light calls to action.</p>
+      <div class="docs-card__meta">
+        <span class="docs-tag">Support</span>
+        <span class="docs-tag">Rise</span>
+      </div>
+    </a>
+    
+    <a class="docs-card" data-docs-filterable
+       data-category="support"
+       data-status="core"
+       data-implementation="css-foundation"
+       href="../components/callout/index.html">
+      <div class="docs-card__top">
+        <h3>Callout</h3>
+        <span class="docs-status docs-status--core">core</span>
+      </div>
+      <p>Default, blue, success, warning and error messages that need to stand apart from body text.</p>
+      <div class="docs-card__meta">
+        <span class="docs-tag">Support</span>
+        <span class="docs-tag">Rise</span>
+      </div>
+    </a>
+    
+    <a class="docs-card" data-docs-filterable
+       data-category="support"
+       data-status="approved"
+       data-implementation="css-foundation"
+       href="../components/meta-tags/index.html">
+      <div class="docs-card__top">
+        <h3>Meta tags</h3>
+        <span class="docs-status docs-status--approved">approved</span>
+      </div>
+      <p>Compact duration, category or format labels.</p>
+      <div class="docs-card__meta">
+        <span class="docs-tag">Support</span>
+        <span class="docs-tag">Rise</span>
+      </div>
+    </a>
+    
+    <a class="docs-card" data-docs-filterable
+       data-category="structural"
+       data-status="approved"
+       data-implementation="css-foundation"
+       href="../components/card-grid/index.html">
+      <div class="docs-card__top">
+        <h3>Card grid</h3>
+        <span class="docs-status docs-status--approved">approved</span>
+      </div>
+      <p>Two- or three-column card collection.</p>
+      <div class="docs-card__meta">
+        <span class="docs-tag">Structural</span>
+        <span class="docs-tag">Rise</span>
+      </div>
+    </a>
+    
+    <a class="docs-card" data-docs-filterable
+       data-category="interaction"
+       data-status="core"
+       data-implementation="custom-html"
+       href="../components/accordion/index.html">
+      <div class="docs-card__top">
+        <h3>Accordion</h3>
+        <span class="docs-status docs-status--core">core</span>
+      </div>
+      <p>Progressive disclosure of secondary detail that benefits from being collapsed by default.</p>
+      <div class="docs-card__meta">
+        <span class="docs-tag">Interaction</span>
+        <span class="docs-tag">Rise</span>
+      </div>
+    </a>
+    
+    <a class="docs-card" data-docs-filterable
+       data-category="interaction"
+       data-status="approved"
+       data-implementation="custom-html-js"
+       href="../components/tabs/index.html">
+      <div class="docs-card__top">
+        <h3>Tabs</h3>
+        <span class="docs-status docs-status--approved">approved</span>
+      </div>
+      <p>Local navigation across a small number of parallel categories.</p>
+      <div class="docs-card__meta">
+        <span class="docs-tag">Interaction</span>
+        <span class="docs-tag">Rise</span>
+      </div>
+    </a>
+    
+    <a class="docs-card" data-docs-filterable
+       data-category="support"
+       data-status="approved"
+       data-implementation="custom-html"
+       href="../components/video-frame/index.html">
+      <div class="docs-card__top">
+        <h3>Video frame</h3>
+        <span class="docs-status docs-status--approved">approved</span>
+      </div>
+      <p>Responsive 16:9 embedded media treatment.</p>
+      <div class="docs-card__meta">
+        <span class="docs-tag">Support</span>
+        <span class="docs-tag">Rise</span>
+      </div>
+    </a>
+    
+    <a class="docs-card" data-docs-filterable
+       data-category="structural"
+       data-status="approved"
+       data-implementation="custom-html"
+       href="../components/section-opener/index.html">
+      <div class="docs-card__top">
+        <h3>Section opener</h3>
+        <span class="docs-status docs-status--approved">approved</span>
+      </div>
+      <p>Introduces a major course section with strong orientation.</p>
+      <div class="docs-card__meta">
+        <span class="docs-tag">Structural</span>
+        <span class="docs-tag">Rise</span>
+      </div>
+    </a>
+    
+    <a class="docs-card" data-docs-filterable
+       data-category="structural"
+       data-status="approved"
+       data-implementation="custom-html"
+       href="../components/footer-band/index.html">
+      <div class="docs-card__top">
+        <h3>Dark / footer band</h3>
+        <span class="docs-status docs-status--approved">approved</span>
+      </div>
+      <p>Closes or resets a section with concise reinforcement.</p>
+      <div class="docs-card__meta">
+        <span class="docs-tag">Structural</span>
+        <span class="docs-tag">Rise</span>
+      </div>
+    </a>
+    
+    <a class="docs-card" data-docs-filterable
+       data-category="content"
+       data-status="core"
+       data-implementation="custom-html"
+       href="../components/split-card/index.html">
+      <div class="docs-card__top">
+        <h3>Split card</h3>
+        <span class="docs-status docs-status--core">core</span>
+      </div>
+      <p>Pairs a concise explanation with meaningful imagery.</p>
+      <div class="docs-card__meta">
+        <span class="docs-tag">Content</span>
+        <span class="docs-tag">Rise</span>
+      </div>
+    </a>
+    
+    <a class="docs-card" data-docs-filterable
+       data-category="content"
+       data-status="core"
+       data-implementation="custom-html"
+       href="../components/key-message/index.html">
+      <div class="docs-card__top">
+        <h3>Key message</h3>
+        <span class="docs-status docs-status--core">core</span>
+      </div>
+      <p>Isolates one point a learner should retain.</p>
+      <div class="docs-card__meta">
+        <span class="docs-tag">Content</span>
+        <span class="docs-tag">Rise</span>
+      </div>
+    </a>
+    
+    <a class="docs-card" data-docs-filterable
+       data-category="content"
+       data-status="approved"
+       data-implementation="custom-html"
+       href="../components/legislation-panel/index.html">
+      <div class="docs-card__top">
+        <h3>Legislation panel</h3>
+        <span class="docs-status docs-status--approved">approved</span>
+      </div>
+      <p>Separates the legal source from its plain-English meaning.</p>
+      <div class="docs-card__meta">
+        <span class="docs-tag">Content</span>
+        <span class="docs-tag">Rise</span>
+      </div>
+    </a>
+    
+    <a class="docs-card" data-docs-filterable
+       data-category="content"
+       data-status="core"
+       data-implementation="custom-html"
+       href="../components/resource-card/index.html">
+      <div class="docs-card__top">
+        <h3>Resource card</h3>
+        <span class="docs-status docs-status--core">core</span>
+      </div>
+      <p>Explains a resource and provides a clear action to open it.</p>
+      <div class="docs-card__meta">
+        <span class="docs-tag">Content</span>
+        <span class="docs-tag">Rise</span>
+      </div>
+    </a>
+    
+    <a class="docs-card" data-docs-filterable
+       data-category="content"
+       data-status="approved"
+       data-implementation="custom-html"
+       href="../components/process/index.html">
+      <div class="docs-card__top">
+        <h3>Process block</h3>
+        <span class="docs-status docs-status--approved">approved</span>
+      </div>
+      <p>Shows a genuinely ordered procedure.</p>
+      <div class="docs-card__meta">
+        <span class="docs-tag">Content</span>
+        <span class="docs-tag">Rise</span>
+      </div>
+    </a>
+    
+    <a class="docs-card" data-docs-filterable
+       data-category="scenario"
+       data-status="core"
+       data-implementation="custom-html"
+       href="../components/scenario-stage/index.html">
+      <div class="docs-card__top">
+        <h3>Scenario stage</h3>
+        <span class="docs-status docs-status--core">core</span>
+      </div>
+      <p>Presents context, evidence or an update within a running scenario, from the decision-maker's perspective.</p>
+      <div class="docs-card__meta">
+        <span class="docs-tag">Scenario</span>
+        <span class="docs-tag">Rise</span>
+      </div>
+    </a>
+    
+    <a class="docs-card" data-docs-filterable
+       data-category="scenario"
+       data-status="core"
+       data-implementation="custom-html-js"
+       href="../components/decision-point/index.html">
+      <div class="docs-card__top">
+        <h3>Decision point</h3>
+        <span class="docs-status docs-status--core">core</span>
+      </div>
+      <p>Requires a realistic professional judgement and reveals the reasoning behind the correct response.</p>
+      <div class="docs-card__meta">
+        <span class="docs-tag">Scenario</span>
+        <span class="docs-tag">Rise</span>
+      </div>
+    </a>
+    
+    <a class="docs-card" data-docs-filterable
+       data-category="scenario"
+       data-status="approved"
+       data-implementation="custom-html"
+       href="../components/role-split/index.html">
+      <div class="docs-card__top">
+        <h3>Role split</h3>
+        <span class="docs-status docs-status--approved">approved</span>
+      </div>
+      <p>Clarifies two related audiences, responsibilities or positions by holding them side by side.</p>
+      <div class="docs-card__meta">
+        <span class="docs-tag">Scenario</span>
+        <span class="docs-tag">Rise</span>
+      </div>
+    </a>
+    
+    <a class="docs-card" data-docs-filterable
+       data-category="scenario"
+       data-status="course-specific"
+       data-implementation="custom-html-js"
+       href="../components/self-assessment/index.html">
+      <div class="docs-card__top">
+        <h3>Self-assessment</h3>
+        <span class="docs-status docs-status--course-specific">course specific</span>
+      </div>
+      <p>A structured confidence or knowledge self-rating table — the learner rates each statement against a shared scale (e.g. Not at all confident → Very confident).</p>
+      <div class="docs-card__meta">
+        <span class="docs-tag">Scenario</span>
+        <span class="docs-tag">Rise</span>
+      </div>
+    </a>
+    
+    <a class="docs-card" data-docs-filterable
+       data-category="interaction"
+       data-status="course-specific"
+       data-implementation="custom-html-js"
+       href="../components/harm-tabs/index.html">
+      <div class="docs-card__top">
+        <h3>Harm tabs</h3>
+        <span class="docs-status docs-status--course-specific">course specific</span>
+      </div>
+      <p>Specialised content navigation for categories of harm — lets the learner move between related but distinct categories (physical abuse, psychological/emotional abuse, neglect, sexual abuse or exploitation, grooming) without a full page per category.</p>
+      <div class="docs-card__meta">
+        <span class="docs-tag">Interaction</span>
+        <span class="docs-tag">Rise</span>
+      </div>
+    </a>
+    
+    <a class="docs-card" data-docs-filterable
+       data-category="interaction"
+       data-status="experimental"
+       data-implementation="custom-html-js"
+       href="../components/course-feedback/index.html">
+      <div class="docs-card__top">
+        <h3>Course feedback form</h3>
+        <span class="docs-status docs-status--experimental">experimental</span>
+      </div>
+      <p>Structured feedback form treatment for end-of-course response collection.</p>
+      <div class="docs-card__meta">
+        <span class="docs-tag">Interaction</span>
+        <span class="docs-tag">Rise</span>
+      </div>
+    </a>
+    
+    <a class="docs-card" data-docs-filterable
+       data-category="structural"
+       data-status="experimental"
+       data-implementation="css-foundation"
+       href="../components/divider/index.html">
+      <div class="docs-card__top">
+        <h3>Divider</h3>
+        <span class="docs-status docs-status--experimental">experimental</span>
+      </div>
+      <p>Transitions between adjoining structural surfaces with an angled decorative edge.</p>
+      <div class="docs-card__meta">
+        <span class="docs-tag">Structural</span>
+        <span class="docs-tag">Rise</span>
+      </div>
+    </a>
+    
+    <a class="docs-card" data-docs-filterable
+       data-category="legacy"
+       data-status="legacy"
+       data-implementation="custom-html"
+       href="../components/editorial-reflection/index.html">
+      <div class="docs-card__top">
+        <h3>Editorial reflection</h3>
+        <span class="docs-status docs-status--legacy">legacy</span>
+      </div>
+      <p>Large legacy reflection treatment.</p>
+      <div class="docs-card__meta">
+        <span class="docs-tag">Legacy</span>
+        <span class="docs-tag">Rise</span>
+      </div>
+    </a>
+    
+  </div>
+</div>
+
+  </main>
+
+  <footer class="docs-footer">
+    <div class="docs-footer__inner">
+      <div>
+        <h2>System</h2>
+        <ul>
+          <li><a href="../overview/index.html">Overview</a></li>
+          <li><a href="../governance/index.html">Governance</a></li>
+          <li><a href="../changelog/index.html">Changelog</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Reference</h2>
+        <ul>
+          <li><a href="../foundations/index.html">Foundations</a></li>
+          <li><a href="../patterns/index.html">Learning patterns</a></li>
+          <li><a href="../components/index.html">Components</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Platforms</h2>
+        <ul>
+          <li><a href="../platforms/rise/index.html">Rise</a></li>
+          <li><a href="../platforms/connect-learn/index.html">Connect &amp; Learn</a></li>
+          <li><a href="../platforms/storyline/index.html">Storyline</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Accessibility</h2>
+        <p>Designed to support accessibility and tested against the documented design-system checklist.</p>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script src="../assets/js/navigation.js"></script>
+<script src="../assets/js/search.js"></script>
+<script src="../assets/js/filters.js"></script>
+<script src="../assets/js/component-preview.js"></script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+{% extends "base.html.j2" %}
+{% block content %}
+<div class="docs-page-with-sidebar">
+  <nav class="docs-side-nav" aria-label="On this page">
+    <h2>Overview</h2>
+    <ul>
+      <li><a href="#purpose">Purpose</a></li>
+      <li><a href="#audiences">Audiences</a></li>
+      <li><a href="#relationship">Relationship to Rise &amp; Connect &amp; Learn</a></li>
+      <li><a href="#hierarchy">Documentation hierarchy</a></li>
+      <li><a href="#maturity">Maturity &amp; roadmap</a></li>
+      <li><a href="#how-to-use">How to use this site</a></li>
+    </ul>
+  </nav>
+  <div>
+    <span class="docs-eyebrow">Overview</span>
+    <h1>What is the ISQ eLearning Design System?</h1>
+    <p class="docs-lede">A shared system of principles, foundations, learning patterns, components, standards and governance for ISQ digital learning experiences across Connect &amp; Learn, Articulate Rise and related learning products.</p>
+
+    <div class="docs-module" id="purpose">
+      <h2>Purpose</h2>
+      <ul>
+        <li>Create a coherent learner experience across platforms and course types.</li>
+        <li>Reduce reinvention through documented patterns, components and shared production standards.</li>
+        <li>Improve delivery speed, accessibility, maintainability and readiness for future brand change.</li>
+      </ul>
+    </div>
+
+    <div class="docs-module" id="audiences">
+      <h2>Audiences</h2>
+      <table class="docs-field-table">
+        <thead><tr><th>Audience</th><th>What the system provides</th></tr></thead>
+        <tbody>
+          <tr><td>Executives &amp; sponsors</td><td>Strategic direction, scope, governance model and investment rationale.</td></tr>
+          <tr><td>Designers &amp; developers</td><td>Learning patterns, components, implementation standards, versioning and technical references.</td></tr>
+          <tr><td>Subject matter experts</td><td>A clearer explanation of how content is structured and why particular patterns are used.</td></tr>
+          <tr><td>Platform administrators</td><td>A consistent model for applying the system within Moodle, Rise and future tools.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="docs-module" id="relationship">
+      <h2>Relationship to Rise and Connect &amp; Learn</h2>
+      <p>A learner moving from Connect &amp; Learn into a Rise course should not experience an abrupt change in visual language, hierarchy, interaction behaviour or quality. Rise is the system's first mature implementation stream; Connect &amp; Learn (Moodle) is the platform-level implementation described in the <a href="{{ base }}platforms/connect-learn/index.html">Connect &amp; Learn 2027</a> blueprint. The systems are technically different — the experience is deliberately continuous.</p>
+    </div>
+
+    <div class="docs-module" id="hierarchy">
+      <h2>Documentation hierarchy</h2>
+      <table class="docs-field-table">
+        <thead><tr><th>#</th><th>Publication</th><th>Role</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>ISQ eLearning Design System</td><td>Authoritative strategy, architecture, principles, governance and roadmap.</td></tr>
+          <tr><td>2</td><td>ISQ Rise Design System: Implementation and Component Guide</td><td>Detailed Rise-specific components, HTML/CSS/JS, responsive behaviour and technical guidance.</td></tr>
+          <tr><td>3</td><td>ISQ Rise Block Selection and Usage Guide</td><td>Concise decision guide for choosing native and custom blocks.</td></tr>
+          <tr><td>4</td><td>ISQ Digital Learning Imagery and Media Guide</td><td>Image taxonomy, production dimensions, photography direction, accessibility and file standards.</td></tr>
+          <tr><td>5</td><td>This live reference site</td><td>Live examples, code, variants, status, accessibility and changelog.</td></tr>
+          <tr><td>6</td><td>Templates and production resources</td><td>Starter courses, source CSS, HTML snippets, image templates, QA checklists and storyboard resources.</td></tr>
+        </tbody>
+      </table>
+      <p style="margin-top:var(--docs-space-3); font-size:0.92rem; color:var(--docs-muted);">Where publications conflict: the umbrella system governs shared principles, platform guides govern platform-specific behaviour, and production code governs the current rendered implementation.</p>
+    </div>
+
+    <div class="docs-module" id="maturity">
+      <h2>Maturity and roadmap</h2>
+      <p>The system has moved from course-by-course discovery (proven through the Child Protection programme) to formal consolidation. This site represents Roadmap Phase 5 — Document and demonstrate — reached ahead of the completed audit and accessibility gate, so several entries are marked accordingly. See <a href="{{ base }}governance/index.html">Governance</a> for the full lifecycle model and current open decisions.</p>
+    </div>
+
+    <div class="docs-module" id="how-to-use">
+      <h2>How to use this site</h2>
+      <p>Executives and sponsors: read this Overview and Governance. Designers and developers: use Components and Patterns during production, and the Rise implementation guide for technical detail. Reviewers: use the accessibility fields on each component page and the checklists under Resources.</p>
+    </div>
+  </div>
+</div>
+{% endblock %}

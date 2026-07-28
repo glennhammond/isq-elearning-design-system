@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Learning patterns — ISQ eLearning Design System</title>
+<meta name="description" content="The eleven core learning and communication patterns.">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<link rel="stylesheet" href="../assets/css/base.css">
+<link rel="stylesheet" href="../assets/css/layout.css">
+<link rel="stylesheet" href="../assets/css/components.css">
+<link rel="stylesheet" href="../assets/css/documentation.css">
+</head>
+<body>
+<a class="docs-skip-link" href="#docs-main">Skip to content</a>
+<div class="docs-shell">
+  <header class="docs-header">
+    <div class="docs-header__inner">
+      <a class="docs-logo" href="../index.html">ISQ <span>eLearning Design System</span></a>
+      <button class="docs-nav-toggle" aria-expanded="false" aria-controls="docs-primary-nav">Menu</button>
+      <nav class="docs-primary-nav" id="docs-primary-nav" aria-label="Primary">
+        <a class="docs-nav-link" href="../overview/index.html" >Overview</a>
+        <a class="docs-nav-link" href="../foundations/index.html" >Foundations</a>
+        <a class="docs-nav-link" href="../patterns/index.html" aria-current="page">Learning patterns</a>
+        <a class="docs-nav-link" href="../components/index.html" >Components</a>
+        <a class="docs-nav-link" href="../platforms/rise/index.html" >Platforms</a>
+        <a class="docs-nav-link" href="../media/index.html" >Imagery &amp; media</a>
+        <a class="docs-nav-link" href="../resources/index.html" >Resources</a>
+        <a class="docs-nav-link" href="../governance/index.html" >Governance</a>
+        <a class="docs-nav-link" href="../changelog/index.html" >Changelog</a>
+      </nav>
+      <div class="docs-search docs-search-wrap" role="search">
+        <label class="docs-visually-hidden" for="docs-search-input">Search the design system</label>
+        <input id="docs-search-input" type="search" placeholder="Search components, classes, patterns…" data-docs-search-input data-base="../" autocomplete="off">
+      </div>
+      <div class="docs-search-results" data-docs-search-results hidden></div>
+    </div>
+  </header>
+
+  <main class="docs-main" id="docs-main">
+
+<div class="docs-container">
+  <span class="docs-eyebrow">Learning patterns</span>
+  <h1>What pattern should I use for this learning need?</h1>
+  <p class="docs-lede">Patterns are platform-neutral. Each can have more than one component or platform implementation, but its learning purpose stays stable. Do not create a new component before checking whether an existing pattern and variant can serve the need.</p>
+
+  
+  <article class="docs-module" id="section-opener">
+    <h2 style="text-transform:none; font-size:1.4rem; color:var(--docs-blue-dark); font-family:var(--docs-font-heading); letter-spacing:normal;">Section opener</h2>
+    <p><strong>Purpose:</strong> Orient the learner at a genuine structural transition.</p>
+    <div class="docs-use-avoid">
+      <div class="docs-use-avoid__col docs-use-avoid__col--use">
+        <h3>Use when</h3>
+        <p style="font-size:0.94rem;">A major section genuinely begins — not every subtopic.</p>
+      </div>
+      <div class="docs-use-avoid__col docs-use-avoid__col--avoid">
+        <h3>Avoid when</h3>
+        <p style="font-size:0.94rem;">Used for every heading change, which flattens its meaning.</p>
+      </div>
+    </div>
+    <p style="margin-top:var(--docs-space-3); font-size:0.9rem; color:var(--docs-muted);">Rise: native banner or the approved custom section opener.</p>
+    <div class="docs-related-list" style="margin-top:var(--docs-space-2);">
+      
+      <a class="docs-tag" href="../components/section-opener/index.html">Section opener →</a>
+      
+    </div>
+  </article>
+  
+  <article class="docs-module" id="explanation">
+    <h2 style="text-transform:none; font-size:1.4rem; color:var(--docs-blue-dark); font-family:var(--docs-font-heading); letter-spacing:normal;">Explanation</h2>
+    <p><strong>Purpose:</strong> Introduce and explain a concept with clear hierarchy and readable density.</p>
+    <div class="docs-use-avoid">
+      <div class="docs-use-avoid__col docs-use-avoid__col--use">
+        <h3>Use when</h3>
+        <p style="font-size:0.94rem;">Building core knowledge the learner needs before acting on it.</p>
+      </div>
+      <div class="docs-use-avoid__col docs-use-avoid__col--avoid">
+        <h3>Avoid when</h3>
+        <p style="font-size:0.94rem;">The content is really a single retainable point — use Key message instead.</p>
+      </div>
+    </div>
+    <p style="margin-top:var(--docs-space-3); font-size:0.9rem; color:var(--docs-muted);">Rise: native image-and-text is preferred; split card only where the image adds real meaning.</p>
+    <div class="docs-related-list" style="margin-top:var(--docs-space-2);">
+      
+      <a class="docs-tag" href="../components/split-card/index.html">Split card →</a>
+      
+      <a class="docs-tag" href="../components/panel/index.html">Panel →</a>
+      
+    </div>
+  </article>
+  
+  <article class="docs-module" id="key-message">
+    <h2 style="text-transform:none; font-size:1.4rem; color:var(--docs-blue-dark); font-family:var(--docs-font-heading); letter-spacing:normal;">Key message</h2>
+    <p><strong>Purpose:</strong> Isolate the one point a learner should retain.</p>
+    <div class="docs-use-avoid">
+      <div class="docs-use-avoid__col docs-use-avoid__col--use">
+        <h3>Use when</h3>
+        <p style="font-size:0.94rem;">One legal threshold, definition or critical reminder.</p>
+      </div>
+      <div class="docs-use-avoid__col docs-use-avoid__col--avoid">
+        <h3>Avoid when</h3>
+        <p style="font-size:0.94rem;">Routine supporting detail, or more than one message in a single panel.</p>
+      </div>
+    </div>
+    <p style="margin-top:var(--docs-space-3); font-size:0.9rem; color:var(--docs-muted);">One to three sentences. Use ordinary body text with a subheading as the fallback.</p>
+    <div class="docs-related-list" style="margin-top:var(--docs-space-2);">
+      
+      <a class="docs-tag" href="../components/key-message/index.html">Key message →</a>
+      
+    </div>
+  </article>
+  
+  <article class="docs-module" id="legislation">
+    <h2 style="text-transform:none; font-size:1.4rem; color:var(--docs-blue-dark); font-family:var(--docs-font-heading); letter-spacing:normal;">Legislation or authority</h2>
+    <p><strong>Purpose:</strong> Separate source requirements from plain-English interpretation.</p>
+    <div class="docs-use-avoid">
+      <div class="docs-use-avoid__col docs-use-avoid__col--use">
+        <h3>Use when</h3>
+        <p style="font-size:0.94rem;">A specific Act, regulation or section underpins a requirement.</p>
+      </div>
+      <div class="docs-use-avoid__col docs-use-avoid__col--avoid">
+        <h3>Avoid when</h3>
+        <p style="font-size:0.94rem;">A general policy statement with no legislative source — use a standard content panel.</p>
+      </div>
+    </div>
+    <p style="margin-top:var(--docs-space-3); font-size:0.9rem; color:var(--docs-muted);">Always name the instrument precisely and keep the plain-English summary visibly separate from the quoted source.</p>
+    <div class="docs-related-list" style="margin-top:var(--docs-space-2);">
+      
+      <a class="docs-tag" href="../components/legislation-panel/index.html">Legislation panel →</a>
+      
+    </div>
+  </article>
+  
+  <article class="docs-module" id="scenario-stage">
+    <h2 style="text-transform:none; font-size:1.4rem; color:var(--docs-blue-dark); font-family:var(--docs-font-heading); letter-spacing:normal;">Scenario stage</h2>
+    <p><strong>Purpose:</strong> Present new context or evidence from the decision-maker's perspective.</p>
+    <div class="docs-use-avoid">
+      <div class="docs-use-avoid__col docs-use-avoid__col--use">
+        <h3>Use when</h3>
+        <p style="font-size:0.94rem;">A discrete context, update, observation or piece of evidence within a running scenario.</p>
+      </div>
+      <div class="docs-use-avoid__col docs-use-avoid__col--avoid">
+        <h3>Avoid when</h3>
+        <p style="font-size:0.94rem;">General explanation unrelated to the scenario — use a split card or standard panel.</p>
+      </div>
+    </div>
+    <p style="margin-top:var(--docs-space-3); font-size:0.9rem; color:var(--docs-muted);">Keep one stable visual environment and decision-maker perspective across a whole scenario.</p>
+    <div class="docs-related-list" style="margin-top:var(--docs-space-2);">
+      
+      <a class="docs-tag" href="../components/scenario-stage/index.html">Scenario stage →</a>
+      
+    </div>
+  </article>
+  
+  <article class="docs-module" id="decision-point">
+    <h2 style="text-transform:none; font-size:1.4rem; color:var(--docs-blue-dark); font-family:var(--docs-font-heading); letter-spacing:normal;">Decision point</h2>
+    <p><strong>Purpose:</strong> Require a realistic professional judgement and reveal the reasoning behind it.</p>
+    <div class="docs-use-avoid">
+      <div class="docs-use-avoid__col docs-use-avoid__col--use">
+        <h3>Use when</h3>
+        <p style="font-size:0.94rem;">A genuine professional juncture with credible distractors and consequential feedback.</p>
+      </div>
+      <div class="docs-use-avoid__col docs-use-avoid__col--avoid">
+        <h3>Avoid when</h3>
+        <p style="font-size:0.94rem;">An obvious answer with implausible distractors — use a native knowledge check for simple recall instead.</p>
+      </div>
+    </div>
+    <p style="margin-top:var(--docs-space-3); font-size:0.9rem; color:var(--docs-muted);">Feedback must explain why an option is appropriate, not only whether it was selected.</p>
+    <div class="docs-related-list" style="margin-top:var(--docs-space-2);">
+      
+      <a class="docs-tag" href="../components/decision-point/index.html">Decision point →</a>
+      
+    </div>
+  </article>
+  
+  <article class="docs-module" id="feedback">
+    <h2 style="text-transform:none; font-size:1.4rem; color:var(--docs-blue-dark); font-family:var(--docs-font-heading); letter-spacing:normal;">Feedback</h2>
+    <p><strong>Purpose:</strong> Explain why a choice is appropriate, not only whether it is correct.</p>
+    <div class="docs-use-avoid">
+      <div class="docs-use-avoid__col docs-use-avoid__col--use">
+        <h3>Use when</h3>
+        <p style="font-size:0.94rem;">Immediately after every decision, revealed in place.</p>
+      </div>
+      <div class="docs-use-avoid__col docs-use-avoid__col--avoid">
+        <h3>Avoid when</h3>
+        <p style="font-size:0.94rem;">As a generic correct/incorrect message with no reasoning.</p>
+      </div>
+    </div>
+    <p style="margin-top:var(--docs-space-3); font-size:0.9rem; color:var(--docs-muted);">Announce revealed feedback appropriately; place it immediately after the action that caused it.</p>
+    <div class="docs-related-list" style="margin-top:var(--docs-space-2);">
+      
+      <a class="docs-tag" href="../components/decision-point/index.html">Decision point →</a>
+      
+    </div>
+  </article>
+  
+  <article class="docs-module" id="process">
+    <h2 style="text-transform:none; font-size:1.4rem; color:var(--docs-blue-dark); font-family:var(--docs-font-heading); letter-spacing:normal;">Process</h2>
+    <p><strong>Purpose:</strong> Present actions or stages in a meaningful, genuinely ordered sequence.</p>
+    <div class="docs-use-avoid">
+      <div class="docs-use-avoid__col docs-use-avoid__col--use">
+        <h3>Use when</h3>
+        <p style="font-size:0.94rem;">Order is real and matters to the outcome.</p>
+      </div>
+      <div class="docs-use-avoid__col docs-use-avoid__col--avoid">
+        <h3>Avoid when</h3>
+        <p style="font-size:0.94rem;">The steps are not truly sequential — a card grid or list communicates it more honestly.</p>
+      </div>
+    </div>
+    <p style="margin-top:var(--docs-space-3); font-size:0.9rem; color:var(--docs-muted);">Use numbering only where the number carries meaning.</p>
+    <div class="docs-related-list" style="margin-top:var(--docs-space-2);">
+      
+      <a class="docs-tag" href="../components/process/index.html">Process block →</a>
+      
+    </div>
+  </article>
+  
+  <article class="docs-module" id="comparison">
+    <h2 style="text-transform:none; font-size:1.4rem; color:var(--docs-blue-dark); font-family:var(--docs-font-heading); letter-spacing:normal;">Comparison</h2>
+    <p><strong>Purpose:</strong> Clarify differences between roles, responses or alternatives.</p>
+    <div class="docs-use-avoid">
+      <div class="docs-use-avoid__col docs-use-avoid__col--use">
+        <h3>Use when</h3>
+        <p style="font-size:0.94rem;">Two related audiences or positions need to be held side by side, with parallel categories.</p>
+      </div>
+      <div class="docs-use-avoid__col docs-use-avoid__col--avoid">
+        <h3>Avoid when</h3>
+        <p style="font-size:0.94rem;">More than a handful of items — use a card grid or table instead.</p>
+      </div>
+    </div>
+    <p style="margin-top:var(--docs-space-3); font-size:0.9rem; color:var(--docs-muted);">Keep categories parallel and the differences explicit; this is the pattern behind the shared Role split component — course-specific one-off comparisons (see Governance) should be migrated to it.</p>
+    <div class="docs-related-list" style="margin-top:var(--docs-space-2);">
+      
+      <a class="docs-tag" href="../components/role-split/index.html">Role split →</a>
+      
+    </div>
+  </article>
+  
+  <article class="docs-module" id="reflection">
+    <h2 style="text-transform:none; font-size:1.4rem; color:var(--docs-blue-dark); font-family:var(--docs-font-heading); letter-spacing:normal;">Reflection</h2>
+    <p><strong>Purpose:</strong> Prompt considered application without adding unnecessary interaction.</p>
+    <div class="docs-use-avoid">
+      <div class="docs-use-avoid__col docs-use-avoid__col--use">
+        <h3>Use when</h3>
+        <p style="font-size:0.94rem;">A short self-assessment or reflective prompt genuinely aids transfer.</p>
+      </div>
+      <div class="docs-use-avoid__col docs-use-avoid__col--avoid">
+        <h3>Avoid when</h3>
+        <p style="font-size:0.94rem;">As a large, decorative treatment — the legacy Editorial reflection component exists only for backwards compatibility.</p>
+      </div>
+    </div>
+    <p style="margin-top:var(--docs-space-3); font-size:0.9rem; color:var(--docs-muted);">Prefer native statement/reflection blocks or a compact approved panel; use the self-assessment table only where a structured rating genuinely helps.</p>
+    <div class="docs-related-list" style="margin-top:var(--docs-space-2);">
+      
+      <a class="docs-tag" href="../components/self-assessment/index.html">Self-assessment →</a>
+      
+    </div>
+  </article>
+  
+  <article class="docs-module" id="resource">
+    <h2 style="text-transform:none; font-size:1.4rem; color:var(--docs-blue-dark); font-family:var(--docs-font-heading); letter-spacing:normal;">Resource</h2>
+    <p><strong>Purpose:</strong> Explain what a linked item is, why it matters and what will happen when it opens.</p>
+    <div class="docs-use-avoid">
+      <div class="docs-use-avoid__col docs-use-avoid__col--use">
+        <h3>Use when</h3>
+        <p style="font-size:0.94rem;">A supplementary document or external guidance needs context before the click.</p>
+      </div>
+      <div class="docs-use-avoid__col docs-use-avoid__col--avoid">
+        <h3>Avoid when</h3>
+        <p style="font-size:0.94rem;">Essential learning is available only through the external link — bring it into the course itself.</p>
+      </div>
+    </div>
+    <p style="margin-top:var(--docs-space-3); font-size:0.9rem; color:var(--docs-muted);">Name the resource and why it matters; a native attachment or text link is the fallback for lighter cases.</p>
+    <div class="docs-related-list" style="margin-top:var(--docs-space-2);">
+      
+      <a class="docs-tag" href="../components/resource-card/index.html">Resource card →</a>
+      
+    </div>
+  </article>
+  
+  <article class="docs-module" id="section-summary">
+    <h2 style="text-transform:none; font-size:1.4rem; color:var(--docs-blue-dark); font-family:var(--docs-font-heading); letter-spacing:normal;">Section summary</h2>
+    <p><strong>Purpose:</strong> Close a major section and reinforce the intended learning.</p>
+    <div class="docs-use-avoid">
+      <div class="docs-use-avoid__col docs-use-avoid__col--use">
+        <h3>Use when</h3>
+        <p style="font-size:0.94rem;">The end of a major section, before a genuine transition.</p>
+      </div>
+      <div class="docs-use-avoid__col docs-use-avoid__col--avoid">
+        <h3>Avoid when</h3>
+        <p style="font-size:0.94rem;">After every subtopic.</p>
+      </div>
+    </div>
+    <p style="margin-top:var(--docs-space-3); font-size:0.9rem; color:var(--docs-muted);">Three to five concise points; the dark/footer band gives it a deliberate structural close.</p>
+    <div class="docs-related-list" style="margin-top:var(--docs-space-2);">
+      
+      <a class="docs-tag" href="../components/footer-band/index.html">Dark / footer band →</a>
+      
+    </div>
+  </article>
+  
+</div>
+
+  </main>
+
+  <footer class="docs-footer">
+    <div class="docs-footer__inner">
+      <div>
+        <h2>System</h2>
+        <ul>
+          <li><a href="../overview/index.html">Overview</a></li>
+          <li><a href="../governance/index.html">Governance</a></li>
+          <li><a href="../changelog/index.html">Changelog</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Reference</h2>
+        <ul>
+          <li><a href="../foundations/index.html">Foundations</a></li>
+          <li><a href="../patterns/index.html">Learning patterns</a></li>
+          <li><a href="../components/index.html">Components</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Platforms</h2>
+        <ul>
+          <li><a href="../platforms/rise/index.html">Rise</a></li>
+          <li><a href="../platforms/connect-learn/index.html">Connect &amp; Learn</a></li>
+          <li><a href="../platforms/storyline/index.html">Storyline</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Accessibility</h2>
+        <p>Designed to support accessibility and tested against the documented design-system checklist.</p>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script src="../assets/js/navigation.js"></script>
+<script src="../assets/js/search.js"></script>
+<script src="../assets/js/filters.js"></script>
+<script src="../assets/js/component-preview.js"></script>
+</body>
+</html>

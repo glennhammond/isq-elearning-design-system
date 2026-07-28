@@ -1,0 +1,1341 @@
+[
+  {
+    "id": "panel",
+    "name": "Panel",
+    "category": "structural",
+    "status": "foundation",
+    "versionIntroduced": "1.0.0",
+    "platforms": [
+      "rise"
+    ],
+    "implementation": [
+      "css-foundation"
+    ],
+    "purpose": "The shared bordered, rounded content container that nearly every other component is built from.",
+    "useWhen": [
+      "Grouping related content that needs a visible boundary from the surrounding page."
+    ],
+    "avoidWhen": [
+      "A lighter separation (spacing alone, a rule) would do — not every group of content needs a panel."
+    ],
+    "anatomy": [
+      "Container (.isq-panel)",
+      "Surface modifier (pale / tint / ice / dark / blue)",
+      "Elevation modifier (elevated / strong / soft)",
+      "Content wrapper (.isq-content — see Foundations > Widths for the density modifiers it accepts)"
+    ],
+    "variants": [
+      "isq-panel--pale",
+      "isq-panel--tint",
+      "isq-panel--ice",
+      "isq-panel--dark",
+      "isq-panel--blue",
+      "isq-panel--square",
+      "isq-panel--soft",
+      "isq-panel--elevated",
+      "isq-panel--strong"
+    ],
+    "states": [
+      "default"
+    ],
+    "responsive": "Panel padding reduces at narrow widths via the .isq-content density modifiers it wraps; no structural change.",
+    "accessibility": [
+      "No semantic meaning of its own — the content inside carries structure (headings, lists)."
+    ],
+    "classes": [
+      "isq-panel",
+      "isq-panel--elevated",
+      "isq-panel--strong",
+      "isq-panel--pale",
+      "isq-panel--tint",
+      "isq-panel--ice",
+      "isq-panel--dark",
+      "isq-panel--blue",
+      "isq-panel--square",
+      "isq-panel--soft"
+    ],
+    "dependencies": [
+      "Production CSS only — no JavaScript."
+    ],
+    "relatedPatterns": [],
+    "relatedComponents": [
+      "split-card"
+    ],
+    "owner": "Design and development steward",
+    "lastReviewed": "2026-07",
+    "knownLimitations": [],
+    "html": "<div class=\"isq-panel isq-panel--elevated\">\n  <div class=\"isq-content\">\n    <p class=\"isq-body\">Panel content.</p>\n  </div>\n</div>"
+  },
+  {
+    "id": "button",
+    "name": "Button",
+    "category": "support",
+    "status": "core",
+    "versionIntroduced": "1.0.0",
+    "platforms": [
+      "rise"
+    ],
+    "implementation": [
+      "css-foundation"
+    ],
+    "purpose": "Primary, secondary and light calls to action.",
+    "useWhen": [
+      "A single clear action per area — one primary action, optionally one secondary."
+    ],
+    "avoidWhen": [
+      "Never use vague labels such as “Click here” — label the destination or outcome."
+    ],
+    "anatomy": [
+      "Label text",
+      "Optional icon (aria-hidden)"
+    ],
+    "variants": [
+      "isq-button--primary",
+      "isq-button--secondary",
+      "isq-button--light"
+    ],
+    "states": [
+      "default",
+      "hover",
+      "focus-visible",
+      "disabled"
+    ],
+    "responsive": "Full-width on narrow screens where it is the primary action in a stacked layout.",
+    "accessibility": [
+      "Use a real <button> or <a>, never a styled <div>.",
+      "Visible focus ring at sufficient contrast.",
+      "External links state their destination behaviour via aria-label."
+    ],
+    "classes": [
+      "isq-button",
+      "isq-button--primary",
+      "isq-button--secondary",
+      "isq-button--light"
+    ],
+    "dependencies": [
+      "Production CSS only."
+    ],
+    "relatedPatterns": [
+      "resource",
+      "section-summary"
+    ],
+    "relatedComponents": [
+      "resource-card",
+      "footer-band"
+    ],
+    "owner": "Design and development steward",
+    "lastReviewed": "2026-07",
+    "knownLimitations": [],
+    "html": "<a href=\"#\" class=\"isq-button isq-button--primary\">Open resource<span aria-hidden=\"true\">↗</span></a>"
+  },
+  {
+    "id": "callout",
+    "name": "Callout",
+    "category": "support",
+    "status": "core",
+    "versionIntroduced": "1.0.0",
+    "platforms": [
+      "rise"
+    ],
+    "implementation": [
+      "css-foundation"
+    ],
+    "purpose": "Default, blue, success, warning and error messages that need to stand apart from body text.",
+    "useWhen": [
+      "A short reinforcing message, a state result, or a boundary note within a panel."
+    ],
+    "avoidWhen": [
+      "Multiple callouts in succession — choose the one point that deserves emphasis."
+    ],
+    "anatomy": [
+      "Left rule (colour-coded)",
+      "Message text"
+    ],
+    "variants": [
+      "isq-callout--white",
+      "isq-callout--blue",
+      "isq-callout--success",
+      "isq-callout--warning",
+      "isq-callout--error"
+    ],
+    "states": [
+      "default"
+    ],
+    "responsive": "Stacks naturally; no restructuring at narrow widths.",
+    "accessibility": [
+      "Colour is always paired with the message text itself — never a colour-only cue.",
+      "Use role=\"status\" for callouts injected dynamically after an interaction."
+    ],
+    "classes": [
+      "isq-callout",
+      "isq-callout--white",
+      "isq-callout--blue",
+      "isq-callout--success",
+      "isq-callout--warning",
+      "isq-callout--error"
+    ],
+    "dependencies": [
+      "Production CSS only."
+    ],
+    "relatedPatterns": [
+      "key-message",
+      "feedback"
+    ],
+    "relatedComponents": [
+      "key-message",
+      "decision-point"
+    ],
+    "owner": "Design and development steward",
+    "lastReviewed": "2026-07",
+    "knownLimitations": [
+      "--isq-warning uses the same value as body charcoal rather than a distinct hue — confirm this is intentional (see Decisions)."
+    ],
+    "html": "<div class=\"isq-callout isq-callout--blue\">\n  <p class=\"isq-body\">This raises Sarah’s concern further. Sarah reviews section 10 of the <strong>Child Protection Act 1999</strong>.</p>\n</div>"
+  },
+  {
+    "id": "meta-tags",
+    "name": "Meta tags",
+    "category": "support",
+    "status": "approved",
+    "versionIntroduced": "1.0.0",
+    "platforms": [
+      "rise"
+    ],
+    "implementation": [
+      "css-foundation"
+    ],
+    "purpose": "Compact duration, category or format labels.",
+    "useWhen": [
+      "Metadata needs to be scannable at a glance beside a title."
+    ],
+    "avoidWhen": [
+      "The value is essential instruction — metadata is a label, not the content itself."
+    ],
+    "anatomy": [
+      "Container (.isq-meta)",
+      "Item (.isq-meta__item)"
+    ],
+    "variants": [
+      "isq-meta--dark"
+    ],
+    "states": [
+      "default"
+    ],
+    "responsive": "Wraps to a new line rather than truncating.",
+    "accessibility": [
+      "Plain text — no icon-only meta items without a text label."
+    ],
+    "classes": [
+      "isq-meta",
+      "isq-meta__item",
+      "isq-meta--dark"
+    ],
+    "dependencies": [
+      "Production CSS only."
+    ],
+    "relatedPatterns": [],
+    "relatedComponents": [
+      "card-grid",
+      "resource-card"
+    ],
+    "owner": "Design and development steward",
+    "lastReviewed": "2026-07",
+    "knownLimitations": [],
+    "html": "<div class=\"isq-meta\">\n  <span class=\"isq-meta__item\">40 min</span>\n  <span class=\"isq-meta__item\">Compliance</span>\n</div>"
+  },
+  {
+    "id": "card-grid",
+    "name": "Card grid",
+    "category": "structural",
+    "status": "approved",
+    "versionIntroduced": "1.0.0",
+    "platforms": [
+      "rise"
+    ],
+    "implementation": [
+      "css-foundation"
+    ],
+    "purpose": "Two- or three-column card collection.",
+    "useWhen": [
+      "Comparing three or more parallel options with consistent criteria."
+    ],
+    "avoidWhen": [
+      "Fewer than three items — a split or standard panel is simpler."
+    ],
+    "anatomy": [
+      "Grid container (.isq-grid--two / --three)",
+      "Cards (.isq-card)"
+    ],
+    "variants": [
+      "isq-grid--two",
+      "isq-grid--three"
+    ],
+    "states": [
+      "default"
+    ],
+    "responsive": "Restacks to a single column at the 760px breakpoint without removing content.",
+    "accessibility": [
+      "Card title is the link where the card is interactive, so the accessible name stays meaningful."
+    ],
+    "classes": [
+      "isq-grid",
+      "isq-grid--two",
+      "isq-grid--three",
+      "isq-card",
+      "isq-card__header",
+      "isq-card__body",
+      "isq-card--recommended"
+    ],
+    "dependencies": [
+      "Production CSS only."
+    ],
+    "relatedPatterns": [
+      "comparison"
+    ],
+    "relatedComponents": [
+      "role-split"
+    ],
+    "owner": "Design and development steward",
+    "lastReviewed": "2026-07",
+    "knownLimitations": [
+      "\"Grid\" is named as a layout primitive in Document 2's prose but was missing from its technical class index — corrected here."
+    ],
+    "html": "<div class=\"isq-grid isq-grid--three\">\n  <div class=\"isq-card\">\n    <div class=\"isq-card__header\">Title</div>\n    <div class=\"isq-card__body\">Body text.</div>\n  </div>\n</div>"
+  },
+  {
+    "id": "accordion",
+    "name": "Accordion",
+    "category": "interaction",
+    "status": "core",
+    "versionIntroduced": "1.0.0",
+    "platforms": [
+      "rise"
+    ],
+    "implementation": [
+      "custom-html"
+    ],
+    "purpose": "Progressive disclosure of secondary detail that benefits from being collapsed by default.",
+    "useWhen": [
+      "Secondary detail the learner may want but doesn't need to see immediately — e.g. individual pieces of legislation within a set."
+    ],
+    "avoidWhen": [
+      "Core obligations the learner must see immediately — never hide essential compliance information behind an interaction."
+    ],
+    "anatomy": [
+      "Wrapper (.isq-accordion)",
+      "Native <details>/<summary>",
+      "Label (.isq-accordion__label)",
+      "Chevron (.isq-accordion__chevron)",
+      "Content (.isq-accordion__content)"
+    ],
+    "variants": [],
+    "states": [
+      "collapsed",
+      "expanded",
+      "focus"
+    ],
+    "responsive": "Padding and alignment reduce on mobile; touch target remains adequate.",
+    "accessibility": [
+      "Uses native <details>/<summary> so semantics and keyboard behaviour are preserved without JavaScript.",
+      "Chevron is aria-hidden; state is exposed natively via the open attribute."
+    ],
+    "classes": [
+      "isq-accordion",
+      "isq-accordion__label",
+      "isq-accordion__chevron",
+      "isq-accordion__content"
+    ],
+    "dependencies": [
+      "Production CSS only — no JavaScript required; native <details> provides the interaction."
+    ],
+    "relatedPatterns": [
+      "legislation"
+    ],
+    "relatedComponents": [
+      "legislation-panel",
+      "tabs"
+    ],
+    "owner": "Design and development steward",
+    "lastReviewed": "2026-07",
+    "knownLimitations": [],
+    "html": "<div class=\"isq-accordion\">\n  <details>\n    <summary>\n      <span class=\"isq-accordion__label\">Education (Accreditation of Non-State Schools) Act 2017 and Regulation</span>\n      <span class=\"isq-accordion__chevron\" aria-hidden=\"true\">+</span>\n    </summary>\n    <div class=\"isq-accordion__content\">\n      <p class=\"isq-body\">Requires schools to maintain and actively implement written child protection processes…</p>\n    </div>\n  </details>\n</div>"
+  },
+  {
+    "id": "tabs",
+    "name": "Tabs",
+    "category": "interaction",
+    "status": "approved",
+    "versionIntroduced": "1.0.0",
+    "platforms": [
+      "rise"
+    ],
+    "implementation": [
+      "custom-html-js"
+    ],
+    "purpose": "Local navigation across a small number of parallel categories.",
+    "useWhen": [
+      "Categories are genuine peers, not sequential steps."
+    ],
+    "avoidWhen": [
+      "Sequential steps, or labels too long to remain readable on mobile."
+    ],
+    "anatomy": [
+      "Tab list",
+      "Tab buttons",
+      "Tab panels"
+    ],
+    "variants": [],
+    "states": [
+      "selected",
+      "unselected",
+      "focus"
+    ],
+    "responsive": "Left-navigation tabs move above the panel on mobile and may become a horizontally scrollable row.",
+    "accessibility": [
+      "Real buttons for tab triggers, arrow-key navigation between tabs, one visible tabpanel at a time."
+    ],
+    "classes": [
+      "isq-harm-tabs__layout",
+      "isq-harm-tabs__nav",
+      "isq-harm-tabs__tab",
+      "isq-harm-tabs__content",
+      "isq-harm-tabs__panel"
+    ],
+    "dependencies": [
+      "Requires scoped JavaScript for tab switching (see Harm tabs for the current course-specific implementation)."
+    ],
+    "relatedPatterns": [
+      "comparison"
+    ],
+    "relatedComponents": [
+      "harm-tabs",
+      "accordion"
+    ],
+    "owner": "Design and development steward",
+    "lastReviewed": "2026-07",
+    "knownLimitations": [
+      "The only current implementation of the tabs pattern in the shared CSS is the Harm tabs course-specific variant — a generalised Tabs component has not yet been extracted from it."
+    ],
+    "html": "<!-- See Harm tabs for the current working implementation of this pattern -->"
+  },
+  {
+    "id": "video-frame",
+    "name": "Video frame",
+    "category": "support",
+    "status": "approved",
+    "versionIntroduced": "1.0.0",
+    "platforms": [
+      "rise"
+    ],
+    "implementation": [
+      "custom-html"
+    ],
+    "purpose": "Responsive 16:9 embedded media treatment.",
+    "useWhen": [
+      "Video is the best medium for the content — movement, demonstration or human presence adds value text cannot."
+    ],
+    "avoidWhen": [
+      "Decorative use, or content a still image and text could communicate as well."
+    ],
+    "anatomy": [
+      "Wrapper (.isq-video)",
+      "Frame (.isq-video__frame)"
+    ],
+    "variants": [],
+    "states": [
+      "default"
+    ],
+    "responsive": "Maintains 16:9 at any width via aspect-ratio and object-fit, never fixed width/height.",
+    "accessibility": [
+      "Accurate synchronised captions required.",
+      "Transcript provided where it supports access, search, review or reuse."
+    ],
+    "classes": [
+      "isq-video",
+      "isq-video__frame"
+    ],
+    "dependencies": [
+      "Host video player embed."
+    ],
+    "relatedPatterns": [],
+    "relatedComponents": [],
+    "owner": "Design and development steward",
+    "lastReviewed": "2026-07",
+    "knownLimitations": [],
+    "html": "<div class=\"isq-video\">\n  <div class=\"isq-video__frame\">\n    <iframe src=\"about:blank\" title=\"Video\" loading=\"lazy\"></iframe>\n  </div>\n</div>"
+  },
+  {
+    "id": "section-opener",
+    "name": "Section opener",
+    "category": "structural",
+    "status": "approved",
+    "versionIntroduced": "1.0.0",
+    "platforms": [
+      "rise"
+    ],
+    "implementation": [
+      "custom-html"
+    ],
+    "purpose": "Introduces a major course section with strong orientation.",
+    "useWhen": [
+      "Once per genuine major section reset."
+    ],
+    "avoidWhen": [
+      "Every subtopic or minor heading change."
+    ],
+    "anatomy": [
+      "Eyebrow",
+      "Heading",
+      "Optional intro paragraph"
+    ],
+    "variants": [],
+    "states": [
+      "default"
+    ],
+    "responsive": "Type scale reduces fluidly; no text clipping or manual line breaks.",
+    "accessibility": [
+      "Correct heading level for a genuine structural transition (usually h2)."
+    ],
+    "classes": [
+      "isq-block",
+      "isq-heading",
+      "isq-eyebrow",
+      "isq-body--intro"
+    ],
+    "dependencies": [
+      "Production CSS only."
+    ],
+    "relatedPatterns": [
+      "section-opener"
+    ],
+    "relatedComponents": [
+      "footer-band"
+    ],
+    "owner": "Design and development steward",
+    "lastReviewed": "2026-07",
+    "knownLimitations": [],
+    "html": "<section class=\"isq-block isq-block--standard\">\n  <span class=\"isq-eyebrow\">Stage 1</span>\n  <h2 class=\"isq-heading isq-heading--h1\">Recognise &amp; respond</h2>\n</section>"
+  },
+  {
+    "id": "footer-band",
+    "name": "Dark / footer band",
+    "category": "structural",
+    "status": "approved",
+    "versionIntroduced": "1.0.0",
+    "platforms": [
+      "rise"
+    ],
+    "implementation": [
+      "custom-html"
+    ],
+    "purpose": "Closes or resets a section with concise reinforcement.",
+    "useWhen": [
+      "End of a major section, as a deliberate structural close."
+    ],
+    "avoidWhen": [
+      "As a general-purpose dark panel unrelated to closing a section."
+    ],
+    "anatomy": [
+      "Band container (.isq-footer-band)",
+      "Title (.isq-footer-band__title)"
+    ],
+    "variants": [
+      "isq-footer-band--blue",
+      "isq-footer-band--stacked"
+    ],
+    "states": [
+      "default"
+    ],
+    "responsive": "Two columns become one; the title remains before the explanatory copy.",
+    "accessibility": [
+      "Sufficient contrast for reversed (light-on-dark) text; verified against the dark surface tokens."
+    ],
+    "classes": [
+      "isq-footer-band",
+      "isq-footer-band--blue",
+      "isq-footer-band--stacked",
+      "isq-footer-band__title"
+    ],
+    "dependencies": [
+      "Production CSS only."
+    ],
+    "relatedPatterns": [
+      "section-summary"
+    ],
+    "relatedComponents": [
+      "section-opener",
+      "button"
+    ],
+    "owner": "Design and development steward",
+    "lastReviewed": "2026-07",
+    "knownLimitations": [],
+    "html": "<div class=\"isq-footer-band isq-footer-band--blue\">\n  <p class=\"isq-footer-band__title\">Three to five concise points recapping the section.</p>\n</div>"
+  },
+  {
+    "id": "split-card",
+    "name": "Split card",
+    "category": "content",
+    "status": "core",
+    "versionIntroduced": "1.0.0",
+    "platforms": [
+      "rise"
+    ],
+    "implementation": [
+      "custom-html"
+    ],
+    "purpose": "Pairs a concise explanation with meaningful imagery.",
+    "useWhen": [
+      "Explanation genuinely benefits from a relevant photograph."
+    ],
+    "avoidWhen": [
+      "Generic stock imagery, or content too long to sit comfortably beside media — use a text-led panel instead."
+    ],
+    "anatomy": [
+      "Split container (.isq-split)",
+      "Content side (.isq-split__content)",
+      "Media side (.isq-split__media)"
+    ],
+    "variants": [
+      "isq-split--content-wide",
+      "isq-split--image-left",
+      "isq-split--media-wide",
+      "isq-split--thirds"
+    ],
+    "states": [
+      "default"
+    ],
+    "responsive": "Restacks to one column at 760px; image uses a fixed aspect ratio.",
+    "accessibility": [
+      "Meaningful alt text on the image; decorative images marked accordingly."
+    ],
+    "classes": [
+      "isq-split",
+      "isq-split--content-wide",
+      "isq-split--image-left",
+      "isq-split--media-wide",
+      "isq-split--thirds",
+      "isq-split__content",
+      "isq-split__media",
+      "isq-split__media--contain"
+    ],
+    "dependencies": [
+      "Production CSS only."
+    ],
+    "relatedPatterns": [
+      "explanation",
+      "scenario-stage"
+    ],
+    "relatedComponents": [
+      "panel",
+      "scenario-stage"
+    ],
+    "owner": "Design and development steward",
+    "lastReviewed": "2026-07",
+    "knownLimitations": [],
+    "html": "<div class=\"isq-panel isq-panel--elevated\">\n  <div class=\"isq-split isq-split--content-wide\">\n    <div class=\"isq-split__content isq-content isq-content--compact\">\n      <p class=\"isq-body\">Later that afternoon, Karen receives a message from Lily’s mother requesting a meeting.</p>\n    </div>\n    <div class=\"isq-split__media\">\n      <img src=\"https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&amp;fit=crop&amp;w=1200&amp;q=85\" alt=\"Contemporary office workspace with glass meeting rooms\" width=\"1200\" height=\"900\" loading=\"lazy\">\n    </div>\n  </div>\n</div>"
+  },
+  {
+    "id": "key-message",
+    "name": "Key message",
+    "category": "content",
+    "status": "core",
+    "versionIntroduced": "1.0.0",
+    "platforms": [
+      "rise"
+    ],
+    "implementation": [
+      "custom-html"
+    ],
+    "purpose": "Isolates one point a learner should retain.",
+    "useWhen": [
+      "One legal threshold, definition or critical reminder — one to three sentences."
+    ],
+    "avoidWhen": [
+      "Routine supporting detail, or several messages stacked in one panel."
+    ],
+    "anatomy": [
+      "Callout with a left rule",
+      "Message text"
+    ],
+    "variants": [],
+    "states": [
+      "default"
+    ],
+    "responsive": "No structural change; stacks naturally.",
+    "accessibility": [
+      "Not colour-dependent — the rule is a secondary visual cue, the text carries the meaning."
+    ],
+    "classes": [
+      "isq-callout",
+      "isq-body"
+    ],
+    "dependencies": [
+      "Production CSS only."
+    ],
+    "relatedPatterns": [
+      "key-message"
+    ],
+    "relatedComponents": [
+      "callout",
+      "legislation-panel"
+    ],
+    "owner": "Design and development steward",
+    "lastReviewed": "2026-07",
+    "knownLimitations": [],
+    "html": "<div class=\"isq-callout\">\n  <p class=\"isq-body\">A parent must be both <strong>able</strong> and <strong>willing</strong> to protect the child.</p>\n</div>"
+  },
+  {
+    "id": "legislation-panel",
+    "name": "Legislation panel",
+    "category": "content",
+    "status": "approved",
+    "versionIntroduced": "1.0.0",
+    "platforms": [
+      "rise"
+    ],
+    "implementation": [
+      "custom-html"
+    ],
+    "purpose": "Separates the legal source from its plain-English meaning.",
+    "useWhen": [
+      "A specific Act, regulation or section underpins a requirement."
+    ],
+    "avoidWhen": [
+      "General policy statements with no legislative source — use a standard content panel."
+    ],
+    "anatomy": [
+      "Document image (optional)",
+      "Instrument name and citation",
+      "Plain-English summary"
+    ],
+    "variants": [],
+    "states": [
+      "default"
+    ],
+    "responsive": "Restacks to one column; document image scales down rather than disappearing.",
+    "accessibility": [
+      "Instrument name is a real heading; the citation year and jurisdiction are in text, not only the image."
+    ],
+    "classes": [
+      "isq-split",
+      "isq-heading",
+      "isq-body"
+    ],
+    "dependencies": [
+      "Production CSS only."
+    ],
+    "relatedPatterns": [
+      "legislation"
+    ],
+    "relatedComponents": [
+      "accordion",
+      "key-message"
+    ],
+    "owner": "Design and development steward",
+    "lastReviewed": "2026-07",
+    "knownLimitations": [],
+    "html": "<div class=\"isq-split isq-split--image-left\">\n  <div class=\"isq-split__media isq-split__media--contain\">\n    <img src=\"../../assets/icons/placeholder.svg\" alt=\"Cover page of the Child Protection Act 1999 (placeholder — no course imagery supplied)\" loading=\"lazy\">\n  </div>\n  <div class=\"isq-split__content\">\n    <h2 class=\"isq-heading isq-heading--h2\">Child Protection Act 1999 (CPA)</h2>\n    <p class=\"isq-body\">The primary function of the CPA is to authorise Child Safety Services to investigate and take action to act protectively for children.</p>\n  </div>\n</div>"
+  },
+  {
+    "id": "resource-card",
+    "name": "Resource card",
+    "category": "content",
+    "status": "core",
+    "versionIntroduced": "1.0.0",
+    "platforms": [
+      "rise"
+    ],
+    "implementation": [
+      "custom-html"
+    ],
+    "purpose": "Explains a resource and provides a clear action to open it.",
+    "useWhen": [
+      "A supplementary document or external guidance that needs context before the click."
+    ],
+    "avoidWhen": [
+      "Essential learning is available only through the external link — bring it into the course."
+    ],
+    "anatomy": [
+      "Eyebrow (“Resource”)",
+      "Title",
+      "Short description",
+      "Action (.isq-resource-actions)"
+    ],
+    "variants": [],
+    "states": [
+      "default",
+      "hover",
+      "focus"
+    ],
+    "responsive": "Image and content restack to one column at narrow widths.",
+    "accessibility": [
+      "Descriptive aria-label on the action stating destination and that it opens in a new tab.",
+      "External-link icon is aria-hidden with a text label carrying the meaning."
+    ],
+    "classes": [
+      "isq-resource-card",
+      "isq-resource-card__layout",
+      "isq-resource-card__media",
+      "isq-resource-card__content",
+      "isq-resource-actions",
+      "isq-eyebrow"
+    ],
+    "dependencies": [
+      "Production CSS only."
+    ],
+    "relatedPatterns": [
+      "resource"
+    ],
+    "relatedComponents": [
+      "button"
+    ],
+    "owner": "Design and development steward",
+    "lastReviewed": "2026-07",
+    "knownLimitations": [],
+    "html": "<div class=\"isq-resource-card\">\n  <div class=\"isq-resource-card__layout\">\n    <div class=\"isq-resource-card__content\">\n      <span class=\"isq-eyebrow\">Resource</span>\n      <h2 class=\"isq-heading isq-heading--medium\">Developmental and Harmful Sexual Behaviour Continuum at a Glance</h2>\n      <p class=\"isq-body\">The continuum can help you consider whether behaviour appears age-appropriate, concerning, problematic or harmful.</p>\n      <div class=\"isq-resource-actions\">\n        <a href=\"#\" class=\"isq-button isq-button--primary\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"Open the Developmental and Harmful Sexual Behaviour Continuum resource in a new tab\">Open resource<span aria-hidden=\"true\">↗</span></a>\n      </div>\n    </div>\n  </div>\n</div>"
+  },
+  {
+    "id": "process",
+    "name": "Process block",
+    "category": "content",
+    "status": "approved",
+    "versionIntroduced": "1.0.0",
+    "platforms": [
+      "rise"
+    ],
+    "implementation": [
+      "custom-html"
+    ],
+    "purpose": "Shows a genuinely ordered procedure.",
+    "useWhen": [
+      "Order is real and matters to the outcome."
+    ],
+    "avoidWhen": [
+      "The steps aren't truly sequential — numbering implies an order that doesn't exist."
+    ],
+    "anatomy": [
+      "Step number (.isq-step)",
+      "Step title (.isq-step__title)",
+      "Step body"
+    ],
+    "variants": [],
+    "states": [
+      "default"
+    ],
+    "responsive": "Stacks vertically; step numbers remain aligned with their titles.",
+    "accessibility": [
+      "Marked up as an ordered list where the sequence is meaningful to assistive technology, not only visually numbered."
+    ],
+    "classes": [
+      "isq-process",
+      "isq-step",
+      "isq-step__title"
+    ],
+    "dependencies": [
+      "Production CSS only."
+    ],
+    "relatedPatterns": [
+      "process"
+    ],
+    "relatedComponents": [],
+    "owner": "Design and development steward",
+    "lastReviewed": "2026-07",
+    "knownLimitations": [
+      "\"Process\" is named as a component in Document 2's prose catalogue but was missing from its technical class index — corrected here."
+    ],
+    "html": "<ol class=\"isq-process\">\n  <li class=\"isq-step\"><span class=\"isq-step__title\">Notice</span> Recognise a possible indicator of harm.</li>\n  <li class=\"isq-step\"><span class=\"isq-step__title\">Record</span> Document what was observed or disclosed.</li>\n</ol>"
+  },
+  {
+    "id": "scenario-stage",
+    "name": "Scenario stage",
+    "category": "scenario",
+    "status": "core",
+    "versionIntroduced": "1.0.0",
+    "platforms": [
+      "rise"
+    ],
+    "implementation": [
+      "custom-html"
+    ],
+    "purpose": "Presents context, evidence or an update within a running scenario, from the decision-maker's perspective.",
+    "useWhen": [
+      "A discrete stage of a scenario — orient, notice, decide, explain or continue."
+    ],
+    "avoidWhen": [
+      "General explanation unrelated to the running scenario."
+    ],
+    "anatomy": [
+      "Header (eyebrow + stage title)",
+      "Body / narrative",
+      "Quote (optional, .isq-scenario-stage__quote)",
+      "Media"
+    ],
+    "variants": [],
+    "states": [
+      "default"
+    ],
+    "responsive": "Narrative and image restack; the quote remains adjacent to its narrative context.",
+    "accessibility": [
+      "Quoted dialogue uses <blockquote> or clearly marked quotation, not styling alone."
+    ],
+    "classes": [
+      "isq-scenario-stage__header",
+      "isq-scenario-stage__body",
+      "isq-scenario-stage__content",
+      "isq-scenario-stage__content-inner",
+      "isq-scenario-stage__quote",
+      "isq-scenario-stage__media"
+    ],
+    "dependencies": [
+      "Production CSS only."
+    ],
+    "relatedPatterns": [
+      "scenario-stage"
+    ],
+    "relatedComponents": [
+      "split-card",
+      "decision-point"
+    ],
+    "owner": "Design and development steward",
+    "lastReviewed": "2026-07",
+    "knownLimitations": [],
+    "html": "<div class=\"isq-panel isq-panel--elevated\">\n  <div class=\"isq-scenario-stage__header\">\n    <span class=\"isq-eyebrow\">Stage 1</span>\n    <h2 class=\"isq-heading isq-heading--h1\">Recognise &amp; respond</h2>\n  </div>\n  <div class=\"isq-scenario-stage__content\">\n    <div class=\"isq-scenario-stage__content-inner\">\n      <p class=\"isq-body\">It’s Week 6 of Term 2. Mark, a well-respected Year 7 teacher, asks to speak privately with Principal Sarah.</p>\n      <blockquote class=\"isq-scenario-stage__quote\">“Mum’s boyfriend gets angry… I don’t feel safe when he’s around.”</blockquote>\n    </div>\n    <div class=\"isq-scenario-stage__media\">\n      <img src=\"../../assets/icons/placeholder.svg\" alt=\"\" role=\"presentation\" loading=\"lazy\">\n    </div>\n  </div>\n</div>"
+  },
+  {
+    "id": "decision-point",
+    "name": "Decision point",
+    "category": "scenario",
+    "status": "core",
+    "versionIntroduced": "1.0.0",
+    "platforms": [
+      "rise"
+    ],
+    "implementation": [
+      "custom-html-js"
+    ],
+    "purpose": "Requires a realistic professional judgement and reveals the reasoning behind the correct response.",
+    "useWhen": [
+      "A genuine professional juncture with credible distractors."
+    ],
+    "avoidWhen": [
+      "An obvious answer with implausible distractors — use a native knowledge check for simple recall."
+    ],
+    "anatomy": [
+      "Eyebrow (“Decision point”)",
+      "Question",
+      "Options (.isq-options / .isq-option, real radio inputs)",
+      "Actions (.isq-decision-actions)",
+      "Feedback (.isq-decision-feedback)"
+    ],
+    "variants": [],
+    "states": [
+      "default",
+      "selected",
+      "correct",
+      "incorrect",
+      "disabled"
+    ],
+    "responsive": "Options stack full-width; touch targets remain adequate.",
+    "accessibility": [
+      "Real radio inputs, not click handlers on generic elements.",
+      "Selected / correct / incorrect states use text and icon, not colour alone.",
+      "Feedback is announced and placed immediately after the action that revealed it.",
+      "Reset only included where repeating the activity has real learning value."
+    ],
+    "classes": [
+      "isq-decision",
+      "isq-options",
+      "isq-option",
+      "isq-decision-actions",
+      "isq-decision-feedback",
+      "isq-visually-hidden"
+    ],
+    "dependencies": [
+      "Scoped JavaScript for state management; must support multiple instances on one lesson without shared state."
+    ],
+    "relatedPatterns": [
+      "decision-point",
+      "feedback"
+    ],
+    "relatedComponents": [
+      "scenario-stage",
+      "callout"
+    ],
+    "owner": "Design and development steward",
+    "lastReviewed": "2026-07",
+    "knownLimitations": [],
+    "html": "<div class=\"isq-decision\">\n  <span class=\"isq-eyebrow\">Decision point</span>\n  <h2 class=\"isq-heading isq-heading--h2\">What must Principal Sarah do next?</h2>\n  <p class=\"isq-body\">Select the most appropriate immediate response.</p>\n  <div class=\"isq-options\">\n    <label class=\"isq-option\"><input type=\"radio\" name=\"decision-1\"> Ask Mark to keep monitoring Lily and review the available records.</label>\n    <label class=\"isq-option\"><input type=\"radio\" name=\"decision-1\"> Call Lily’s mother to discuss the concerns.</label>\n  </div>\n  <div class=\"isq-decision-actions\">\n    <button class=\"isq-button isq-button--primary\">Check answer</button>\n    <button class=\"isq-button isq-button--light\">Reset</button>\n  </div>\n</div>"
+  },
+  {
+    "id": "role-split",
+    "name": "Role split",
+    "category": "scenario",
+    "status": "approved",
+    "versionIntroduced": "1.0.0",
+    "platforms": [
+      "rise"
+    ],
+    "implementation": [
+      "custom-html"
+    ],
+    "purpose": "Clarifies two related audiences, responsibilities or positions by holding them side by side.",
+    "useWhen": [
+      "Comparing two roles or responses where the differences matter to the decision."
+    ],
+    "avoidWhen": [
+      "More than two items — use a card grid or table."
+    ],
+    "anatomy": [
+      "Group container (.isq-role-split__group)",
+      "Two content blocks (.isq-role-split__content)",
+      "Optional shared media (.isq-role-split__media)"
+    ],
+    "variants": [],
+    "states": [
+      "default"
+    ],
+    "responsive": "Restacks to one column; both items remain in the same reading order as desktop.",
+    "accessibility": [
+      "Each side is a labelled region so a screen-reader user can tell which role they are reading."
+    ],
+    "classes": [
+      "isq-role-split",
+      "isq-role-split__content",
+      "isq-role-split__content-inner",
+      "isq-role-split__group",
+      "isq-role-split__inner",
+      "isq-role-split__media",
+      "isq-role-split__text",
+      "isq-role-split__title"
+    ],
+    "dependencies": [
+      "Production CSS only."
+    ],
+    "relatedPatterns": [
+      "comparison"
+    ],
+    "relatedComponents": [
+      "card-grid"
+    ],
+    "owner": "Design and development steward",
+    "lastReviewed": "2026-07",
+    "knownLimitations": [
+      "Document 1's own component audit flags this class as “Approved pattern — confirm naming”; this catalogue entry settles on Role split as the canonical name, matching the CSS class.",
+      "The live Child Protection course does not currently use this shared class for its Able/Willing comparison — see the Able/Willing entry in Governance → Audit findings."
+    ],
+    "html": "<div class=\"isq-role-split\">\n  <div class=\"isq-role-split__group\">\n    <div class=\"isq-role-split__content\">\n      <h3 class=\"isq-role-split__title\">Able</h3>\n      <p class=\"isq-role-split__text\">Has the capacity to protect the child.</p>\n    </div>\n    <div class=\"isq-role-split__content\">\n      <h3 class=\"isq-role-split__title\">Willing</h3>\n      <p class=\"isq-role-split__text\">Shows intent and motivation to protect the child.</p>\n    </div>\n  </div>\n</div>"
+  },
+  {
+    "id": "self-assessment",
+    "name": "Self-assessment",
+    "category": "scenario",
+    "status": "course-specific",
+    "versionIntroduced": "1.0.0 (undocumented until this release)",
+    "platforms": [
+      "rise"
+    ],
+    "implementation": [
+      "custom-html-js"
+    ],
+    "purpose": "A structured confidence or knowledge self-rating table — the learner rates each statement against a shared scale (e.g. Not at all confident → Very confident).",
+    "useWhen": [
+      "A short set of statements benefits from a consistent, comparable rating scale, typically at the close of a section as a reflective checkpoint."
+    ],
+    "avoidWhen": [
+      "A single reflective prompt — use the native reflection block instead.",
+      "As a graded or assessed instrument — this component is explicitly framed as having no right or wrong answers."
+    ],
+    "anatomy": [
+      "Header (eyebrow “Self-reflection”, heading, short intro)",
+      "Column headers naming each scale point",
+      "Numbered rows, each pairing a statement with radio options across the scale (.isq-self-assessment__row / __table)",
+      "Actions: save and reset (.isq-self-assessment__actions)"
+    ],
+    "variants": [],
+    "states": [
+      "unanswered",
+      "selected",
+      "saved"
+    ],
+    "responsive": "The scale table is the component most at risk on narrow screens — columns of radio buttons do not fit a 375px viewport without horizontal scrolling or restructuring. Recommend a per-row accordion or stacked-scale layout on mobile (see Known limitations); this has not yet been confirmed against the published output.",
+    "accessibility": [
+      "Each row must be a fieldset with a legend naming the statement; each scale point must be a real radio input with a visible, associated text label — never an unlabelled circle.",
+      "The numbered badge (1, 2…) is decorative and must not be the only way the statement is identified to assistive technology.",
+      "“Save my reflection” must confirm the save state to the user (e.g. a status region), and “Reset” must not silently clear a response without confirmation given there is explicit save action."
+    ],
+    "classes": [
+      "isq-self-assessment",
+      "isq-self-assessment__actions",
+      "isq-self-assessment__body",
+      "isq-self-assessment__choice",
+      "isq-self-assessment__corner",
+      "isq-self-assessment__feedback",
+      "isq-self-assessment__intro",
+      "isq-self-assessment__mobile-scale",
+      "isq-self-assessment__number",
+      "isq-self-assessment__prompt",
+      "isq-self-assessment__radio",
+      "isq-self-assessment__row",
+      "isq-self-assessment__scale-label",
+      "isq-self-assessment__table"
+    ],
+    "dependencies": [
+      "Scoped JavaScript to manage save/reset state; must support multiple instances per lesson."
+    ],
+    "relatedPatterns": [
+      "reflection"
+    ],
+    "relatedComponents": [
+      "decision-point"
+    ],
+    "owner": "Design and development steward — spec drafted from CSS and screenshot; pending sign-off",
+    "lastReviewed": "2026-07",
+    "knownLimitations": [
+      "This component ships in the production CSS (14 classes) and in the live Child Protection course but appears in none of the six source documents. This entry is a first specification drafted from the class names, the supplied screenshot and standard accessible-rating-table practice — it has not been verified against the actual rendered markup or tested for keyboard/mobile behaviour, and should be confirmed against a real exported course before its status is upgraded from Course-specific."
+    ],
+    "html": "<!-- Illustrative markup drafted from the screenshot and CSS class names — verify against the real exported course before treating as canonical -->\n<section class=\"isq-self-assessment\" aria-labelledby=\"sa-title\">\n  <span class=\"isq-eyebrow\">Self-reflection</span>\n  <h2 class=\"isq-heading isq-heading--h2\" id=\"sa-title\">How confident do you feel?</h2>\n  <p class=\"isq-body--intro\">Rate your current confidence in each area. There are no right or wrong answers.</p>\n  <table class=\"isq-self-assessment__table\">\n    <caption class=\"isq-visually-hidden\">Confidence self-rating</caption>\n    <thead>\n      <tr>\n        <th scope=\"col\"></th>\n        <th scope=\"col\">Not at all confident</th>\n        <th scope=\"col\">Somewhat confident</th>\n        <th scope=\"col\">Confident</th>\n        <th scope=\"col\">Very confident</th>\n      </tr>\n    </thead>\n    <tbody>\n      <tr class=\"isq-self-assessment__row\">\n        <th scope=\"row\"><span class=\"isq-self-assessment__number\">1</span> Understanding your personal reporting obligations</th>\n        <td><label class=\"isq-self-assessment__choice\"><input class=\"isq-self-assessment__radio\" type=\"radio\" name=\"sa-1\"><span class=\"isq-visually-hidden\">Not at all confident</span></label></td>\n        <td><label class=\"isq-self-assessment__choice\"><input class=\"isq-self-assessment__radio\" type=\"radio\" name=\"sa-1\"><span class=\"isq-visually-hidden\">Somewhat confident</span></label></td>\n        <td><label class=\"isq-self-assessment__choice\"><input class=\"isq-self-assessment__radio\" type=\"radio\" name=\"sa-1\"><span class=\"isq-visually-hidden\">Confident</span></label></td>\n        <td><label class=\"isq-self-assessment__choice\"><input class=\"isq-self-assessment__radio\" type=\"radio\" name=\"sa-1\"><span class=\"isq-visually-hidden\">Very confident</span></label></td>\n      </tr>\n    </tbody>\n  </table>\n  <div class=\"isq-self-assessment__actions\">\n    <button class=\"isq-button isq-button--primary\">Save my reflection</button>\n    <button class=\"isq-button isq-button--light\">Reset</button>\n  </div>\n</section>"
+  },
+  {
+    "id": "harm-tabs",
+    "name": "Harm tabs",
+    "category": "interaction",
+    "status": "course-specific",
+    "versionIntroduced": "1.0.0",
+    "platforms": [
+      "rise"
+    ],
+    "implementation": [
+      "custom-html-js"
+    ],
+    "purpose": "Specialised content navigation for categories of harm — lets the learner move between related but distinct categories (physical abuse, psychological/emotional abuse, neglect, sexual abuse or exploitation, grooming) without a full page per category.",
+    "useWhen": [
+      "Built specifically for the Child Protection course's five harm categories."
+    ],
+    "avoidWhen": [
+      "Do not reuse elsewhere without review — assess for generalisation into the shared Tabs component first."
+    ],
+    "anatomy": [
+      "Layout (.isq-harm-tabs__layout)",
+      "Nav (.isq-harm-tabs__nav)",
+      "Tab (.isq-harm-tabs__tab)",
+      "Content (.isq-harm-tabs__content)",
+      "Panel (.isq-harm-tabs__panel)"
+    ],
+    "variants": [],
+    "states": [
+      "selected",
+      "unselected",
+      "focus"
+    ],
+    "responsive": "Navigation moves above the panel and may become a horizontally scrollable row if labels remain readable.",
+    "accessibility": [
+      "Real buttons for tab triggers, one visible panel, arrow-key navigation expected."
+    ],
+    "classes": [
+      "isq-harm-tabs",
+      "isq-harm-tabs__layout",
+      "isq-harm-tabs__nav",
+      "isq-harm-tabs__tab",
+      "isq-harm-tabs__content",
+      "isq-harm-tabs__panel"
+    ],
+    "dependencies": [
+      "Scoped JavaScript."
+    ],
+    "relatedPatterns": [
+      "comparison"
+    ],
+    "relatedComponents": [
+      "tabs",
+      "accordion"
+    ],
+    "owner": "Design and development steward",
+    "lastReviewed": "2026-07",
+    "knownLimitations": [
+      "Document 1's own component audit already flags this as an “assess for generalisation” candidate — it is the working reference for what the generic Tabs component should become."
+    ],
+    "html": "<div class=\"isq-harm-tabs\">\n  <div class=\"isq-harm-tabs__layout\">\n    <div class=\"isq-harm-tabs__nav\" role=\"tablist\">\n      <button class=\"isq-harm-tabs__tab\" role=\"tab\" aria-selected=\"true\">Physical abuse</button>\n      <button class=\"isq-harm-tabs__tab\" role=\"tab\" aria-selected=\"false\">Psychological / emotional abuse</button>\n    </div>\n    <div class=\"isq-harm-tabs__content\">\n      <div class=\"isq-harm-tabs__panel\" role=\"tabpanel\">\n        <h3 class=\"isq-heading isq-heading--h3\">Physical abuse</h3>\n        <p class=\"isq-body\">Physical abuse may be indicated by injuries, behavioural changes, fear responses or patterns that are not easily explained.</p>\n      </div>\n    </div>\n  </div>\n</div>"
+  },
+  {
+    "id": "course-feedback",
+    "name": "Course feedback form",
+    "category": "interaction",
+    "status": "experimental",
+    "versionIntroduced": "1.0.0",
+    "platforms": [
+      "rise"
+    ],
+    "implementation": [
+      "custom-html-js"
+    ],
+    "purpose": "Structured feedback form treatment for end-of-course response collection.",
+    "useWhen": [
+      "Use only in an agreed pilot — specification may still change."
+    ],
+    "avoidWhen": [
+      "Production use outside an agreed pilot until it reaches Approved status."
+    ],
+    "anatomy": [
+      "Header",
+      "Rating (.isq-course-feedback__rating / __star)",
+      "Question fields",
+      "Optional textarea with counter",
+      "Confirmation state"
+    ],
+    "variants": [],
+    "states": [
+      "default",
+      "focus",
+      "submitted"
+    ],
+    "responsive": "Not yet verified at narrow widths — part of why this remains Experimental.",
+    "accessibility": [
+      "Star rating needs an equivalent text/number alternative, not a visual-only control.",
+      "Character counter must be associated with the textarea and announced without being disruptive."
+    ],
+    "classes": [
+      "isq-course-feedback",
+      "isq-course-feedback__header",
+      "isq-course-feedback__form-content",
+      "isq-course-feedback__question",
+      "isq-course-feedback__rating",
+      "isq-course-feedback__star",
+      "isq-course-feedback__field",
+      "isq-course-feedback__label",
+      "isq-course-feedback__optional",
+      "isq-course-feedback__textarea",
+      "isq-course-feedback__counter",
+      "isq-course-feedback__message",
+      "isq-course-feedback__actions",
+      "isq-course-feedback__confirmation",
+      "isq-course-feedback__confirmation-icon"
+    ],
+    "dependencies": [
+      "Scoped JavaScript; a data-handling and storage decision (not yet documented) before wider use."
+    ],
+    "relatedPatterns": [],
+    "relatedComponents": [],
+    "owner": "Design and development steward",
+    "lastReviewed": "2026-07",
+    "knownLimitations": [
+      "Confirm data handling and implementation status before any course beyond the current pilot adopts this."
+    ],
+    "html": "<!-- Experimental — confirm data handling before reuse -->\n<form class=\"isq-course-feedback\">\n  <div class=\"isq-course-feedback__header\">\n    <h2 class=\"isq-heading isq-heading--h2\">How was this course?</h2>\n  </div>\n</form>"
+  },
+  {
+    "id": "divider",
+    "name": "Divider",
+    "category": "structural",
+    "status": "experimental",
+    "versionIntroduced": "1.0.0",
+    "platforms": [
+      "rise"
+    ],
+    "implementation": [
+      "css-foundation"
+    ],
+    "purpose": "Transitions between adjoining structural surfaces with an angled decorative edge.",
+    "useWhen": [
+      "Rare and purposeful surface transitions only."
+    ],
+    "avoidWhen": [
+      "As a routine section separator — spacing and headings do that job more accessibly."
+    ],
+    "anatomy": [
+      "Angled edge (.isq-divider-angle)",
+      "Direction/colour modifier"
+    ],
+    "variants": [
+      "isq-divider-angle--blue-to-tint",
+      "isq-divider-angle--blue-to-white",
+      "isq-divider-angle--tint-to-blue",
+      "isq-divider-angle--tint-to-white",
+      "isq-divider-angle--white-to-blue",
+      "isq-divider-angle--white-to-tint"
+    ],
+    "states": [
+      "default"
+    ],
+    "responsive": "Purely decorative — no content to preserve, but the angle should not obscure adjacent text at narrow widths.",
+    "accessibility": [
+      "Purely decorative — must be aria-hidden."
+    ],
+    "classes": [
+      "isq-divider-angle",
+      "isq-divider-angle--blue-to-tint",
+      "isq-divider-angle--blue-to-white",
+      "isq-divider-angle--tint-to-blue",
+      "isq-divider-angle--tint-to-white",
+      "isq-divider-angle--white-to-blue",
+      "isq-divider-angle--white-to-tint"
+    ],
+    "dependencies": [
+      "Production CSS only."
+    ],
+    "relatedPatterns": [],
+    "relatedComponents": [],
+    "owner": "Design and development steward",
+    "lastReviewed": "2026-07",
+    "knownLimitations": [
+      "Document 1's own component audit calls this “Experimental / decorative — review actual use and reduce if necessary”; Document 2 separately labelled it “Restricted”, a status outside the confirmed seven-value lifecycle — folded into Experimental here. Six directional variants for a component flagged for reduction is itself worth reviewing."
+    ],
+    "html": "<div class=\"isq-divider-angle isq-divider-angle--blue-to-tint\" aria-hidden=\"true\"></div>"
+  },
+  {
+    "id": "editorial-reflection",
+    "name": "Editorial reflection",
+    "category": "legacy",
+    "status": "legacy",
+    "versionIntroduced": "1.0.0",
+    "platforms": [
+      "rise"
+    ],
+    "implementation": [
+      "custom-html"
+    ],
+    "purpose": "Large legacy reflection treatment.",
+    "useWhen": [
+      "Existing courses only, for backwards compatibility."
+    ],
+    "avoidWhen": [
+      "Any new work — use the native reflection block, a compact approved panel, or Self-assessment where a rating table is genuinely needed."
+    ],
+    "anatomy": [
+      "Eyebrow (.isq-reflection-editorial__eyebrow)",
+      "Panel (.isq-reflection-editorial__panel)",
+      "Content (.isq-reflection-editorial__content)",
+      "Footer (.isq-reflection-editorial__footer)"
+    ],
+    "variants": [],
+    "states": [
+      "default"
+    ],
+    "responsive": "Not actively maintained.",
+    "accessibility": [
+      "Not actively maintained — do not treat as a verified accessible baseline."
+    ],
+    "classes": [
+      "isq-reflection-editorial",
+      "isq-reflection-editorial__content",
+      "isq-reflection-editorial__eyebrow",
+      "isq-reflection-editorial__footer",
+      "isq-reflection-editorial__footer-title",
+      "isq-reflection-editorial__panel"
+    ],
+    "dependencies": [
+      "Production CSS only."
+    ],
+    "relatedPatterns": [
+      "reflection"
+    ],
+    "relatedComponents": [
+      "self-assessment"
+    ],
+    "owner": "Design and development steward",
+    "lastReviewed": "2026-07",
+    "knownLimitations": [
+      "Deprecate for new work per Document 1's own component audit; no replacement migration has been scheduled yet."
+    ],
+    "html": "<!-- Legacy — retained for existing courses only; do not use in new work -->"
+  }
+]

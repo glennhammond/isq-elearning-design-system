@@ -1,0 +1,217 @@
+[
+  {
+    "id": "colour",
+    "name": "Colour",
+    "summary": "Semantic and functional colour roles rather than one-off values.",
+    "intro": "Every colour used in the system is a functional token, not a decorative choice. Components consume the token, not the hex value, so a future rebrand replaces this page's values rather than every component that references them.",
+    "tokens": [
+      {
+        "token": "--isq-blue",
+        "value": "#005680",
+        "name": "ISQ Blue",
+        "purpose": "Primary controls, active states, links, structural emphasis",
+        "onWhiteContrast": "7.6:1"
+      },
+      {
+        "token": "--isq-blue-dark",
+        "value": "#073B58",
+        "name": "ISQ Blue Dark",
+        "purpose": "Headings, dark panels, hover states",
+        "onWhiteContrast": "11.2:1"
+      },
+      {
+        "token": "--isq-blue-deep",
+        "value": "#062F46",
+        "name": "ISQ Blue Deep",
+        "purpose": "Darkest gradient stop, deep structural tone",
+        "onWhiteContrast": "13.6:1"
+      },
+      {
+        "token": "--isq-yellow",
+        "value": "#FFC72A",
+        "name": "ISQ Yellow",
+        "purpose": "Selective accent \u2014 rules, markers, focus. Never a dominant field, never body or eyebrow text on light surfaces",
+        "onWhiteContrast": "1.6:1 (non-text use only)"
+      },
+      {
+        "token": "--isq-charcoal",
+        "value": "#333333",
+        "name": "Charcoal",
+        "purpose": "Body text",
+        "onWhiteContrast": "12.6:1"
+      },
+      {
+        "token": "--isq-muted",
+        "value": "#526874",
+        "name": "Muted",
+        "purpose": "Secondary text and metadata",
+        "onWhiteContrast": "5.9:1"
+      },
+      {
+        "token": "--isq-border",
+        "value": "#CFE0E7",
+        "name": "Border",
+        "purpose": "Borders and separators",
+        "onWhiteContrast": "n/a \u2014 non-text"
+      },
+      {
+        "token": "--isq-tint",
+        "value": "#E6EEF2",
+        "name": "Tint",
+        "purpose": "Tinted panel surfaces",
+        "onWhiteContrast": "n/a \u2014 surface only"
+      },
+      {
+        "token": "--isq-pale",
+        "value": "#F3F7F9",
+        "name": "Pale",
+        "purpose": "Neutral grouped surfaces",
+        "onWhiteContrast": "n/a \u2014 surface only"
+      },
+      {
+        "token": "--isq-ice",
+        "value": "#EAF6FA",
+        "name": "Ice",
+        "purpose": "Selected and informational surfaces",
+        "onWhiteContrast": "n/a \u2014 surface only"
+      },
+      {
+        "token": "--isq-success",
+        "value": "#266141",
+        "name": "Success",
+        "purpose": "Correct / completed state. Always paired with a text label, never colour alone",
+        "onWhiteContrast": "6.8:1"
+      },
+      {
+        "token": "--isq-warning",
+        "value": "#333333",
+        "name": "Warning text",
+        "purpose": "Warning-state text, used on the warning-pale surface",
+        "onWhiteContrast": "12.6:1",
+        "flag": "Shares its value with Charcoal rather than a distinct hue. Confirm this is intentional (text stays readable on a pale-yellow surface) before treating it as settled \u2014 see Decisions."
+      },
+      {
+        "token": "--isq-warning-pale",
+        "value": "#FFF7DF",
+        "name": "Warning surface",
+        "purpose": "Warning-state background",
+        "onWhiteContrast": "n/a \u2014 surface only"
+      },
+      {
+        "token": "--isq-error",
+        "value": "#A22B2A",
+        "name": "Error",
+        "purpose": "Incorrect / error state. Always paired with a text label",
+        "onWhiteContrast": "6.1:1"
+      }
+    ],
+    "typography": {
+      "intro": "A geometric sans for headings, a readable humanist sans for body text, sentence case throughout.",
+      "roles": [
+        {
+          "role": "Display",
+          "class": "isq-heading--xl",
+          "use": "Section openers and course-level statements only"
+        },
+        {
+          "role": "Large",
+          "class": "isq-heading--large / --h1",
+          "use": "Primary topic and major content-block headings"
+        },
+        {
+          "role": "Medium",
+          "class": "isq-heading--medium / --h2",
+          "use": "Subsections, cards and activities"
+        },
+        {
+          "role": "Small",
+          "class": "isq-heading--small / --h3",
+          "use": "Minor headings and compact components"
+        },
+        {
+          "role": "Eyebrow",
+          "class": "isq-eyebrow",
+          "use": "Short uppercase content-type label"
+        },
+        {
+          "role": "Body",
+          "class": "isq-body",
+          "use": "Running content at generous line height"
+        },
+        {
+          "role": "Intro",
+          "class": "isq-body--intro",
+          "use": "Short orienting paragraph beneath a heading"
+        }
+      ],
+      "headingStack": "\"Century Gothic\", \"Avenir Next\", Avenir, Futura, Arial, sans-serif",
+      "bodyStack": "\"Open Sans\", Arial, sans-serif",
+      "note": "Rise loads a licensed Century Gothic woff2 for headings in the actual courses. This reference site has not been supplied that font file, so it renders the heading stack's next available match (Poppins, loaded locally) with the full stack declared as documented. Swap in the licensed woff2 the moment it is available \u2014 no other change is required."
+    },
+    "spacing": {
+      "intro": "A single scale used everywhere. One-off gaps are the fastest way to make a restrained system look inconsistent.",
+      "scale": [
+        4,
+        8,
+        16,
+        24,
+        32,
+        48,
+        64
+      ]
+    },
+    "widths": {
+      "intro": "Four content widths cover nearly every layout need.",
+      "entries": [
+        {
+          "name": "Narrow",
+          "token": "--isq-width-narrow",
+          "value": "760px"
+        },
+        {
+          "name": "Standard",
+          "token": "--isq-width-standard",
+          "value": "960px"
+        },
+        {
+          "name": "Wide",
+          "token": "--isq-width-wide",
+          "value": "1120px"
+        },
+        {
+          "name": "Full",
+          "token": "--isq-width-full",
+          "value": "1280px"
+        }
+      ]
+    },
+    "radius": {
+      "intro": "Three radii, used to express hierarchy rather than decoration.",
+      "entries": [
+        {
+          "name": "Small",
+          "token": "--isq-radius-small",
+          "value": "10px",
+          "use": "Controls, buttons, small elements"
+        },
+        {
+          "name": "Medium",
+          "token": "--isq-radius-medium",
+          "value": "16px",
+          "use": "Cards"
+        },
+        {
+          "name": "Large",
+          "token": "--isq-radius-large",
+          "value": "22px",
+          "use": "Panels"
+        }
+      ]
+    },
+    "focus": {
+      "intro": "Keyboard focus is never removed or hidden. Every interactive element carries a visible focus treatment with sufficient contrast and offset.",
+      "rule": "State (selected, correct, incorrect, disabled) is always reinforced by text, icon or structural cue as well as colour \u2014 colour is never the only signal."
+    },
+    "breakpoint": "760px \u2014 two-column layouts and grids restack to one column at this width."
+  }
+]
