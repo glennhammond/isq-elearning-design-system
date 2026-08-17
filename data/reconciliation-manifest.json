@@ -1,0 +1,1243 @@
+{
+  "schemaVersion": "0.2.0",
+  "status": "non-rendering-reconciliation-only",
+  "sourceFiles": {
+    "components": "data/components.json",
+    "patterns": "data/patterns.json"
+  },
+  "expectedCounts": {
+    "components": 23,
+    "patterns": 12,
+    "total": 35
+  },
+  "vocabulary": {
+    "proposedEntityType": [
+      "foundation",
+      "primitive",
+      "component",
+      "recipe",
+      "learning-design-purpose",
+      "structural-pattern",
+      "learning-expression",
+      "platform-implementation",
+      "legacy-treatment"
+    ],
+    "proposedMaturity": [
+      "experimental",
+      "candidate",
+      "validated",
+      "approved"
+    ],
+    "reuseScope": [
+      "isq-wide",
+      "platform",
+      "course-family",
+      "course-specific"
+    ],
+    "supportState": [
+      "active",
+      "legacy",
+      "deprecated",
+      "retired"
+    ],
+    "implementationState": [
+      "specified",
+      "partial",
+      "implemented",
+      "production-verified"
+    ],
+    "evidenceState": [
+      "inferred",
+      "documented",
+      "tested",
+      "audited"
+    ]
+  },
+  "records": [
+    {
+      "reconciliationKey": "component:panel",
+      "currentId": "panel",
+      "currentName": "Panel",
+      "sourceType": "component",
+      "currentCategory": "structural",
+      "currentStatus": "foundation",
+      "proposedEntityType": "primitive",
+      "proposedMaturity": "approved",
+      "reuseScope": "isq-wide",
+      "supportState": "active",
+      "implementationState": "implemented",
+      "evidenceState": "audited",
+      "isqRelationship": {
+        "classification": "isq-component-expression",
+        "expressionReference": "component:panel",
+        "notes": "Current ISQ Rise expression of the shared container primitive."
+      },
+      "riseImplementation": {
+        "type": "css-foundation",
+        "reference": ".isq-panel",
+        "state": "present-in-production-stylesheet"
+      },
+      "productionEvidence": {
+        "state": "implementation-present",
+        "notes": "Production CSS presence is verified; live cross-course reuse is not."
+      },
+      "discrepancies": [
+        "Block-width classes (.isq-block--narrow/standard/wide/full) and content-density classes (.isq-content--compact/spacious/tight) exist in production CSS without standalone catalogue records."
+      ],
+      "decisionStatus": "unresolved"
+    },
+    {
+      "reconciliationKey": "component:button",
+      "currentId": "button",
+      "currentName": "Button",
+      "sourceType": "component",
+      "currentCategory": "support",
+      "currentStatus": "core",
+      "proposedEntityType": "component",
+      "proposedMaturity": "approved",
+      "reuseScope": "isq-wide",
+      "supportState": "active",
+      "implementationState": "implemented",
+      "evidenceState": "audited",
+      "isqRelationship": {
+        "classification": "isq-component-expression",
+        "expressionReference": "component:button",
+        "notes": "ISQ visual and usage expression."
+      },
+      "riseImplementation": {
+        "type": "css-foundation",
+        "reference": ".isq-button",
+        "state": "present-in-production-stylesheet"
+      },
+      "productionEvidence": {
+        "state": "implementation-present",
+        "notes": "Stylesheet implementation is evidenced, not production usage across courses."
+      },
+      "discrepancies": [],
+      "decisionStatus": "unresolved"
+    },
+    {
+      "reconciliationKey": "component:callout",
+      "currentId": "callout",
+      "currentName": "Callout",
+      "sourceType": "component",
+      "currentCategory": "support",
+      "currentStatus": "core",
+      "proposedEntityType": "component",
+      "proposedMaturity": "approved",
+      "reuseScope": "isq-wide",
+      "supportState": "active",
+      "implementationState": "implemented",
+      "evidenceState": "audited",
+      "isqRelationship": {
+        "classification": "isq-component-expression",
+        "expressionReference": "component:callout",
+        "notes": "Shared ISQ callout treatment."
+      },
+      "riseImplementation": {
+        "type": "css-foundation",
+        "reference": ".isq-callout",
+        "state": "present-in-production-stylesheet"
+      },
+      "productionEvidence": {
+        "state": "implementation-present",
+        "notes": "Production CSS is audited; this does not establish use in every course."
+      },
+      "discrepancies": [
+        "Typography (.isq-heading/.isq-body), list (.isq-list), and rule (.isq-rule) classes exist in production CSS but do not have standalone catalogue records."
+      ],
+      "decisionStatus": "unresolved"
+    },
+    {
+      "reconciliationKey": "component:meta-tags",
+      "currentId": "meta-tags",
+      "currentName": "Meta tags",
+      "sourceType": "component",
+      "currentCategory": "support",
+      "currentStatus": "approved",
+      "proposedEntityType": "primitive",
+      "proposedMaturity": "approved",
+      "reuseScope": "isq-wide",
+      "supportState": "active",
+      "implementationState": "implemented",
+      "evidenceState": "audited",
+      "isqRelationship": {
+        "classification": "isq-component-expression",
+        "expressionReference": "component:meta-tags",
+        "notes": "ISQ metadata treatment."
+      },
+      "riseImplementation": {
+        "type": "css-foundation",
+        "reference": "classes listed by component:meta-tags",
+        "state": "present-in-production-stylesheet"
+      },
+      "productionEvidence": {
+        "state": "implementation-present",
+        "notes": "Implementation is documented and present in CSS; live use is not separately verified."
+      },
+      "discrepancies": [],
+      "decisionStatus": "unresolved"
+    },
+    {
+      "reconciliationKey": "component:card-grid",
+      "currentId": "card-grid",
+      "currentName": "Card grid",
+      "sourceType": "component",
+      "currentCategory": "structural",
+      "currentStatus": "approved",
+      "proposedEntityType": "structural-pattern",
+      "proposedMaturity": "approved",
+      "reuseScope": "isq-wide",
+      "supportState": "active",
+      "implementationState": "implemented",
+      "evidenceState": "audited",
+      "isqRelationship": {
+        "classification": "learning-expression",
+        "expressionReference": "component:card-grid",
+        "notes": "Current ISQ grid expression."
+      },
+      "riseImplementation": {
+        "type": "css-foundation",
+        "reference": ".isq-grid",
+        "state": "present-in-production-stylesheet"
+      },
+      "productionEvidence": {
+        "state": "implementation-present",
+        "notes": "CSS implementation is evidenced; production use is not independently verified."
+      },
+      "discrepancies": [
+        "Future architecture remains unresolved: Grid may become a layout primitive and Card may become an independent component; do not split this record yet."
+      ],
+      "decisionStatus": "unresolved-future-architecture"
+    },
+    {
+      "reconciliationKey": "component:accordion",
+      "currentId": "accordion",
+      "currentName": "Accordion",
+      "sourceType": "component",
+      "currentCategory": "interaction",
+      "currentStatus": "core",
+      "proposedEntityType": "component",
+      "proposedMaturity": "approved",
+      "reuseScope": "isq-wide",
+      "supportState": "active",
+      "implementationState": "implemented",
+      "evidenceState": "audited",
+      "isqRelationship": {
+        "classification": "isq-component-expression",
+        "expressionReference": "component:accordion",
+        "notes": "ISQ Rise styling and behaviour guidance."
+      },
+      "riseImplementation": {
+        "type": "custom-html",
+        "reference": ".isq-accordion",
+        "state": "documented-implementation"
+      },
+      "productionEvidence": {
+        "state": "implementation-present",
+        "notes": "Repository implementation exists; production verification is not asserted."
+      },
+      "discrepancies": [],
+      "decisionStatus": "unresolved"
+    },
+    {
+      "reconciliationKey": "component:tabs",
+      "currentId": "tabs",
+      "currentName": "Tabs",
+      "sourceType": "component",
+      "currentCategory": "interaction",
+      "currentStatus": "approved",
+      "proposedEntityType": "component",
+      "proposedMaturity": "candidate",
+      "reuseScope": "isq-wide",
+      "supportState": "active",
+      "implementationState": "partial",
+      "evidenceState": "documented",
+      "isqRelationship": {
+        "classification": "isq-component-candidate",
+        "expressionReference": "component:tabs",
+        "notes": "Generic Tabs remains a candidate until a generic implementation is extracted and independently validated."
+      },
+      "riseImplementation": {
+        "type": "custom-html-js",
+        "reference": "component:harm-tabs",
+        "state": "course-specific-reference-only"
+      },
+      "productionEvidence": {
+        "state": "not-verified",
+        "notes": "Approved visible status does not establish a generic production implementation; only Harm tabs are evidenced."
+      },
+      "discrepancies": [
+        "Current status is Approved while the repository states that no generalised Tabs implementation has been extracted."
+      ],
+      "decisionStatus": "approved"
+    },
+    {
+      "reconciliationKey": "component:video-frame",
+      "currentId": "video-frame",
+      "currentName": "Video frame",
+      "sourceType": "component",
+      "currentCategory": "support",
+      "currentStatus": "approved",
+      "proposedEntityType": "component",
+      "proposedMaturity": "approved",
+      "reuseScope": "isq-wide",
+      "supportState": "active",
+      "implementationState": "implemented",
+      "evidenceState": "audited",
+      "isqRelationship": {
+        "classification": "isq-component-expression",
+        "expressionReference": "component:video-frame",
+        "notes": "Current ISQ media framing."
+      },
+      "riseImplementation": {
+        "type": "custom-html",
+        "reference": "classes listed by component:video-frame",
+        "state": "documented-implementation"
+      },
+      "productionEvidence": {
+        "state": "implementation-present",
+        "notes": "Implementation evidence does not prove cross-course use."
+      },
+      "discrepancies": [],
+      "decisionStatus": "unresolved"
+    },
+    {
+      "reconciliationKey": "component:section-opener",
+      "currentId": "section-opener",
+      "currentName": "Section opener",
+      "sourceType": "component",
+      "currentCategory": "structural",
+      "currentStatus": "approved",
+      "proposedEntityType": "component",
+      "proposedMaturity": "approved",
+      "reuseScope": "isq-wide",
+      "supportState": "active",
+      "implementationState": "implemented",
+      "evidenceState": "audited",
+      "isqRelationship": {
+        "classification": "isq-component-expression",
+        "expressionReference": "component:section-opener",
+        "notes": "Implements pattern:section-opener for Rise."
+      },
+      "riseImplementation": {
+        "type": "custom-html",
+        "reference": "classes listed by component:section-opener",
+        "state": "documented-implementation"
+      },
+      "productionEvidence": {
+        "state": "implementation-present",
+        "notes": "Repository implementation exists; live use is not separately verified."
+      },
+      "discrepancies": [],
+      "decisionStatus": "unresolved"
+    },
+    {
+      "reconciliationKey": "component:footer-band",
+      "currentId": "footer-band",
+      "currentName": "Dark / footer band",
+      "sourceType": "component",
+      "currentCategory": "structural",
+      "currentStatus": "approved",
+      "proposedEntityType": "component",
+      "proposedMaturity": "approved",
+      "reuseScope": "isq-wide",
+      "supportState": "active",
+      "implementationState": "implemented",
+      "evidenceState": "audited",
+      "isqRelationship": {
+        "classification": "isq-component-expression",
+        "expressionReference": "component:footer-band",
+        "notes": "ISQ closing-band expression for section summaries."
+      },
+      "riseImplementation": {
+        "type": "custom-html",
+        "reference": ".isq-footer-band",
+        "state": "documented-implementation"
+      },
+      "productionEvidence": {
+        "state": "implementation-present",
+        "notes": "Implementation exists; production usage is not separately verified."
+      },
+      "discrepancies": [
+        "Unresolved overlap remains between Footer Band and generic .isq-band primitives; do not restructure yet."
+      ],
+      "decisionStatus": "unresolved-future-architecture"
+    },
+    {
+      "reconciliationKey": "component:split-card",
+      "currentId": "split-card",
+      "currentName": "Split card",
+      "sourceType": "component",
+      "currentCategory": "content",
+      "currentStatus": "core",
+      "proposedEntityType": "component",
+      "proposedMaturity": "approved",
+      "reuseScope": "isq-wide",
+      "supportState": "active",
+      "implementationState": "implemented",
+      "evidenceState": "audited",
+      "isqRelationship": {
+        "classification": "isq-component-expression",
+        "expressionReference": "component:split-card",
+        "notes": "Shared ISQ split-layout component."
+      },
+      "riseImplementation": {
+        "type": "custom-html",
+        "reference": ".isq-split",
+        "state": "present-in-production-stylesheet"
+      },
+      "productionEvidence": {
+        "state": "implementation-present",
+        "notes": "Production stylesheet presence is verified; cross-course use is not."
+      },
+      "discrepancies": [],
+      "decisionStatus": "unresolved"
+    },
+    {
+      "reconciliationKey": "component:key-message",
+      "currentId": "key-message",
+      "currentName": "Key message",
+      "sourceType": "component",
+      "currentCategory": "content",
+      "currentStatus": "core",
+      "proposedEntityType": "recipe",
+      "proposedMaturity": "candidate",
+      "reuseScope": "isq-wide",
+      "supportState": "active",
+      "implementationState": "specified",
+      "evidenceState": "audited",
+      "isqRelationship": {
+        "classification": "recipe",
+        "expressionReference": "component:key-message",
+        "notes": "Purposeful composition using the Callout component and typography; it is not an independent UI component."
+      },
+      "riseImplementation": {
+        "type": "composition",
+        "reference": ".isq-callout + .isq-body",
+        "state": "uses-existing-component"
+      },
+      "productionEvidence": {
+        "state": "indirect",
+        "notes": "No separate key-message implementation is evidenced; it composes Callout."
+      },
+      "discrepancies": [
+        "Currently catalogued as a component although its classes are those of Callout and body typography."
+      ],
+      "decisionStatus": "approved"
+    },
+    {
+      "reconciliationKey": "component:legislation-panel",
+      "currentId": "legislation-panel",
+      "currentName": "Legislation panel",
+      "sourceType": "component",
+      "currentCategory": "content",
+      "currentStatus": "approved",
+      "proposedEntityType": "learning-expression",
+      "proposedMaturity": "candidate",
+      "reuseScope": "isq-wide",
+      "supportState": "active",
+      "implementationState": "specified",
+      "evidenceState": "audited",
+      "isqRelationship": {
+        "classification": "learning-expression",
+        "expressionReference": "component:legislation-panel",
+        "notes": "ISQ learning expression and recipe built primarily from Split Card and typography; it is not an independent canonical component."
+      },
+      "riseImplementation": {
+        "type": "composition",
+        "reference": ".isq-split + .isq-heading + .isq-body",
+        "state": "uses-existing-component"
+      },
+      "productionEvidence": {
+        "state": "indirect",
+        "notes": "Repository classes point to Split card composition; no separate legislation implementation is evidenced."
+      },
+      "discrepancies": [
+        "Current catalogue presents a component record, but its implementation references only shared Split card and typography classes."
+      ],
+      "decisionStatus": "approved"
+    },
+    {
+      "reconciliationKey": "component:resource-card",
+      "currentId": "resource-card",
+      "currentName": "Resource card",
+      "sourceType": "component",
+      "currentCategory": "content",
+      "currentStatus": "core",
+      "proposedEntityType": "component",
+      "proposedMaturity": "approved",
+      "reuseScope": "isq-wide",
+      "supportState": "active",
+      "implementationState": "implemented",
+      "evidenceState": "audited",
+      "isqRelationship": {
+        "classification": "isq-component-expression",
+        "expressionReference": "component:resource-card",
+        "notes": "ISQ resource-card expression."
+      },
+      "riseImplementation": {
+        "type": "custom-html",
+        "reference": "classes listed by component:resource-card",
+        "state": "documented-implementation"
+      },
+      "productionEvidence": {
+        "state": "implementation-present",
+        "notes": "Implementation exists; cross-course production usage is not asserted."
+      },
+      "discrepancies": [],
+      "decisionStatus": "unresolved"
+    },
+    {
+      "reconciliationKey": "component:process",
+      "currentId": "process",
+      "currentName": "Process block",
+      "sourceType": "component",
+      "currentCategory": "content",
+      "currentStatus": "approved",
+      "proposedEntityType": "component",
+      "proposedMaturity": "approved",
+      "reuseScope": "isq-wide",
+      "supportState": "active",
+      "implementationState": "implemented",
+      "evidenceState": "audited",
+      "isqRelationship": {
+        "classification": "isq-component-expression",
+        "expressionReference": "component:process",
+        "notes": "Rise implementation of pattern:process."
+      },
+      "riseImplementation": {
+        "type": "custom-html",
+        "reference": ".isq-process",
+        "state": "present-in-production-stylesheet"
+      },
+      "productionEvidence": {
+        "state": "implementation-present",
+        "notes": "CSS implementation is audited; live use is not separately verified."
+      },
+      "discrepancies": [],
+      "decisionStatus": "unresolved"
+    },
+    {
+      "reconciliationKey": "component:scenario-stage",
+      "currentId": "scenario-stage",
+      "currentName": "Scenario stage",
+      "sourceType": "component",
+      "currentCategory": "scenario",
+      "currentStatus": "core",
+      "proposedEntityType": "component",
+      "proposedMaturity": "approved",
+      "reuseScope": "isq-wide",
+      "supportState": "active",
+      "implementationState": "implemented",
+      "evidenceState": "audited",
+      "isqRelationship": {
+        "classification": "isq-component-expression",
+        "expressionReference": "component:scenario-stage",
+        "notes": "Implements pattern:scenario-stage in Rise."
+      },
+      "riseImplementation": {
+        "type": "custom-html",
+        "reference": "classes listed by component:scenario-stage",
+        "state": "documented-implementation"
+      },
+      "productionEvidence": {
+        "state": "implementation-present",
+        "notes": "Implementation is evidenced, without a stronger production claim."
+      },
+      "discrepancies": [],
+      "decisionStatus": "unresolved"
+    },
+    {
+      "reconciliationKey": "component:decision-point",
+      "currentId": "decision-point",
+      "currentName": "Decision point",
+      "sourceType": "component",
+      "currentCategory": "scenario",
+      "currentStatus": "core",
+      "proposedEntityType": "component",
+      "proposedMaturity": "approved",
+      "reuseScope": "isq-wide",
+      "supportState": "active",
+      "implementationState": "implemented",
+      "evidenceState": "audited",
+      "isqRelationship": {
+        "classification": "isq-component-expression",
+        "expressionReference": "component:decision-point",
+        "notes": "Implements decision and feedback learning purposes."
+      },
+      "riseImplementation": {
+        "type": "custom-html-js",
+        "reference": "classes listed by component:decision-point",
+        "state": "documented-implementation"
+      },
+      "productionEvidence": {
+        "state": "implementation-present",
+        "notes": "Implementation is audited; production verification is not asserted."
+      },
+      "discrepancies": [],
+      "decisionStatus": "unresolved"
+    },
+    {
+      "reconciliationKey": "component:role-split",
+      "currentId": "role-split",
+      "currentName": "Role split",
+      "sourceType": "component",
+      "currentCategory": "scenario",
+      "currentStatus": "approved",
+      "proposedEntityType": "component",
+      "proposedMaturity": "candidate",
+      "reuseScope": "isq-wide",
+      "supportState": "active",
+      "implementationState": "implemented",
+      "evidenceState": "audited",
+      "isqRelationship": {
+        "classification": "isq-component-expression",
+        "expressionReference": "component:role-split",
+        "notes": "Component for pattern:comparison."
+      },
+      "riseImplementation": {
+        "type": "custom-html",
+        "reference": ".isq-role-split",
+        "state": "present-in-production-stylesheet"
+      },
+      "productionEvidence": {
+        "state": "not-verified-in-live-example",
+        "notes": "The shared implementation exists, but audited production comparisons currently bypass it."
+      },
+      "discrepancies": [
+        "Live course comparison examples bypass the shared component and redeclare a drifting gold token."
+      ],
+      "decisionStatus": "approved"
+    },
+    {
+      "reconciliationKey": "component:self-assessment",
+      "currentId": "self-assessment",
+      "currentName": "Self-assessment",
+      "sourceType": "component",
+      "currentCategory": "scenario",
+      "currentStatus": "course-specific",
+      "proposedEntityType": "platform-implementation",
+      "proposedMaturity": "candidate",
+      "reuseScope": "course-specific",
+      "supportState": "active",
+      "implementationState": "partial",
+      "evidenceState": "audited",
+      "isqRelationship": {
+        "classification": "learning-expression",
+        "expressionReference": "component:self-assessment",
+        "notes": "Course-specific platform implementation of reflection; do not promote it to canonical component status."
+      },
+      "riseImplementation": {
+        "type": "custom-html-js",
+        "reference": ".isq-self-assessment",
+        "state": "css-and-screenshot-evidenced"
+      },
+      "productionEvidence": {
+        "state": "course-observed",
+        "notes": "Observed in the Child Protection course screenshot, but exported markup and behaviour are unverified."
+      },
+      "discrepancies": [
+        "Shipped CSS and screenshot evidence exist, but the component is absent from the six governing documents and its drafted markup is unverified."
+      ],
+      "decisionStatus": "approved"
+    },
+    {
+      "reconciliationKey": "component:harm-tabs",
+      "currentId": "harm-tabs",
+      "currentName": "Harm tabs",
+      "sourceType": "component",
+      "currentCategory": "interaction",
+      "currentStatus": "course-specific",
+      "proposedEntityType": "platform-implementation",
+      "proposedMaturity": "validated",
+      "reuseScope": "course-specific",
+      "supportState": "active",
+      "implementationState": "implemented",
+      "evidenceState": "audited",
+      "isqRelationship": {
+        "classification": "course-specific-isq-variant",
+        "expressionReference": "component:harm-tabs",
+        "notes": "Course-specific, validated platform implementation providing evidence for future generic Tabs; it is not the generic component."
+      },
+      "riseImplementation": {
+        "type": "custom-html-js",
+        "reference": ".isq-harm-tabs",
+        "state": "course-specific-implementation"
+      },
+      "productionEvidence": {
+        "state": "course-observed",
+        "notes": "Production course evidence applies to Harm tabs only, not generic Tabs."
+      },
+      "discrepancies": [
+        "Needs assessment for generalisation; current evidence is limited to a Child Protection course variant."
+      ],
+      "decisionStatus": "approved"
+    },
+    {
+      "reconciliationKey": "component:course-feedback",
+      "currentId": "course-feedback",
+      "currentName": "Course feedback form",
+      "sourceType": "component",
+      "currentCategory": "interaction",
+      "currentStatus": "experimental",
+      "proposedEntityType": "platform-implementation",
+      "proposedMaturity": "experimental",
+      "reuseScope": "course-specific",
+      "supportState": "active",
+      "implementationState": "partial",
+      "evidenceState": "documented",
+      "isqRelationship": {
+        "classification": "experimental-isq-implementation",
+        "expressionReference": "component:course-feedback",
+        "notes": "Retains experimental status."
+      },
+      "riseImplementation": {
+        "type": "custom-html-js",
+        "reference": ".isq-course-feedback",
+        "state": "presentation-present-data-path-unresolved"
+      },
+      "productionEvidence": {
+        "state": "unresolved",
+        "notes": "Data handling, privacy, storage and submission behaviour remain unresolved."
+      },
+      "discrepancies": [
+        "Resolve data handling, privacy, storage and submission behaviour before wider use."
+      ],
+      "decisionStatus": "approved"
+    },
+    {
+      "reconciliationKey": "component:divider",
+      "currentId": "divider",
+      "currentName": "Divider",
+      "sourceType": "component",
+      "currentCategory": "structural",
+      "currentStatus": "experimental",
+      "proposedEntityType": "component",
+      "proposedMaturity": "experimental",
+      "reuseScope": "isq-wide",
+      "supportState": "active",
+      "implementationState": "implemented",
+      "evidenceState": "audited",
+      "isqRelationship": {
+        "classification": "isq-component-expression",
+        "expressionReference": "component:divider",
+        "notes": "Restricted decorative ISQ treatment."
+      },
+      "riseImplementation": {
+        "type": "css-foundation",
+        "reference": ".isq-divider-angle",
+        "state": "present-in-production-stylesheet"
+      },
+      "productionEvidence": {
+        "state": "implementation-present",
+        "notes": "CSS presence is verified; actual use and value remain under review."
+      },
+      "discrepancies": [
+        "Source documents used both Restricted and Experimental; the catalogue folded Restricted into Experimental.",
+        "Variant rationalisation remains required across the six directional variants."
+      ],
+      "decisionStatus": "approved"
+    },
+    {
+      "reconciliationKey": "component:editorial-reflection",
+      "currentId": "editorial-reflection",
+      "currentName": "Editorial reflection",
+      "sourceType": "component",
+      "currentCategory": "legacy",
+      "currentStatus": "legacy",
+      "proposedEntityType": "legacy-treatment",
+      "proposedMaturity": "validated",
+      "reuseScope": "course-family",
+      "supportState": "legacy",
+      "implementationState": "implemented",
+      "evidenceState": "audited",
+      "isqRelationship": {
+        "classification": "legacy-isq-treatment",
+        "expressionReference": "component:editorial-reflection",
+        "notes": "Retain for existing material only; do not develop or use for new work."
+      },
+      "riseImplementation": {
+        "type": "custom-html",
+        "reference": ".isq-reflection-editorial",
+        "state": "legacy-implementation"
+      },
+      "productionEvidence": {
+        "state": "legacy-implementation-present",
+        "notes": "Presence does not imply current support or accessibility verification."
+      },
+      "discrepancies": [
+        "No replacement migration has been scheduled."
+      ],
+      "decisionStatus": "approved"
+    },
+    {
+      "reconciliationKey": "pattern:section-opener",
+      "currentId": "section-opener",
+      "currentName": "Section opener",
+      "sourceType": "pattern",
+      "currentCategory": "learning-pattern",
+      "currentStatus": "not-specified",
+      "proposedEntityType": "structural-pattern",
+      "proposedMaturity": "candidate",
+      "reuseScope": "isq-wide",
+      "supportState": "active",
+      "implementationState": "specified",
+      "evidenceState": "documented",
+      "crosswalkClassifications": [
+        "structural-pattern"
+      ],
+      "isqRelationship": {
+        "classification": "learning-expression",
+        "expressionReference": "pattern:section-opener",
+        "notes": "Implemented in Rise by component:section-opener or a native banner."
+      },
+      "riseImplementation": {
+        "type": "component-or-native-block",
+        "reference": "component:section-opener",
+        "state": "specified"
+      },
+      "productionEvidence": {
+        "state": "indirect",
+        "notes": "Pattern guidance is documented; production use is not separately verified."
+      },
+      "discrepancies": [],
+      "decisionStatus": "provisional-future-classification"
+    },
+    {
+      "reconciliationKey": "pattern:explanation",
+      "currentId": "explanation",
+      "currentName": "Explanation",
+      "sourceType": "pattern",
+      "currentCategory": "learning-pattern",
+      "currentStatus": "not-specified",
+      "proposedEntityType": "learning-design-purpose",
+      "proposedMaturity": "candidate",
+      "reuseScope": "isq-wide",
+      "supportState": "active",
+      "implementationState": "specified",
+      "evidenceState": "documented",
+      "crosswalkClassifications": [
+        "learning-design-purpose"
+      ],
+      "isqRelationship": {
+        "classification": "learning-design-purpose",
+        "expressionReference": "pattern:explanation",
+        "notes": "Guides use of Split card, Panel or a native Rise block."
+      },
+      "riseImplementation": {
+        "type": "component-or-native-block",
+        "reference": "component:split-card, component:panel",
+        "state": "specified"
+      },
+      "productionEvidence": {
+        "state": "indirect",
+        "notes": "Guidance exists; production use is not separately verified."
+      },
+      "discrepancies": [],
+      "decisionStatus": "provisional-future-classification"
+    },
+    {
+      "reconciliationKey": "pattern:key-message",
+      "currentId": "key-message",
+      "currentName": "Key message",
+      "sourceType": "pattern",
+      "currentCategory": "learning-pattern",
+      "currentStatus": "not-specified",
+      "proposedEntityType": "learning-design-purpose",
+      "proposedMaturity": "candidate",
+      "reuseScope": "isq-wide",
+      "supportState": "active",
+      "implementationState": "specified",
+      "evidenceState": "documented",
+      "crosswalkClassifications": [
+        "learning-design-purpose",
+        "recipe"
+      ],
+      "isqRelationship": {
+        "classification": "learning-design-purpose",
+        "expressionReference": "pattern:key-message",
+        "notes": "Expressed through the Callout component recipe."
+      },
+      "riseImplementation": {
+        "type": "component-recipe",
+        "reference": "component:callout",
+        "state": "specified"
+      },
+      "productionEvidence": {
+        "state": "indirect",
+        "notes": "No distinct production implementation is evidenced."
+      },
+      "discrepancies": [
+        "Same-named component record should be reconciled as a recipe built with Callout."
+      ],
+      "decisionStatus": "provisional-future-classification"
+    },
+    {
+      "reconciliationKey": "pattern:legislation",
+      "currentId": "legislation",
+      "currentName": "Legislation or authority",
+      "sourceType": "pattern",
+      "currentCategory": "learning-pattern",
+      "currentStatus": "not-specified",
+      "proposedEntityType": "learning-expression",
+      "proposedMaturity": "candidate",
+      "reuseScope": "isq-wide",
+      "supportState": "active",
+      "implementationState": "specified",
+      "evidenceState": "documented",
+      "crosswalkClassifications": [
+        "learning-expression",
+        "recipe"
+      ],
+      "isqRelationship": {
+        "classification": "learning-expression",
+        "expressionReference": "pattern:legislation",
+        "notes": "ISQ learning-purpose expression composed with Split card."
+      },
+      "riseImplementation": {
+        "type": "component-recipe",
+        "reference": "component:split-card",
+        "state": "specified"
+      },
+      "productionEvidence": {
+        "state": "indirect",
+        "notes": "No separate legislation component implementation is evidenced."
+      },
+      "discrepancies": [
+        "The current legislation-panel record references shared Split card and typography classes rather than separate implementation classes."
+      ],
+      "decisionStatus": "provisional-future-classification"
+    },
+    {
+      "reconciliationKey": "pattern:scenario-stage",
+      "currentId": "scenario-stage",
+      "currentName": "Scenario stage",
+      "sourceType": "pattern",
+      "currentCategory": "learning-pattern",
+      "currentStatus": "not-specified",
+      "proposedEntityType": "structural-pattern",
+      "proposedMaturity": "candidate",
+      "reuseScope": "isq-wide",
+      "supportState": "active",
+      "implementationState": "specified",
+      "evidenceState": "documented",
+      "crosswalkClassifications": [
+        "structural-pattern",
+        "learning-expression"
+      ],
+      "isqRelationship": {
+        "classification": "learning-expression",
+        "expressionReference": "pattern:scenario-stage",
+        "notes": "ISQ learning expression with stable scenario context."
+      },
+      "riseImplementation": {
+        "type": "component",
+        "reference": "component:scenario-stage",
+        "state": "specified"
+      },
+      "productionEvidence": {
+        "state": "indirect",
+        "notes": "Pattern and component are documented; production use is not separately verified."
+      },
+      "discrepancies": [],
+      "decisionStatus": "provisional-future-classification"
+    },
+    {
+      "reconciliationKey": "pattern:decision-point",
+      "currentId": "decision-point",
+      "currentName": "Decision point",
+      "sourceType": "pattern",
+      "currentCategory": "learning-pattern",
+      "currentStatus": "not-specified",
+      "proposedEntityType": "learning-expression",
+      "proposedMaturity": "candidate",
+      "reuseScope": "isq-wide",
+      "supportState": "active",
+      "implementationState": "specified",
+      "evidenceState": "documented",
+      "crosswalkClassifications": [
+        "learning-expression",
+        "learning-design-purpose"
+      ],
+      "isqRelationship": {
+        "classification": "learning-expression",
+        "expressionReference": "pattern:decision-point",
+        "notes": "Professional-judgement purpose with ISQ guidance."
+      },
+      "riseImplementation": {
+        "type": "component",
+        "reference": "component:decision-point",
+        "state": "specified"
+      },
+      "productionEvidence": {
+        "state": "indirect",
+        "notes": "No stronger production claim is made."
+      },
+      "discrepancies": [],
+      "decisionStatus": "provisional-future-classification"
+    },
+    {
+      "reconciliationKey": "pattern:feedback",
+      "currentId": "feedback",
+      "currentName": "Feedback",
+      "sourceType": "pattern",
+      "currentCategory": "learning-pattern",
+      "currentStatus": "not-specified",
+      "proposedEntityType": "learning-design-purpose",
+      "proposedMaturity": "candidate",
+      "reuseScope": "isq-wide",
+      "supportState": "active",
+      "implementationState": "specified",
+      "evidenceState": "documented",
+      "crosswalkClassifications": [
+        "learning-design-purpose"
+      ],
+      "isqRelationship": {
+        "classification": "learning-design-purpose",
+        "expressionReference": "pattern:feedback",
+        "notes": "ISQ guidance requires explanatory, in-place feedback."
+      },
+      "riseImplementation": {
+        "type": "component-behaviour",
+        "reference": "component:decision-point",
+        "state": "specified"
+      },
+      "productionEvidence": {
+        "state": "indirect",
+        "notes": "Guidance is documented; production behaviour is not tested here."
+      },
+      "discrepancies": [],
+      "decisionStatus": "provisional-future-classification"
+    },
+    {
+      "reconciliationKey": "pattern:process",
+      "currentId": "process",
+      "currentName": "Process",
+      "sourceType": "pattern",
+      "currentCategory": "learning-pattern",
+      "currentStatus": "not-specified",
+      "proposedEntityType": "structural-pattern",
+      "proposedMaturity": "candidate",
+      "reuseScope": "isq-wide",
+      "supportState": "active",
+      "implementationState": "specified",
+      "evidenceState": "documented",
+      "crosswalkClassifications": [
+        "structural-pattern",
+        "learning-design-purpose"
+      ],
+      "isqRelationship": {
+        "classification": "learning-expression",
+        "expressionReference": "pattern:process",
+        "notes": "ISQ guidance limits numbered treatment to genuine sequence."
+      },
+      "riseImplementation": {
+        "type": "component",
+        "reference": "component:process",
+        "state": "specified"
+      },
+      "productionEvidence": {
+        "state": "indirect",
+        "notes": "Implementation exists; production use is not separately verified."
+      },
+      "discrepancies": [],
+      "decisionStatus": "provisional-future-classification"
+    },
+    {
+      "reconciliationKey": "pattern:comparison",
+      "currentId": "comparison",
+      "currentName": "Comparison",
+      "sourceType": "pattern",
+      "currentCategory": "learning-pattern",
+      "currentStatus": "not-specified",
+      "proposedEntityType": "structural-pattern",
+      "proposedMaturity": "candidate",
+      "reuseScope": "isq-wide",
+      "supportState": "active",
+      "implementationState": "specified",
+      "evidenceState": "audited",
+      "crosswalkClassifications": [
+        "structural-pattern",
+        "learning-design-purpose"
+      ],
+      "isqRelationship": {
+        "classification": "learning-expression",
+        "expressionReference": "pattern:comparison",
+        "notes": "Intended shared expression is Role split."
+      },
+      "riseImplementation": {
+        "type": "component-and-course-variants",
+        "reference": "component:role-split, component:harm-tabs",
+        "state": "drift-observed"
+      },
+      "productionEvidence": {
+        "state": "mixed",
+        "notes": "Harm tabs and bespoke comparisons are course-specific; the shared Role split is not the audited live implementation."
+      },
+      "discrepancies": [
+        "Course-specific comparison markup bypasses Role split and includes a locally redeclared gold token."
+      ],
+      "decisionStatus": "provisional-future-classification"
+    },
+    {
+      "reconciliationKey": "pattern:reflection",
+      "currentId": "reflection",
+      "currentName": "Reflection",
+      "sourceType": "pattern",
+      "currentCategory": "learning-pattern",
+      "currentStatus": "not-specified",
+      "proposedEntityType": "learning-design-purpose",
+      "proposedMaturity": "candidate",
+      "reuseScope": "isq-wide",
+      "supportState": "active",
+      "implementationState": "specified",
+      "evidenceState": "audited",
+      "crosswalkClassifications": [
+        "learning-design-purpose"
+      ],
+      "isqRelationship": {
+        "classification": "learning-design-purpose",
+        "expressionReference": "pattern:reflection",
+        "notes": "ISQ guidance prefers native or compact treatments."
+      },
+      "riseImplementation": {
+        "type": "native-or-course-specific",
+        "reference": "component:self-assessment, component:editorial-reflection",
+        "state": "mixed"
+      },
+      "productionEvidence": {
+        "state": "mixed",
+        "notes": "Self-assessment is course-observed but unverified; Editorial reflection is legacy."
+      },
+      "discrepancies": [
+        "The current related component is course-specific, while the older editorial treatment remains legacy without a migration plan."
+      ],
+      "decisionStatus": "provisional-future-classification"
+    },
+    {
+      "reconciliationKey": "pattern:resource",
+      "currentId": "resource",
+      "currentName": "Resource",
+      "sourceType": "pattern",
+      "currentCategory": "learning-pattern",
+      "currentStatus": "not-specified",
+      "proposedEntityType": "learning-design-purpose",
+      "proposedMaturity": "candidate",
+      "reuseScope": "isq-wide",
+      "supportState": "active",
+      "implementationState": "specified",
+      "evidenceState": "documented",
+      "crosswalkClassifications": [
+        "learning-design-purpose"
+      ],
+      "isqRelationship": {
+        "classification": "learning-expression",
+        "expressionReference": "pattern:resource",
+        "notes": "ISQ usage guidance for contextual links."
+      },
+      "riseImplementation": {
+        "type": "component-or-native-block",
+        "reference": "component:resource-card",
+        "state": "specified"
+      },
+      "productionEvidence": {
+        "state": "indirect",
+        "notes": "Pattern guidance exists; production use is not independently verified."
+      },
+      "discrepancies": [],
+      "decisionStatus": "provisional-future-classification"
+    },
+    {
+      "reconciliationKey": "pattern:section-summary",
+      "currentId": "section-summary",
+      "currentName": "Section summary",
+      "sourceType": "pattern",
+      "currentCategory": "learning-pattern",
+      "currentStatus": "not-specified",
+      "proposedEntityType": "structural-pattern",
+      "proposedMaturity": "candidate",
+      "reuseScope": "isq-wide",
+      "supportState": "active",
+      "implementationState": "specified",
+      "evidenceState": "documented",
+      "crosswalkClassifications": [
+        "structural-pattern",
+        "learning-design-purpose"
+      ],
+      "isqRelationship": {
+        "classification": "learning-expression",
+        "expressionReference": "pattern:section-summary",
+        "notes": "ISQ expression uses Dark / footer band."
+      },
+      "riseImplementation": {
+        "type": "component",
+        "reference": "component:footer-band",
+        "state": "specified"
+      },
+      "productionEvidence": {
+        "state": "indirect",
+        "notes": "Implementation is documented; production use is not separately verified."
+      },
+      "discrepancies": [
+        "Generic .isq-band classes have no standalone catalogue record and may overlap the footer-band treatment."
+      ],
+      "decisionStatus": "provisional-future-classification"
+    }
+  ],
+  "manifestDiscrepancies": [
+    "AUDIT.md and DECISIONS.md retain earlier release counts of 21 components and 11 patterns; the current source JSON files contain 23 components and 12 patterns.",
+    "Production CSS foundations for block width, content density, typography, lists, rules and generic bands are implemented but do not all have canonical catalogue records."
+  ],
+  "riseDesignSystemV1Target": {
+    "status": "consolidation-objective",
+    "notes": "This non-rendering target set does not assert that every listed item is already production-approved.",
+    "components": [
+      "panel",
+      "button",
+      "callout",
+      "accordion",
+      "video-frame",
+      "section-opener",
+      "split-card",
+      "resource-card",
+      "process",
+      "scenario-stage",
+      "decision-point"
+    ],
+    "supportingPrimitivesAndFoundations": {
+      "componentIds": [
+        "meta-tags"
+      ],
+      "documentationQueue": [
+        "Existing production foundation APIs requiring formal documentation"
+      ]
+    },
+    "candidateQueue": [
+      {
+        "label": "Tabs",
+        "componentIds": [
+          "tabs"
+        ]
+      },
+      {
+        "label": "Role Split",
+        "componentIds": [
+          "role-split"
+        ]
+      },
+      {
+        "label": "Card / Grid",
+        "componentIds": [
+          "card-grid"
+        ]
+      },
+      {
+        "label": "Footer Band / generic Band",
+        "componentIds": [
+          "footer-band"
+        ]
+      }
+    ]
+  }
+}
