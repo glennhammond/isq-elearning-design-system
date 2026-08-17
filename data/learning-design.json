@@ -67,7 +67,7 @@
     ],
     "designGuidance": [
       "Keep the message focused and concise, normally one to three sentences.",
-      "Treat its presentation as a recipe using Callout and typography, not as an independent canonical component."
+      "Use the Key message recipe when deliberate emphasis is useful. It combines Callout and typography."
     ],
     "definition": {
       "learnerNeed": "Recognise and retain the single point that matters most in the current context."
@@ -77,7 +77,7 @@
         "kind": "recipe",
         "ref": "key-message",
         "role": "Compose a focused message from Callout and typography.",
-        "note": "This recipe is not an independent canonical component."
+        "note": "Combine Callout and typography for this treatment."
       },
       {
         "kind": "component",
@@ -542,7 +542,7 @@
       "Identify the authority precisely and keep authoritative material visibly separate from explanation.",
       "Use plain-language interpretation where appropriate and make the learner implication or action explicit.",
       "Use extracts and citations carefully, retaining enough context for accurate interpretation.",
-      "Treat the expression as a recipe supported by Split Card and typography, not as an independent canonical Legislation Panel component."
+      "Use the Legislation or authority recipe with Split Card and typography when a stronger treatment is useful."
     ],
     "definition": {
       "definingFeatures": [
@@ -558,7 +558,7 @@
         "kind": "recipe",
         "ref": "legislation-or-authority",
         "role": "Compose authoritative source material, explanation and learner implications using Split Card and typography.",
-        "note": "Legislation Panel is not an independent canonical component."
+        "note": "Combine Split Card and typography for this treatment."
       },
       {
         "kind": "component",

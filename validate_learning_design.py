@@ -1,17 +1,20 @@
 #!/usr/bin/env python3
-"""Validate the parallel, non-rendering Learning Design model."""
+"""Validate the Learning Design model and, optionally, its generated route."""
 
 import json
 import re
 import sys
 from collections import Counter
+from html.parser import HTMLParser
 from pathlib import Path
+from urllib.parse import unquote, urlsplit
 
 
 ROOT = Path(__file__).resolve().parent
 LEARNING_DESIGN_PATH = ROOT / "data" / "learning-design.json"
 PATTERNS_PATH = ROOT / "data" / "patterns.json"
 COMPONENTS_PATH = ROOT / "data" / "components.json"
+GENERATED_ROUTE = ROOT / "out" / "learning-design" / "index.html"
 
 EXPECTED_TOTAL = 12
 EXPECTED_ENTITY_COUNTS = {
@@ -59,6 +62,128 @@ EXTERNAL_METHODOLOGY_PATTERNS = {
     "SAM model": r"\bsam model\b",
     "Universal Design for Learning": r"\buniversal design for learning\b|\budl framework\b",
 }
+
+
+class LearningDesignHTMLParser(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.ids = []
+        self.record_ids = []
+        self.record_entity_types = []
+        self.group_ids = []
+        self.record_disclosures = Counter()
+        self.current_record_id = None
+        self.links = []
+        self.sources = []
+
+    def handle_starttag(self, tag, attrs):
+        attributes = dict(attrs)
+        classes = set(attributes.get("class", "").split())
+        if attributes.get("id"):
+            self.ids.append(attributes["id"])
+        if "docs-learning-group" in classes:
+            self.group_ids.append(attributes.get("id"))
+        if "data-learning-design-record" in attributes:
+            self.record_ids.append(attributes.get("id"))
+            self.record_entity_types.append(attributes.get("data-entity-type"))
+            self.current_record_id = attributes.get("id")
+        if tag == "details" and "docs-learning-guidance" in classes:
+            self.record_disclosures[self.current_record_id] += 1
+        if tag == "a" and attributes.get("href"):
+            self.links.append(attributes["href"])
+        if tag in {"img", "script"} and attributes.get("src"):
+            self.sources.append(attributes["src"])
+
+    def handle_endtag(self, tag):
+        if tag == "article":
+            self.current_record_id = None
+
+
+def validate_generated_route(errors, records):
+    if not GENERATED_ROUTE.exists():
+        errors.append("Generated route out/learning-design/index.html does not exist; run generate.py first.")
+        return
+
+    parser = LearningDesignHTMLParser()
+    parser.feed(GENERATED_ROUTE.read_text(encoding="utf-8"))
+
+    if len(parser.record_entity_types) != EXPECTED_TOTAL:
+        errors.append(
+            f"Generated route has {len(parser.record_entity_types)} Learning Design records; expected {EXPECTED_TOTAL}."
+        )
+    expected_record_ids = {record.get("id") for record in records}
+    if set(parser.record_ids) != expected_record_ids or len(parser.record_ids) != EXPECTED_TOTAL:
+        errors.append("Generated Learning Design record IDs do not match the source model exactly once.")
+    invalid_disclosures = {
+        record_id: parser.record_disclosures[record_id]
+        for record_id in expected_record_ids
+        if parser.record_disclosures[record_id] != 1
+    }
+    if invalid_disclosures:
+        errors.append(
+            "Each generated Learning Design record must contain exactly one disclosure; "
+            f"found {invalid_disclosures}."
+        )
+    duplicate_html_ids = sorted(item_id for item_id, count in Counter(parser.ids).items() if count > 1)
+    if duplicate_html_ids:
+        errors.append(f"Generated route contains duplicate HTML IDs: {duplicate_html_ids}")
+    generated_counts = Counter(parser.record_entity_types)
+    for entity_type, expected_count in EXPECTED_ENTITY_COUNTS.items():
+        if generated_counts.get(entity_type, 0) != expected_count:
+            errors.append(
+                f"Generated route has {generated_counts.get(entity_type, 0)} {entity_type} records; expected {expected_count}."
+            )
+
+    expected_group_ids = {"learning-purposes", "experience-structures", "learning-expressions"}
+    if set(parser.group_ids) != expected_group_ids or len(parser.group_ids) != 3:
+        errors.append(
+            f"Generated route groups are {parser.group_ids!r}; expected each of {sorted(expected_group_ids)} exactly once."
+        )
+
+    record_navigation_links = Counter(
+        href for href in parser.links if href in {f"#{record_id}" for record_id in expected_record_ids}
+    )
+    invalid_navigation_links = {
+        record_id: record_navigation_links[f"#{record_id}"]
+        for record_id in expected_record_ids
+        if record_navigation_links[f"#{record_id}"] != 1
+    }
+    if invalid_navigation_links:
+        errors.append(
+            "Each Learning Design record must have exactly one section-navigation link; "
+            f"found {invalid_navigation_links}."
+        )
+
+    expected_component_links = Counter(
+        f"../components/{implementation['ref']}/index.html"
+        for record in records
+        for implementation in record.get("implementations", [])
+        if implementation.get("kind") == "component"
+    )
+    actual_component_links = Counter(
+        href
+        for href in parser.links
+        if re.fullmatch(r"\.\./components/[^/]+/index\.html", href)
+    )
+    if actual_component_links != expected_component_links:
+        errors.append("Generated component links do not match Learning Design component implementations.")
+
+    for reference in parser.links + parser.sources:
+        parsed = urlsplit(reference)
+        if not parsed.path and parsed.fragment and parsed.fragment not in parser.ids:
+            errors.append(f"Generated route contains a broken local anchor: {reference}")
+            continue
+        if parsed.scheme or parsed.netloc or not parsed.path:
+            continue
+        target = (GENERATED_ROUTE.parent / unquote(parsed.path)).resolve()
+        if target.is_dir():
+            target = target / "index.html"
+        if not target.exists():
+            errors.append(f"Generated route contains a broken local reference: {reference}")
+
+    patterns_route = ROOT / "out" / "patterns" / "index.html"
+    if not patterns_route.exists():
+        errors.append("Legacy route out/patterns/index.html was not generated.")
 
 
 def load_json(path):
@@ -264,15 +389,24 @@ def main():
     if introduced_terms:
         errors.append(f"External-methodology terminology found: {introduced_terms}")
 
+    validate_generated = "--generated" in sys.argv[1:]
+    unknown_arguments = set(sys.argv[1:]) - {"--generated"}
+    if unknown_arguments:
+        errors.append(f"Unknown arguments: {sorted(unknown_arguments)}")
+    if validate_generated:
+        validate_generated_route(errors, records)
+
     if errors:
         print("Learning Design validation failed:", file=sys.stderr)
         for error in errors:
             print(f"- {error}", file=sys.stderr)
         return 1
 
+    generated_message = " Generated route, grouping and local references are valid." if validate_generated else ""
     print(
         "Learning Design model valid: 12 records "
         "(5 purposes, 5 structures, 2 expressions), with complete legacy and component references."
+        + generated_message
     )
     return 0
 

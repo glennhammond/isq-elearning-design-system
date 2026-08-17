@@ -1,0 +1,139 @@
+{% extends "base.html.j2" %}
+{% block content %}
+<div class="docs-container docs-learning-design">
+  <header class="docs-learning-design__intro">
+    <span class="docs-eyebrow">Learning Design</span>
+    <h1>Learning Design</h1>
+    <p class="docs-lede">Start with the learner need, choose a suitable structure, use an established learning expression where appropriate, then select components or platform capabilities that realise the intent.</p>
+  </header>
+
+  <nav class="docs-learning-routes" aria-label="Learning Design record groups">
+    {% for group in groups %}
+    <a class="docs-card docs-learning-route" href="#{{ group.id }}">
+      <span class="docs-eyebrow">{{ group.label }} · {{ group.records|length }} records</span>
+      <h2>{{ group.title }}</h2>
+      <p>{{ group.description }}</p>
+      <span class="docs-learning-route__action">View {{ group.title|lower }} →</span>
+    </a>
+    {% endfor %}
+  </nav>
+
+  <section class="docs-learning-path" aria-labelledby="intent-to-implementation">
+    <span class="docs-eyebrow">Intent to implementation</span>
+    <h2 id="intent-to-implementation">From intent to implementation</h2>
+    <ol>
+      <li><span>1</span><strong>What does the learner need?</strong></li>
+      <li><span>2</span><strong>How should the experience be structured?</strong></li>
+      <li><span>3</span><strong>Does an established learning expression fit?</strong></li>
+      <li><span>4</span><strong>Which implementation suits the platform?</strong></li>
+    </ol>
+  </section>
+
+  {% for group in groups %}
+  <section class="docs-learning-group docs-learning-group--{{ group.entity_type }}" id="{{ group.id }}" aria-labelledby="{{ group.id }}-title">
+    <header class="docs-learning-group__header">
+      <div>
+        <span class="docs-eyebrow">{{ group.records|length }} records</span>
+        <h2 id="{{ group.id }}-title">{{ group.title }}</h2>
+      </div>
+      <p>{{ group.description }}</p>
+    </header>
+
+    <nav class="docs-learning-record-nav" aria-label="{{ group.title }} records">
+      <span>In this section</span>
+      <ul>
+        {% for record in group.records %}
+        <li><a href="#{{ record.id }}">{{ record.name }}</a></li>
+        {% endfor %}
+      </ul>
+    </nav>
+
+    <div class="docs-learning-records">
+      {% for record in group.records %}
+      <article class="docs-learning-record" id="{{ record.id }}" data-learning-design-record data-entity-type="{{ record.entityType }}">
+        <header class="docs-learning-record__header">
+          <div>
+            <span class="docs-eyebrow">{{ group.label }}</span>
+            <h3>{{ record.name }}</h3>
+          </div>
+        </header>
+
+        <p class="docs-learning-record__summary">{{ record.summary }}</p>
+
+        <section class="docs-learning-definition" aria-labelledby="{{ record.id }}-definition">
+          <h4 id="{{ record.id }}-definition">{{ group.definition_label }}</h4>
+          {% set definition = record.definition[group.definition_key] %}
+          {% if definition is string %}
+          <p>{{ definition }}</p>
+          {% else %}
+          <ul>
+            {% for item in definition %}<li>{{ item }}</li>{% endfor %}
+          </ul>
+          {% endif %}
+        </section>
+
+        <div class="docs-use-avoid">
+          <section class="docs-use-avoid__col docs-use-avoid__col--use">
+            <h4>Use when</h4>
+            <ul>{% for item in record.useWhen %}<li>{{ item }}</li>{% endfor %}</ul>
+          </section>
+          <section class="docs-use-avoid__col docs-use-avoid__col--avoid">
+            <h4>Avoid when</h4>
+            <ul>{% for item in record.avoidWhen %}<li>{{ item }}</li>{% endfor %}</ul>
+          </section>
+        </div>
+
+        <details class="docs-learning-guidance">
+          <summary>
+            <span class="docs-learning-guidance__view">View design &amp; implementation guidance</span>
+            <span class="docs-learning-guidance__hide">Hide design &amp; implementation guidance</span>
+          </summary>
+          <div class="docs-learning-guidance__content">
+            <section class="docs-learning-record__section">
+              <h4>Design guidance</h4>
+              <ul>{% for item in record.designGuidance %}<li>{{ item }}</li>{% endfor %}</ul>
+            </section>
+
+            <section class="docs-learning-record__section">
+              <h4>Possible implementations</h4>
+              <ul class="docs-implementation-list">
+                {% for implementation in record.implementations %}
+                <li>
+                  <div>
+                    {% if implementation.kind == 'component' %}
+                    <a href="{{ base }}components/{{ implementation.ref }}/index.html"><strong>{{ component_names[implementation.ref] }} component</strong></a>
+                    {% elif implementation.kind == 'recipe' %}
+                    <strong>{{ implementation.ref|replace('-', ' ')|capitalize }} recipe</strong>
+                    {% elif implementation.kind == 'native-capability' %}
+                    <strong>{{ implementation.ref|replace('rise-', 'Rise ')|replace('-', ' ')|capitalize }} native capability</strong>
+                    {% else %}
+                    <strong>{{ implementation.ref|replace('-', ' ')|capitalize }} platform implementation</strong>
+                    {% endif %}
+                    <span class="docs-implementation-kind">{{ implementation.kind|replace('-', ' ') }}</span>
+                  </div>
+                  <p>{{ implementation.role }}</p>
+                  {% if implementation.note %}<p class="docs-implementation-note">{{ implementation.note }}</p>{% endif %}
+                </li>
+                {% endfor %}
+              </ul>
+            </section>
+
+            <section class="docs-learning-platform">
+              <h4>Platform guidance</h4>
+              {% for platform, guidance in record.platformGuidance.items() %}
+              <p><strong>{{ platform|replace('-', ' ')|title }}:</strong> {{ guidance }}</p>
+              {% endfor %}
+            </section>
+
+            <p class="docs-learning-maturity">Maturity: {{ record.governance.maturity|replace('-', ' ')|title }}</p>
+          </div>
+        </details>
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+  {% endfor %}
+
+  <p class="docs-learning-legacy-link">For migration reference, see the current <a href="{{ base }}patterns/index.html">Learning Patterns page</a>.</p>
+</div>
+{% endblock %}

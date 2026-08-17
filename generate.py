@@ -52,6 +52,7 @@ def main():
 
     foundations = load("foundations.json")
     patterns = load("patterns.json")
+    learning_design = load("learning-design.json")
     components = load("components.json")
     changelog = load("changelog.json")
 
@@ -113,6 +114,49 @@ def main():
            description="The eleven core learning and communication patterns.",
            section="patterns", patterns=patterns, component_names=component_names)
 
+    # ---- Learning Design (parallel preview; not yet in primary navigation or search) ----
+    learning_design_groups = [
+        {
+            "id": "learning-purposes",
+            "entity_type": "learning-design-purpose",
+            "label": "Learning purpose",
+            "title": "Learning purposes",
+            "description": "These describe what the designer needs to support for the learner.",
+            "definition_key": "learnerNeed",
+            "definition_label": "Learner need",
+        },
+        {
+            "id": "experience-structures",
+            "entity_type": "experience-structure",
+            "label": "Experience structure",
+            "title": "Experience structures",
+            "description": "These describe repeatable ways to organise sequence, grouping, transition or flow.",
+            "definition_key": "structure",
+            "definition_label": "Structure",
+        },
+        {
+            "id": "learning-expressions",
+            "entity_type": "learning-expression",
+            "label": "Learning expression",
+            "title": "Learning expressions",
+            "description": "These are established ISQ approaches for recurring learning situations.",
+            "definition_key": "definingFeatures",
+            "definition_label": "Defining features",
+        },
+    ]
+    for group in learning_design_groups:
+        group["records"] = [
+            record for record in learning_design
+            if record["entityType"] == group["entity_type"]
+        ]
+    render(
+        "learning_design.html.j2", "learning-design/index.html",
+        title="Learning Design",
+        description="Move from learner need to an appropriate experience structure, learning expression and platform implementation.",
+        section="learning-design", groups=learning_design_groups,
+        component_names=component_names,
+    )
+
     # ---- Components index ----
     render("components_index.html.j2", "components/index.html", title="Components",
            description="The full component catalogue, filterable by category, status and platform.",
@@ -167,7 +211,7 @@ def main():
     if production_css.exists():
         shutil.copy(production_css, OUT / "assets" / "vendor" / "isq-rise-components-v1.0.0.css")
     (OUT / "data").mkdir(parents=True, exist_ok=True)
-    for name in ["foundations.json", "patterns.json", "components.json", "changelog.json"]:
+    for name in ["foundations.json", "patterns.json", "learning-design.json", "components.json", "changelog.json"]:
         shutil.copy(DATA / name, OUT / "data" / name)
 
     # ---- Search index ----
