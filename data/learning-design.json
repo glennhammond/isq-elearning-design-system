@@ -1,0 +1,659 @@
+[
+  {
+    "id": "explanation",
+    "name": "Explain a concept",
+    "entityType": "learning-design-purpose",
+    "summary": "Help learners build a clear understanding of a concept they will later need to act on, judge or apply.",
+    "useWhen": [
+      "The learner needs core understanding before using a concept in practice."
+    ],
+    "avoidWhen": [
+      "Only one concise point needs to be retained; use Key message instead."
+    ],
+    "designGuidance": [
+      "Organise the explanation around the understanding the learner needs, with clear hierarchy and readable density.",
+      "Use supporting visuals only when they add meaning."
+    ],
+    "definition": {
+      "learnerNeed": "Build the understanding needed for later action, judgement or application."
+    },
+    "implementations": [
+      {
+        "kind": "native-capability",
+        "ref": "rise-image-and-text",
+        "role": "Present a straightforward explanation using native Rise content.",
+        "platform": "rise"
+      },
+      {
+        "kind": "component",
+        "ref": "panel",
+        "role": "Group related explanatory content when a visible boundary helps comprehension."
+      },
+      {
+        "kind": "component",
+        "ref": "split-card",
+        "role": "Pair explanatory content with an image that adds meaning."
+      }
+    ],
+    "platformGuidance": {
+      "rise": "Prefer native image-and-text for straightforward explanations; use Split Card only where the image adds real meaning."
+    },
+    "relatedRecords": [
+      {
+        "ref": "key-message",
+        "relationship": "alternative-purpose"
+      }
+    ],
+    "governance": {
+      "maturity": "candidate",
+      "reuseScope": "isq-wide",
+      "supportState": "active"
+    },
+    "legacy": {
+      "sourceId": "explanation",
+      "sourceUrl": "/patterns/index.html#explanation"
+    }
+  },
+  {
+    "id": "key-message",
+    "name": "Key message",
+    "entityType": "learning-design-purpose",
+    "summary": "Help the learner identify and retain one critical point.",
+    "useWhen": [
+      "One legal threshold, definition or critical reminder needs deliberate emphasis."
+    ],
+    "avoidWhen": [
+      "The content is routine supporting detail or contains more than one message."
+    ],
+    "designGuidance": [
+      "Keep the message focused and concise, normally one to three sentences.",
+      "Treat its presentation as a recipe using Callout and typography, not as an independent canonical component."
+    ],
+    "definition": {
+      "learnerNeed": "Recognise and retain the single point that matters most in the current context."
+    },
+    "implementations": [
+      {
+        "kind": "recipe",
+        "ref": "key-message",
+        "role": "Compose a focused message from Callout and typography.",
+        "note": "This recipe is not an independent canonical component."
+      },
+      {
+        "kind": "component",
+        "ref": "callout",
+        "role": "Provide emphasis within the Key message recipe."
+      },
+      {
+        "kind": "native-capability",
+        "ref": "rise-text",
+        "role": "Present a light-touch key message with a subheading and ordinary body text.",
+        "platform": "rise"
+      }
+    ],
+    "platformGuidance": {
+      "rise": "Use ordinary body text with a subheading when a separate visual treatment is unnecessary."
+    },
+    "relatedRecords": [
+      {
+        "ref": "explanation",
+        "relationship": "alternative-purpose"
+      }
+    ],
+    "governance": {
+      "maturity": "candidate",
+      "reuseScope": "isq-wide",
+      "supportState": "active"
+    },
+    "legacy": {
+      "sourceId": "key-message",
+      "sourceUrl": "/patterns/index.html#key-message"
+    }
+  },
+  {
+    "id": "feedback",
+    "name": "Explanatory feedback",
+    "entityType": "learning-design-purpose",
+    "summary": "Help learners understand the reasoning and consequences behind a response and what to consider next.",
+    "useWhen": [
+      "A learner response creates an opportunity to explain reasoning, consequences or a misconception."
+    ],
+    "avoidWhen": [
+      "The response would only state correct or incorrect without useful reasoning."
+    ],
+    "designGuidance": [
+      "Connect feedback directly to the learner's response and reveal it close to the action that caused it.",
+      "Explain consequences, address likely misconceptions and identify what the learner should consider next.",
+      "Choose an implementation suited to the activity; explanatory feedback is not limited to Decision Point."
+    ],
+    "definition": {
+      "learnerNeed": "Understand why a response is or is not appropriate, its likely consequences and how to improve the next judgement or action."
+    },
+    "implementations": [
+      {
+        "kind": "native-capability",
+        "ref": "rise-feedback",
+        "role": "Provide explanatory feedback within a suitable native interaction.",
+        "platform": "rise"
+      },
+      {
+        "kind": "component",
+        "ref": "decision-point",
+        "role": "Reveal explanatory feedback after a professional decision when that interaction is warranted.",
+        "note": "Decision Point is one implementation, not the boundary of this purpose."
+      },
+      {
+        "kind": "component",
+        "ref": "callout",
+        "role": "Present feedback revealed by a lightweight custom interaction."
+      }
+    ],
+    "platformGuidance": {
+      "rise": "Use the feedback capability of the chosen interaction and ensure dynamically revealed feedback is announced appropriately."
+    },
+    "relatedRecords": [
+      {
+        "ref": "decision-point",
+        "relationship": "supports-expression"
+      }
+    ],
+    "governance": {
+      "maturity": "candidate",
+      "reuseScope": "isq-wide",
+      "supportState": "active"
+    },
+    "legacy": {
+      "sourceId": "feedback",
+      "sourceUrl": "/patterns/index.html#feedback"
+    }
+  },
+  {
+    "id": "reflection",
+    "name": "Reflection",
+    "entityType": "learning-design-purpose",
+    "summary": "Help learners consider how learning relates to their own practice, experience or next action.",
+    "useWhen": [
+      "A short reflective prompt or self-assessment genuinely helps transfer learning into practice."
+    ],
+    "avoidWhen": [
+      "The prompt adds interaction or visual weight without supporting considered application.",
+      "A legacy Editorial Reflection treatment would be required."
+    ],
+    "designGuidance": [
+      "Prefer native or lightweight reflection when a prompt alone provides sufficient support.",
+      "Use structured self-assessment only when ratings or criteria materially help the learner reflect.",
+      "Editorial Reflection is legacy and must not be recommended for new work."
+    ],
+    "definition": {
+      "learnerNeed": "Connect learning to personal practice or experience and consider an appropriate future action."
+    },
+    "implementations": [
+      {
+        "kind": "native-capability",
+        "ref": "rise-statement-or-text",
+        "role": "Present a concise reflection prompt with minimal interaction.",
+        "platform": "rise"
+      },
+      {
+        "kind": "component",
+        "ref": "panel",
+        "role": "Give a lightweight reflection prompt an appropriate visual boundary."
+      },
+      {
+        "kind": "platform-implementation",
+        "ref": "self-assessment",
+        "role": "Support a course-specific structured reflection using ratings or criteria.",
+        "platform": "rise",
+        "note": "Use only when a structured rating genuinely helps."
+      }
+    ],
+    "platformGuidance": {
+      "rise": "Prefer native statement or text blocks, or a compact Panel. Self-assessment is course-specific. Editorial Reflection remains legacy and is not recommended."
+    },
+    "relatedRecords": [],
+    "governance": {
+      "maturity": "candidate",
+      "reuseScope": "isq-wide",
+      "supportState": "active"
+    },
+    "legacy": {
+      "sourceId": "reflection",
+      "sourceUrl": "/patterns/index.html#reflection"
+    }
+  },
+  {
+    "id": "resource",
+    "name": "Contextualise a resource",
+    "entityType": "learning-design-purpose",
+    "summary": "Help learners understand why a resource is relevant, where it leads and what they should do with it.",
+    "useWhen": [
+      "A supplementary document or external guidance needs context before the learner opens it."
+    ],
+    "avoidWhen": [
+      "Essential learning would be available only through the linked resource."
+    ],
+    "designGuidance": [
+      "Name the resource, explain its relevance and identify the intended learner action.",
+      "Set clear expectations about the destination and what will happen when it opens.",
+      "Bring essential learning into the course rather than relying on an external destination."
+    ],
+    "definition": {
+      "learnerNeed": "Understand the relevance, destination and intended action associated with a supplementary resource."
+    },
+    "implementations": [
+      {
+        "kind": "component",
+        "ref": "resource-card",
+        "role": "Present a resource with context and a clear action."
+      },
+      {
+        "kind": "native-capability",
+        "ref": "rise-attachment-or-link",
+        "role": "Provide a lighter implementation when a card is unnecessary.",
+        "platform": "rise"
+      }
+    ],
+    "platformGuidance": {
+      "rise": "Use a native attachment or contextual text link for lighter cases; never rely on the link alone to provide essential learning."
+    },
+    "relatedRecords": [],
+    "governance": {
+      "maturity": "candidate",
+      "reuseScope": "isq-wide",
+      "supportState": "active"
+    },
+    "legacy": {
+      "sourceId": "resource",
+      "sourceUrl": "/patterns/index.html#resource"
+    }
+  },
+  {
+    "id": "section-opener",
+    "name": "Section opener",
+    "entityType": "experience-structure",
+    "summary": "Orient learners and support the transition into a meaningful new section.",
+    "useWhen": [
+      "A major section genuinely begins and the learner needs orientation to its focus or purpose."
+    ],
+    "avoidWhen": [
+      "Every heading or minor subtopic change is treated as a major transition."
+    ],
+    "designGuidance": [
+      "Signal a meaningful structural transition and establish what the learner is moving into.",
+      "Keep orientation proportional to the importance of the section."
+    ],
+    "definition": {
+      "structure": "A distinct transition that introduces and orients the learner to a major section before its learning content begins."
+    },
+    "implementations": [
+      {
+        "kind": "native-capability",
+        "ref": "rise-banner",
+        "role": "Mark and orient a section transition using native Rise content.",
+        "platform": "rise"
+      },
+      {
+        "kind": "component",
+        "ref": "section-opener",
+        "role": "Provide a designed section transition when stronger orientation is warranted.",
+        "note": "The component is one possible implementation of the structure."
+      }
+    ],
+    "platformGuidance": {
+      "rise": "Choose a native banner or Section Opener component according to the strength of transition required."
+    },
+    "relatedRecords": [
+      {
+        "ref": "section-summary",
+        "relationship": "complementary-structure"
+      }
+    ],
+    "governance": {
+      "maturity": "candidate",
+      "reuseScope": "isq-wide",
+      "supportState": "active"
+    },
+    "legacy": {
+      "sourceId": "section-opener",
+      "sourceUrl": "/patterns/index.html#section-opener"
+    }
+  },
+  {
+    "id": "scenario-stage",
+    "name": "Scenario stage",
+    "entityType": "experience-structure",
+    "summary": "Organise a continuing scenario into meaningful stages that preserve perspective, evidence and progression.",
+    "useWhen": [
+      "A running scenario introduces a discrete context, update, observation or piece of evidence."
+    ],
+    "avoidWhen": [
+      "The content is general explanation with no continuing scenario relationship."
+    ],
+    "designGuidance": [
+      "Maintain a stable learner or decision-maker perspective across the scenario.",
+      "Make the relationship between each stage, new evidence and later progression clear.",
+      "Preserve continuity of the setting and situation while introducing only the evidence needed at that stage."
+    ],
+    "definition": {
+      "structure": "A sequence of connected scenario stages in which context or evidence develops from a consistent perspective and supports progression through the situation."
+    },
+    "implementations": [
+      {
+        "kind": "component",
+        "ref": "scenario-stage",
+        "role": "Present a discrete stage while maintaining visual and narrative continuity."
+      },
+      {
+        "kind": "native-capability",
+        "ref": "rise-content-sequence",
+        "role": "Arrange a lightweight continuing scenario using native content blocks.",
+        "platform": "rise"
+      }
+    ],
+    "platformGuidance": {
+      "rise": "Keep one stable visual environment and decision-maker perspective across the scenario, whether native blocks or the component are used."
+    },
+    "relatedRecords": [
+      {
+        "ref": "decision-point",
+        "relationship": "may-contain-expression"
+      }
+    ],
+    "governance": {
+      "maturity": "candidate",
+      "reuseScope": "isq-wide",
+      "supportState": "active"
+    },
+    "legacy": {
+      "sourceId": "scenario-stage",
+      "sourceUrl": "/patterns/index.html#scenario-stage"
+    }
+  },
+  {
+    "id": "process",
+    "name": "Ordered sequence",
+    "entityType": "experience-structure",
+    "summary": "Organise actions or stages where genuine order, dependencies or progression matter to understanding or outcome.",
+    "useWhen": [
+      "Actions, dependencies, stages or progression have a meaningful order."
+    ],
+    "avoidWhen": [
+      "Items are not truly sequential and a list or grid would communicate them more honestly."
+    ],
+    "designGuidance": [
+      "Make the reason for the order clear, including dependencies or changes between stages.",
+      "Use numbering only where the number carries meaning."
+    ],
+    "definition": {
+      "structure": "An ordered organisation of actions or stages whose sequence, dependencies or progression are significant."
+    },
+    "implementations": [
+      {
+        "kind": "native-capability",
+        "ref": "rise-ordered-content",
+        "role": "Present a straightforward ordered sequence using native content.",
+        "platform": "rise"
+      },
+      {
+        "kind": "component",
+        "ref": "process",
+        "role": "Present a designed sequence where its stages benefit from stronger visual organisation."
+      }
+    ],
+    "platformGuidance": {
+      "rise": "Use native ordered content when it is sufficient; use Process when stronger staged organisation supports comprehension."
+    },
+    "relatedRecords": [],
+    "governance": {
+      "maturity": "candidate",
+      "reuseScope": "isq-wide",
+      "supportState": "active"
+    },
+    "legacy": {
+      "sourceId": "process",
+      "sourceUrl": "/patterns/index.html#process"
+    }
+  },
+  {
+    "id": "comparison",
+    "name": "Comparison structure",
+    "entityType": "experience-structure",
+    "summary": "Organise related roles, responses or alternatives so learners can identify straightforward similarities and differences.",
+    "useWhen": [
+      "A small number of related items can be compared through clear, parallel categories."
+    ],
+    "avoidWhen": [
+      "The content is too extensive for a clear comparison or the activity requires a more sophisticated evaluate-and-decide experience."
+    ],
+    "designGuidance": [
+      "Keep comparison categories parallel and make important differences explicit.",
+      "Choose an organisation suited to the content volume and the number of alternatives.",
+      "More sophisticated compare–evaluate–decide learning activity requires additional learning design and is not defined by this structure alone."
+    ],
+    "definition": {
+      "structure": "A parallel organisation of a manageable set of related items under consistent categories to make simple similarities and differences clear."
+    },
+    "implementations": [
+      {
+        "kind": "component",
+        "ref": "role-split",
+        "role": "Compare two related roles or positions through parallel categories."
+      },
+      {
+        "kind": "native-capability",
+        "ref": "rise-table",
+        "role": "Present a compact comparison in rows and columns.",
+        "platform": "rise"
+      },
+      {
+        "kind": "component",
+        "ref": "card-grid",
+        "role": "Organise alternatives as cards when side-by-side scanning is useful."
+      },
+      {
+        "kind": "native-capability",
+        "ref": "rise-category-navigation",
+        "role": "Separate comparison categories when the content benefits from guided navigation.",
+        "platform": "rise"
+      }
+    ],
+    "platformGuidance": {
+      "rise": "Select Role Split, a table, Card Grid or category navigation according to the content; the structure does not prescribe one treatment."
+    },
+    "relatedRecords": [
+      {
+        "ref": "decision-point",
+        "relationship": "distinct-from-expression"
+      }
+    ],
+    "governance": {
+      "maturity": "candidate",
+      "reuseScope": "isq-wide",
+      "supportState": "active"
+    },
+    "legacy": {
+      "sourceId": "comparison",
+      "sourceUrl": "/patterns/index.html#comparison"
+    }
+  },
+  {
+    "id": "section-summary",
+    "name": "Section summary",
+    "entityType": "experience-structure",
+    "summary": "Provide meaningful closure to a major section and reinforce the learning before transition.",
+    "useWhen": [
+      "A major section ends and the learner benefits from deliberate closure and reinforcement."
+    ],
+    "avoidWhen": [
+      "Every subtopic is followed by a summary regardless of its significance."
+    ],
+    "designGuidance": [
+      "Reinforce the most important learning in a concise set of points.",
+      "Use the summary to close the section and prepare the learner for a genuine transition."
+    ],
+    "definition": {
+      "structure": "A deliberate closing segment that consolidates a major section's learning and marks the transition away from it."
+    },
+    "implementations": [
+      {
+        "kind": "native-capability",
+        "ref": "rise-summary-content",
+        "role": "Close a section with concise native text or list content.",
+        "platform": "rise"
+      },
+      {
+        "kind": "component",
+        "ref": "footer-band",
+        "role": "Give a major section a strong visual close when warranted.",
+        "note": "Footer Band is one possible implementation, not a requirement."
+      }
+    ],
+    "platformGuidance": {
+      "rise": "Use three to five concise points where appropriate. Choose Footer Band only when a deliberate visual close is useful."
+    },
+    "relatedRecords": [
+      {
+        "ref": "section-opener",
+        "relationship": "complementary-structure"
+      }
+    ],
+    "governance": {
+      "maturity": "candidate",
+      "reuseScope": "isq-wide",
+      "supportState": "active"
+    },
+    "legacy": {
+      "sourceId": "section-summary",
+      "sourceUrl": "/patterns/index.html#section-summary"
+    }
+  },
+  {
+    "id": "legislation",
+    "name": "Legislation or authority",
+    "entityType": "learning-expression",
+    "summary": "Express authoritative material so learners can distinguish the source from explanation and understand its implications for action.",
+    "useWhen": [
+      "A specific Act, regulation, section or other authority underpins a requirement."
+    ],
+    "avoidWhen": [
+      "A general policy statement has no identified authoritative source."
+    ],
+    "designGuidance": [
+      "Identify the authority precisely and keep authoritative material visibly separate from explanation.",
+      "Use plain-language interpretation where appropriate and make the learner implication or action explicit.",
+      "Use extracts and citations carefully, retaining enough context for accurate interpretation.",
+      "Treat the expression as a recipe supported by Split Card and typography, not as an independent canonical Legislation Panel component."
+    ],
+    "definition": {
+      "definingFeatures": [
+        "An accurately identified authority or source.",
+        "Clear separation between authoritative material and explanation.",
+        "Plain-language interpretation where appropriate.",
+        "An explicit learner implication or action.",
+        "Careful, contextual use of extracts and citations."
+      ]
+    },
+    "implementations": [
+      {
+        "kind": "recipe",
+        "ref": "legislation-or-authority",
+        "role": "Compose authoritative source material, explanation and learner implications using Split Card and typography.",
+        "note": "Legislation Panel is not an independent canonical component."
+      },
+      {
+        "kind": "component",
+        "ref": "split-card",
+        "role": "Support visible separation between the authority and its explanation."
+      },
+      {
+        "kind": "native-capability",
+        "ref": "rise-text",
+        "role": "Present a lighter expression when typography and clear source labelling are sufficient.",
+        "platform": "rise"
+      }
+    ],
+    "platformGuidance": {
+      "rise": "Use Split Card or native text according to content needs while preserving source accuracy, separation and learner implications."
+    },
+    "relatedRecords": [
+      {
+        "ref": "explanation",
+        "relationship": "may-serve-purpose"
+      }
+    ],
+    "governance": {
+      "maturity": "candidate",
+      "reuseScope": "isq-wide",
+      "supportState": "active"
+    },
+    "legacy": {
+      "sourceId": "legislation",
+      "sourceUrl": "/patterns/index.html#legislation"
+    }
+  },
+  {
+    "id": "decision-point",
+    "name": "Professional decision point",
+    "entityType": "learning-expression",
+    "summary": "Give learners credible practice in making a meaningful professional choice or judgement and understanding its reasoning or consequences.",
+    "useWhen": [
+      "A credible professional situation presents plausible alternatives and the learner benefits from practising judgement."
+    ],
+    "avoidWhen": [
+      "The learner problem is only recall or confirmation, or alternatives would be obviously implausible."
+    ],
+    "designGuidance": [
+      "Ground the decision in a credible professional situation and present a meaningful choice or judgement.",
+      "Use plausible alternatives that reflect realistic reasoning, not superficial distractors.",
+      "Explain the reasoning or consequence and provide explanatory feedback after the choice.",
+      "Use the expression for practice rather than simple recall."
+    ],
+    "definition": {
+      "definingFeatures": [
+        "A credible professional situation.",
+        "A meaningful choice or judgement.",
+        "Plausible alternatives.",
+        "Reasoning or consequence connected to the choice.",
+        "Explanatory feedback.",
+        "Practice rather than simple recall."
+      ]
+    },
+    "implementations": [
+      {
+        "kind": "component",
+        "ref": "decision-point",
+        "role": "Provide an interactive professional choice with revealed reasoning and feedback.",
+        "note": "Decision Point is one possible interactive implementation."
+      },
+      {
+        "kind": "native-capability",
+        "ref": "rise-knowledge-check",
+        "role": "Handle recall or confirmation when a professional decision expression is not needed.",
+        "platform": "rise",
+        "note": "This is an alternative for a simpler learner problem, not an implementation of professional judgement."
+      }
+    ],
+    "platformGuidance": {
+      "rise": "Use Decision Point for credible professional judgement. Use a native knowledge check when the learner problem is only recall or confirmation."
+    },
+    "relatedRecords": [
+      {
+        "ref": "feedback",
+        "relationship": "requires-purpose"
+      },
+      {
+        "ref": "scenario-stage",
+        "relationship": "may-occur-within-structure"
+      }
+    ],
+    "governance": {
+      "maturity": "candidate",
+      "reuseScope": "isq-wide",
+      "supportState": "active"
+    },
+    "legacy": {
+      "sourceId": "decision-point",
+      "sourceUrl": "/patterns/index.html#decision-point"
+    }
+  }
+]
