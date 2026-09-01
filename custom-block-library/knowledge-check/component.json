@@ -1,0 +1,110 @@
+{
+  "family": "Knowledge Check",
+  "key": "isq-kc",
+  "version": "0.1.0",
+  "status": "candidate",
+  "owner": "ISQ eLearning design/development steward",
+  "purpose": "Formative retrieval or application practice where one or more questions have objectively defensible correct answers and feedback is intended to strengthen understanding or performance.",
+  "learningRationale": "Use after relevant instruction or context to require retrieval, discrimination or application. Feedback should explain why an answer is appropriate rather than merely marking it correct or incorrect.",
+  "useWhen": [
+    "A learner should retrieve or apply knowledge before continuing.",
+    "The response can be judged against a defensible correct answer.",
+    "Immediate explanatory feedback will improve understanding or transfer."
+  ],
+  "avoidWhen": [
+    "The prompt is reflective and has no correct answer; use a Reflection component.",
+    "The choice represents a nuanced workplace judgement with branching consequences; use a Decision Point or scenario component.",
+    "Interaction is being added only to vary presentation."
+  ],
+  "variants": [
+    {
+      "key": "isq-kc-single",
+      "name": "Knowledge Check — Single",
+      "description": "One formative question with immediate feedback."
+    },
+    {
+      "key": "isq-kc-sequence",
+      "name": "Knowledge Check — Sequence",
+      "description": "A short set of formative questions using the same question contract and optional guided progression."
+    }
+  ],
+  "questionContract": {
+    "required": [
+      "questionKey",
+      "prompt",
+      "legend",
+      "choices",
+      "correctResponseIds",
+      "correctFeedback",
+      "incorrectFeedback"
+    ],
+    "optional": [
+      "activityId",
+      "parentActivityId",
+      "groupingActivityId",
+      "contextNote"
+    ]
+  },
+  "states": [
+    "unanswered",
+    "validation-warning",
+    "incorrect",
+    "correct"
+  ],
+  "accessibility": [
+    "Use a fieldset and legend for each question.",
+    "Use native radio buttons or checkboxes; do not recreate selection controls with divs.",
+    "Feedback is associated through aria-describedby and announced through role=status with aria-live=polite.",
+    "Focus remains predictable after answer checking; sequence navigation moves focus to the newly active question heading or control.",
+    "Visible focus styling is supplied by the shared ISQ design system.",
+    "Feedback does not rely on colour alone.",
+    "Touch targets must remain usable at mobile widths.",
+    "No essential information depends on animation."
+  ],
+  "keyboardBehaviour": "Native radio/checkbox keyboard behaviour is retained. Buttons activate with native keyboard behaviour. Sequence navigation must not trap focus.",
+  "responsiveBehaviour": "Question options stack naturally. Sequence navigation must remain readable and operable at narrow widths without horizontal dependence.",
+  "cssDependencies": [
+    "isq-block",
+    "isq-panel",
+    "isq-content",
+    "isq-heading",
+    "isq-eyebrow",
+    "isq-body",
+    "isq-options",
+    "isq-option",
+    "isq-decision-actions",
+    "isq-decision-feedback",
+    "isq-callout",
+    "isq-button",
+    "isq-visually-hidden"
+  ],
+  "javascript": {
+    "canonicalSource": "knowledge-check.js",
+    "deployment": "For Rise candidate deployments, use one governed copy of the controller per block. Do not fork or independently edit controller logic in courses.",
+    "telemetry": "Optional. Emits isq:knowledge-check-answered. No LRS transport is embedded."
+  },
+  "riseConstraints": [
+    "The component runs inside the Rise custom-code iframe and must not assume control of the parent page.",
+    "Course-specific IDs must be supplied per implementation when telemetry is enabled.",
+    "Do not embed LRS credentials in the block.",
+    "The learner interaction remains functional when no telemetry adapter is available."
+  ],
+  "qaRequiredBeforeApproval": [
+    "Desktop keyboard pass",
+    "Screen-reader semantics and feedback announcement pass",
+    "320px mobile pass",
+    "200% zoom/text resize pass",
+    "Rise authoring and published-package pass",
+    "Telemetry event payload validation",
+    "xAPI adapter review with ISQ xAPI governance stakeholder"
+  ],
+  "evidenceBase": [
+    "Child Protection Staff Code quick-check candidate v2.1-xAPI",
+    "Child Protection Teachers Tilly scenario questions 5-8 v2.1-xAPI"
+  ],
+  "knownLimitations": [
+    "The current candidate supports choice-based questions only.",
+    "The telemetry adapter is intentionally not bundled in this phase.",
+    "Formal Rise package and assistive-technology validation remains required before Approved status."
+  ]
+}

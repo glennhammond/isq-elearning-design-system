@@ -6,6 +6,14 @@ The live operational reference for ISQ digital learning design and development, 
 
 Translates six governing documents (umbrella strategy, Rise implementation guide, block selection guide, imagery guide, component catalogue blueprint, templates & production resources) plus the production Rise CSS into a searchable, maintainable, live-rendered reference — not a copy of the Word documents.
 
+## Custom Block Library
+
+The governed production implementation layer for reusable custom eLearning components lives in `custom-block-library/`.
+
+The library is part of this design system, not a parallel system. It contains only components that meet the reusable-component governance threshold and keeps learner interaction behaviour separate from governed xAPI transport where technically sensible.
+
+The first candidate family is **Knowledge Check**, with Single and Sequence variants. See `custom-block-library/PHASE-02-REVIEW.md` for the current promotion gate.
+
 ## Local preview
 
 The site is fully static but uses `fetch()` for client-side search, so open it through a local server rather than `file://`:
@@ -26,6 +34,7 @@ Copy the contents of `/out` to any static host (the site has no server dependenc
 data/                 Source of truth — foundations.json, patterns.json, components.json, changelog.json
 _templates/            Jinja2 templates (one per page type), not part of the published site
 assets/                CSS, JS and icons for the site's own chrome (.docs- namespace)
+custom-block-library/  Governed source implementations for approved/candidate custom blocks
 generate.py            Build script — reads /data, writes /out
 out/                   Generated static site (this is what you publish)
 README.md, AUDIT.md, DECISIONS.md, CHANGELOG.md   Project records (this folder)
@@ -41,6 +50,8 @@ README.md, AUDIT.md, DECISIONS.md, CHANGELOG.md   Project records (this folder)
 ## Component addition process
 
 Follow the contribution model documented on the Governance page: propose → prototype → review → document → approve → release → evaluate. Add the new entry to `data/components.json` following the existing schema (see DECISIONS.md for the field list), then regenerate.
+
+Custom block candidates additionally follow the lifecycle and release requirements in `custom-block-library/README.md` before they can be marked Approved.
 
 ## Deployment notes
 

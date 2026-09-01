@@ -1,0 +1,75 @@
+<link rel="stylesheet" type="text/css" href="https://xapistorage28032026.blob.core.windows.net/xapitestcourses/css/isq-rise-components-v1.0.0.css">
+
+<section
+  class="isq-block isq-block--standard isq-decision"
+  data-isq-knowledge-check
+  data-component="isq-kc-sequence"
+  aria-labelledby="isq-kc-sequence-title"
+>
+  <div class="isq-panel isq-panel--elevated">
+    <header class="isq-content isq-content--compact isq-panel--tint">
+      <span class="isq-eyebrow">Knowledge check</span>
+      <h2 class="isq-heading isq-heading--medium" id="isq-kc-sequence-title">
+        Apply the process
+      </h2>
+      <p class="isq-body isq-body--muted">
+        Work through the two questions in order. Feedback explains the reasoning for each response.
+      </p>
+    </header>
+
+    <nav class="isq-content isq-content--tight" aria-label="Knowledge check questions">
+      <button type="button" class="isq-button isq-button--secondary" data-kc-nav="process-1" aria-current="step">Question 1</button>
+      <button type="button" class="isq-button isq-button--secondary" data-kc-nav="process-2" aria-current="false">Question 2</button>
+    </nav>
+
+    <div
+      class="isq-content isq-content--compact"
+      data-kc-question
+      data-question-key="process-1"
+      data-correct-responses="clarify"
+      data-activity-id="https://example.isq.qld.edu.au/xapi/demo/process/question-1"
+      data-parent-activity-id="https://example.isq.qld.edu.au/xapi/demo/process"
+      data-grouping-activity-id="https://example.isq.qld.edu.au/xapi/demo/course"
+      data-correct-feedback="<p class='isq-body isq-body--strong'>Correct.</p><p class='isq-body'>Clarifying the requirement first reduces the risk of acting on an assumption.</p>"
+      data-incorrect-feedback="<p class='isq-body isq-body--strong'>Not quite.</p><p class='isq-body'>Before acting, identify what information is still missing and clarify the requirement.</p>"
+    >
+      <h3 class="isq-heading isq-heading--small" tabindex="-1">Question 1</h3>
+      <fieldset class="isq-options" aria-describedby="isq-kc-sequence-feedback-1">
+        <legend class="isq-visually-hidden">What should you do before acting when a requirement is unclear?</legend>
+        <label class="isq-option"><input type="radio" name="isq-kc-seq-1" value="clarify"><span>Clarify the requirement</span></label>
+        <label class="isq-option"><input type="radio" name="isq-kc-seq-1" value="assume"><span>Use your best assumption and continue</span></label>
+      </fieldset>
+      <div class="isq-decision-actions">
+        <button class="isq-button isq-button--primary" type="button" data-kc-check>Check answer</button>
+        <button class="isq-button isq-button--secondary" type="button" data-kc-next="process-2" hidden>Next question</button>
+      </div>
+      <div class="isq-callout isq-decision-feedback" id="isq-kc-sequence-feedback-1" role="status" aria-live="polite" data-kc-feedback hidden></div>
+    </div>
+
+    <div
+      class="isq-content isq-content--compact"
+      data-kc-question
+      data-question-key="process-2"
+      data-correct-responses="verify"
+      data-activity-id="https://example.isq.qld.edu.au/xapi/demo/process/question-2"
+      data-parent-activity-id="https://example.isq.qld.edu.au/xapi/demo/process"
+      data-grouping-activity-id="https://example.isq.qld.edu.au/xapi/demo/course"
+      data-correct-feedback="<p class='isq-body isq-body--strong'>Correct.</p><p class='isq-body'>Verifying the result closes the loop and confirms that the intended outcome has been achieved.</p>"
+      data-incorrect-feedback="<p class='isq-body isq-body--strong'>Not quite.</p><p class='isq-body'>After taking action, verify the outcome rather than assuming the task is complete.</p>"
+      hidden
+    >
+      <h3 class="isq-heading isq-heading--small" tabindex="-1">Question 2</h3>
+      <fieldset class="isq-options" aria-describedby="isq-kc-sequence-feedback-2">
+        <legend class="isq-visually-hidden">What should happen after the action is completed?</legend>
+        <label class="isq-option"><input type="radio" name="isq-kc-seq-2" value="verify"><span>Verify the outcome</span></label>
+        <label class="isq-option"><input type="radio" name="isq-kc-seq-2" value="move-on"><span>Move on without checking</span></label>
+      </fieldset>
+      <div class="isq-decision-actions">
+        <button class="isq-button isq-button--primary" type="button" data-kc-check>Check answer</button>
+      </div>
+      <div class="isq-callout isq-decision-feedback" id="isq-kc-sequence-feedback-2" role="status" aria-live="polite" data-kc-feedback hidden></div>
+    </div>
+  </div>
+
+  <!-- For Rise deployment, inline the governed contents of ../knowledge-check.js here. -->
+</section>
