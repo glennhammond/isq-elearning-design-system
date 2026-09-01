@@ -1,0 +1,63 @@
+<link rel="stylesheet" type="text/css" href="https://xapistorage28032026.blob.core.windows.net/xapitestcourses/css/isq-rise-components-v1.0.0.css">
+
+<section
+  class="isq-block isq-block--standard isq-decision"
+  data-isq-knowledge-check
+  data-component="isq-kc-single"
+  aria-labelledby="isq-kc-single-title"
+>
+  <div class="isq-panel isq-panel--elevated">
+    <header class="isq-content isq-content--compact isq-panel--tint">
+      <span class="isq-eyebrow">Knowledge check</span>
+      <h2 class="isq-heading isq-heading--medium" id="isq-kc-single-title">
+        Which action should come first?
+      </h2>
+      <p class="isq-body isq-body--muted">
+        Select the best response, then check your answer.
+      </p>
+    </header>
+
+    <div
+      class="isq-content isq-content--compact"
+      data-kc-question
+      data-question-key="workplace-priority"
+      data-correct-responses="urgent"
+      data-activity-id="https://example.isq.qld.edu.au/xapi/demo/workplace-priority"
+      data-parent-activity-id="https://example.isq.qld.edu.au/xapi/demo/activity"
+      data-grouping-activity-id="https://example.isq.qld.edu.au/xapi/demo/course"
+      data-correct-feedback="<p class='isq-body isq-body--strong'>Correct.</p><p class='isq-body'>Addressing an immediate safety issue takes priority over routine administration.</p>"
+      data-incorrect-feedback="<p class='isq-body isq-body--strong'>Not quite.</p><p class='isq-body'>Consider which option involves an immediate risk that should be addressed before routine work.</p>"
+    >
+      <fieldset class="isq-options" aria-describedby="isq-kc-single-feedback">
+        <legend class="isq-visually-hidden">Which action should come first?</legend>
+
+        <label class="isq-option">
+          <input type="radio" name="isq-kc-single-choice" value="urgent">
+          <span>Address an immediate safety issue</span>
+        </label>
+
+        <label class="isq-option">
+          <input type="radio" name="isq-kc-single-choice" value="routine">
+          <span>Finish routine administration</span>
+        </label>
+      </fieldset>
+
+      <div class="isq-decision-actions">
+        <button class="isq-button isq-button--primary" type="button" data-kc-check>
+          Check answer
+        </button>
+      </div>
+
+      <div
+        class="isq-callout isq-decision-feedback"
+        id="isq-kc-single-feedback"
+        role="status"
+        aria-live="polite"
+        data-kc-feedback
+        hidden
+      ></div>
+    </div>
+  </div>
+
+  <!-- For Rise deployment, inline the governed contents of ../knowledge-check.js here. -->
+</section>
