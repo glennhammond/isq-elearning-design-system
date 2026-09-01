@@ -98,7 +98,9 @@ The controller owns only learner-facing interaction behaviour:
 
 It does **not** resolve learner identity, discover SCORM APIs, authenticate with an LRS, create xAPI statements or retry network requests.
 
-For current Rise deployment, the governed controller is inlined into the copy-ready HTML bundle. This avoids making Rise iframe reliability dependent on loading a second external script while preserving one canonical JS source in the repository. Any change to the inlined controller must originate in `knowledge-check.js` and be propagated to the bundles as part of release preparation.
+During Candidate validation, the neutral HTML examples and canonical controller remain separate source artefacts so that controller changes cannot silently diverge across copied examples. For a controlled Rise test, paste the selected example into one custom-code block and inline the exact current contents of `knowledge-check.js` immediately before the closing `</section>` tag.
+
+Once the component passes the Phase 03 Rise and accessibility gates, release preparation should generate immutable, copy-ready Rise bundles from these canonical sources. Generated bundles must never become an independently edited source of truth.
 
 ## xAPI capability
 
@@ -133,20 +135,21 @@ Release requires all of the following:
 - no essential behaviour depends on motion;
 - sequence focus movement is predictable and only occurs after an explicit navigation action.
 
-## Rise implementation
+## Candidate Rise validation workflow
 
-For a developer copying a component into Rise:
+For the controlled Phase 03 test implementation:
 
-1. choose the relevant bundle in `dist/`;
-2. paste the complete file into one Rise custom-code block;
-3. replace the neutral demonstration copy;
-4. replace every demonstration response ID with stable local identifiers;
-5. supply governed activity, parent and grouping IDs if telemetry will be used;
-6. do not add an LRS credential to the block;
-7. verify the course uses the approved external ISQ Rise stylesheet version;
-8. test the published package, not only the Rise authoring preview.
+1. choose `examples/single.html` or `examples/sequence.html`;
+2. paste the example into one Rise custom-code block;
+3. inline the exact governed contents of `knowledge-check.js` at the marked location;
+4. replace the neutral demonstration copy as required for the test;
+5. replace demonstration response identifiers with stable local identifiers;
+6. supply governed activity, parent and grouping IDs if telemetry is being tested;
+7. do not add an LRS credential or direct xAPI transport to the component;
+8. verify the course uses the approved external ISQ Rise stylesheet version;
+9. test the published package, not only the Rise authoring preview.
 
-If telemetry is required, add the approved ISQ telemetry adapter at course/runtime level according to xAPI governance. Phase 02 does not invent or ship that production transport before stakeholder review.
+If telemetry is required, add the approved ISQ telemetry adapter at course/runtime level according to xAPI governance. Phase 02 deliberately does not invent or ship production xAPI transport before that architecture is reviewed.
 
 ## QA gate before Approved
 
