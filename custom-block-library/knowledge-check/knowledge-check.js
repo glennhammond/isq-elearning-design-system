@@ -1,8 +1,8 @@
 (() => {
   "use strict";
 
-  const CONTRACT_VERSION = "0.1.0";
-  const COMPONENT_VERSION = "0.1.0";
+  const CONTRACT_VERSION = "0.2.0";
+  const COMPONENT_VERSION = "0.2.0";
 
   function parseIds(value) {
     return String(value || "")
@@ -19,26 +19,33 @@
     );
   }
 
+  function choiceInputs(question) {
+    return [
+      ...question.querySelectorAll(
+        '.isq-options input[type="radio"], .isq-options input[type="checkbox"]'
+      )
+    ];
+  }
+
+  function selectedInputs(question) {
+    return choiceInputs(question).filter(input => input.checked);
+  }
+
+  function normaliseIds(question, ids) {
+    const selected = new Set(ids);
+    return choiceInputs(question)
+      .map(input => input.value)
+      .filter(id => selected.has(id));
+  }
+
   function sameSet(left, right) {
     if (left.length !== right.length) return false;
     const rightSet = new Set(right);
     return left.every(item => rightSet.has(item));
   }
 
-  function selectedInputs(question) {
-    return [
-      ...question.querySelectorAll(
-        '.isq-options input[type="radio"]:checked, .isq-options input[type="checkbox"]:checked'
-      )
-    ];
-  }
-
   function choiceRegister(question) {
-    return [
-      ...question.querySelectorAll(
-        '.isq-options input[type="radio"], .isq-options input[type="checkbox"]'
-      )
-    ].map(input => ({
+    return choiceInputs(question).map(input => ({
       id: input.value,
       label: input.closest("label")?.innerText.trim() || input.value
     }));
@@ -51,11 +58,13 @@
       componentVersion: COMPONENT_VERSION,
       questionKey: question.dataset.questionKey,
       activityId: question.dataset.activityId || null,
+      activityName: question.dataset.activityName || null,
+      activityDescription: question.dataset.activityDescription || null,
       parentActivityId: question.dataset.parentActivityId || root.dataset.parentActivityId || null,
       groupingActivityId: question.dataset.groupingActivityId || root.dataset.groupingActivityId || null,
       interactionType: "choice",
-      responseIds,
-      correctResponseIds: correctIds,
+      responseIds: normaliseIds(question, responseIds),
+      correctResponseIds: normaliseIds(question, correctIds),
       success,
       completion: true,
       attemptNumber,
@@ -88,7 +97,11 @@
 
     nav.forEach(button => {
       const active = button.dataset.kcNav === key;
-      button.setAttribute("aria-current", active ? "step" : "false");
+      if (active) {
+        button.setAttribute("aria-current", "step");
+      } else {
+        button.removeAttribute("aria-current");
+      }
     });
   }
 
