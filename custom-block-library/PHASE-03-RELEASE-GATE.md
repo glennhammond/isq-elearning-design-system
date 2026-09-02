@@ -6,15 +6,17 @@ Target release: **1.0.0 Approved**
 
 ## Executive decision
 
-Phase 03 has completed the implementation and evidence preparation that can be performed in the governed source repository. The Knowledge Check family is **not promoted to 1.0.0 Approved** because several release gates require evidence from an actual published Articulate Rise package, assistive-technology testing and stored statements delivered through an approved ISQ xAPI runtime/transport.
+Phase 03 has completed the implementation and repository-side qualification architecture for the first governed Knowledge Check family. The release remains on **HOLD for 1.0.0 Approved**, but the most important end-to-end single-choice telemetry path has now been proven in the actual ISQ environment.
 
-This HOLD is a governance success, not an incomplete architecture decision. Approval is evidence-based.
+On 2 September 2026 a self-contained qualification bundle was run through the published Rise → SCORM 2004 → Connect & Learn → Veracity path. The component resolved the authenticated learner through SCORM 2004, emitted distinct incorrect and correct attempts, constructed governed xAPI statements, received HTTP 204 from Veracity for both PUT requests, and both statement IDs were subsequently confirmed as stored in the LRS.
+
+The remaining gates are multiple-response stored-LRS verification, accessibility/device qualification, failure-mode qualification, production transport governance and stakeholder review. Approval remains evidence-based.
 
 ## Implemented in this phase
 
 ### 1. Governed xAPI adapter boundary
 
-`runtime/xapi-adapter.js` now translates the neutral `isq:knowledge-check-answered` event into the governed choice-interaction statement shape.
+`runtime/xapi-adapter.js` translates the neutral `isq:knowledge-check-answered` event into the governed choice-interaction statement shape.
 
 It provides:
 
@@ -32,7 +34,7 @@ It provides:
 - statement UUID generated before delivery;
 - component key/version and attempt-number extensions.
 
-The adapter contains **no endpoint, browser credential, SCORM discovery or direct network transport**.
+The canonical adapter contains **no endpoint, browser credential, SCORM discovery or direct network transport**.
 
 ### 2. Shared runtime contract
 
@@ -48,19 +50,28 @@ window.ISQ_XAPI_RUNTIME = {
 
 This creates the maintainability boundary required by the library without pretending that moving a reusable credential into a shared JavaScript file would secure it.
 
-### 3. Identity failure policy
+### 3. Rise iframe deployment constraint
+
+Controlled qualification confirmed an important Rise constraint: a custom-code block runs inside its own iframe. A DOM `CustomEvent` emitted by a component does not cross into a different custom-code block iframe.
+
+Therefore an xAPI-enabled component deployment must ensure that the interaction controller, adapter and runtime are available within the same iframe/runtime context. The governed source may remain modular in the repository, but Rise deployment must either:
+
+- inline/bundle the governed runtime and adapter into the component block; or
+- load governed external scripts from within that same component iframe.
+
+A course-level listener in a separate Rise custom-code block is not a valid architecture for ordinary DOM-event communication.
+
+### 4. Identity failure policy
 
 Governed learner evidence is not emitted with an invented anonymous Actor when trusted identity cannot be resolved. The adapter reports `identity-unavailable` operationally and leaves the formative interaction unaffected.
 
-This aligns the reusable component with the Child Protection governance rule that authenticated evidence should not silently degrade into anonymous evidence.
-
-### 4. Formative failure isolation
+### 5. Formative failure isolation
 
 Telemetry remains non-blocking. Correct/incorrect learning feedback is produced by the component before telemetry delivery is attempted. A transport or identity failure therefore cannot convert a learning answer into a UI error or prevent the learner continuing.
 
-### 5. Stronger activity metadata contract
+### 6. Stronger activity metadata contract
 
-Telemetry-enabled Knowledge Checks now provide:
+Telemetry-enabled Knowledge Checks provide:
 
 - activity ID;
 - activity name;
@@ -70,13 +81,13 @@ Telemetry-enabled Knowledge Checks now provide:
 
 Course-specific identifiers remain configuration, never canonical component code.
 
-### 6. Deterministic response ordering
+### 7. Deterministic response ordering
 
 Single and multiple responses are normalised to the order of the declared choices before the event is emitted. This gives stable xAPI response and correct-response serialisation rather than relying on incidental click order.
 
-### 7. Automated repository QA
+### 8. Automated repository QA
 
-`validate_custom_block_library.py` now checks the governed source for:
+`validate_custom_block_library.py` checks the governed source for:
 
 - component family/variant integrity;
 - component/telemetry separation;
@@ -89,9 +100,67 @@ Single and multiple responses are normalised to the order of the declared choice
 
 `.github/workflows/custom-block-library.yml` runs this validator for relevant branches and pull requests.
 
+## Controlled qualification evidence — 2 September 2026
+
+### Environment
+
+- Articulate Rise custom-code block
+- published through SCORM 2004
+- Connect & Learn test/development environment
+- authenticated learner resolved through SCORM 2004
+- controlled Veracity test endpoint
+- self-contained qualification bundle so component, adapter and runtime share one Rise iframe
+
+### Single-choice incorrect attempt — PASS
+
+Stored statement ID:
+
+```text
+60e4a979-13f6-4f83-8cb6-fcab72cd7d10
+```
+
+Verified evidence:
+
+- Actor resolved through SCORM 2004 on attempt 1;
+- verb `answered`;
+- Object = direct Knowledge Check interaction;
+- `interactionType: choice`;
+- declared choices and `correctResponsesPattern` present;
+- `result.response: option-a`;
+- `result.success: false`;
+- `result.completion: true`;
+- Parent and Grouping present;
+- component key/version and attempt number present;
+- HTTP 204 returned by Veracity;
+- statement confirmed stored in Veracity.
+
+### Single-choice correct retry — PASS
+
+Stored statement ID:
+
+```text
+141b30ae-7441-4cd0-a01f-9900909951e9
+```
+
+Verified evidence:
+
+- same authenticated learner resolved through SCORM 2004;
+- separate statement UUID from the incorrect attempt;
+- `result.response: option-b`;
+- `result.success: true`;
+- `result.completion: true`;
+- attempt number advanced to 2;
+- Parent and Grouping retained;
+- HTTP 204 returned by Veracity;
+- statement confirmed stored in Veracity.
+
+### Evidence decision
+
+The reusable single-choice Knowledge Check path is now **technically proven end to end through the Phase 03 adapter/runtime architecture**. Single-choice xAPI is no longer a release blocker.
+
 ## Relationship to current ISQ xAPI governance
 
-Phase 03 is deliberately compatible with the established governance evidence:
+Phase 03 is compatible with the established governance direction:
 
 - Object = direct interaction;
 - Parent = direct containing activity;
@@ -103,7 +172,7 @@ Phase 03 is deliberately compatible with the established governance evidence:
 - distinct statements for distinct attempts;
 - no browser credential as a production design.
 
-The existing governance library records single-choice Pattern P002 as technically PROVEN and multiple-response P004 as CANDIDATE. The reusable Knowledge Check family supports both through one component contract, so the family cannot claim complete telemetry qualification until the multiple-response path is also verified in stored LRS evidence.
+The existing governance library records single-choice Pattern P002 as technically PROVEN and multiple-response P004 as CANDIDATE. The Phase 03 qualification now independently re-proves the single-choice path through the reusable component architecture. Multiple-response still requires stored-LRS verification before the family can claim complete telemetry qualification.
 
 ## Release-gate matrix
 
@@ -113,87 +182,67 @@ The existing governance library records single-choice Pattern P002 as technicall
 | Domain generalisation | PASS | No CP-specific canonical content/IDs |
 | CSS duplication | PASS | Existing shared design-system CSS reused |
 | JS responsibility separation | PASS | Interaction, adapter and transport boundaries defined |
+| Rise iframe architecture | PASS | Same-iframe deployment requirement proven and documented |
 | Static/source validation | PASS when CI green | Automated validator added |
-| Single-choice statement semantics | Strong prior evidence | Existing P002 governance evidence supports shape; re-verify through new adapter |
-| Multiple-response statement semantics | PENDING | P004 stored-LRS verification required |
-| Browser credential security | PASS by design | No credential/endpoint in component or adapter |
-| Production transport | EXTERNAL DEPENDENCY | Approved runtime/proxy/short-lived model required |
-| Published Rise desktop | PENDING | Manual/runtime evidence required |
+| Published Rise desktop functional behaviour | PASS — initial | Single, multiple-response UI, sequence, duplicate-instance and no-xAPI interaction cases exercised successfully |
+| Single-choice stored-LRS semantics | **PASS** | Incorrect + correct retry confirmed stored in Veracity |
+| Multiple-response stored-LRS semantics | PENDING | Controlled stored-LRS verification required |
+| Browser credential security | PASS by design | No credential/endpoint in canonical component or adapter |
+| Controlled test transport | **PASS** | Rise → SCORM 2004 → Veracity proven |
+| Production transport | EXTERNAL DEPENDENCY | Approved runtime/proxy/short-lived model still required |
 | Published Rise mobile / 320px | PENDING | Manual/runtime evidence required |
 | Keyboard-only | PENDING | Manual/runtime evidence required |
 | Screen reader | PENDING | Assistive-technology evidence required |
 | 200% zoom / text resize | PENDING | Manual/runtime evidence required |
-| No-xAPI behaviour | Architecture PASS | Confirm once in published Rise package |
-| Failed-xAPI behaviour | Architecture PASS | Confirm through runtime fault test |
+| No-xAPI behaviour | **PASS — functional** | Learner interaction confirmed working without telemetry configuration |
+| Repeated instances / collision | **PASS — functional** | Two components in one runtime worked independently |
+| Failed-xAPI behaviour | Architecture PASS | Controlled runtime fault test still required |
 | xAPI stakeholder review | PENDING | Review architecture/evidence with Julian |
 
-## Exact controlled validation procedure
+## Exact remaining controlled validation procedure
 
-### A. Neutral Rise test course
+### A. Multiple-response xAPI qualification
 
-Create one neutral Rise test lesson containing:
+Run the checkbox multiple-response Knowledge Check using the same self-contained qualification architecture and retain at least:
 
-1. Knowledge Check — Single, radio choice;
-2. Knowledge Check — Single, checkbox multiple response;
-3. Knowledge Check — Sequence with two questions;
-4. one duplicate instance to prove IDs/names do not conflict;
-5. one instance with telemetry metadata omitted to prove no-xAPI mode.
+1. one incorrect stored statement;
+2. one correct stored statement;
+3. confirmation that response and `correctResponsesPattern` use deterministic `[,]` ordering.
 
-Do not use Child Protection wording or identifiers.
+### B. Accessibility/runtime matrix
 
-### B. Publish context
+Verify the approved candidate in the published package for:
 
-Publish using the same Rise → SCORM 2004 → Connect & Learn development path used for current ISQ xAPI qualification where possible. Validate the **published package**, not only Rise authoring preview.
-
-### C. Accessibility/runtime matrix
-
-For every variant verify:
-
-- mouse/pointer;
 - keyboard only;
-- screen reader with labels, grouping and status feedback;
+- screen reader labels, grouping and status feedback;
 - narrow mobile width including 320 CSS px;
 - representative phone viewport;
 - 200% browser zoom/text enlargement;
-- focus after Next question;
+- focus after sequence navigation;
 - validation warning with no answer;
-- incorrect answer then retry;
-- correct answer;
-- repeated component instances;
-- no telemetry runtime;
-- runtime identity unavailable;
-- transport failure;
-- transport success.
+- no keyboard trap;
+- visible focus;
+- sufficient touch targets.
 
-### D. LRS evidence
+### C. Failure qualification
 
-For each valid answer path retain a sanitised stored statement and verify:
+Demonstrate that:
 
-- statement ID is stable/unique;
-- Actor is the intended authenticated learner;
-- verb is `answered`;
-- Object is the direct Knowledge Check Activity;
-- `interactionType` is `choice`;
-- declared choices use stable IDs;
-- `correctResponsesPattern` is present;
-- single response is encoded correctly;
-- multiple responses use `[,]` deterministically;
-- `success` reflects the submitted attempt;
-- `completion` is true for a valid submitted response;
-- parent/grouping are correct;
-- registration is present only if genuine;
-- attempt number is correct;
-- retries do not duplicate a statement through transport replay.
+- unresolved actor prevents governed learner evidence but does not block feedback;
+- unavailable/failed transport does not block learner feedback or progression;
+- missing telemetry metadata creates no governed statement;
+- no-selection creates no governed statement.
 
-### E. Negative evidence
+### D. Governance review
 
-Verify that **no governed learner statement** is created for:
+Review with the relevant ISQ xAPI stakeholder:
 
-- component load;
-- no selection;
-- navigation alone;
-- missing telemetry metadata;
-- unresolved trusted learner identity.
+- same-iframe Rise deployment boundary;
+- Actor resolution contract;
+- Object/Parent/Grouping hierarchy;
+- component/version/attempt extensions;
+- registration behaviour;
+- controlled-test direct browser transport versus approved production transport.
 
 ## Promotion rule
 
@@ -218,6 +267,6 @@ At promotion:
 
 ## Phase outcome
 
-Phase 03 is therefore **complete with a HOLD release decision**.
+Phase 03 remains **complete with a HOLD release decision**, but the HOLD is now narrow rather than architectural.
 
-The architecture and reusable source are ready for the controlled environment. The remaining evidence cannot be truthfully manufactured inside the repository. This is the intended operation of the governance model: code can become a release candidate through engineering work; it becomes Approved only through evidence.
+The single-choice Knowledge Check has passed end-to-end Rise/SCORM/LRS qualification. Remaining work is multiple-response evidence, accessibility/failure qualification and governance approval. These outstanding gates should not block unrelated Child Protection for Principals design and development using the frozen production baseline documented separately.
