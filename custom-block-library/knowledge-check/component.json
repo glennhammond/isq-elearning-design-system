@@ -1,7 +1,7 @@
 {
   "family": "Knowledge Check",
   "key": "isq-kc",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "status": "candidate",
   "owner": "ISQ eLearning design/development steward",
   "purpose": "Formative retrieval or application practice where one or more questions have objectively defensible correct answers and feedback is intended to strengthen understanding or performance.",
@@ -38,11 +38,15 @@
       "correctFeedback",
       "incorrectFeedback"
     ],
-    "optional": [
+    "telemetryRequiredWhenEnabled": [
       "activityId",
+      "activityName",
       "parentActivityId",
-      "groupingActivityId",
-      "contextNote"
+      "groupingActivityId"
+    ],
+    "telemetryOptional": [
+      "activityDescription",
+      "registration"
     ]
   },
   "states": [
@@ -81,30 +85,43 @@
   "javascript": {
     "canonicalSource": "knowledge-check.js",
     "deployment": "For Rise candidate deployments, use one governed copy of the controller per block. Do not fork or independently edit controller logic in courses.",
-    "telemetry": "Optional. Emits isq:knowledge-check-answered. No LRS transport is embedded."
+    "telemetry": "Optional. Emits isq:knowledge-check-answered. The governed xapi-adapter.js constructs statements and delegates identity and secure transport to window.ISQ_XAPI_RUNTIME."
+  },
+  "xapi": {
+    "status": "candidate-mapping",
+    "verb": "http://adlnet.gov/expapi/verbs/answered",
+    "activityType": "http://adlnet.gov/expapi/activities/cmi.interaction",
+    "interactionType": "choice",
+    "multiResponseDelimiter": "[,]",
+    "result": ["response", "success", "completion"],
+    "context": ["parent", "grouping", "registration-when-genuine"],
+    "failureBehaviour": "Non-blocking for formative learning. No governed learner statement is sent when trusted identity is unavailable."
   },
   "riseConstraints": [
     "The component runs inside the Rise custom-code iframe and must not assume control of the parent page.",
-    "Course-specific IDs must be supplied per implementation when telemetry is enabled.",
-    "Do not embed LRS credentials in the block.",
-    "The learner interaction remains functional when no telemetry adapter is available."
+    "Course-specific IDs and activity metadata must be supplied per implementation when telemetry is enabled.",
+    "Do not embed LRS credentials in the block or adapter.",
+    "The learner interaction remains functional when no telemetry runtime is available."
   ],
   "qaRequiredBeforeApproval": [
-    "Desktop keyboard pass",
+    "Automated source/schema validation pass",
+    "Desktop keyboard pass in published Rise package",
     "Screen-reader semantics and feedback announcement pass",
     "320px mobile pass",
     "200% zoom/text resize pass",
     "Rise authoring and published-package pass",
     "Telemetry event payload validation",
+    "Stored-LRS statement validation through the approved runtime/transport",
     "xAPI adapter review with ISQ xAPI governance stakeholder"
   ],
   "evidenceBase": [
     "Child Protection Staff Code quick-check candidate v2.1-xAPI",
-    "Child Protection Teachers Tilly scenario questions 5-8 v2.1-xAPI"
+    "Child Protection Teachers Tilly scenario questions 5-8 v2.1-xAPI",
+    "ISQ Rise xAPI Governance Library v0.6"
   ],
   "knownLimitations": [
     "The current candidate supports choice-based questions only.",
-    "The telemetry adapter is intentionally not bundled in this phase.",
-    "Formal Rise package and assistive-technology validation remains required before Approved status."
+    "Production identity resolution and secure transport are intentionally delegated to the shared runtime and are not implemented as browser credentials.",
+    "Formal Rise package, assistive-technology and stored-LRS validation remain required before Approved status."
   ]
 }
