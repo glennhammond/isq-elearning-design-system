@@ -31,6 +31,10 @@
     return choiceInputs(question).filter(input => input.checked);
   }
 
+  function isMultipleResponse(question) {
+    return choiceInputs(question).some(input => input.type === "checkbox");
+  }
+
   function normaliseIds(question, ids) {
     const selected = new Set(ids);
     return choiceInputs(question)
@@ -129,9 +133,11 @@
 
         if (selected.length === 0) {
           feedback.classList.add("isq-callout--warning");
-          feedback.innerHTML =
-            '<p class="isq-body isq-body--strong">Select an answer.</p>' +
-            '<p class="isq-body">Choose the best response, then check your answer.</p>';
+          feedback.innerHTML = isMultipleResponse(question)
+            ? '<p class="isq-body isq-body--strong">Select at least one response.</p>' +
+              '<p class="isq-body">Select all responses that you think apply, then check your answer.</p>'
+            : '<p class="isq-body isq-body--strong">Select an answer.</p>' +
+              '<p class="isq-body">Choose the best response, then check your answer.</p>';
           if (nextButton) nextButton.hidden = true;
           return;
         }
