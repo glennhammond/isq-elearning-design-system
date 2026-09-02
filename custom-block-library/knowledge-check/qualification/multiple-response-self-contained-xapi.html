@@ -1,0 +1,278 @@
+<!-- ISQ Knowledge Check v0.2.0 — multiple-response self-contained xAPI qualification bundle
+     CONTROLLED TEST ONLY. Replace AUTH placeholder with the existing Veracity test Basic credential.
+     Do not commit a real credential to this repository. -->
+<link rel="stylesheet" type="text/css" href="https://xapistorage28032026.blob.core.windows.net/xapitestcourses/css/isq-rise-components-v1.0.0.css" />
+
+<section class="isq-block isq-block--standard isq-decision" data-isq-knowledge-check data-component="isq-kc-single" aria-labelledby="isq-kc-xapi-mr-title">
+  <div class="isq-panel isq-panel--elevated">
+    <header class="isq-content isq-content--compact isq-panel--tint">
+      <span class="isq-eyebrow">Knowledge check</span>
+      <h2 class="isq-heading isq-heading--medium" id="isq-kc-xapi-mr-title">Which two options are the designated correct responses?</h2>
+      <p class="isq-body isq-body--muted">Select all responses that apply, then check your answer.</p>
+    </header>
+
+    <div class="isq-content isq-content--compact"
+      data-kc-question
+      data-question-key="xapi-qualification-multiple-01"
+      data-correct-responses="option-a,option-c"
+      data-activity-id="https://isq.qld.edu.au/xapi/test/custom-block-library/knowledge-check/multiple-01"
+      data-activity-name="ISQ Knowledge Check qualification — Multiple response 01"
+      data-activity-description="Neutral multiple-response qualification item for the governed ISQ Knowledge Check component."
+      data-parent-activity-id="https://isq.qld.edu.au/xapi/test/custom-block-library/knowledge-check"
+      data-grouping-activity-id="https://isq.qld.edu.au/xapi/test/custom-block-library"
+      data-correct-feedback="<p class='isq-body isq-body--strong'>Correct.</p><p class='isq-body'>Options A and C are the designated correct responses.</p>"
+      data-incorrect-feedback="<p class='isq-body isq-body--strong'>Not quite.</p><p class='isq-body'>For this qualification item, select both Option A and Option C.</p>">
+
+      <fieldset class="isq-options" aria-describedby="isq-kc-xapi-mr-feedback">
+        <legend class="isq-visually-hidden">Which two options are the designated correct responses?</legend>
+        <label class="isq-option"><input type="checkbox" name="isq-kc-xapi-mr-choice" value="option-a" /><span>Option A — designated correct response</span></label>
+        <label class="isq-option"><input type="checkbox" name="isq-kc-xapi-mr-choice" value="option-b" /><span>Option B — neutral response</span></label>
+        <label class="isq-option"><input type="checkbox" name="isq-kc-xapi-mr-choice" value="option-c" /><span>Option C — designated correct response</span></label>
+        <label class="isq-option"><input type="checkbox" name="isq-kc-xapi-mr-choice" value="option-d" /><span>Option D — neutral response</span></label>
+      </fieldset>
+
+      <div class="isq-decision-actions"><button class="isq-button isq-button--primary" type="button" data-kc-check>Check answer</button></div>
+      <div class="isq-callout isq-decision-feedback" id="isq-kc-xapi-mr-feedback" role="status" aria-live="polite" data-kc-feedback hidden></div>
+
+      <details style="margin-top:1rem">
+        <summary>Qualification diagnostics</summary>
+        <pre id="isq-xapi-diagnostics" style="white-space:pre-wrap;overflow-wrap:anywhere;font-size:.8rem"></pre>
+      </details>
+    </div>
+  </div>
+</section>
+
+<script>
+window.ISQ_XAPI_TEST_CONFIG = {
+  endpoint: "https://lrs2.isq.qld.edu.au/glenn-testing/xapi/",
+  auth: "Basic REPLACE_WITH_EXISTING_CONTROLLED_TEST_VALUE"
+};
+</script>
+
+<script>
+(() => {
+  "use strict";
+  const cfg = window.ISQ_XAPI_TEST_CONFIG || {};
+  const diag = () => document.getElementById("isq-xapi-diagnostics");
+  function log(stage, data) {
+    const payload = data === undefined ? "" : "\n" + JSON.stringify(data, null, 2);
+    console.log(`[ISQ xAPI qualification] ${stage}`, data || "");
+    if (diag()) diag().textContent += `${stage}${payload}\n\n`;
+  }
+
+  function findApi(win, prop) {
+    let current = win;
+    for (let i = 0; i < 12 && current; i += 1) {
+      try { if (current[prop]) return current[prop]; } catch (_) {}
+      try {
+        if (!current.parent || current.parent === current) break;
+        current = current.parent;
+      } catch (_) { break; }
+    }
+    try {
+      if (win.top && win.top.opener) {
+        current = win.top.opener;
+        for (let i = 0; i < 12 && current; i += 1) {
+          try { if (current[prop]) return current[prop]; } catch (_) {}
+          try {
+            if (!current.parent || current.parent === current) break;
+            current = current.parent;
+          } catch (_) { break; }
+        }
+      }
+    } catch (_) {}
+    return null;
+  }
+
+  function read2004(api, key) {
+    try {
+      const value = api.GetValue(key);
+      const err = api.GetLastError ? api.GetLastError() : "0";
+      return String(err) === "0" ? value : "";
+    } catch (_) { return ""; }
+  }
+  function read12(api, key) {
+    try {
+      const value = api.LMSGetValue(key);
+      const err = api.LMSGetLastError ? api.LMSGetLastError() : "0";
+      return String(err) === "0" ? value : "";
+    } catch (_) { return ""; }
+  }
+  function actor(name, id) {
+    if (!id) return null;
+    const a = { objectType: "Agent", account: { homePage: "https://isq.qld.edu.au", name: String(id) } };
+    if (name) a.name = String(name);
+    return a;
+  }
+  async function getActor() {
+    for (let attempt = 1; attempt <= 9; attempt += 1) {
+      const api2004 = findApi(window, "API_1484_11");
+      if (api2004) {
+        const id = read2004(api2004, "cmi.learner_id");
+        const name = read2004(api2004, "cmi.learner_name");
+        if (id) { const a = actor(name, id); log("actor resolved via SCORM 2004", { attempt, actor: a }); return a; }
+      }
+      const api12 = findApi(window, "API");
+      if (api12) {
+        const id = read12(api12, "cmi.core.student_id");
+        const name = read12(api12, "cmi.core.student_name");
+        if (id) { const a = actor(name, id); log("actor resolved via SCORM 1.2", { attempt, actor: a }); return a; }
+      }
+      await new Promise(resolve => setTimeout(resolve, 350));
+    }
+    log("actor unavailable");
+    return null;
+  }
+
+  async function sendStatement(statement) {
+    if (!cfg.endpoint || !cfg.auth || cfg.auth.includes("REPLACE_WITH")) {
+      throw new Error("Test LRS configuration is incomplete. Replace the controlled-test Basic auth placeholder.");
+    }
+    const url = cfg.endpoint.replace(/\/?$/, "/") + "statements?statementId=" + encodeURIComponent(statement.id);
+    log("transport attempt", { url, statementId: statement.id, statement });
+    let response;
+    try {
+      response = await fetch(url, {
+        method: "PUT",
+        headers: {
+          "Authorization": cfg.auth,
+          "X-Experience-API-Version": "1.0.3",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(statement)
+      });
+    } catch (error) {
+      log("network/CORS failure", { message: error.message });
+      throw error;
+    }
+    const body = await response.text().catch(() => "");
+    if (!response.ok) {
+      log("LRS rejected statement", { status: response.status, statusText: response.statusText, body });
+      throw new Error(`LRS returned HTTP ${response.status}: ${body || response.statusText}`);
+    }
+    log("LRS accepted statement", { status: response.status, statementId: statement.id, body });
+    return { status: response.status, body };
+  }
+
+  window.ISQ_XAPI_RUNTIME = Object.freeze({
+    getActor,
+    getRegistration: async () => null,
+    sendStatement
+  });
+  log("runtime ready", { endpoint: cfg.endpoint, authConfigured: Boolean(cfg.auth && !cfg.auth.includes("REPLACE_WITH")) });
+})();
+</script>
+
+<script>
+(() => {
+  "use strict";
+  const EVENT_NAME = "isq:knowledge-check-answered";
+  const LANGUAGE = "en-AU";
+  const DELIMITER = "[,]";
+  const diag = () => document.getElementById("isq-xapi-diagnostics");
+  function log(stage, data) {
+    console.log(`[ISQ xAPI adapter] ${stage}`, data || "");
+    if (diag()) diag().textContent += `${stage}\n${data ? JSON.stringify(data, null, 2) : ""}\n\n`;
+  }
+  function uuid() {
+    if (crypto?.randomUUID) return crypto.randomUUID();
+    const b = new Uint8Array(16); crypto.getRandomValues(b); b[6] = (b[6] & 15) | 64; b[8] = (b[8] & 63) | 128;
+    return [...b].map((x,i) => ([4,6,8,10].includes(i)?"-":"") + x.toString(16).padStart(2,"0")).join("");
+  }
+  function valid(d) { return ["activityId","activityName","parentActivityId","groupingActivityId"].every(k => typeof d?.[k] === "string" && d[k].trim()); }
+  function statement(d, actor) {
+    const definition = {
+      type: "http://adlnet.gov/expapi/activities/cmi.interaction",
+      name: { [LANGUAGE]: d.activityName },
+      interactionType: "choice",
+      correctResponsesPattern: [(d.correctResponseIds || []).join(DELIMITER)],
+      choices: (d.choices || []).map(c => ({ id: c.id, description: { [LANGUAGE]: c.label } }))
+    };
+    if (d.activityDescription) definition.description = { [LANGUAGE]: d.activityDescription };
+    return {
+      id: uuid(), actor,
+      verb: { id: "http://adlnet.gov/expapi/verbs/answered", display: { [LANGUAGE]: "answered" } },
+      object: { id: d.activityId, objectType: "Activity", definition },
+      result: { response: (d.responseIds || []).join(DELIMITER), success: Boolean(d.success), completion: true },
+      context: {
+        contextActivities: { parent: [{ id: d.parentActivityId }], grouping: [{ id: d.groupingActivityId }] },
+        extensions: {
+          "https://isq.qld.edu.au/xapi/extensions/component-key": d.component,
+          "https://isq.qld.edu.au/xapi/extensions/component-version": d.componentVersion,
+          "https://isq.qld.edu.au/xapi/extensions/attempt-number": d.attemptNumber
+        }
+      },
+      timestamp: new Date().toISOString()
+    };
+  }
+  document.addEventListener(EVENT_NAME, async event => {
+    const d = event.detail;
+    log("interaction event received", d);
+    if (!valid(d)) { log("telemetry skipped: metadata incomplete"); return; }
+    try {
+      const runtime = window.ISQ_XAPI_RUNTIME;
+      if (!runtime) throw new Error("ISQ_XAPI_RUNTIME unavailable");
+      const a = await runtime.getActor();
+      if (!a) { log("telemetry skipped: trusted learner unavailable"); return; }
+      const s = statement(d, a);
+      log("statement constructed", s);
+      await runtime.sendStatement(s);
+      log("statement sent", { statementId: s.id });
+    } catch (error) { log("telemetry failed", { message: error.message }); }
+  });
+  log("adapter ready");
+})();
+</script>
+
+<script>
+(() => {
+  "use strict";
+  const CONTRACT_VERSION = "0.2.0";
+  const COMPONENT_VERSION = "0.2.0";
+  const root = document.querySelector("[data-isq-knowledge-check]");
+  if (!root || root.dataset.initialised === "true") return;
+  root.dataset.initialised = "true";
+  const question = root.querySelector("[data-kc-question]");
+  const check = question.querySelector("[data-kc-check]");
+  const feedback = question.querySelector("[data-kc-feedback]");
+  let attempts = 0;
+  const inputs = () => [...question.querySelectorAll('.isq-options input[type="radio"], .isq-options input[type="checkbox"]')];
+  const parse = v => String(v || "").split(",").map(x => x.trim()).filter(Boolean);
+  const normalise = ids => { const set = new Set(ids); return inputs().map(i => i.value).filter(id => set.has(id)); };
+  const same = (a,b) => a.length === b.length && a.every(x => new Set(b).has(x));
+  check.addEventListener("click", () => {
+    const selected = inputs().filter(i => i.checked);
+    feedback.classList.remove("isq-callout--success","isq-callout--warning","isq-callout--error");
+    feedback.hidden = false;
+    if (!selected.length) {
+      feedback.classList.add("isq-callout--warning");
+      feedback.innerHTML = '<p class="isq-body isq-body--strong">Select at least one response.</p><p class="isq-body">Select all responses that you think apply, then check your answer.</p>';
+      return;
+    }
+    const responses = selected.map(i => i.value);
+    const correct = parse(question.dataset.correctResponses);
+    const success = same(responses, correct);
+    attempts += 1;
+    feedback.classList.add(success ? "isq-callout--success" : "isq-callout--error");
+    feedback.innerHTML = success ? question.dataset.correctFeedback : question.dataset.incorrectFeedback;
+    root.dispatchEvent(new CustomEvent("isq:knowledge-check-answered", { bubbles: true, detail: {
+      contractVersion: CONTRACT_VERSION,
+      component: root.dataset.component || "isq-kc-single",
+      componentVersion: COMPONENT_VERSION,
+      questionKey: question.dataset.questionKey,
+      activityId: question.dataset.activityId || null,
+      activityName: question.dataset.activityName || null,
+      activityDescription: question.dataset.activityDescription || null,
+      parentActivityId: question.dataset.parentActivityId || null,
+      groupingActivityId: question.dataset.groupingActivityId || null,
+      interactionType: "choice",
+      responseIds: normalise(responses),
+      correctResponseIds: normalise(correct),
+      success,
+      completion: true,
+      attemptNumber: attempts,
+      choices: inputs().map(i => ({ id: i.value, label: i.closest("label")?.innerText.trim() || i.value }))
+    }}));
+  });
+})();
+</script>
