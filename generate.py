@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
-ISQ eLearning Design System — live reference site generator.
+eLearning Design System — live reference site generator.
 
 Reads structured data from /data/*.json, renders it through the
 templates in /_templates using Jinja2, and writes a fully static
-site to /out. Re-run after any data change; nothing here needs to
+site to /site. Re-run after any data change; nothing here needs to
 be hand-edited in the generated HTML.
 """
 import json
@@ -15,7 +15,7 @@ from jinja2 import Environment, FileSystemLoader
 ROOT = Path(__file__).parent
 DATA = ROOT / "data"
 TEMPLATES = ROOT / "_templates"
-OUT = ROOT / "out"
+OUT = ROOT / "site"
 
 env = Environment(loader=FileSystemLoader(str(TEMPLATES)), autoescape=False)
 
@@ -206,10 +206,6 @@ def main():
 
     # ---- Copy assets & data ----
     shutil.copytree(ROOT / "assets", OUT / "assets", dirs_exist_ok=True)
-    (OUT / "assets" / "vendor").mkdir(parents=True, exist_ok=True)
-    production_css = Path("/mnt/user-data/uploads/isq-rise-components-v1_0_0.css")
-    if production_css.exists():
-        shutil.copy(production_css, OUT / "assets" / "vendor" / "isq-rise-components-v1.0.0.css")
     (OUT / "data").mkdir(parents=True, exist_ok=True)
     for name in ["foundations.json", "patterns.json", "learning-design.json", "components.json", "changelog.json"]:
         shutil.copy(DATA / name, OUT / "data" / name)

@@ -1,42 +1,45 @@
-# ISQ eLearning Design System — live reference site
+# eLearning Design System — live reference site
 
-The live operational reference for ISQ digital learning design and development, generated as a static site from a structured JSON data model.
+The live operational reference for reusable eLearning design and development, generated as a static site from a structured JSON data model.
 
 ## Purpose
 
-Translates six governing documents (umbrella strategy, Rise implementation guide, block selection guide, imagery guide, component catalogue blueprint, templates & production resources) plus the production Rise CSS into a searchable, maintainable, live-rendered reference — not a copy of the Word documents.
+Connects learning design, experience patterns, visual foundations, components, platform implementation and governance in one maintained system. ISQ is the first mature branded implementation and evidence base; its governing documents and production Rise CSS currently provide much of the implemented source material.
 
 ## Local preview
 
-The site is fully static but uses `fetch()` for client-side search, so open it through a local server rather than `file://`:
+Install the generator dependency, regenerate the site, then open it through a local server rather than `file://` so client-side search can use `fetch()`:
 
 ```
-cd out
+python3 -m pip install -r requirements.txt
+python3 generate.py
+cd site
 python3 -m http.server 8000
 # visit http://localhost:8000
 ```
 
 ## Publishing
 
-Copy the contents of `/out` to any static host (the site has no server dependency). Update the `<link>` in `assets/vendor/isq-rise-components-v1.0.0.css` if a newer immutable production CSS version is released — see Platforms → Rise for the versioning rule.
+Copy the contents of `/site` to any static host (the site has no server dependency). Update the governed ISQ Rise stylesheet in `assets/vendor/` if a newer immutable production version is released — see Platforms → Rise for the versioning rule.
 
 ## Folder structure
 
 ```
 data/                 Source of truth — foundations.json, patterns.json, components.json, changelog.json
 _templates/            Jinja2 templates (one per page type), not part of the published site
-assets/                CSS, JS and icons for the site's own chrome (.docs- namespace)
-generate.py            Build script — reads /data, writes /out
-out/                   Generated static site (this is what you publish)
+assets/                CSS, JS, icons and governed platform assets used by the generated site
+generate.py            Build script — reads /data, writes /site
+requirements.txt       Python build dependency declaration
+site/                  Generated static site (this is what you publish)
 README.md, AUDIT.md, DECISIONS.md, CHANGELOG.md   Project records (this folder)
 ```
 
 ## Content update process
 
-1. Edit the relevant JSON file in `data/` — never hand-edit generated HTML in `out/`.
+1. Edit the relevant JSON file in `data/` — never hand-edit generated HTML in `site/`.
 2. Run `python3 generate.py`.
 3. Re-run the link checker described in AUDIT.md if you've added new component IDs or relationships.
-4. Re-publish `out/`.
+4. Re-publish `site/`.
 
 ## Component addition process
 
@@ -45,7 +48,7 @@ Follow the contribution model documented on the Governance page: propose → pro
 ## Deployment notes
 
 - No build framework or server dependency — plain HTML/CSS/vanilla JS.
-- Component live previews load the real `isq-rise-components-v1.0.0.css`, copied into `assets/vendor/` at build time from the supplied production stylesheet. If that source file moves, update the path in `generate.py`.
+- Component live previews load the governed `assets/vendor/isq-rise-components-v1.0.0.css`, copied into the generated site at build time with the other source assets.
 - Search is a client-side JSON index generated at build time (`data/search-index.json`) — no server-side search dependency.
 
 ## Known limitations (v0.1.0)
