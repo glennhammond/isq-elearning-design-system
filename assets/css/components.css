@@ -188,12 +188,12 @@
 
 /* Callout used by the docs site itself */
 .docs-note {
-  border-left: 3px solid var(--docs-yellow);
+  border: 1px solid var(--docs-border);
   background: var(--docs-ice);
   padding: var(--docs-space-3) var(--docs-space-4);
-  border-radius: 0 var(--docs-radius-small) var(--docs-radius-small) 0;
+  border-radius: var(--docs-radius-small);
   font-size: 0.94rem;
   margin: var(--docs-space-4) 0;
 }
-.docs-note--flag { border-left-color: var(--docs-error); background: var(--docs-error-pale); }
+.docs-note--flag { border-color: #E6C7C5; background: var(--docs-error-pale); }
 .docs-note strong { color: var(--docs-blue-dark); }

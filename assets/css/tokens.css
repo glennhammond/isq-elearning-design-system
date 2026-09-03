@@ -1,36 +1,34 @@
 /*
  * eLearning Design System — live reference site
  * Site chrome tokens (.docs- namespace only).
- * Values mirror isq-rise-components-v1.0.0.css so the site embodies
- * the system it documents. Never redeclare --isq-* variables here —
- * those are loaded live from the production stylesheet per component.
+ * This neutral shell is independent of every branded implementation.
+ * Implementation tokens (including --isq-*) are loaded only where an
+ * implementation example needs them.
  */
 
 :root {
-  /* Functional palette — mirrors the production Rise stylesheet */
-  --docs-blue: #005680;
-  --docs-blue-dark: #073B58;
-  --docs-blue-deep: #062F46;
-  --docs-yellow: #FFC72A;
-  --docs-charcoal: #333333;
-  --docs-muted: #526874;
-  --docs-border: #CFE0E7;
-  --docs-tint: #E6EEF2;
-  --docs-pale: #F3F7F9;
-  --docs-ice: #EAF6FA;
+  /* Neutral documentation palette — not an implementation theme */
+  --docs-blue: #4357AD;
+  --docs-blue-dark: #202A35;
+  --docs-blue-deep: #141A21;
+  --docs-yellow: #C8793D;
+  --docs-charcoal: #202A35;
+  --docs-muted: #5E6975;
+  --docs-border: #D8DEE5;
+  --docs-tint: #ECEFF7;
+  --docs-pale: #F6F7F9;
+  --docs-ice: #F1F3F7;
   --docs-white: #FFFFFF;
-  --docs-success: #266141;
-  --docs-success-pale: #EAF5EF;
-  --docs-warning-text: #333333;
-  --docs-warning-pale: #FFF7DF;
-  --docs-error: #A22B2A;
-  --docs-error-pale: #FCEEEE;
+  --docs-success: #2E6A4F;
+  --docs-success-pale: #EDF6F1;
+  --docs-warning-text: #5D4422;
+  --docs-warning-pale: #FBF4E8;
+  --docs-error: #A4433F;
+  --docs-error-pale: #FAEEEE;
 
-  /* Typography — heading stack as documented; Poppins loads locally as the
-     working substitute for the licensed Century Gothic woff2 (not supplied
-     to this site). Swap the @font-face source and this stack keeps working. */
-  --docs-font-heading: "Century Gothic", "Poppins", "Avenir Next", Avenir, Futura, Arial, sans-serif;
-  --docs-font-body: "Open Sans", Arial, sans-serif;
+  /* Neutral documentation typography; branded fonts belong to themes. */
+  --docs-font-heading: "Avenir Next", Avenir, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --docs-font-body: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
 
   /* Spacing scale */
   --docs-space-1: 4px;
@@ -53,22 +51,22 @@
   --docs-radius-large: 22px;
 
   /* Elevation */
-  --docs-shadow-small: 0 1px 2px rgba(7, 59, 88, 0.08);
-  --docs-shadow-medium: 0 4px 16px rgba(7, 59, 88, 0.10);
-  --docs-shadow-large: 0 12px 32px rgba(7, 59, 88, 0.14);
+  --docs-shadow-small: 0 1px 2px rgba(20, 26, 33, 0.07);
+  --docs-shadow-medium: 0 4px 16px rgba(20, 26, 33, 0.09);
+  --docs-shadow-large: 0 12px 32px rgba(20, 26, 33, 0.13);
 
   /* Motion */
   --docs-transition-fast: 120ms ease;
   --docs-transition-medium: 200ms ease;
 
   /* Status colours — text-paired, never colour-only */
-  --docs-status-foundation: #062F46;
-  --docs-status-core: #005680;
-  --docs-status-approved: #266141;
-  --docs-status-experimental: #8A6100;
-  --docs-status-course-specific: #526874;
+  --docs-status-foundation: #202A35;
+  --docs-status-core: #4357AD;
+  --docs-status-approved: #2E6A4F;
+  --docs-status-experimental: #8A5A22;
+  --docs-status-course-specific: #5E6975;
   --docs-status-legacy: #7A7A7A;
-  --docs-status-deprecated: #A22B2A;
+  --docs-status-deprecated: #A4433F;
 }
 
 @media (prefers-reduced-motion: reduce) {

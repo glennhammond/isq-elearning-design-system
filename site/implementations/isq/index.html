@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ISQ implementation — eLearning Design System</title>
+<meta name="description" content="Independent Schools Queensland theme, platforms, production assets and evidence.">
+<link rel="stylesheet" href="../../assets/css/tokens.css">
+<link rel="stylesheet" href="../../assets/css/base.css">
+<link rel="stylesheet" href="../../assets/css/layout.css">
+<link rel="stylesheet" href="../../assets/css/components.css">
+<link rel="stylesheet" href="../../assets/css/documentation.css">
+</head>
+<body>
+<a class="docs-skip-link" href="#docs-main">Skip to content</a>
+<div class="docs-shell">
+  <header class="docs-header">
+    <div class="docs-header__inner">
+      <a class="docs-logo" href="../../index.html">eLearning <span>Design System</span></a>
+      <button class="docs-nav-toggle" aria-expanded="false" aria-controls="docs-primary-nav">Menu</button>
+      <nav class="docs-primary-nav" id="docs-primary-nav" aria-label="Primary">
+        <a class="docs-nav-link" href="../../overview/index.html" >Overview</a>
+        <a class="docs-nav-link" href="../../foundations/index.html" >Foundations</a>
+        <a class="docs-nav-link" href="../../learning-design/index.html" >Learning design</a>
+        <a class="docs-nav-link" href="../../patterns/index.html" >Learning patterns</a>
+        <a class="docs-nav-link" href="../../components/index.html" >Components</a>
+        <a class="docs-nav-link" href="../../implementations/index.html" aria-current="page">Implementations</a>
+        <a class="docs-nav-link" href="../../applications/index.html" >Applications</a>
+        <a class="docs-nav-link" href="../../governance/index.html" >Governance</a>
+      </nav>
+      <div class="docs-search docs-search-wrap" role="search">
+        <label class="docs-visually-hidden" for="docs-search-input">Search the design system</label>
+        <input id="docs-search-input" type="search" placeholder="Search components, classes, patterns…" data-docs-search-input data-base="../../" autocomplete="off">
+      </div>
+      <div class="docs-search-results" data-docs-search-results hidden></div>
+    </div>
+  </header>
+
+  <main class="docs-main" id="docs-main">
+
+<div class="docs-page-with-sidebar">
+  <nav class="docs-side-nav" aria-label="ISQ implementation">
+    <h2>ISQ implementation</h2>
+    <ul>
+      <li><a href="#boundary">Boundary</a></li>
+      <li><a href="#parts">Implementation parts</a></li>
+      <li><a href="#sources">Source hierarchy</a></li>
+      <li><a href="#status">Status</a></li>
+    </ul>
+  </nav>
+  <div>
+    <p style="font-size:0.85rem;"><a href="../../implementations/index.html">← Implementations</a></p>
+    <span class="docs-eyebrow">Implementation · ISQ</span>
+    <h1>Independent Schools Queensland</h1>
+    <p class="docs-lede">The first mature organisational implementation of the eLearning Design System, bringing shared learning design into an ISQ visual theme and production platform stack.</p>
+
+    <div class="docs-module" id="boundary">
+      <h2>Boundary</h2>
+      <p>ISQ does not define the identity of the core system. It provides a mature, tested implementation: brand tokens, platform conventions, production code and course evidence. Other implementations can use the same core without adopting ISQ colours, typography, content or class names.</p>
+    </div>
+
+    <div class="docs-module" id="parts">
+      <h2>Implementation parts</h2>
+      <div class="docs-grid docs-grid--3">
+        <a class="docs-card" href="../../implementations/isq/foundations/index.html"><h3>ISQ foundations</h3><p>Colour, typography, spacing, widths, radius and focus tokens.</p></a>
+        <a class="docs-card" href="../../implementations/isq/platforms/rise/index.html"><h3>Articulate Rise</h3><p>Production stylesheet, native/custom decisions, publishing and troubleshooting.</p></a>
+        <a class="docs-card" href="../../implementations/isq/platforms/connect-learn/index.html"><h3>Connect &amp; Learn</h3><p>Moodle experience architecture and the relationship between course and platform.</p></a>
+        <a class="docs-card" href="../../implementations/isq/platforms/storyline/index.html"><h3>Storyline</h3><p>A controlled extension point for proven complex-interaction needs.</p></a>
+        <a class="docs-card" href="../../implementations/isq/media/index.html"><h3>Imagery &amp; media</h3><p>ISQ production dimensions, editorial direction and sensitive-subject safeguards.</p></a>
+        <a class="docs-card" href="../../applications/index.html"><h3>Course applications</h3><p>Where the implementation is applied and tested in real course work.</p></a>
+      </div>
+    </div>
+
+    <div class="docs-module" id="sources">
+      <h2>ISQ source hierarchy</h2>
+      <table class="docs-field-table">
+        <thead><tr><th>#</th><th>Publication</th><th>Implementation role</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>ISQ eLearning Design System v1.1</td><td>Original ISQ strategy, architecture, principles, governance and roadmap.</td></tr>
+          <tr><td>2</td><td>ISQ Rise Design System: Implementation and Component Guide</td><td>Rise-specific components, HTML, CSS, JavaScript and responsive behaviour.</td></tr>
+          <tr><td>3</td><td>ISQ Rise Block Selection and Usage Guide</td><td>Operational guidance for choosing native and custom blocks.</td></tr>
+          <tr><td>4</td><td>ISQ Digital Learning Imagery and Media Guide</td><td>Image taxonomy, production dimensions, accessibility and file standards.</td></tr>
+          <tr><td>5</td><td>Production code and qualification evidence</td><td>Current rendered behaviour and verified technical contract.</td></tr>
+        </tbody>
+      </table>
+      <p style="margin-top:var(--docs-space-3); font-size:0.92rem; color:var(--docs-muted);">Where sources conflict, core learning and accessibility contracts govern shared intent; this implementation governs ISQ-specific expression; production code governs current rendered behaviour.</p>
+    </div>
+
+    <div class="docs-module" id="status">
+      <h2>Implementation status</h2>
+      <p>ISQ Rise is the most mature stream and provides the current component evidence base. Connect &amp; Learn is a strategic platform implementation. Storyline remains a controlled boundary rather than a complete implementation.</p>
+    </div>
+  </div>
+</div>
+
+  </main>
+
+  <footer class="docs-footer">
+    <div class="docs-footer__inner">
+      <div>
+        <h2>System</h2>
+        <ul>
+          <li><a href="../../overview/index.html">Overview</a></li>
+          <li><a href="../../governance/index.html">Governance</a></li>
+          <li><a href="../../changelog/index.html">Changelog</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Core system</h2>
+        <ul>
+          <li><a href="../../foundations/index.html">Foundations</a></li>
+          <li><a href="../../learning-design/index.html">Learning design</a></li>
+          <li><a href="../../patterns/index.html">Learning patterns</a></li>
+          <li><a href="../../components/index.html">Components</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Implementations</h2>
+        <ul>
+          <li><a href="../../implementations/index.html">Implementation directory</a></li>
+          <li><a href="../../applications/index.html">Course applications</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Resources</h2>
+        <ul>
+          <li><a href="../../resources/index.html">Templates &amp; resources</a></li>
+          <li><a href="../../changelog/index.html">Changelog</a></li>
+        </ul>
+        <p>Accessibility requirements are documented at foundation, pattern and component level.</p>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script src="../../assets/js/navigation.js"></script>
+<script src="../../assets/js/search.js"></script>
+<script src="../../assets/js/filters.js"></script>
+<script src="../../assets/js/component-preview.js"></script>
+</body>
+</html>

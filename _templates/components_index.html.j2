@@ -3,7 +3,8 @@
 <div class="docs-container">
   <span class="docs-eyebrow">Components</span>
   <h1>Component catalogue</h1>
-  <p class="docs-lede">Grouped by structural, content, scenario, interaction, support and legacy. Every component carries a visible status — text and colour, never colour alone.</p>
+  <p class="docs-lede">Shared component definitions grouped by structural, content, scenario, interaction, support and legacy purpose. Every component carries a visible status — text and colour, never colour alone.</p>
+  <div class="docs-note"><strong>Current implementation:</strong> live previews and class names show the existing ISQ Rise expression of each component. The component purpose, anatomy and accessibility contract are reusable; the <code>.isq-*</code> namespace and visual theme are not.</div>
 
   <div class="docs-filter-bar" data-docs-filter-bar>
     <div class="docs-filter-group">
@@ -45,6 +46,7 @@
       <div class="docs-card__meta">
         <span class="docs-tag">{{ c.category|capitalize }}</span>
         {% for p in c.platforms %}<span class="docs-tag">{{ p|capitalize }}</span>{% endfor %}
+        <span class="docs-tag">ISQ implementation</span>
       </div>
     </a>
     {% endfor %}

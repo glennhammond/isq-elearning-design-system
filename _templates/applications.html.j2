@@ -1,0 +1,40 @@
+{% extends "base.html.j2" %}
+{% block content %}
+<div class="docs-container">
+  <span class="docs-eyebrow">Course applications</span>
+  <h1>Where the system meets real course work</h1>
+  <p class="docs-lede">Applications use the core system through a named implementation. They supply evidence, constraints and refinements without becoming the reusable system themselves.</p>
+
+  <div class="docs-note"><strong>Source authority remains separate:</strong> approved course documents govern learner-facing copy. The design system governs presentation, interaction, accessibility and reusable technical behaviour.</div>
+
+  <div class="docs-module">
+    <h2>Current ISQ applications</h2>
+    <div class="docs-grid docs-grid--2">
+      <div class="docs-card" style="cursor:default;">
+        <div class="docs-card__top"><h3>Child Protection for Teachers</h3><span class="docs-tag">Evidence source</span></div>
+        <p>Established course application informing the current Rise component family, decision pathways and production styling.</p>
+        <div class="docs-card__meta"><span class="docs-tag">ISQ implementation</span><span class="docs-tag">Rise</span><span class="docs-tag">xAPI</span></div>
+      </div>
+      <div class="docs-card" style="cursor:default;">
+        <div class="docs-card__top"><h3>Child Protection for Principals and Board Directors</h3><span class="docs-tag">In development</span></div>
+        <p>Controlled course build applying and refining the shared learning patterns and approved ISQ Rise components.</p>
+        <div class="docs-card__meta"><span class="docs-tag">ISQ implementation</span><span class="docs-tag">Rise</span><span class="docs-tag">2027</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="docs-module">
+    <h2>Application record contract</h2>
+    <table class="docs-field-table">
+      <thead><tr><th>Record</th><th>Purpose</th></tr></thead>
+      <tbody>
+        <tr><td>Source authority</td><td>Identifies the approved content and mandatory development requirements.</td></tr>
+        <tr><td>Implementation</td><td>Names the organisational theme, platform and component versions used.</td></tr>
+        <tr><td>Exceptions</td><td>Records any course-specific treatment and why it has not been generalised.</td></tr>
+        <tr><td>Qualification evidence</td><td>Captures accessibility, responsive, publishing and telemetry verification.</td></tr>
+        <tr><td>Contribution back</td><td>Identifies refinements proposed for the reusable system.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

@@ -21,13 +21,12 @@
       <nav class="docs-primary-nav" id="docs-primary-nav" aria-label="Primary">
         <a class="docs-nav-link" href="../overview/index.html" >Overview</a>
         <a class="docs-nav-link" href="../foundations/index.html" >Foundations</a>
+        <a class="docs-nav-link" href="../learning-design/index.html" >Learning design</a>
         <a class="docs-nav-link" href="../patterns/index.html" >Learning patterns</a>
         <a class="docs-nav-link" href="../components/index.html" >Components</a>
-        <a class="docs-nav-link" href="../platforms/rise/index.html" >Platforms</a>
-        <a class="docs-nav-link" href="../media/index.html" >Imagery &amp; media</a>
-        <a class="docs-nav-link" href="../resources/index.html" >Resources</a>
+        <a class="docs-nav-link" href="../implementations/index.html" >Implementations</a>
+        <a class="docs-nav-link" href="../applications/index.html" >Applications</a>
         <a class="docs-nav-link" href="../governance/index.html" >Governance</a>
-        <a class="docs-nav-link" href="../changelog/index.html" aria-current="page">Changelog</a>
       </nav>
       <div class="docs-search docs-search-wrap" role="search">
         <label class="docs-visually-hidden" for="docs-search-input">Search the design system</label>
@@ -43,38 +42,36 @@
   <span class="docs-eyebrow">Changelog</span>
   <h1>Changelog</h1>
   <p class="docs-lede">Records added, changed, fixed, deprecated and removed items per release, from this catalogue's first version.</p>
-
-  
+  <div class="docs-release">
+    <span class="docs-release__version">v0.2.0</span><span class="docs-release__date">September 2026</span>
+      <div>
+        <span class="docs-change-kind">Added</span>
+        <ul><li>Implementation directory separating the core system from organisational and platform expressions.</li><li>Independent Schools Queensland implementation hub and dedicated ISQ foundations.</li><li>Course Applications layer with an explicit source-authority and qualification-evidence contract.</li><li>Primary navigation entry for the implementation-independent Learning Design model.</li></ul>
+      </div>
+      <div>
+        <span class="docs-change-kind">Changed</span>
+        <ul><li>Renamed the product and site identity to eLearning Design System.</li><li>Replaced ISQ-derived site chrome with a neutral documentation palette and typography.</li><li>Reframed component pages as reusable contracts with the existing ISQ Rise code shown as a named implementation.</li><li>Moved Rise, Connect & Learn, Storyline and media guidance beneath the ISQ implementation while preserving earlier routes.</li><li>Changed Learning Design reuse scope from isq-wide to system-wide.</li></ul>
+      </div>
+      <div>
+        <span class="docs-change-kind">Fixed</span>
+        <ul><li>Removed organisation-specific foundations and source hierarchy from the neutral core.</li><li>Removed side-highlight callout styling from the documentation interface.</li></ul>
+      </div>
+  </div>
   <div class="docs-release">
     <span class="docs-release__version">v0.1.0</span><span class="docs-release__date">July 2026</span>
-    
-      
       <div>
         <span class="docs-change-kind">Added</span>
         <ul><li>Initial live reference site: Overview, Foundations, Learning patterns, Component catalogue, Platform implementation (Rise, Connect & Learn, Storyline), Imagery & media, Resources, Governance, Changelog.</li><li>Component data model and JSON source covering foundations, 11 learning patterns and 21 components.</li><li>Client-side search index and filterable component catalogue.</li><li>A first specification for the previously undocumented Self-assessment component.</li></ul>
       </div>
-      
-    
-      
       <div>
         <span class="docs-change-kind">Changed</span>
         <ul><li>Divider status reconciled from Document 2's "Restricted" to the confirmed lifecycle status Experimental.</li><li>Role split adopted as the canonical name for the previously unsettled Role comparison / Role split naming.</li></ul>
       </div>
-      
-    
-      
       <div>
         <span class="docs-change-kind">Fixed</span>
         <ul><li>Grid, Band and Process added to the component data model after being found in the production CSS and Document 2's prose but missing from its technical class index.</li></ul>
       </div>
-      
-    
-      
-    
-      
-    
   </div>
-  
 </div>
 
   </main>
@@ -90,24 +87,28 @@
         </ul>
       </div>
       <div>
-        <h2>Reference</h2>
+        <h2>Core system</h2>
         <ul>
           <li><a href="../foundations/index.html">Foundations</a></li>
+          <li><a href="../learning-design/index.html">Learning design</a></li>
           <li><a href="../patterns/index.html">Learning patterns</a></li>
           <li><a href="../components/index.html">Components</a></li>
         </ul>
       </div>
       <div>
-        <h2>Platforms</h2>
+        <h2>Implementations</h2>
         <ul>
-          <li><a href="../platforms/rise/index.html">Rise</a></li>
-          <li><a href="../platforms/connect-learn/index.html">Connect &amp; Learn</a></li>
-          <li><a href="../platforms/storyline/index.html">Storyline</a></li>
+          <li><a href="../implementations/index.html">Implementation directory</a></li>
+          <li><a href="../applications/index.html">Course applications</a></li>
         </ul>
       </div>
       <div>
-        <h2>Accessibility</h2>
-        <p>Designed to support accessibility and tested against the documented design-system checklist.</p>
+        <h2>Resources</h2>
+        <ul>
+          <li><a href="../resources/index.html">Templates &amp; resources</a></li>
+          <li><a href="../changelog/index.html">Changelog</a></li>
+        </ul>
+        <p>Accessibility requirements are documented at foundation, pattern and component level.</p>
       </div>
     </div>
   </footer>

@@ -4,7 +4,15 @@ The live operational reference for reusable eLearning design and development, ge
 
 ## Purpose
 
-Connects learning design, experience patterns, visual foundations, components, platform implementation and governance in one maintained system. ISQ is the first mature branded implementation and evidence base; its governing documents and production Rise CSS currently provide much of the implemented source material.
+Connects learning design, experience patterns, semantic foundations, component contracts, named implementations, course applications and governance in one maintained system.
+
+## Product boundary
+
+- **Core system** — implementation-independent learning purposes, structures, patterns, foundation roles, component contracts and governance.
+- **Implementations** — organisation, product and platform expressions, including brand tokens, technical namespaces and production assets.
+- **Course applications** — source-controlled learning experiences that use a named implementation and contribute evidence back to the system.
+
+Independent Schools Queensland is the first mature implementation and evidence base. Its production Rise CSS and platform guidance remain intact inside the ISQ implementation layer; they do not define the identity of the core system.
 
 ## Local preview
 
@@ -27,7 +35,7 @@ Copy the contents of `/site` to any static host (the site has no server dependen
 ```
 data/                 Source of truth — foundations.json, patterns.json, components.json, changelog.json
 _templates/            Jinja2 templates (one per page type), not part of the published site
-assets/                CSS, JS, icons and governed platform assets used by the generated site
+assets/                Neutral site CSS/JS plus governed implementation assets used by previews
 generate.py            Build script — reads /data, writes /site
 requirements.txt       Python build dependency declaration
 site/                  Generated static site (this is what you publish)
@@ -48,7 +56,7 @@ Follow the contribution model documented on the Governance page: propose → pro
 ## Deployment notes
 
 - No build framework or server dependency — plain HTML/CSS/vanilla JS.
-- Component live previews load the governed `assets/vendor/isq-rise-components-v1.0.0.css`, copied into the generated site at build time with the other source assets.
+- Component live previews currently show the ISQ Rise implementation and load its governed `assets/vendor/isq-rise-components-v1.0.0.css`. The component purpose, anatomy and accessibility contract remain reusable; the `.isq-*` namespace and visual values do not.
 - Search is a client-side JSON index generated at build time (`data/search-index.json`) — no server-side search dependency.
 
 ## Known limitations (v0.1.0)

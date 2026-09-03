@@ -21,13 +21,12 @@
       <nav class="docs-primary-nav" id="docs-primary-nav" aria-label="Primary">
         <a class="docs-nav-link" href="../../overview/index.html" >Overview</a>
         <a class="docs-nav-link" href="../../foundations/index.html" >Foundations</a>
+        <a class="docs-nav-link" href="../../learning-design/index.html" >Learning design</a>
         <a class="docs-nav-link" href="../../patterns/index.html" >Learning patterns</a>
         <a class="docs-nav-link" href="../../components/index.html" aria-current="page">Components</a>
-        <a class="docs-nav-link" href="../../platforms/rise/index.html" >Platforms</a>
-        <a class="docs-nav-link" href="../../media/index.html" >Imagery &amp; media</a>
-        <a class="docs-nav-link" href="../../resources/index.html" >Resources</a>
+        <a class="docs-nav-link" href="../../implementations/index.html" >Implementations</a>
+        <a class="docs-nav-link" href="../../applications/index.html" >Applications</a>
         <a class="docs-nav-link" href="../../governance/index.html" >Governance</a>
-        <a class="docs-nav-link" href="../../changelog/index.html" >Changelog</a>
       </nav>
       <div class="docs-search docs-search-wrap" role="search">
         <label class="docs-visually-hidden" for="docs-search-input">Search the design system</label>
@@ -49,6 +48,7 @@
       <p class="docs-lede" style="font-size:1.02rem;">Requires a realistic professional judgement and reveals the reasoning behind the correct response.</p>
       <div class="docs-detail-header__meta">
         <span class="docs-status docs-status--core">core</span>
+        <span class="docs-tag">Current implementation: ISQ Rise</span>
         <span>Version introduced: 1.0.0</span>
         <span>Platforms: Rise</span>
         <span>Owner: Design and development steward</span>
@@ -59,10 +59,10 @@
   
 
   <div class="docs-module">
-    <h2>Live preview</h2>
+    <h2>ISQ Rise implementation preview</h2>
     <div class="docs-preview" data-docs-preview>
       <div class="docs-preview__bar">
-        <span>Rendered with production Rise CSS</span>
+        <span>Rendered with the governed ISQ production Rise CSS</span>
         <div class="docs-preview__toggle">
           <button type="button" data-docs-preview-mode="desktop" aria-pressed="true">Desktop</button>
           <button type="button" data-docs-preview-mode="mobile" aria-pressed="false">Mobile</button>
@@ -125,8 +125,10 @@
   </div>
 
   <div class="docs-module">
-    <h2>Implementation</h2>
-    <p><strong>Type:</strong> custom-html-js</p>
+    <h2>Current implementation</h2>
+    <p><strong>Theme and platform:</strong> ISQ · Articulate Rise</p>
+    <p><strong>Implementation type:</strong> custom-html-js</p>
+    <p>The classes below belong to the ISQ implementation namespace. A future theme may implement the same component contract with different tokens and class names.</p>
     <p><strong>Dependencies:</strong> Scoped JavaScript for state management; must support multiple instances on one lesson without shared state.</p>
   </div>
 
@@ -135,22 +137,22 @@
     <div class="docs-code">
       <span class="docs-code__label">HTML</span>
       <button class="docs-copy-btn" type="button" data-docs-copy="code-decision-point">Copy</button>
-      <pre><code id="code-decision-point"><div class="isq-decision">
-  <span class="isq-eyebrow">Decision point</span>
-  <h2 class="isq-heading isq-heading--h2">What must Principal Sarah do next?</h2>
-  <p class="isq-body">Select the most appropriate immediate response.</p>
-  <div class="isq-options">
-    <label class="isq-option"><input type="radio" name="decision-1"> Ask Mark to keep monitoring Lily and review the available records.</label>
-    <label class="isq-option"><input type="radio" name="decision-1"> Call Lily’s mother to discuss the concerns.</label>
-  </div>
-  <div class="isq-decision-actions">
-    <button class="isq-button isq-button--primary">Check answer</button>
-    <button class="isq-button isq-button--light">Reset</button>
-  </div>
-</div></code></pre>
+      <pre><code id="code-decision-point">&lt;div class=&#34;isq-decision&#34;&gt;
+  &lt;span class=&#34;isq-eyebrow&#34;&gt;Decision point&lt;/span&gt;
+  &lt;h2 class=&#34;isq-heading isq-heading--h2&#34;&gt;What must Principal Sarah do next?&lt;/h2&gt;
+  &lt;p class=&#34;isq-body&#34;&gt;Select the most appropriate immediate response.&lt;/p&gt;
+  &lt;div class=&#34;isq-options&#34;&gt;
+    &lt;label class=&#34;isq-option&#34;&gt;&lt;input type=&#34;radio&#34; name=&#34;decision-1&#34;&gt; Ask Mark to keep monitoring Lily and review the available records.&lt;/label&gt;
+    &lt;label class=&#34;isq-option&#34;&gt;&lt;input type=&#34;radio&#34; name=&#34;decision-1&#34;&gt; Call Lily’s mother to discuss the concerns.&lt;/label&gt;
+  &lt;/div&gt;
+  &lt;div class=&#34;isq-decision-actions&#34;&gt;
+    &lt;button class=&#34;isq-button isq-button--primary&#34;&gt;Check answer&lt;/button&gt;
+    &lt;button class=&#34;isq-button isq-button--light&#34;&gt;Reset&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
     </div>
     <p style="font-size:0.85rem; color:var(--docs-muted); margin-top:8px;">Classes used: <code>.isq-decision</code>, <code>.isq-options</code>, <code>.isq-option</code>, <code>.isq-decision-actions</code>, <code>.isq-decision-feedback</code>, <code>.isq-visually-hidden</code></p>
-    <p style="font-size:0.85rem;"><a href="../../platforms/rise/index.html">Production stylesheet reference →</a></p>
+    <p style="font-size:0.85rem;"><a href="../../implementations/isq/platforms/rise/index.html">ISQ production stylesheet reference →</a></p>
   </div>
 
   <div class="docs-module">
@@ -190,24 +192,28 @@
         </ul>
       </div>
       <div>
-        <h2>Reference</h2>
+        <h2>Core system</h2>
         <ul>
           <li><a href="../../foundations/index.html">Foundations</a></li>
+          <li><a href="../../learning-design/index.html">Learning design</a></li>
           <li><a href="../../patterns/index.html">Learning patterns</a></li>
           <li><a href="../../components/index.html">Components</a></li>
         </ul>
       </div>
       <div>
-        <h2>Platforms</h2>
+        <h2>Implementations</h2>
         <ul>
-          <li><a href="../../platforms/rise/index.html">Rise</a></li>
-          <li><a href="../../platforms/connect-learn/index.html">Connect &amp; Learn</a></li>
-          <li><a href="../../platforms/storyline/index.html">Storyline</a></li>
+          <li><a href="../../implementations/index.html">Implementation directory</a></li>
+          <li><a href="../../applications/index.html">Course applications</a></li>
         </ul>
       </div>
       <div>
-        <h2>Accessibility</h2>
-        <p>Designed to support accessibility and tested against the documented design-system checklist.</p>
+        <h2>Resources</h2>
+        <ul>
+          <li><a href="../../resources/index.html">Templates &amp; resources</a></li>
+          <li><a href="../../changelog/index.html">Changelog</a></li>
+        </ul>
+        <p>Accessibility requirements are documented at foundation, pattern and component level.</p>
       </div>
     </div>
   </footer>

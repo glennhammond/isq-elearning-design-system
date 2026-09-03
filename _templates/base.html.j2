@@ -21,13 +21,12 @@
       <nav class="docs-primary-nav" id="docs-primary-nav" aria-label="Primary">
         <a class="docs-nav-link" href="{{ base }}overview/index.html" {% if section=='overview' %}aria-current="page"{% endif %}>Overview</a>
         <a class="docs-nav-link" href="{{ base }}foundations/index.html" {% if section=='foundations' %}aria-current="page"{% endif %}>Foundations</a>
+        <a class="docs-nav-link" href="{{ base }}learning-design/index.html" {% if section=='learning-design' %}aria-current="page"{% endif %}>Learning design</a>
         <a class="docs-nav-link" href="{{ base }}patterns/index.html" {% if section=='patterns' %}aria-current="page"{% endif %}>Learning patterns</a>
         <a class="docs-nav-link" href="{{ base }}components/index.html" {% if section=='components' %}aria-current="page"{% endif %}>Components</a>
-        <a class="docs-nav-link" href="{{ base }}platforms/rise/index.html" {% if section=='platforms' %}aria-current="page"{% endif %}>Platforms</a>
-        <a class="docs-nav-link" href="{{ base }}media/index.html" {% if section=='media' %}aria-current="page"{% endif %}>Imagery &amp; media</a>
-        <a class="docs-nav-link" href="{{ base }}resources/index.html" {% if section=='resources' %}aria-current="page"{% endif %}>Resources</a>
+        <a class="docs-nav-link" href="{{ base }}implementations/index.html" {% if section=='implementations' %}aria-current="page"{% endif %}>Implementations</a>
+        <a class="docs-nav-link" href="{{ base }}applications/index.html" {% if section=='applications' %}aria-current="page"{% endif %}>Applications</a>
         <a class="docs-nav-link" href="{{ base }}governance/index.html" {% if section=='governance' %}aria-current="page"{% endif %}>Governance</a>
-        <a class="docs-nav-link" href="{{ base }}changelog/index.html" {% if section=='changelog' %}aria-current="page"{% endif %}>Changelog</a>
       </nav>
       <div class="docs-search docs-search-wrap" role="search">
         <label class="docs-visually-hidden" for="docs-search-input">Search the design system</label>
@@ -52,24 +51,28 @@
         </ul>
       </div>
       <div>
-        <h2>Reference</h2>
+        <h2>Core system</h2>
         <ul>
           <li><a href="{{ base }}foundations/index.html">Foundations</a></li>
+          <li><a href="{{ base }}learning-design/index.html">Learning design</a></li>
           <li><a href="{{ base }}patterns/index.html">Learning patterns</a></li>
           <li><a href="{{ base }}components/index.html">Components</a></li>
         </ul>
       </div>
       <div>
-        <h2>Platforms</h2>
+        <h2>Implementations</h2>
         <ul>
-          <li><a href="{{ base }}platforms/rise/index.html">Rise</a></li>
-          <li><a href="{{ base }}platforms/connect-learn/index.html">Connect &amp; Learn</a></li>
-          <li><a href="{{ base }}platforms/storyline/index.html">Storyline</a></li>
+          <li><a href="{{ base }}implementations/index.html">Implementation directory</a></li>
+          <li><a href="{{ base }}applications/index.html">Course applications</a></li>
         </ul>
       </div>
       <div>
-        <h2>Accessibility</h2>
-        <p>Designed to support accessibility and tested against the documented design-system checklist.</p>
+        <h2>Resources</h2>
+        <ul>
+          <li><a href="{{ base }}resources/index.html">Templates &amp; resources</a></li>
+          <li><a href="{{ base }}changelog/index.html">Changelog</a></li>
+        </ul>
+        <p>Accessibility requirements are documented at foundation, pattern and component level.</p>
       </div>
     </div>
   </footer>

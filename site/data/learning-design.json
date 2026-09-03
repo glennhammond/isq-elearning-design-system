@@ -46,7 +46,7 @@
     ],
     "governance": {
       "maturity": "candidate",
-      "reuseScope": "isq-wide",
+      "reuseScope": "system-wide",
       "supportState": "active"
     },
     "legacy": {
@@ -102,7 +102,7 @@
     ],
     "governance": {
       "maturity": "candidate",
-      "reuseScope": "isq-wide",
+      "reuseScope": "system-wide",
       "supportState": "active"
     },
     "legacy": {
@@ -159,7 +159,7 @@
     ],
     "governance": {
       "maturity": "candidate",
-      "reuseScope": "isq-wide",
+      "reuseScope": "system-wide",
       "supportState": "active"
     },
     "legacy": {
@@ -213,7 +213,7 @@
     "relatedRecords": [],
     "governance": {
       "maturity": "candidate",
-      "reuseScope": "isq-wide",
+      "reuseScope": "system-wide",
       "supportState": "active"
     },
     "legacy": {
@@ -259,7 +259,7 @@
     "relatedRecords": [],
     "governance": {
       "maturity": "candidate",
-      "reuseScope": "isq-wide",
+      "reuseScope": "system-wide",
       "supportState": "active"
     },
     "legacy": {
@@ -310,7 +310,7 @@
     ],
     "governance": {
       "maturity": "candidate",
-      "reuseScope": "isq-wide",
+      "reuseScope": "system-wide",
       "supportState": "active"
     },
     "legacy": {
@@ -361,7 +361,7 @@
     ],
     "governance": {
       "maturity": "candidate",
-      "reuseScope": "isq-wide",
+      "reuseScope": "system-wide",
       "supportState": "active"
     },
     "legacy": {
@@ -406,7 +406,7 @@
     "relatedRecords": [],
     "governance": {
       "maturity": "candidate",
-      "reuseScope": "isq-wide",
+      "reuseScope": "system-wide",
       "supportState": "active"
     },
     "legacy": {
@@ -468,7 +468,7 @@
     ],
     "governance": {
       "maturity": "candidate",
-      "reuseScope": "isq-wide",
+      "reuseScope": "system-wide",
       "supportState": "active"
     },
     "legacy": {
@@ -519,7 +519,7 @@
     ],
     "governance": {
       "maturity": "candidate",
-      "reuseScope": "isq-wide",
+      "reuseScope": "system-wide",
       "supportState": "active"
     },
     "legacy": {
@@ -583,7 +583,7 @@
     ],
     "governance": {
       "maturity": "candidate",
-      "reuseScope": "isq-wide",
+      "reuseScope": "system-wide",
       "supportState": "active"
     },
     "legacy": {
@@ -648,7 +648,7 @@
     ],
     "governance": {
       "maturity": "candidate",
-      "reuseScope": "isq-wide",
+      "reuseScope": "system-wide",
       "supportState": "active"
     },
     "legacy": {
