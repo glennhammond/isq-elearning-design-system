@@ -1,6 +1,6 @@
 /*
  * ISQ Interaction Shell
- * Candidate source: 0.1.0
+ * Candidate source: 0.1.1
  *
  * Shared presentation layer for governed question, decision and reflection
  * interactions. This file is a source fragment for the next immutable Rise
@@ -8,15 +8,20 @@
  */
 
 .isq-interaction {
+  --isq-interaction-border: #9BB5C0;
+  --isq-interaction-header: var(--isq-blue-dark);
+  --isq-interaction-selected-surface: var(--isq-ice);
+  --isq-interaction-selected-outline: var(--isq-blue-dark);
+
   overflow: hidden;
-  border: 1px solid #9bb5c0;
+  border: 1px solid var(--isq-interaction-border);
   border-radius: var(--isq-radius-medium);
   background: var(--isq-white);
 }
 
 .isq-interaction__header {
   padding: 16px 20px 17px;
-  background: var(--isq-blue-dark);
+  background: var(--isq-interaction-header);
   color: var(--isq-white);
 }
 
@@ -82,17 +87,25 @@
     box-shadow var(--isq-transition);
 }
 
-.isq-interaction__option:hover,
-.isq-option.isq-interaction__option:hover {
-  border-color: var(--isq-blue);
-  background: var(--isq-ice);
+@media (hover: hover) {
+  .isq-interaction__option:hover,
+  .isq-option.isq-interaction__option:hover {
+    border-color: var(--isq-blue);
+    background: var(--isq-ice);
+  }
 }
 
 .isq-interaction__option:has(input:checked),
 .isq-option.isq-interaction__option:has(input:checked) {
-  border-color: var(--isq-blue-dark);
-  background: var(--isq-ice);
-  box-shadow: 0 0 0 2px var(--isq-blue-dark);
+  border-color: var(--isq-interaction-selected-outline);
+  background: var(--isq-interaction-selected-surface);
+  box-shadow: 0 0 0 2px var(--isq-interaction-selected-outline);
+}
+
+.isq-interaction__option:has(input:focus-visible),
+.isq-option.isq-interaction__option:has(input:focus-visible) {
+  outline: 3px solid var(--isq-yellow);
+  outline-offset: 3px;
 }
 
 .isq-interaction__option input,
