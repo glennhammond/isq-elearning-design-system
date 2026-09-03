@@ -1,0 +1,90 @@
+<!-- Decision Point 0.1.0 Candidate — Interaction Shell 0.1.0 -->
+<link rel="stylesheet" type="text/css" href="https://xapistorage28032026.blob.core.windows.net/xapitestcourses/css/isq-rise-components-v1.0.0.css">
+<!-- Candidate source additionally requires ../../interaction-shell/interaction-shell.css until the shell is integrated into the next immutable Rise stylesheet release. -->
+
+<section
+  class="isq-block isq-block--standard isq-interaction isq-interaction--decision"
+  aria-labelledby="isq-dp-title"
+>
+  <header class="isq-interaction__header">
+    <span class="isq-interaction__type">Decision point</span>
+    <h2 class="isq-interaction__title" id="isq-dp-title">
+      Which action should you take next?
+    </h2>
+  </header>
+
+  <div class="isq-interaction__body">
+    <p class="isq-interaction__instruction">
+      Select the most appropriate immediate response.
+    </p>
+
+    <form data-dp-form>
+      <fieldset>
+        <legend class="isq-visually-hidden">Which action should you take next?</legend>
+        <div class="isq-interaction__options">
+          <label class="isq-interaction__option">
+            <input type="radio" name="isq-dp-choice" value="a">
+            <span>Review the available information before taking further action.</span>
+          </label>
+          <label class="isq-interaction__option">
+            <input type="radio" name="isq-dp-choice" value="b">
+            <span>Act immediately without checking what information is available.</span>
+          </label>
+          <label class="isq-interaction__option">
+            <input type="radio" name="isq-dp-choice" value="c">
+            <span>Delay the decision until someone else raises the issue.</span>
+          </label>
+        </div>
+      </fieldset>
+
+      <div class="isq-interaction__actions">
+        <button class="isq-button isq-button--primary" type="submit">Submit response</button>
+        <span data-dp-selection-prompt role="status" aria-live="polite"></span>
+      </div>
+    </form>
+
+    <div class="isq-callout isq-interaction__feedback" data-dp-feedback role="status" aria-live="polite" tabindex="-1" hidden></div>
+
+    <div class="isq-interaction__progression">
+      <p class="isq-interaction__progression-state" data-dp-state>Complete the Decision Point to continue.</p>
+      <button class="isq-button isq-button--secondary" type="button" data-dp-continue disabled>Continue</button>
+    </div>
+  </div>
+</section>
+
+<script>
+(() => {
+  "use strict";
+  const root = document.currentScript.previousElementSibling;
+  const form = root.querySelector("[data-dp-form]");
+  const feedback = root.querySelector("[data-dp-feedback]");
+  const prompt = root.querySelector("[data-dp-selection-prompt]");
+  const state = root.querySelector("[data-dp-state]");
+  const continueButton = root.querySelector("[data-dp-continue]");
+
+  const feedbackByResponse = {
+    a: [true, "Reviewing the available information first supports a more informed next action."],
+    b: [false, "Acting without checking the available information increases the risk of making an avoidable assumption."],
+    c: [false, "A relevant concern should be considered when it arises rather than deferred until someone else raises it."]
+  };
+
+  form.addEventListener("submit", event => {
+    event.preventDefault();
+    const selected = form.querySelector('input[name="isq-dp-choice"]:checked');
+    if (!selected) {
+      prompt.textContent = "Select one response before submitting.";
+      return;
+    }
+
+    prompt.textContent = "";
+    const [success, message] = feedbackByResponse[selected.value];
+    feedback.className = `isq-callout isq-interaction__feedback ${success ? "isq-callout--success" : "isq-callout--error"}`;
+    feedback.innerHTML = `<p class="isq-body isq-body--strong">${success ? "Appropriate response" : "Consider the consequence"}</p><p class="isq-body">${message}</p>`;
+    feedback.hidden = false;
+    form.querySelectorAll("input, button").forEach(control => { control.disabled = true; });
+    state.textContent = "Decision Point complete. Continuation unlocked.";
+    continueButton.disabled = false;
+    feedback.focus();
+  });
+})();
+</script>
