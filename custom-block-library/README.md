@@ -1,7 +1,7 @@
 # ISQ Custom Block Library
 
-Status: Candidate foundation  
-Phase: 02 — Knowledge Check canonicalisation  
+Status: Governed candidate foundation  
+Current focus: Interaction Shell refinement + Knowledge Check qualification  
 Owner: ISQ eLearning design/development steward
 
 ## Purpose
@@ -18,6 +18,25 @@ A component enters this library only when it is reusable, educationally justifie
 
 The three layers operate as one system. A custom block must consume the design system rather than recreate it, and xAPI must remain an optional governed capability unless telemetry is intrinsic to the component's purpose.
 
+## Shared Interaction Shell
+
+Governed learner-response components must consume the shared **ISQ Interaction Shell** rather than developing independent visual treatments.
+
+Current shell consumers:
+
+- Knowledge Check — Single;
+- Knowledge Check — Sequence / multiple-response variants;
+- Decision Point presentation baseline;
+- future learner-response Reflection components where semantically appropriate.
+
+The shell governs shared presentation such as interaction header, type label, prompt hierarchy, response rows, actions, feedback and progression. Component-specific code owns learning semantics and behaviour.
+
+Governance rule:
+
+> All governed ISQ question, decision and response components must consume the canonical ISQ Interaction Shell. Component-specific CSS must not recreate header, response-option, primary-action, feedback or progression styling without an approved exception.
+
+See `interaction-shell/README.md`.
+
 ## Lifecycle
 
 - **experimental** — proof or exploration; no reuse promise.
@@ -31,7 +50,7 @@ The three layers operate as one system. A custom block must consume the design s
 Semantic versioning applies to governed component contracts.
 
 - **major** — breaking markup, configuration, behaviour or telemetry contract change.
-- **minor** — backwards-compatible capability or variant.
+- **minor** — backwards-compatible capability, variant or governed presentation-anatomy refinement.
 - **patch** — backwards-compatible defect, accessibility or documentation correction.
 
 Course-specific copy, learner names, legislation, scenario identifiers and course IDs never form part of a canonical component contract.
@@ -40,27 +59,28 @@ Course-specific copy, learner names, legislation, scenario identifiers and cours
 
 Every candidate or approved component must document:
 
-- canonical name and key
-- version and lifecycle status
-- purpose
-- appropriate and inappropriate use
-- learning rationale
-- anatomy and content contract
-- canonical HTML
-- CSS dependencies
-- JavaScript dependencies
-- configurable data
-- variants and states
-- accessibility requirements
-- keyboard behaviour
-- responsive behaviour
-- Rise-specific constraints
-- xAPI capability and event contract
-- failure behaviour
-- implementation instructions
-- neutral example content
-- QA evidence and known limitations
-- owner, review date and change history
+- canonical name and key;
+- version and lifecycle status;
+- purpose;
+- appropriate and inappropriate use;
+- learning rationale;
+- anatomy and content contract;
+- Interaction Shell dependency where applicable;
+- canonical HTML;
+- CSS dependencies;
+- JavaScript dependencies;
+- configurable data;
+- variants and states;
+- accessibility requirements;
+- keyboard behaviour;
+- responsive behaviour;
+- Rise-specific constraints;
+- xAPI capability and event contract;
+- failure behaviour;
+- implementation instructions;
+- neutral example content;
+- QA evidence and known limitations;
+- owner, review date and change history.
 
 ## Runtime principle
 
@@ -70,7 +90,8 @@ The default architecture is hybrid:
 - styling is supplied by the governed external ISQ Rise stylesheet;
 - small component-specific behaviour may remain embedded for Rise reliability;
 - substantial repeated runtime logic should have one canonical source and be inlined or bundled for deployment rather than independently edited in course blocks;
-- telemetry is separated from interaction behaviour through a component event contract.
+- telemetry is separated from interaction behaviour through a component event contract;
+- Rise iframe boundaries are treated explicitly: event listeners/adapters required by a component must exist in the same runtime context or use a separately governed cross-frame mechanism.
 
 A component must continue to provide its learner-facing behaviour if telemetry is unavailable, unless the approved learning requirement explicitly says otherwise.
 
@@ -78,15 +99,22 @@ A component must continue to provide its learner-facing behaviour if telemetry i
 
 Canonical components do not contain LRS credentials, Child Protection identifiers or direct course-specific xAPI transport configuration.
 
-Interactive components emit neutral browser events that a governed telemetry adapter may consume. The first event contract is documented in `runtime/telemetry-contract.md`.
+Interactive components emit neutral browser events that a governed telemetry adapter may consume within the appropriate Rise runtime context. The Knowledge Check contract is documented in `runtime/telemetry-contract.md`.
 
-## Phase 02 promotion scope
+## Current governed component work
 
-The first governed family is **Knowledge Check**:
+### Knowledge Check
 
-- `isq-kc-single` — one formative question.
-- `isq-kc-sequence` — a short sequence of formative questions using the same question contract.
+- family version: **0.3.0 Candidate**;
+- Single and Sequence variants share one question contract;
+- single-choice Rise → SCORM 2004 → xAPI → Veracity path has stored-LRS evidence;
+- remaining 1.0 gates include multiple-response stored-LRS evidence, accessibility qualification and governance review;
+- presentation now consumes the Interaction Shell.
 
-Both are currently **candidate** rather than **approved** until Rise package QA and xAPI governance review are complete.
+### Decision Point
 
-Presentation-only patterns such as Featured List remain part of the design-system component catalogue rather than being duplicated here.
+- presentation baseline: **0.1.0 Candidate**;
+- consumes the Interaction Shell;
+- behaviour/xAPI semantics are not yet promoted as a fully governed reusable component.
+
+Presentation-only patterns such as Featured List remain part of the design-system component catalogue rather than being duplicated in the Custom Block Library.

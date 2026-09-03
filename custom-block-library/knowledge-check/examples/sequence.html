@@ -1,29 +1,31 @@
+<!-- Knowledge Check 0.3.0 Candidate — Interaction Shell 0.1.0 -->
 <link rel="stylesheet" type="text/css" href="https://xapistorage28032026.blob.core.windows.net/xapitestcourses/css/isq-rise-components-v1.0.0.css">
+<!-- Candidate source additionally requires ../interaction-shell/interaction-shell.css until the shell is integrated into the next immutable Rise stylesheet release. -->
 
 <section
-  class="isq-block isq-block--standard isq-decision"
+  class="isq-block isq-block--standard isq-decision isq-interaction isq-interaction--knowledge-check"
   data-isq-knowledge-check
   data-component="isq-kc-sequence"
   aria-labelledby="isq-kc-sequence-title"
 >
-  <div class="isq-panel isq-panel--elevated">
-    <header class="isq-content isq-content--compact isq-panel--tint">
-      <span class="isq-eyebrow">Knowledge check</span>
-      <h2 class="isq-heading isq-heading--medium" id="isq-kc-sequence-title">
-        Apply the process
-      </h2>
-      <p class="isq-body isq-body--muted">
-        Work through the two questions in order. Feedback explains the reasoning for each response.
-      </p>
-    </header>
+  <header class="isq-interaction__header">
+    <span class="isq-interaction__type">Knowledge check</span>
+    <h2 class="isq-interaction__title" id="isq-kc-sequence-title">
+      Apply the process
+    </h2>
+  </header>
 
-    <nav class="isq-content isq-content--tight" aria-label="Knowledge check questions">
+  <div class="isq-interaction__body">
+    <p class="isq-interaction__instruction">
+      Work through the two questions in order. Feedback explains the reasoning for each response.
+    </p>
+
+    <nav aria-label="Knowledge check questions" class="isq-interaction__actions" style="margin-top:18px;margin-bottom:20px">
       <button type="button" class="isq-button isq-button--secondary" data-kc-nav="process-1" aria-current="step">Question 1</button>
       <button type="button" class="isq-button isq-button--secondary" data-kc-nav="process-2">Question 2</button>
     </nav>
 
     <div
-      class="isq-content isq-content--compact"
       data-kc-question
       data-question-key="process-1"
       data-correct-responses="clarify"
@@ -36,20 +38,19 @@
       data-incorrect-feedback="<p class='isq-body isq-body--strong'>Not quite.</p><p class='isq-body'>Before acting, identify what information is still missing and clarify the requirement.</p>"
     >
       <h3 class="isq-heading isq-heading--small" tabindex="-1">Question 1</h3>
-      <fieldset class="isq-options" aria-describedby="isq-kc-sequence-feedback-1">
+      <fieldset class="isq-options isq-interaction__options" aria-describedby="isq-kc-sequence-feedback-1">
         <legend class="isq-visually-hidden">What should you do before acting when a requirement is unclear?</legend>
-        <label class="isq-option"><input type="radio" name="isq-kc-seq-1" value="clarify"><span>Clarify the requirement</span></label>
-        <label class="isq-option"><input type="radio" name="isq-kc-seq-1" value="assume"><span>Use your best assumption and continue</span></label>
+        <label class="isq-option isq-interaction__option"><input type="radio" name="isq-kc-seq-1" value="clarify"><span>Clarify the requirement</span></label>
+        <label class="isq-option isq-interaction__option"><input type="radio" name="isq-kc-seq-1" value="assume"><span>Use your best assumption and continue</span></label>
       </fieldset>
-      <div class="isq-decision-actions">
+      <div class="isq-decision-actions isq-interaction__actions">
         <button class="isq-button isq-button--primary" type="button" data-kc-check>Check answer</button>
         <button class="isq-button isq-button--secondary" type="button" data-kc-next="process-2" hidden>Next question</button>
       </div>
-      <div class="isq-callout isq-decision-feedback" id="isq-kc-sequence-feedback-1" role="status" aria-live="polite" data-kc-feedback hidden></div>
+      <div class="isq-callout isq-decision-feedback isq-interaction__feedback" id="isq-kc-sequence-feedback-1" role="status" aria-live="polite" data-kc-feedback hidden></div>
     </div>
 
     <div
-      class="isq-content isq-content--compact"
       data-kc-question
       data-question-key="process-2"
       data-correct-responses="verify"
@@ -63,15 +64,15 @@
       hidden
     >
       <h3 class="isq-heading isq-heading--small" tabindex="-1">Question 2</h3>
-      <fieldset class="isq-options" aria-describedby="isq-kc-sequence-feedback-2">
+      <fieldset class="isq-options isq-interaction__options" aria-describedby="isq-kc-sequence-feedback-2">
         <legend class="isq-visually-hidden">What should happen after the action is completed?</legend>
-        <label class="isq-option"><input type="radio" name="isq-kc-seq-2" value="verify"><span>Verify the outcome</span></label>
-        <label class="isq-option"><input type="radio" name="isq-kc-seq-2" value="move-on"><span>Move on without checking</span></label>
+        <label class="isq-option isq-interaction__option"><input type="radio" name="isq-kc-seq-2" value="verify"><span>Verify the outcome</span></label>
+        <label class="isq-option isq-interaction__option"><input type="radio" name="isq-kc-seq-2" value="move-on"><span>Move on without checking</span></label>
       </fieldset>
-      <div class="isq-decision-actions">
+      <div class="isq-decision-actions isq-interaction__actions">
         <button class="isq-button isq-button--primary" type="button" data-kc-check>Check answer</button>
       </div>
-      <div class="isq-callout isq-decision-feedback" id="isq-kc-sequence-feedback-2" role="status" aria-live="polite" data-kc-feedback hidden></div>
+      <div class="isq-callout isq-decision-feedback isq-interaction__feedback" id="isq-kc-sequence-feedback-2" role="status" aria-live="polite" data-kc-feedback hidden></div>
     </div>
   </div>
 

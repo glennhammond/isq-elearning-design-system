@@ -1,0 +1,214 @@
+/*
+ * ISQ Interaction Shell
+ * Candidate source: 0.1.1
+ *
+ * Shared presentation layer for governed question, decision and reflection
+ * interactions. This file is a source fragment for the next immutable Rise
+ * stylesheet release; it is not a standalone design system.
+ */
+
+.isq-interaction {
+  --isq-interaction-border: #9BB5C0;
+  --isq-interaction-header: var(--isq-blue-dark);
+  --isq-interaction-selected-surface: var(--isq-ice);
+  --isq-interaction-selected-outline: var(--isq-blue-dark);
+
+  overflow: hidden;
+  border: 1px solid var(--isq-interaction-border);
+  border-radius: var(--isq-radius-medium);
+  background: var(--isq-white);
+}
+
+.isq-interaction__header {
+  padding: 16px 20px 17px;
+  background: var(--isq-interaction-header);
+  color: var(--isq-white);
+}
+
+.isq-interaction__type {
+  display: block;
+  margin: 0 0 4px;
+  color: rgba(255, 255, 255, 0.84);
+  font-family: var(--isq-font-heading);
+  font-size: 0.74rem;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.isq-interaction__title {
+  margin: 0;
+  color: var(--isq-white);
+  font-family: var(--isq-font-heading);
+  font-size: clamp(1.25rem, 2.2vw, 1.55rem);
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.isq-interaction__body {
+  padding: clamp(22px, 3.5vw, 30px);
+  background: var(--isq-white);
+}
+
+.isq-interaction__instruction {
+  margin: 0;
+  color: var(--isq-muted);
+  font-family: var(--isq-font-body);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.isq-interaction__options,
+.isq-options.isq-interaction__options {
+  display: grid;
+  gap: 10px;
+  margin: 18px 0 20px;
+}
+
+.isq-interaction__option,
+.isq-option.isq-interaction__option {
+  display: grid;
+  grid-template-columns: 20px minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+  min-height: 54px;
+  padding: 13px 15px;
+  border: 1px solid var(--isq-border);
+  border-radius: var(--isq-radius-small);
+  background: var(--isq-white);
+  color: var(--isq-charcoal);
+  cursor: pointer;
+  transition:
+    border-color var(--isq-transition),
+    background var(--isq-transition),
+    box-shadow var(--isq-transition);
+}
+
+@media (hover: hover) {
+  .isq-interaction__option:hover,
+  .isq-option.isq-interaction__option:hover {
+    border-color: var(--isq-blue);
+    background: var(--isq-ice);
+  }
+}
+
+.isq-interaction__option:has(input:checked),
+.isq-option.isq-interaction__option:has(input:checked) {
+  border-color: var(--isq-interaction-selected-outline);
+  background: var(--isq-interaction-selected-surface);
+  box-shadow: 0 0 0 2px var(--isq-interaction-selected-outline);
+}
+
+.isq-interaction__option:has(input:focus-visible),
+.isq-option.isq-interaction__option:has(input:focus-visible) {
+  outline: 3px solid var(--isq-yellow);
+  outline-offset: 3px;
+}
+
+.isq-interaction__option input,
+.isq-option.isq-interaction__option input {
+  width: 16px;
+  height: 16px;
+  margin: 4px 0 0;
+  accent-color: var(--isq-blue-dark);
+}
+
+.isq-interaction__option span,
+.isq-option.isq-interaction__option span {
+  min-width: 0;
+  line-height: 1.6;
+}
+
+.isq-interaction__actions,
+.isq-decision-actions.isq-interaction__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-top: 0;
+}
+
+.isq-interaction__feedback,
+.isq-decision-feedback.isq-interaction__feedback {
+  margin-top: 16px;
+}
+
+.isq-interaction__feedback[hidden] {
+  display: none;
+}
+
+.isq-interaction__progression {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--isq-border);
+}
+
+.isq-interaction__progression-state {
+  margin: 0;
+  color: var(--isq-muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.isq-interaction .isq-button:disabled {
+  border-color: var(--isq-border);
+  background: var(--isq-white);
+  color: var(--isq-muted);
+  cursor: not-allowed;
+  opacity: 0.58;
+  transform: none;
+}
+
+/* Semantic variants deliberately share the same visual grammar. */
+.isq-interaction--decision,
+.isq-interaction--knowledge-check,
+.isq-interaction--reflection {
+  --isq-interaction-header: var(--isq-blue-dark);
+}
+
+/* Backwards-compatible bridge for existing decision markup during migration. */
+.isq-decision.isq-interaction fieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+@media (max-width: 600px) {
+  .isq-interaction__header {
+    padding: 15px 16px 16px;
+  }
+
+  .isq-interaction__body {
+    padding: 20px 16px;
+  }
+
+  .isq-interaction__option,
+  .isq-option.isq-interaction__option {
+    min-height: 52px;
+    padding: 12px 13px;
+  }
+
+  .isq-interaction__progression {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .isq-interaction__progression .isq-button {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .isq-interaction__option,
+  .isq-option.isq-interaction__option {
+    transition: none;
+  }
+}

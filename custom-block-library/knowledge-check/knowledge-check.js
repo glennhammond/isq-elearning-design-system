@@ -2,7 +2,7 @@
   "use strict";
 
   const CONTRACT_VERSION = "0.2.0";
-  const COMPONENT_VERSION = "0.2.0";
+  const COMPONENT_VERSION = "0.3.0";
 
   function parseIds(value) {
     return String(value || "")
