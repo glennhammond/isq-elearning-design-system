@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ISQ Interaction Shell — Visual review</title>
+  <link rel="stylesheet" href="../assets/vendor/isq-rise-components-v1.0.0.css">
+  <style>
+    /* Candidate Interaction Shell 0.1.0 — visual review overlay only */
+    .isq-interaction{overflow:hidden;border:1px solid #9bb5c0;border-radius:var(--isq-radius-medium);background:var(--isq-white)}
+    .isq-interaction__header{padding:16px 20px 17px;background:var(--isq-blue-dark);color:var(--isq-white)}
+    .isq-interaction__type{display:block;margin:0 0 4px;color:rgba(255,255,255,.84);font-family:var(--isq-font-heading);font-size:.74rem;font-weight:700;line-height:1.3;letter-spacing:.1em;text-transform:uppercase}
+    .isq-interaction__title{margin:0;color:var(--isq-white);font-family:var(--isq-font-heading);font-size:clamp(1.25rem,2.2vw,1.55rem);font-weight:700;line-height:1.3;letter-spacing:-.02em;text-wrap:balance}
+    .isq-interaction__body{padding:clamp(22px,3.5vw,30px);background:var(--isq-white)}
+    .isq-interaction__instruction{margin:0;color:var(--isq-muted);font-family:var(--isq-font-body);font-size:1rem;line-height:1.65}
+    .isq-interaction__options,.isq-options.isq-interaction__options{display:grid;gap:10px;margin:18px 0 20px}
+    .isq-interaction__option,.isq-option.isq-interaction__option{display:grid;grid-template-columns:20px minmax(0,1fr);gap:12px;align-items:start;min-height:54px;padding:13px 15px;border:1px solid var(--isq-border);border-radius:var(--isq-radius-small);background:var(--isq-white);color:var(--isq-charcoal);cursor:pointer;transition:border-color var(--isq-transition),background var(--isq-transition),box-shadow var(--isq-transition)}
+    .isq-interaction__option:hover,.isq-option.isq-interaction__option:hover{border-color:var(--isq-blue);background:var(--isq-ice)}
+    .isq-interaction__option:has(input:checked),.isq-option.isq-interaction__option:has(input:checked){border-color:var(--isq-blue-dark);background:var(--isq-ice);box-shadow:0 0 0 2px var(--isq-blue-dark)}
+    .isq-interaction__option input,.isq-option.isq-interaction__option input{width:16px;height:16px;margin:4px 0 0;accent-color:var(--isq-blue-dark)}
+    .isq-interaction__option span,.isq-option.isq-interaction__option span{min-width:0;line-height:1.6}
+    .isq-interaction__actions,.isq-decision-actions.isq-interaction__actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:0}
+    .isq-interaction__feedback,.isq-decision-feedback.isq-interaction__feedback{margin-top:16px}
+    .isq-interaction__feedback[hidden]{display:none}
+    .isq-interaction__progression{display:flex;gap:16px;align-items:center;justify-content:space-between;margin-top:18px;padding-top:18px;border-top:1px solid var(--isq-border)}
+    .isq-interaction__progression-state{margin:0;color:var(--isq-muted);font-size:.9rem;line-height:1.5}
+    .isq-interaction .isq-button:disabled{border-color:var(--isq-border);background:var(--isq-white);color:var(--isq-muted);cursor:not-allowed;opacity:.58;transform:none}
+    .isq-decision.isq-interaction fieldset{min-width:0;margin:0;padding:0;border:0}
+    @media(max-width:600px){.isq-interaction__header{padding:15px 16px 16px}.isq-interaction__body{padding:20px 16px}.isq-interaction__option,.isq-option.isq-interaction__option{min-height:52px;padding:12px 13px}.isq-interaction__progression{align-items:stretch;flex-direction:column}.isq-interaction__progression .isq-button{width:100%}}
+
+    /* Review page chrome only */
+    body{margin:0;background:#f3f6f7;color:var(--isq-charcoal);font-family:var(--isq-font-body)}
+    .review-bar{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);border-bottom:1px solid var(--isq-border);backdrop-filter:blur(10px)}
+    .review-bar__inner{max-width:1180px;margin:auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .review-bar h1{margin:0;color:var(--isq-blue-dark);font-family:var(--isq-font-heading);font-size:1rem}
+    .review-controls{display:flex;gap:8px;flex-wrap:wrap}
+    .review-control{min-height:38px;padding:7px 12px;border:1px solid var(--isq-border);border-radius:8px;background:white;color:var(--isq-blue-dark);font:700 .85rem var(--isq-font-body);cursor:pointer}
+    .review-control[aria-pressed="true"]{background:var(--isq-blue-dark);border-color:var(--isq-blue-dark);color:white}
+    .review-main{max-width:1180px;margin:auto;padding:34px 20px 70px}
+    .review-intro{margin-bottom:34px;max-width:760px}
+    .review-intro h2{margin:0 0 8px;color:var(--isq-blue-dark);font-family:var(--isq-font-heading);font-size:clamp(1.7rem,4vw,2.7rem)}
+    .review-intro p{margin:0;color:var(--isq-muted);line-height:1.7}
+    .review-grid{display:grid;gap:34px}
+    .review-item{background:white;border:1px solid var(--isq-border);border-radius:18px;padding:22px;box-shadow:0 10px 28px rgba(7,59,88,.07)}
+    .review-item__meta{display:flex;justify-content:space-between;gap:16px;align-items:start;margin-bottom:16px}
+    .review-item__meta h3{margin:0;color:var(--isq-blue-dark);font-family:var(--isq-font-heading);font-size:1.15rem}
+    .review-item__meta p{margin:4px 0 0;color:var(--isq-muted);font-size:.88rem;line-height:1.55}
+    .review-status{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--isq-blue-dark);white-space:nowrap}
+    .review-stage{max-width:960px;margin:auto;transition:max-width .2s ease}
+    .review-main.is-mobile .review-stage{max-width:375px}
+    .review-main.is-mobile .review-item{padding:14px}
+    .sequence-nav{display:flex;gap:8px;padding:14px 18px;border-bottom:1px solid var(--isq-border);background:var(--isq-pale);flex-wrap:wrap}
+    .sequence-nav button{min-height:36px;padding:7px 11px;border:1px solid var(--isq-border);border-radius:8px;background:white;color:var(--isq-blue-dark);font-weight:700;cursor:pointer}
+    .sequence-nav button[aria-current="step"]{background:var(--isq-blue-dark);border-color:var(--isq-blue-dark);color:white}
+    @media(max-width:640px){.review-bar__inner{align-items:flex-start;flex-direction:column}.review-item__meta{flex-direction:column}.review-main{padding-inline:12px}}
+  </style>
+</head>
+<body>
+  <header class="review-bar">
+    <div class="review-bar__inner">
+      <h1>ISQ Interaction Shell · visual review candidate</h1>
+      <div class="review-controls" aria-label="Preview width">
+        <button class="review-control" id="desktopView" type="button" aria-pressed="true">Desktop</button>
+        <button class="review-control" id="mobileView" type="button" aria-pressed="false">Mobile 375px</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="review-main" id="reviewMain">
+    <div class="review-intro">
+      <h2>One refined interaction language</h2>
+      <p>Visual qualification page for the proposed shared shell used by Decision Points and Knowledge Checks. Content is deliberately neutral. The review target is hierarchy, spacing, response affordance, feedback, progression, focus and mobile behaviour.</p>
+    </div>
+
+    <div class="review-grid">
+      <section class="review-item">
+        <div class="review-item__meta"><div><h3>Decision Point</h3><p>Strong contextual decision with submitted response and separate progression state.</p></div><span class="review-status">Candidate</span></div>
+        <div class="review-stage">
+          <section class="isq-interaction isq-interaction--decision isq-decision" aria-labelledby="dp-title">
+            <header class="isq-interaction__header"><span class="isq-interaction__type">Decision point</span><h4 class="isq-interaction__title" id="dp-title">What should happen next?</h4></header>
+            <div class="isq-interaction__body">
+              <p class="isq-interaction__instruction">Select the most appropriate immediate response.</p>
+              <fieldset><legend class="isq-visually-hidden">Decision Point response options</legend>
+                <div class="isq-options isq-interaction__options">
+                  <label class="isq-option isq-interaction__option"><input type="radio" name="dp" value="a"><span>Review the available information before taking further action.</span></label>
+                  <label class="isq-option isq-interaction__option"><input type="radio" name="dp" value="b"><span>Contact another person immediately before reviewing the available information.</span></label>
+                  <label class="isq-option isq-interaction__option"><input type="radio" name="dp" value="c"><span>Wait until additional concerns are raised.</span></label>
+                </div>
+              </fieldset>
+              <div class="isq-decision-actions isq-interaction__actions"><button class="isq-button isq-button--primary" type="button" data-demo-check="dp">Submit response</button></div>
+              <div class="isq-callout isq-decision-feedback isq-interaction__feedback" role="status" aria-live="polite" data-demo-feedback="dp" hidden></div>
+              <div class="isq-interaction__progression"><p class="isq-interaction__progression-state" data-demo-state="dp">Complete the Decision Point to continue.</p><button class="isq-button isq-button--secondary" type="button" data-demo-continue="dp" disabled>Continue</button></div>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="review-item">
+        <div class="review-item__meta"><div><h3>Knowledge Check — Single</h3><p>Same shell, different learning purpose: an objectively assessable formative question with explanatory feedback.</p></div><span class="review-status">0.3.0 candidate</span></div>
+        <div class="review-stage">
+          <section class="isq-interaction isq-interaction--knowledge-check isq-decision" aria-labelledby="kc-single-title">
+            <header class="isq-interaction__header"><span class="isq-interaction__type">Knowledge check</span><h4 class="isq-interaction__title" id="kc-single-title">Which option best follows the stated process?</h4></header>
+            <div class="isq-interaction__body">
+              <p class="isq-interaction__instruction">Select one response, then check your answer.</p>
+              <fieldset><legend class="isq-visually-hidden">Knowledge Check response options</legend>
+                <div class="isq-options isq-interaction__options">
+                  <label class="isq-option isq-interaction__option"><input type="radio" name="single" value="a"><span>Clarify the requirement before acting.</span></label>
+                  <label class="isq-option isq-interaction__option"><input type="radio" name="single" value="b"><span>Make an assumption and continue immediately.</span></label>
+                  <label class="isq-option isq-interaction__option"><input type="radio" name="single" value="c"><span>Skip the step and revisit it later.</span></label>
+                </div>
+              </fieldset>
+              <div class="isq-decision-actions isq-interaction__actions"><button class="isq-button isq-button--primary" type="button" data-demo-check="single">Check answer</button></div>
+              <div class="isq-callout isq-decision-feedback isq-interaction__feedback" role="status" aria-live="polite" data-demo-feedback="single" hidden></div>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="review-item">
+        <div class="review-item__meta"><div><h3>Knowledge Check — Multiple response</h3><p>Checkbox version confirms that the same visual grammar scales without turning into a separate component style.</p></div><span class="review-status">0.3.0 candidate</span></div>
+        <div class="review-stage">
+          <section class="isq-interaction isq-interaction--knowledge-check isq-decision" aria-labelledby="kc-multi-title">
+            <header class="isq-interaction__header"><span class="isq-interaction__type">Knowledge check</span><h4 class="isq-interaction__title" id="kc-multi-title">Which two responses apply?</h4></header>
+            <div class="isq-interaction__body">
+              <p class="isq-interaction__instruction">Select all responses that apply, then check your answer.</p>
+              <fieldset><legend class="isq-visually-hidden">Multiple response options</legend>
+                <div class="isq-options isq-interaction__options">
+                  <label class="isq-option isq-interaction__option"><input type="checkbox" name="multi" value="a"><span>Use the approved source of information.</span></label>
+                  <label class="isq-option isq-interaction__option"><input type="checkbox" name="multi" value="b"><span>Rely on an unverified assumption.</span></label>
+                  <label class="isq-option isq-interaction__option"><input type="checkbox" name="multi" value="c"><span>Record the decision where the process requires it.</span></label>
+                  <label class="isq-option isq-interaction__option"><input type="checkbox" name="multi" value="d"><span>Ignore the documented process if time is limited.</span></label>
+                </div>
+              </fieldset>
+              <div class="isq-decision-actions isq-interaction__actions"><button class="isq-button isq-button--primary" type="button" data-demo-check="multi">Check answer</button></div>
+              <div class="isq-callout isq-decision-feedback isq-interaction__feedback" role="status" aria-live="polite" data-demo-feedback="multi" hidden></div>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="review-item">
+        <div class="review-item__meta"><div><h3>Knowledge Check — Sequence</h3><p>Two-question sequence tests shell continuity, navigation, focus and progression without introducing a second visual system.</p></div><span class="review-status">0.3.0 candidate</span></div>
+        <div class="review-stage">
+          <section class="isq-interaction isq-interaction--knowledge-check isq-decision" aria-labelledby="seq-title">
+            <header class="isq-interaction__header"><span class="isq-interaction__type">Knowledge check</span><h4 class="isq-interaction__title" id="seq-title">Apply the process</h4></header>
+            <nav class="sequence-nav" aria-label="Knowledge check questions"><button type="button" data-seq-nav="1" aria-current="step">Question 1</button><button type="button" data-seq-nav="2">Question 2</button></nav>
+            <div class="isq-interaction__body" data-seq-panel="1">
+              <p class="isq-interaction__instruction">What should happen before action is taken?</p>
+              <fieldset><legend class="isq-visually-hidden">Question 1 response options</legend><div class="isq-options isq-interaction__options"><label class="isq-option isq-interaction__option"><input type="radio" name="seq1" value="a"><span>Clarify what is required.</span></label><label class="isq-option isq-interaction__option"><input type="radio" name="seq1" value="b"><span>Act before clarifying the requirement.</span></label></div></fieldset>
+              <div class="isq-decision-actions isq-interaction__actions"><button class="isq-button isq-button--primary" type="button" data-demo-check="seq1">Check answer</button><button class="isq-button isq-button--secondary" type="button" data-seq-next hidden>Next question</button></div>
+              <div class="isq-callout isq-decision-feedback isq-interaction__feedback" role="status" aria-live="polite" data-demo-feedback="seq1" hidden></div>
+            </div>
+            <div class="isq-interaction__body" data-seq-panel="2" hidden>
+              <p class="isq-interaction__instruction">What should happen after the action is completed?</p>
+              <fieldset><legend class="isq-visually-hidden">Question 2 response options</legend><div class="isq-options isq-interaction__options"><label class="isq-option isq-interaction__option"><input type="radio" name="seq2" value="a"><span>Verify the outcome.</span></label><label class="isq-option isq-interaction__option"><input type="radio" name="seq2" value="b"><span>Move on without checking the result.</span></label></div></fieldset>
+              <div class="isq-decision-actions isq-interaction__actions"><button class="isq-button isq-button--primary" type="button" data-demo-check="seq2">Check answer</button></div>
+              <div class="isq-callout isq-decision-feedback isq-interaction__feedback" role="status" aria-live="polite" data-demo-feedback="seq2" hidden></div>
+            </div>
+          </section>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    (()=>{
+      const main=document.getElementById('reviewMain');
+      const desktop=document.getElementById('desktopView');
+      const mobile=document.getElementById('mobileView');
+      function setView(mode){const isMobile=mode==='mobile';main.classList.toggle('is-mobile',isMobile);desktop.setAttribute('aria-pressed',String(!isMobile));mobile.setAttribute('aria-pressed',String(isMobile));}
+      desktop.addEventListener('click',()=>setView('desktop')); mobile.addEventListener('click',()=>setView('mobile'));
+      const rules={dp:{correct:'a',correctText:'This response follows the intended immediate process.',incorrectText:'Review the available information before taking further action.'},single:{correct:'a',correctText:'Clarifying the requirement first reduces the risk of acting on an assumption.',incorrectText:'The requirement should be clarified before action is taken.'},multi:{correct:['a','c'],correctText:'Both selected responses align with the documented process.',incorrectText:'The complete response is to use the approved source and record the decision where required.'},seq1:{correct:'a',correctText:'Correct. Clarify what is required before acting.',incorrectText:'Clarify the requirement before taking action.'},seq2:{correct:'a',correctText:'Correct. Verifying the outcome closes the loop.',incorrectText:'Verify the outcome rather than assuming the task is complete.'}};
+      function selectedFor(key){if(key==='multi')return [...document.querySelectorAll('input[name="multi"]:checked')].map(x=>x.value);const input=document.querySelector(`input[name="${key}"]:checked`);return input?input.value:null;}
+      document.querySelectorAll('[data-demo-check]').forEach(btn=>btn.addEventListener('click',()=>{const key=btn.dataset.demoCheck;const selected=selectedFor(key);const feedback=document.querySelector(`[data-demo-feedback="${key}"]`);if(!selected||(Array.isArray(selected)&&!selected.length)){feedback.hidden=false;feedback.className='isq-callout isq-callout--warning isq-decision-feedback isq-interaction__feedback';feedback.innerHTML='<p class="isq-body isq-body--strong">Select a response.</p>';return;}const rule=rules[key];const success=Array.isArray(rule.correct)?selected.length===rule.correct.length&&rule.correct.every(x=>selected.includes(x)):selected===rule.correct;feedback.hidden=false;feedback.className=`isq-callout ${success?'isq-callout--success':'isq-callout--error'} isq-decision-feedback isq-interaction__feedback`;feedback.innerHTML=`<p class="isq-body isq-body--strong">${success?'Correct':'Not quite'}</p><p class="isq-body">${success?rule.correctText:rule.incorrectText}</p>`;if(key==='dp'){document.querySelector('[data-demo-state="dp"]').textContent='Decision Point complete. Continuation unlocked.';document.querySelector('[data-demo-continue="dp"]').disabled=false;}if(key==='seq1'&&success){document.querySelector('[data-seq-next]').hidden=false;}}));
+      const nav=[...document.querySelectorAll('[data-seq-nav]')];function showSeq(n){document.querySelectorAll('[data-seq-panel]').forEach(p=>p.hidden=p.dataset.seqPanel!==n);nav.forEach(b=>b.toggleAttribute('aria-current',b.dataset.seqNav===n));}nav.forEach(b=>b.addEventListener('click',()=>showSeq(b.dataset.seqNav)));document.querySelector('[data-seq-next]').addEventListener('click',()=>showSeq('2'));
+    })();
+  </script>
+</body>
+</html>
