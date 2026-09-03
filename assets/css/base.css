@@ -3,7 +3,8 @@
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 body{margin:0;font-family:var(--docs-font-body);color:var(--docs-charcoal);background:var(--docs-paper);font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased}
 main{display:block}
-h1,h2,h3,h4,h5,h6{font-family:var(--docs-font-heading);color:var(--docs-ink);font-weight:650;line-height:1.12;margin:0 0 var(--docs-space-3);letter-spacing:-.018em}
+h1,h2,h3{font-family:var(--docs-font-display);color:var(--docs-ink);font-weight:700;line-height:1.06;margin:0 0 var(--docs-space-3);letter-spacing:-.035em}
+h4,h5,h6{font-family:var(--docs-font-heading);color:var(--docs-ink);font-weight:650;line-height:1.15;margin:0 0 var(--docs-space-3);letter-spacing:-.012em}
 h1{font-size:clamp(2.6rem,2rem + 2.4vw,5.25rem)}h2{font-size:clamp(1.65rem,1.35rem + 1.05vw,2.65rem)}h3{font-size:clamp(1.15rem,1.05rem + .45vw,1.5rem)}h4{font-size:1rem}
 p{margin:0 0 var(--docs-space-3);max-width:70ch}
 a{color:var(--docs-ink);text-underline-offset:4px;text-decoration-thickness:1px}
