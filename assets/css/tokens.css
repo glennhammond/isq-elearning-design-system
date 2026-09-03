@@ -5,14 +5,16 @@
 :root {
   --docs-ink: #12141B;
   --docs-paper: #F7F5F0;
+  --docs-paper-strong: #FFFEFA;
   --docs-signal: #D7F24A;
   --docs-white: #FFFFFF;
-  --docs-charcoal: #242831;
-  --docs-muted: #686D76;
-  --docs-border: #D7D8D4;
-  --docs-border-strong: #B9BBB6;
-  --docs-tint: #ECEAE4;
-  --docs-pale: #F1EFE9;
+  --docs-charcoal: #12141B;
+  --docs-muted: #5F646D;
+  --docs-text-tertiary: #858A92;
+  --docs-border: #D9DADE;
+  --docs-border-strong: #B9BBC5;
+  --docs-tint: #EEECE6;
+  --docs-pale: #EEECE6;
   --docs-ice: #F7F5F0;
 
   /* Compatibility aliases retained for existing documentation templates. */
@@ -21,50 +23,54 @@
   --docs-blue-deep: #0B0D12;
   --docs-yellow: var(--docs-signal);
 
-  --docs-success: #245A3E;
+  --docs-success: #287C57;
   --docs-success-pale: #EAF3ED;
-  --docs-warning-text: #4C3B16;
+  --docs-warning-text: #9A6510;
   --docs-warning-pale: #F6F0DE;
-  --docs-error: #9A3432;
+  --docs-error: #B43B32;
   --docs-error-pale: #F8EDEC;
+  --docs-info: #326B91;
 
-  --docs-font-display: "ITC Avant Garde Gothic Std", "Avant Garde", "Century Gothic", "Avenir Next", Arial, sans-serif;
-  --docs-font-heading: "IBM Plex Sans", "Aptos", "Segoe UI", Arial, sans-serif;
-  --docs-font-body: "Source Sans 3", "Open Sans", "Segoe UI", Arial, sans-serif;
-  --docs-font-mono: "IBM Plex Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  /* Artifact typography roles. No font assets are redistributed here. */
+  --docs-font-display: "ITC Avant Garde Gothic Std", "Century Gothic", "Avenir Next", Arial, sans-serif;
+  --docs-font-heading: "IBM Plex Sans", "Segoe UI", Arial, sans-serif;
+  --docs-font-body: "Source Sans 3", "Segoe UI", Arial, sans-serif;
+  --docs-font-mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
 
-  --docs-space-1: 4px;
-  --docs-space-2: 8px;
-  --docs-space-3: 16px;
-  --docs-space-4: 24px;
-  --docs-space-5: 32px;
-  --docs-space-6: 48px;
-  --docs-space-7: 72px;
-  --docs-space-8: 104px;
+  /* Documentation spacing maps to the Artifact 8 / 16 / 24 / 32 / 48 / 72 / 112 rhythm. */
+  --docs-space-1: 8px;
+  --docs-space-2: 16px;
+  --docs-space-3: 24px;
+  --docs-space-4: 32px;
+  --docs-space-5: 48px;
+  --docs-space-6: 72px;
+  --docs-space-7: 112px;
+  --docs-space-8: 144px;
 
   --docs-width-narrow: 760px;
   --docs-width-standard: 1040px;
   --docs-width-wide: 1240px;
   --docs-width-full: 1440px;
 
-  --docs-radius-small: 4px;
-  --docs-radius-medium: 6px;
-  --docs-radius-large: 8px;
+  /* Artifact geometry: controls may soften by 2px; panels remain square. */
+  --docs-radius-small: 2px;
+  --docs-radius-medium: 0px;
+  --docs-radius-large: 0px;
 
-  --docs-shadow-small: 0 1px 2px rgba(18,20,27,.06);
-  --docs-shadow-medium: 0 10px 28px rgba(18,20,27,.08);
-  --docs-shadow-large: 0 18px 52px rgba(18,20,27,.10);
+  --docs-shadow-small: none;
+  --docs-shadow-medium: none;
+  --docs-shadow-large: none;
 
-  --docs-transition-fast: 120ms ease;
-  --docs-transition-medium: 220ms ease;
+  --docs-transition-fast: 140ms ease-in-out;
+  --docs-transition-medium: 280ms ease-out;
 
   --docs-status-foundation: #353942;
   --docs-status-core: #12141B;
-  --docs-status-approved: #245A3E;
-  --docs-status-experimental: #765C14;
-  --docs-status-course-specific: #686D76;
+  --docs-status-approved: #287C57;
+  --docs-status-experimental: #9A6510;
+  --docs-status-course-specific: #5F646D;
   --docs-status-legacy: #72736F;
-  --docs-status-deprecated: #9A3432;
+  --docs-status-deprecated: #B43B32;
 }
 
 @media (prefers-reduced-motion: reduce) {
