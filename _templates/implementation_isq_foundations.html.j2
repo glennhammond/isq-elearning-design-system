@@ -1,0 +1,110 @@
+{% extends "base.html.j2" %}
+{% block content %}
+<div class="docs-page-with-sidebar">
+  <nav class="docs-side-nav" aria-label="On this page">
+    <h2>ISQ foundations</h2>
+    <ul>
+      <li><a href="#context">Implementation context</a></li>
+      <li><a href="#colour">Colour</a></li>
+      <li><a href="#typography">Typography</a></li>
+      <li><a href="#spacing">Spacing</a></li>
+      <li><a href="#widths">Widths</a></li>
+      <li><a href="#radius">Radius</a></li>
+      <li><a href="#focus">Focus &amp; accessibility</a></li>
+    </ul>
+  </nav>
+  <div>
+    <p style="font-size:0.85rem;"><a href="{{ base }}implementations/isq/index.html">← ISQ implementation</a></p>
+    <span class="docs-eyebrow">Implementation · ISQ</span>
+    <h1>ISQ visual foundations</h1>
+    <p class="docs-lede">The values on this page are the governed ISQ theme implementation. They are not universal eLearning Design System values.</p>
+
+    <div class="docs-note" id="context"><strong>Boundary:</strong> shared foundations define semantic roles and accessible behaviour. This page maps those roles to ISQ colours, typography, spacing and production Rise tokens.</div>
+
+    {% for f in foundations %}
+    <div class="docs-module" id="colour">
+      <h2>Colour</h2>
+      <table class="docs-field-table">
+        <thead><tr><th>ISQ token</th><th>Value</th><th>Purpose</th><th>Contrast on white</th></tr></thead>
+        <tbody>
+          {% for t in f.tokens %}
+          <tr>
+            <td><span class="docs-swatch" style="background:{{ t.value }}"></span><code>{{ t.token }}</code></td>
+            <td>{{ t.value }}</td>
+            <td>{{ t.purpose }}{% if t.flag %}<div class="docs-note docs-note--flag" style="margin-top:6px;">{{ t.flag }}</div>{% endif %}</td>
+            <td>{{ t.onWhiteContrast }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <p style="margin-top:var(--docs-space-3); font-size:0.9rem; color:var(--docs-muted);">ISQ Yellow is an accent, never a large dominant surface. Status is always communicated with a text label as well as colour.</p>
+    </div>
+
+    <div class="docs-module" id="typography">
+      <h2>Typography</h2>
+      <p>{{ f.typography.intro }}</p>
+      <table class="docs-field-table">
+        <thead><tr><th>Role</th><th>ISQ class</th><th>Use</th></tr></thead>
+        <tbody>
+          {% for r in f.typography.roles %}
+          <tr><td>{{ r.role }}</td><td><code>{{ r.class }}</code></td><td>{{ r.use }}</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <div class="docs-code" style="margin-top:var(--docs-space-3);">
+        <span class="docs-code__label">ISQ font stacks</span>
+        <pre><code>Heading: {{ f.typography.headingStack }}
+Body: {{ f.typography.bodyStack }}</code></pre>
+      </div>
+      <div class="docs-note">{{ f.typography.note }}</div>
+    </div>
+
+    <div class="docs-module" id="spacing">
+      <h2>Spacing</h2>
+      <p>{{ f.spacing.intro }}</p>
+      <div style="display:flex; gap:12px; align-items:flex-end; flex-wrap:wrap;">
+        {% for s in f.spacing.scale %}
+        <div style="text-align:center;">
+          <div style="width:{{ s }}px; height:{{ s }}px; background:#005680; border-radius:3px; margin:0 auto 6px;"></div>
+          <code style="font-size:0.8rem;">{{ s }}px</code>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="docs-module" id="widths">
+      <h2>Widths</h2>
+      <p>{{ f.widths.intro }}</p>
+      <table class="docs-field-table">
+        <thead><tr><th>Name</th><th>ISQ token</th><th>Value</th></tr></thead>
+        <tbody>
+          {% for w in f.widths.entries %}
+          <tr><td>{{ w.name }}</td><td><code>{{ w.token }}</code></td><td>{{ w.value }}</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="docs-module" id="radius">
+      <h2>Radius</h2>
+      <p>{{ f.radius.intro }}</p>
+      <table class="docs-field-table">
+        <thead><tr><th>Name</th><th>ISQ token</th><th>Value</th><th>Use</th></tr></thead>
+        <tbody>
+          {% for r in f.radius.entries %}
+          <tr><td>{{ r.name }}</td><td><code>{{ r.token }}</code></td><td>{{ r.value }}</td><td>{{ r.use }}</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="docs-module" id="focus">
+      <h2>Focus and accessibility</h2>
+      <p>{{ f.focus.intro }}</p>
+      <div class="docs-note">{{ f.focus.rule }}</div>
+      <p style="margin-top:var(--docs-space-3);"><strong>Breakpoint:</strong> {{ f.breakpoint }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

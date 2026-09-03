@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Home — ISQ eLearning Design System</title>
+<title>Home — eLearning Design System</title>
 <meta name="description" content="One design language, defined once, consumed everywhere.">
 <link rel="stylesheet" href="./assets/css/tokens.css">
 <link rel="stylesheet" href="./assets/css/base.css">
@@ -16,18 +16,17 @@
 <div class="docs-shell">
   <header class="docs-header">
     <div class="docs-header__inner">
-      <a class="docs-logo" href="./index.html">ISQ <span>eLearning Design System</span></a>
+      <a class="docs-logo" href="./index.html">eLearning <span>Design System</span></a>
       <button class="docs-nav-toggle" aria-expanded="false" aria-controls="docs-primary-nav">Menu</button>
       <nav class="docs-primary-nav" id="docs-primary-nav" aria-label="Primary">
         <a class="docs-nav-link" href="./overview/index.html" >Overview</a>
         <a class="docs-nav-link" href="./foundations/index.html" >Foundations</a>
+        <a class="docs-nav-link" href="./learning-design/index.html" >Learning design</a>
         <a class="docs-nav-link" href="./patterns/index.html" >Learning patterns</a>
         <a class="docs-nav-link" href="./components/index.html" >Components</a>
-        <a class="docs-nav-link" href="./platforms/rise/index.html" >Platforms</a>
-        <a class="docs-nav-link" href="./media/index.html" >Imagery &amp; media</a>
-        <a class="docs-nav-link" href="./resources/index.html" >Resources</a>
+        <a class="docs-nav-link" href="./implementations/index.html" >Implementations</a>
+        <a class="docs-nav-link" href="./applications/index.html" >Applications</a>
         <a class="docs-nav-link" href="./governance/index.html" >Governance</a>
-        <a class="docs-nav-link" href="./changelog/index.html" >Changelog</a>
       </nav>
       <div class="docs-search docs-search-wrap" role="search">
         <label class="docs-visually-hidden" for="docs-search-input">Search the design system</label>
@@ -41,16 +40,32 @@
 
 <section class="docs-hero">
   <div class="docs-hero__inner">
-    <span class="docs-eyebrow">ISQ eLearning Design System</span>
+    <span class="docs-eyebrow">eLearning Design System</span>
     <h1>One design language, defined once, consumed everywhere.</h1>
-    <p class="docs-lede docs-hero__statement">Strategy · foundations · learning patterns · components · platform implementation · governance</p>
-    <p class="docs-lede">This is the live operational reference for ISQ digital learning design and development. It connects learning design, visual design, interaction design and technical delivery across Articulate Rise, Connect &amp; Learn and future ISQ digital learning products. Rise is the system's first mature implementation — this is not a Rise-only component library.</p>
+    <p class="docs-lede docs-hero__statement">Learning intent · experience structure · components · implementations · governance</p>
+    <p class="docs-lede">A reusable, implementation-independent system for designing coherent digital learning. It defines shared intent and quality requirements, then allows each organisation, product and platform to express them through its own governed implementation.</p>
     <div class="docs-hero__actions">
       <a class="docs-btn docs-btn--primary" href="./components/index.html">Explore components</a>
       <a class="docs-btn docs-btn--secondary" href="./patterns/index.html">Choose a learning pattern</a>
-      <a class="docs-btn docs-btn--secondary" href="./platforms/rise/index.html">View Rise implementation</a>
+      <a class="docs-btn docs-btn--secondary" href="./implementations/index.html">Explore implementations</a>
       <a class="docs-btn docs-btn--secondary" href="./resources/index.html">Templates &amp; resources</a>
     </div>
+  </div>
+</section>
+
+<section class="docs-quick-paths docs-container--standard" style="margin:0 auto;">
+  <div class="docs-section-title"><h2>Core and implementation boundary</h2></div>
+  <div class="docs-grid docs-grid--2">
+    <div class="docs-card" style="cursor:default;">
+      <span class="docs-eyebrow">Core system</span>
+      <h3>Reusable learning and experience decisions</h3>
+      <p>Learning purposes, structures, expressions, component contracts, accessibility and governance remain independent of any one organisation.</p>
+    </div>
+    <a class="docs-card" href="./implementations/index.html">
+      <span class="docs-eyebrow">Implementation layer</span>
+      <h3>Governed organisational and platform expressions</h3>
+      <p>Branding, production code, platform guidance and course evidence are contained within named implementations.</p>
+    </a>
   </div>
 </section>
 
@@ -63,14 +78,14 @@
       <p>Start with Learning patterns to find the right pattern for the job.</p>
     </a>
     
-    <a class="docs-card" href="./platforms/rise/index.html">
-      <h3>I am building in Rise</h3>
-      <p>Native/custom/post-publish decisions, publishing and troubleshooting.</p>
+    <a class="docs-card" href="./learning-design/index.html">
+      <h3>I am choosing a learning approach</h3>
+      <p>Start with learner need, experience structure and a suitable learning expression.</p>
     </a>
     
-    <a class="docs-card" href="./media/index.html">
-      <h3>I need an image or media standard</h3>
-      <p>Taxonomy, dimensions, safe areas and child-safety guidance.</p>
+    <a class="docs-card" href="./implementations/index.html">
+      <h3>I am implementing the system</h3>
+      <p>Choose a governed organisation, product and platform implementation.</p>
     </a>
     
     <a class="docs-card" href="./components/index.html">
@@ -97,20 +112,20 @@
     
     <div class="docs-card" style="cursor:default;">
       <span class="docs-eyebrow">01</span>
-      <h3>Principles & foundations</h3>
-      <p>Colour, typography, spacing and the eight experience principles.</p>
+      <h3>Core system</h3>
+      <p>Learning intent, semantic foundations, patterns, component contracts and quality requirements.</p>
     </div>
     
     <div class="docs-card" style="cursor:default;">
       <span class="docs-eyebrow">02</span>
-      <h3>Learning patterns & components</h3>
-      <p>Platform-neutral purpose, made concrete as reusable, tested components.</p>
+      <h3>Implementations</h3>
+      <p>Organisation themes and platform-specific technical expressions of the shared core.</p>
     </div>
     
     <div class="docs-card" style="cursor:default;">
       <span class="docs-eyebrow">03</span>
-      <h3>Platform implementation & governance</h3>
-      <p>Rise, Connect & Learn and Storyline consume the same system under one lifecycle.</p>
+      <h3>Course applications</h3>
+      <p>Source-controlled learning experiences that use and provide evidence back to the system.</p>
     </div>
     
   </div>
@@ -119,12 +134,12 @@
 <section class="docs-quick-paths docs-container--standard" style="margin:0 auto;">
   <div class="docs-section-title"><h2>Current state</h2></div>
   <div class="docs-state-summary">
-    <div class="docs-state-summary__item"><span class="docs-state-summary__number">0.1.0</span><span class="docs-state-summary__label">Current version</span></div>
+    <div class="docs-state-summary__item"><span class="docs-state-summary__number">0.2.0</span><span class="docs-state-summary__label">Current version</span></div>
     <div class="docs-state-summary__item"><span class="docs-state-summary__number">18</span><span class="docs-state-summary__label">Core / approved components</span></div>
     <div class="docs-state-summary__item"><span class="docs-state-summary__number">4</span><span class="docs-state-summary__label">Experimental / course-specific</span></div>
     <div class="docs-state-summary__item"><span class="docs-state-summary__number">1</span><span class="docs-state-summary__label">Legacy</span></div>
   </div>
-  <p style="margin-top: var(--docs-space-3); color: var(--docs-muted); font-size:0.9rem;">Last updated July 2026 · Roadmap stage: 5 — Document & demonstrate</p>
+  <p style="margin-top: var(--docs-space-3); color: var(--docs-muted); font-size:0.9rem;">Last updated September 2026 · Roadmap stage: 5 — Document & demonstrate</p>
 </section>
 
 <section class="docs-quick-paths docs-container--standard" style="margin:0 auto;">
@@ -136,14 +151,14 @@
       <p>Fast day-to-day block decisions.</p>
     </a>
     
-    <a class="docs-card" href="./platforms/rise/index.html">
-      <h3>Implementation Guide</h3>
-      <p>Detailed Rise technical reference.</p>
+    <a class="docs-card" href="./implementations/index.html">
+      <h3>Implementation directory</h3>
+      <p>Organisation, product and platform expressions.</p>
     </a>
     
-    <a class="docs-card" href="./media/index.html">
-      <h3>Imagery Guide</h3>
-      <p>Taxonomy, dimensions and child-safety rules.</p>
+    <a class="docs-card" href="./applications/index.html">
+      <h3>Course applications</h3>
+      <p>Source-controlled uses and qualification evidence.</p>
     </a>
     
     <a class="docs-card" href="./changelog/index.html">
@@ -167,24 +182,28 @@
         </ul>
       </div>
       <div>
-        <h2>Reference</h2>
+        <h2>Core system</h2>
         <ul>
           <li><a href="./foundations/index.html">Foundations</a></li>
+          <li><a href="./learning-design/index.html">Learning design</a></li>
           <li><a href="./patterns/index.html">Learning patterns</a></li>
           <li><a href="./components/index.html">Components</a></li>
         </ul>
       </div>
       <div>
-        <h2>Platforms</h2>
+        <h2>Implementations</h2>
         <ul>
-          <li><a href="./platforms/rise/index.html">Rise</a></li>
-          <li><a href="./platforms/connect-learn/index.html">Connect &amp; Learn</a></li>
-          <li><a href="./platforms/storyline/index.html">Storyline</a></li>
+          <li><a href="./implementations/index.html">Implementation directory</a></li>
+          <li><a href="./applications/index.html">Course applications</a></li>
         </ul>
       </div>
       <div>
-        <h2>Accessibility</h2>
-        <p>Designed to support accessibility and tested against the documented design-system checklist.</p>
+        <h2>Resources</h2>
+        <ul>
+          <li><a href="./resources/index.html">Templates &amp; resources</a></li>
+          <li><a href="./changelog/index.html">Changelog</a></li>
+        </ul>
+        <p>Accessibility requirements are documented at foundation, pattern and component level.</p>
       </div>
     </div>
   </footer>

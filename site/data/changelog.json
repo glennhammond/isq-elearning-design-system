@@ -1,5 +1,30 @@
 [
   {
+    "version": "0.2.0",
+    "date": "September 2026",
+    "changes": {
+      "Added": [
+        "Implementation directory separating the core system from organisational and platform expressions.",
+        "Independent Schools Queensland implementation hub and dedicated ISQ foundations.",
+        "Course Applications layer with an explicit source-authority and qualification-evidence contract.",
+        "Primary navigation entry for the implementation-independent Learning Design model."
+      ],
+      "Changed": [
+        "Renamed the product and site identity to eLearning Design System.",
+        "Replaced ISQ-derived site chrome with a neutral documentation palette and typography.",
+        "Reframed component pages as reusable contracts with the existing ISQ Rise code shown as a named implementation.",
+        "Moved Rise, Connect & Learn, Storyline and media guidance beneath the ISQ implementation while preserving earlier routes.",
+        "Changed Learning Design reuse scope from isq-wide to system-wide."
+      ],
+      "Fixed": [
+        "Removed organisation-specific foundations and source hierarchy from the neutral core.",
+        "Removed side-highlight callout styling from the documentation interface."
+      ],
+      "Deprecated": [],
+      "Removed": []
+    }
+  },
+  {
     "version": "0.1.0",
     "date": "July 2026",
     "changes": {

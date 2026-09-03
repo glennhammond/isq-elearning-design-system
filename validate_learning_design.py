@@ -35,7 +35,7 @@ IMPLEMENTATION_KINDS = {
 }
 GOVERNANCE_VALUES = {
     "maturity": {"experimental", "candidate", "validated", "approved"},
-    "reuseScope": {"isq-wide", "platform", "course-family", "course-specific"},
+    "reuseScope": {"system-wide", "platform", "course-family", "course-specific"},
     "supportState": {"active", "legacy", "deprecated", "retired"},
 }
 COMMON_FIELDS = {

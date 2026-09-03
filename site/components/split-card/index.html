@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Split card — ISQ eLearning Design System</title>
+<title>Split card — eLearning Design System</title>
 <meta name="description" content="Pairs a concise explanation with meaningful imagery.">
 <link rel="stylesheet" href="../../assets/css/tokens.css">
 <link rel="stylesheet" href="../../assets/css/base.css">
@@ -16,18 +16,17 @@
 <div class="docs-shell">
   <header class="docs-header">
     <div class="docs-header__inner">
-      <a class="docs-logo" href="../../index.html">ISQ <span>eLearning Design System</span></a>
+      <a class="docs-logo" href="../../index.html">eLearning <span>Design System</span></a>
       <button class="docs-nav-toggle" aria-expanded="false" aria-controls="docs-primary-nav">Menu</button>
       <nav class="docs-primary-nav" id="docs-primary-nav" aria-label="Primary">
         <a class="docs-nav-link" href="../../overview/index.html" >Overview</a>
         <a class="docs-nav-link" href="../../foundations/index.html" >Foundations</a>
+        <a class="docs-nav-link" href="../../learning-design/index.html" >Learning design</a>
         <a class="docs-nav-link" href="../../patterns/index.html" >Learning patterns</a>
         <a class="docs-nav-link" href="../../components/index.html" aria-current="page">Components</a>
-        <a class="docs-nav-link" href="../../platforms/rise/index.html" >Platforms</a>
-        <a class="docs-nav-link" href="../../media/index.html" >Imagery &amp; media</a>
-        <a class="docs-nav-link" href="../../resources/index.html" >Resources</a>
+        <a class="docs-nav-link" href="../../implementations/index.html" >Implementations</a>
+        <a class="docs-nav-link" href="../../applications/index.html" >Applications</a>
         <a class="docs-nav-link" href="../../governance/index.html" >Governance</a>
-        <a class="docs-nav-link" href="../../changelog/index.html" >Changelog</a>
       </nav>
       <div class="docs-search docs-search-wrap" role="search">
         <label class="docs-visually-hidden" for="docs-search-input">Search the design system</label>
@@ -49,6 +48,7 @@
       <p class="docs-lede" style="font-size:1.02rem;">Pairs a concise explanation with meaningful imagery.</p>
       <div class="docs-detail-header__meta">
         <span class="docs-status docs-status--core">core</span>
+        <span class="docs-tag">Current implementation: ISQ Rise</span>
         <span>Version introduced: 1.0.0</span>
         <span>Platforms: Rise</span>
         <span>Owner: Design and development steward</span>
@@ -59,10 +59,10 @@
   
 
   <div class="docs-module">
-    <h2>Live preview</h2>
+    <h2>ISQ Rise implementation preview</h2>
     <div class="docs-preview" data-docs-preview>
       <div class="docs-preview__bar">
-        <span>Rendered with production Rise CSS</span>
+        <span>Rendered with the governed ISQ production Rise CSS</span>
         <div class="docs-preview__toggle">
           <button type="button" data-docs-preview-mode="desktop" aria-pressed="true">Desktop</button>
           <button type="button" data-docs-preview-mode="mobile" aria-pressed="false">Mobile</button>
@@ -127,8 +127,10 @@
   </div>
 
   <div class="docs-module">
-    <h2>Implementation</h2>
-    <p><strong>Type:</strong> custom-html</p>
+    <h2>Current implementation</h2>
+    <p><strong>Theme and platform:</strong> ISQ · Articulate Rise</p>
+    <p><strong>Implementation type:</strong> custom-html</p>
+    <p>The classes below belong to the ISQ implementation namespace. A future theme may implement the same component contract with different tokens and class names.</p>
     <p><strong>Dependencies:</strong> Production CSS only.</p>
   </div>
 
@@ -137,19 +139,19 @@
     <div class="docs-code">
       <span class="docs-code__label">HTML</span>
       <button class="docs-copy-btn" type="button" data-docs-copy="code-split-card">Copy</button>
-      <pre><code id="code-split-card"><div class="isq-panel isq-panel--elevated">
-  <div class="isq-split isq-split--content-wide">
-    <div class="isq-split__content isq-content isq-content--compact">
-      <p class="isq-body">Later that afternoon, Karen receives a message from Lily’s mother requesting a meeting.</p>
-    </div>
-    <div class="isq-split__media">
-      <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Contemporary office workspace with glass meeting rooms" width="1200" height="900" loading="lazy">
-    </div>
-  </div>
-</div></code></pre>
+      <pre><code id="code-split-card">&lt;div class=&#34;isq-panel isq-panel--elevated&#34;&gt;
+  &lt;div class=&#34;isq-split isq-split--content-wide&#34;&gt;
+    &lt;div class=&#34;isq-split__content isq-content isq-content--compact&#34;&gt;
+      &lt;p class=&#34;isq-body&#34;&gt;Later that afternoon, Karen receives a message from Lily’s mother requesting a meeting.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;isq-split__media&#34;&gt;
+      &lt;img src=&#34;https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&amp;amp;fit=crop&amp;amp;w=1200&amp;amp;q=85&#34; alt=&#34;Contemporary office workspace with glass meeting rooms&#34; width=&#34;1200&#34; height=&#34;900&#34; loading=&#34;lazy&#34;&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
     </div>
     <p style="font-size:0.85rem; color:var(--docs-muted); margin-top:8px;">Classes used: <code>.isq-split</code>, <code>.isq-split--content-wide</code>, <code>.isq-split--image-left</code>, <code>.isq-split--media-wide</code>, <code>.isq-split--thirds</code>, <code>.isq-split__content</code>, <code>.isq-split__media</code>, <code>.isq-split__media--contain</code></p>
-    <p style="font-size:0.85rem;"><a href="../../platforms/rise/index.html">Production stylesheet reference →</a></p>
+    <p style="font-size:0.85rem;"><a href="../../implementations/isq/platforms/rise/index.html">ISQ production stylesheet reference →</a></p>
   </div>
 
   <div class="docs-module">
@@ -189,24 +191,28 @@
         </ul>
       </div>
       <div>
-        <h2>Reference</h2>
+        <h2>Core system</h2>
         <ul>
           <li><a href="../../foundations/index.html">Foundations</a></li>
+          <li><a href="../../learning-design/index.html">Learning design</a></li>
           <li><a href="../../patterns/index.html">Learning patterns</a></li>
           <li><a href="../../components/index.html">Components</a></li>
         </ul>
       </div>
       <div>
-        <h2>Platforms</h2>
+        <h2>Implementations</h2>
         <ul>
-          <li><a href="../../platforms/rise/index.html">Rise</a></li>
-          <li><a href="../../platforms/connect-learn/index.html">Connect &amp; Learn</a></li>
-          <li><a href="../../platforms/storyline/index.html">Storyline</a></li>
+          <li><a href="../../implementations/index.html">Implementation directory</a></li>
+          <li><a href="../../applications/index.html">Course applications</a></li>
         </ul>
       </div>
       <div>
-        <h2>Accessibility</h2>
-        <p>Designed to support accessibility and tested against the documented design-system checklist.</p>
+        <h2>Resources</h2>
+        <ul>
+          <li><a href="../../resources/index.html">Templates &amp; resources</a></li>
+          <li><a href="../../changelog/index.html">Changelog</a></li>
+        </ul>
+        <p>Accessibility requirements are documented at foundation, pattern and component level.</p>
       </div>
     </div>
   </footer>

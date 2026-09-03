@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Self-assessment — ISQ eLearning Design System</title>
+<title>Self-assessment — eLearning Design System</title>
 <meta name="description" content="A structured confidence or knowledge self-rating table — the learner rates each statement against a shared scale (e.g. Not at all confident → Very confident).">
 <link rel="stylesheet" href="../../assets/css/tokens.css">
 <link rel="stylesheet" href="../../assets/css/base.css">
@@ -16,18 +16,17 @@
 <div class="docs-shell">
   <header class="docs-header">
     <div class="docs-header__inner">
-      <a class="docs-logo" href="../../index.html">ISQ <span>eLearning Design System</span></a>
+      <a class="docs-logo" href="../../index.html">eLearning <span>Design System</span></a>
       <button class="docs-nav-toggle" aria-expanded="false" aria-controls="docs-primary-nav">Menu</button>
       <nav class="docs-primary-nav" id="docs-primary-nav" aria-label="Primary">
         <a class="docs-nav-link" href="../../overview/index.html" >Overview</a>
         <a class="docs-nav-link" href="../../foundations/index.html" >Foundations</a>
+        <a class="docs-nav-link" href="../../learning-design/index.html" >Learning design</a>
         <a class="docs-nav-link" href="../../patterns/index.html" >Learning patterns</a>
         <a class="docs-nav-link" href="../../components/index.html" aria-current="page">Components</a>
-        <a class="docs-nav-link" href="../../platforms/rise/index.html" >Platforms</a>
-        <a class="docs-nav-link" href="../../media/index.html" >Imagery &amp; media</a>
-        <a class="docs-nav-link" href="../../resources/index.html" >Resources</a>
+        <a class="docs-nav-link" href="../../implementations/index.html" >Implementations</a>
+        <a class="docs-nav-link" href="../../applications/index.html" >Applications</a>
         <a class="docs-nav-link" href="../../governance/index.html" >Governance</a>
-        <a class="docs-nav-link" href="../../changelog/index.html" >Changelog</a>
       </nav>
       <div class="docs-search docs-search-wrap" role="search">
         <label class="docs-visually-hidden" for="docs-search-input">Search the design system</label>
@@ -49,6 +48,7 @@
       <p class="docs-lede" style="font-size:1.02rem;">A structured confidence or knowledge self-rating table — the learner rates each statement against a shared scale (e.g. Not at all confident → Very confident).</p>
       <div class="docs-detail-header__meta">
         <span class="docs-status docs-status--course-specific">course specific</span>
+        <span class="docs-tag">Current implementation: ISQ Rise</span>
         <span>Version introduced: 1.0.0 (undocumented until this release)</span>
         <span>Platforms: Rise</span>
         <span>Owner: Design and development steward — spec drafted from CSS and screenshot; pending sign-off</span>
@@ -65,10 +65,10 @@
   
 
   <div class="docs-module">
-    <h2>Live preview</h2>
+    <h2>ISQ Rise implementation preview</h2>
     <div class="docs-preview" data-docs-preview>
       <div class="docs-preview__bar">
-        <span>Rendered with production Rise CSS</span>
+        <span>Rendered with the governed ISQ production Rise CSS</span>
         <div class="docs-preview__toggle">
           <button type="button" data-docs-preview-mode="desktop" aria-pressed="true">Desktop</button>
           <button type="button" data-docs-preview-mode="mobile" aria-pressed="false">Mobile</button>
@@ -149,8 +149,10 @@
   </div>
 
   <div class="docs-module">
-    <h2>Implementation</h2>
-    <p><strong>Type:</strong> custom-html-js</p>
+    <h2>Current implementation</h2>
+    <p><strong>Theme and platform:</strong> ISQ · Articulate Rise</p>
+    <p><strong>Implementation type:</strong> custom-html-js</p>
+    <p>The classes below belong to the ISQ implementation namespace. A future theme may implement the same component contract with different tokens and class names.</p>
     <p><strong>Dependencies:</strong> Scoped JavaScript to manage save/reset state; must support multiple instances per lesson.</p>
   </div>
 
@@ -159,40 +161,40 @@
     <div class="docs-code">
       <span class="docs-code__label">HTML</span>
       <button class="docs-copy-btn" type="button" data-docs-copy="code-self-assessment">Copy</button>
-      <pre><code id="code-self-assessment"><!-- Illustrative markup drafted from the screenshot and CSS class names — verify against the real exported course before treating as canonical -->
-<section class="isq-self-assessment" aria-labelledby="sa-title">
-  <span class="isq-eyebrow">Self-reflection</span>
-  <h2 class="isq-heading isq-heading--h2" id="sa-title">How confident do you feel?</h2>
-  <p class="isq-body--intro">Rate your current confidence in each area. There are no right or wrong answers.</p>
-  <table class="isq-self-assessment__table">
-    <caption class="isq-visually-hidden">Confidence self-rating</caption>
-    <thead>
-      <tr>
-        <th scope="col"></th>
-        <th scope="col">Not at all confident</th>
-        <th scope="col">Somewhat confident</th>
-        <th scope="col">Confident</th>
-        <th scope="col">Very confident</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr class="isq-self-assessment__row">
-        <th scope="row"><span class="isq-self-assessment__number">1</span> Understanding your personal reporting obligations</th>
-        <td><label class="isq-self-assessment__choice"><input class="isq-self-assessment__radio" type="radio" name="sa-1"><span class="isq-visually-hidden">Not at all confident</span></label></td>
-        <td><label class="isq-self-assessment__choice"><input class="isq-self-assessment__radio" type="radio" name="sa-1"><span class="isq-visually-hidden">Somewhat confident</span></label></td>
-        <td><label class="isq-self-assessment__choice"><input class="isq-self-assessment__radio" type="radio" name="sa-1"><span class="isq-visually-hidden">Confident</span></label></td>
-        <td><label class="isq-self-assessment__choice"><input class="isq-self-assessment__radio" type="radio" name="sa-1"><span class="isq-visually-hidden">Very confident</span></label></td>
-      </tr>
-    </tbody>
-  </table>
-  <div class="isq-self-assessment__actions">
-    <button class="isq-button isq-button--primary">Save my reflection</button>
-    <button class="isq-button isq-button--light">Reset</button>
-  </div>
-</section></code></pre>
+      <pre><code id="code-self-assessment">&lt;!-- Illustrative markup drafted from the screenshot and CSS class names — verify against the real exported course before treating as canonical --&gt;
+&lt;section class=&#34;isq-self-assessment&#34; aria-labelledby=&#34;sa-title&#34;&gt;
+  &lt;span class=&#34;isq-eyebrow&#34;&gt;Self-reflection&lt;/span&gt;
+  &lt;h2 class=&#34;isq-heading isq-heading--h2&#34; id=&#34;sa-title&#34;&gt;How confident do you feel?&lt;/h2&gt;
+  &lt;p class=&#34;isq-body--intro&#34;&gt;Rate your current confidence in each area. There are no right or wrong answers.&lt;/p&gt;
+  &lt;table class=&#34;isq-self-assessment__table&#34;&gt;
+    &lt;caption class=&#34;isq-visually-hidden&#34;&gt;Confidence self-rating&lt;/caption&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th scope=&#34;col&#34;&gt;&lt;/th&gt;
+        &lt;th scope=&#34;col&#34;&gt;Not at all confident&lt;/th&gt;
+        &lt;th scope=&#34;col&#34;&gt;Somewhat confident&lt;/th&gt;
+        &lt;th scope=&#34;col&#34;&gt;Confident&lt;/th&gt;
+        &lt;th scope=&#34;col&#34;&gt;Very confident&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr class=&#34;isq-self-assessment__row&#34;&gt;
+        &lt;th scope=&#34;row&#34;&gt;&lt;span class=&#34;isq-self-assessment__number&#34;&gt;1&lt;/span&gt; Understanding your personal reporting obligations&lt;/th&gt;
+        &lt;td&gt;&lt;label class=&#34;isq-self-assessment__choice&#34;&gt;&lt;input class=&#34;isq-self-assessment__radio&#34; type=&#34;radio&#34; name=&#34;sa-1&#34;&gt;&lt;span class=&#34;isq-visually-hidden&#34;&gt;Not at all confident&lt;/span&gt;&lt;/label&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;label class=&#34;isq-self-assessment__choice&#34;&gt;&lt;input class=&#34;isq-self-assessment__radio&#34; type=&#34;radio&#34; name=&#34;sa-1&#34;&gt;&lt;span class=&#34;isq-visually-hidden&#34;&gt;Somewhat confident&lt;/span&gt;&lt;/label&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;label class=&#34;isq-self-assessment__choice&#34;&gt;&lt;input class=&#34;isq-self-assessment__radio&#34; type=&#34;radio&#34; name=&#34;sa-1&#34;&gt;&lt;span class=&#34;isq-visually-hidden&#34;&gt;Confident&lt;/span&gt;&lt;/label&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;label class=&#34;isq-self-assessment__choice&#34;&gt;&lt;input class=&#34;isq-self-assessment__radio&#34; type=&#34;radio&#34; name=&#34;sa-1&#34;&gt;&lt;span class=&#34;isq-visually-hidden&#34;&gt;Very confident&lt;/span&gt;&lt;/label&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+  &lt;div class=&#34;isq-self-assessment__actions&#34;&gt;
+    &lt;button class=&#34;isq-button isq-button--primary&#34;&gt;Save my reflection&lt;/button&gt;
+    &lt;button class=&#34;isq-button isq-button--light&#34;&gt;Reset&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
     </div>
     <p style="font-size:0.85rem; color:var(--docs-muted); margin-top:8px;">Classes used: <code>.isq-self-assessment</code>, <code>.isq-self-assessment__actions</code>, <code>.isq-self-assessment__body</code>, <code>.isq-self-assessment__choice</code>, <code>.isq-self-assessment__corner</code>, <code>.isq-self-assessment__feedback</code>, <code>.isq-self-assessment__intro</code>, <code>.isq-self-assessment__mobile-scale</code>, <code>.isq-self-assessment__number</code>, <code>.isq-self-assessment__prompt</code>, <code>.isq-self-assessment__radio</code>, <code>.isq-self-assessment__row</code>, <code>.isq-self-assessment__scale-label</code>, <code>.isq-self-assessment__table</code></p>
-    <p style="font-size:0.85rem;"><a href="../../platforms/rise/index.html">Production stylesheet reference →</a></p>
+    <p style="font-size:0.85rem;"><a href="../../implementations/isq/platforms/rise/index.html">ISQ production stylesheet reference →</a></p>
   </div>
 
   <div class="docs-module">
@@ -232,24 +234,28 @@
         </ul>
       </div>
       <div>
-        <h2>Reference</h2>
+        <h2>Core system</h2>
         <ul>
           <li><a href="../../foundations/index.html">Foundations</a></li>
+          <li><a href="../../learning-design/index.html">Learning design</a></li>
           <li><a href="../../patterns/index.html">Learning patterns</a></li>
           <li><a href="../../components/index.html">Components</a></li>
         </ul>
       </div>
       <div>
-        <h2>Platforms</h2>
+        <h2>Implementations</h2>
         <ul>
-          <li><a href="../../platforms/rise/index.html">Rise</a></li>
-          <li><a href="../../platforms/connect-learn/index.html">Connect &amp; Learn</a></li>
-          <li><a href="../../platforms/storyline/index.html">Storyline</a></li>
+          <li><a href="../../implementations/index.html">Implementation directory</a></li>
+          <li><a href="../../applications/index.html">Course applications</a></li>
         </ul>
       </div>
       <div>
-        <h2>Accessibility</h2>
-        <p>Designed to support accessibility and tested against the documented design-system checklist.</p>
+        <h2>Resources</h2>
+        <ul>
+          <li><a href="../../resources/index.html">Templates &amp; resources</a></li>
+          <li><a href="../../changelog/index.html">Changelog</a></li>
+        </ul>
+        <p>Accessibility requirements are documented at foundation, pattern and component level.</p>
       </div>
     </div>
   </footer>

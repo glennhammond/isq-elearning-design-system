@@ -1,0 +1,41 @@
+{% extends "base.html.j2" %}
+{% block content %}
+<div class="docs-container">
+  <span class="docs-eyebrow">Implementations</span>
+  <h1>One core system, distinct implementations</h1>
+  <p class="docs-lede">Implementations translate shared learning purposes, foundation roles and component definitions into a particular organisation, product and delivery platform.</p>
+
+  <div class="docs-module" style="margin-top:var(--docs-space-5);">
+    <h2>Implementation directory</h2>
+    <div class="docs-grid docs-grid--2">
+      <a class="docs-card" href="{{ base }}implementations/isq/index.html">
+        <div class="docs-card__top">
+          <h3>Independent Schools Queensland</h3>
+          <span class="docs-tag">First mature implementation</span>
+        </div>
+        <p>A governed organisational theme with production Rise components, platform guidance, media standards and course evidence.</p>
+        <div class="docs-card__meta"><span class="docs-tag">ISQ theme</span><span class="docs-tag">Rise</span><span class="docs-tag">Moodle</span><span class="docs-tag">Storyline boundary</span></div>
+      </a>
+      <div class="docs-card" style="cursor:default;">
+        <div class="docs-card__top">
+          <h3>Future implementations</h3>
+          <span class="docs-tag">Available</span>
+        </div>
+        <p>New organisational, product or client implementations can adopt the core without inheriting ISQ branding or technical namespaces.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="docs-module">
+    <h2>What belongs where?</h2>
+    <table class="docs-field-table">
+      <thead><tr><th>Core system</th><th>Implementation layer</th><th>Course application</th></tr></thead>
+      <tbody>
+        <tr><td>Learner needs, learning purposes and experience structures</td><td>Brand tokens, typography and visual theme</td><td>Approved course copy and sequence</td></tr>
+        <tr><td>Component intent, anatomy and accessibility contract</td><td>CSS namespace, markup and platform behaviour</td><td>Specific scenarios, examples and media</td></tr>
+        <tr><td>Governance lifecycle and quality requirements</td><td>Platform publishing, versioning and dependencies</td><td>Course-level QA evidence and release record</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}
