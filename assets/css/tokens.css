@@ -1,77 +1,78 @@
-/*
- * eLearning Design System — live reference site
- * Site chrome tokens (.docs- namespace only).
- * This neutral shell is independent of every branded implementation.
- * Implementation tokens (including --isq-*) are loaded only where an
- * implementation example needs them.
- */
+/* eLearning Design System — documentation chrome tokens.
+   Artifact-authored visual discipline, implementation-neutral system identity.
+   Branded implementation tokens remain isolated to their implementation layers. */
 
 :root {
-  /* Neutral documentation palette — not an implementation theme */
-  --docs-blue: #4357AD;
-  --docs-blue-dark: #202A35;
-  --docs-blue-deep: #141A21;
-  --docs-yellow: #C8793D;
-  --docs-charcoal: #202A35;
-  --docs-muted: #5E6975;
-  --docs-border: #D8DEE5;
-  --docs-tint: #ECEFF7;
-  --docs-pale: #F6F7F9;
-  --docs-ice: #F1F3F7;
+  --docs-ink: #12141B;
+  --docs-paper: #F7F5F0;
+  --docs-paper-strong: #FFFEFA;
+  --docs-signal: #D7F24A;
   --docs-white: #FFFFFF;
-  --docs-success: #2E6A4F;
-  --docs-success-pale: #EDF6F1;
-  --docs-warning-text: #5D4422;
-  --docs-warning-pale: #FBF4E8;
-  --docs-error: #A4433F;
-  --docs-error-pale: #FAEEEE;
+  --docs-charcoal: #12141B;
+  --docs-muted: #5F646D;
+  --docs-text-tertiary: #858A92;
+  --docs-border: #D9DADE;
+  --docs-border-strong: #B9BBC5;
+  --docs-tint: #EEECE6;
+  --docs-pale: #EEECE6;
+  --docs-ice: #F7F5F0;
 
-  /* Neutral documentation typography; branded fonts belong to themes. */
-  --docs-font-heading: "Avenir Next", Avenir, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-  --docs-font-body: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  /* Compatibility aliases retained for existing documentation templates. */
+  --docs-blue: var(--docs-ink);
+  --docs-blue-dark: var(--docs-ink);
+  --docs-blue-deep: #0B0D12;
+  --docs-yellow: var(--docs-signal);
 
-  /* Spacing scale */
-  --docs-space-1: 4px;
-  --docs-space-2: 8px;
-  --docs-space-3: 16px;
-  --docs-space-4: 24px;
-  --docs-space-5: 32px;
-  --docs-space-6: 48px;
-  --docs-space-7: 64px;
+  --docs-success: #287C57;
+  --docs-success-pale: #EAF3ED;
+  --docs-warning-text: #9A6510;
+  --docs-warning-pale: #F6F0DE;
+  --docs-error: #B43B32;
+  --docs-error-pale: #F8EDEC;
+  --docs-info: #326B91;
 
-  /* Widths */
+  /* Artifact typography roles. No font assets are redistributed here. */
+  --docs-font-display: "ITC Avant Garde Gothic Std", "Century Gothic", "Avenir Next", Arial, sans-serif;
+  --docs-font-heading: "IBM Plex Sans", "Segoe UI", Arial, sans-serif;
+  --docs-font-body: "Source Sans 3", "Segoe UI", Arial, sans-serif;
+  --docs-font-mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+
+  /* Documentation spacing maps to the Artifact 8 / 16 / 24 / 32 / 48 / 72 / 112 rhythm. */
+  --docs-space-1: 8px;
+  --docs-space-2: 16px;
+  --docs-space-3: 24px;
+  --docs-space-4: 32px;
+  --docs-space-5: 48px;
+  --docs-space-6: 72px;
+  --docs-space-7: 112px;
+  --docs-space-8: 144px;
+
   --docs-width-narrow: 760px;
-  --docs-width-standard: 960px;
-  --docs-width-wide: 1120px;
-  --docs-width-full: 1280px;
+  --docs-width-standard: 1040px;
+  --docs-width-wide: 1240px;
+  --docs-width-full: 1440px;
 
-  /* Radius */
-  --docs-radius-small: 10px;
-  --docs-radius-medium: 16px;
-  --docs-radius-large: 22px;
+  /* Artifact geometry: controls may soften by 2px; panels remain square. */
+  --docs-radius-small: 2px;
+  --docs-radius-medium: 0px;
+  --docs-radius-large: 0px;
 
-  /* Elevation */
-  --docs-shadow-small: 0 1px 2px rgba(20, 26, 33, 0.07);
-  --docs-shadow-medium: 0 4px 16px rgba(20, 26, 33, 0.09);
-  --docs-shadow-large: 0 12px 32px rgba(20, 26, 33, 0.13);
+  --docs-shadow-small: none;
+  --docs-shadow-medium: none;
+  --docs-shadow-large: none;
 
-  /* Motion */
-  --docs-transition-fast: 120ms ease;
-  --docs-transition-medium: 200ms ease;
+  --docs-transition-fast: 140ms ease-in-out;
+  --docs-transition-medium: 280ms ease-out;
 
-  /* Status colours — text-paired, never colour-only */
-  --docs-status-foundation: #202A35;
-  --docs-status-core: #4357AD;
-  --docs-status-approved: #2E6A4F;
-  --docs-status-experimental: #8A5A22;
-  --docs-status-course-specific: #5E6975;
-  --docs-status-legacy: #7A7A7A;
-  --docs-status-deprecated: #A4433F;
+  --docs-status-foundation: #353942;
+  --docs-status-core: #12141B;
+  --docs-status-approved: #287C57;
+  --docs-status-experimental: #9A6510;
+  --docs-status-course-specific: #5F646D;
+  --docs-status-legacy: #72736F;
+  --docs-status-deprecated: #B43B32;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  :root {
-    --docs-transition-fast: 0ms;
-    --docs-transition-medium: 0ms;
-  }
+  :root { --docs-transition-fast: 0ms; --docs-transition-medium: 0ms; }
 }
