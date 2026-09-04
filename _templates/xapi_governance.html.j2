@@ -1,188 +1,26 @@
 {% extends "base.html.j2" %}
 {% block content %}
-<div class="docs-page-with-sidebar">
-  <nav class="docs-side-nav" aria-label="On this page">
-    <h2>xAPI governance</h2>
-    <ul>
-      <li><a href="#purpose">Purpose & boundary</a></li>
-      <li><a href="#status">Status model</a></li>
-      <li><a href="#architecture">Evidence architecture</a></li>
-      <li><a href="#authorisation">Evidence authorisation</a></li>
-      <li><a href="#patterns">Statement patterns</a></li>
-      <li><a href="#contract">Statement contract</a></li>
-      <li><a href="#authority">Assessment authority</a></li>
-      <li><a href="#identity">Identity & attempts</a></li>
-      <li><a href="#delivery">Delivery, security & privacy</a></li>
-      <li><a href="#video">Video Profile</a></li>
-      <li><a href="#qualification">Qualification gate</a></li>
-      <li><a href="#implementation">Implementation boundary</a></li>
-    </ul>
-  </nav>
-  <div>
-    <span class="docs-eyebrow">Governance · Evidence</span>
-    <h1>Govern meaningful learning evidence</h1>
-    <p class="docs-lede">xAPI is used to capture selected learner behaviour when that evidence serves a declared evaluation purpose. Instrumentation begins with learning intent and evidence need, not with the availability of an event, component or endpoint.</p>
-
-    <div class="docs-module" id="purpose">
-      <h2>Purpose and boundary</h2>
-      <p>This reference defines implementation-independent governance for adding xAPI evidence to digital learning. It separates reusable evidence rules from organisation-specific identifiers, platforms, credentials, privacy decisions and release approvals.</p>
-      <div class="docs-note"><strong>Core principle:</strong> LRS receipt proves that a statement was stored. It does not, by itself, prove learning, understanding, attention, transfer, completion or compliance.</div>
-      <div class="docs-grid docs-grid--3">
-        <div class="docs-card" style="cursor:default;"><span class="docs-eyebrow">Pattern</span><h3>Reusable contract</h3><p>Defines the intended statement semantics and evidence rule.</p></div>
-        <div class="docs-card" style="cursor:default;"><span class="docs-eyebrow">Implementation</span><h3>Governed adoption</h3><p>Maps the contract to a named course, platform, registry and delivery boundary.</p></div>
-        <div class="docs-card" style="cursor:default;"><span class="docs-eyebrow">Qualification</span><h3>Stored evidence</h3><p>Shows that the exact implementation passed its defined positive and negative paths.</p></div>
-      </div>
-    </div>
-
-    <div class="docs-module" id="status">
-      <h2>Claim and status model</h2>
-      <table class="docs-field-table"><thead><tr><th>Status</th><th>Meaning</th><th>Evidence expected</th></tr></thead><tbody>
-        <tr><td>Technically qualified</td><td>A defined pattern or implementation passed its stated controlled test.</td><td>Stored statement evidence, expected actor/result/context and positive/negative path.</td></tr>
-        <tr><td>Implemented / test</td><td>Present in a governed internal build; not a production claim.</td><td>Inspected source, stable configuration and structural QA.</td></tr>
-        <tr><td>Candidate</td><td>A contract or implementation exists but qualification is incomplete.</td><td>Acceptance criteria, test package and stored evidence.</td></tr>
-        <tr><td>Decision required</td><td>A governance choice affects semantics, privacy or interoperability.</td><td>Named owner, recorded decision and versioned contract.</td></tr>
-        <tr><td>Not production-approved</td><td>A known security, privacy, platform or evidence gate remains open.</td><td>Gate closure and explicit release approval.</td></tr>
-      </tbody></table>
-      <p><strong>Vocabulary discipline:</strong> implemented, qualified, approved, effective and compliant are separate claims.</p>
-    </div>
-
-    <div class="docs-module" id="architecture">
-      <h2>Evidence architecture</h2>
-      <div class="docs-grid docs-grid--3">
-        <div class="docs-card" style="cursor:default;"><span class="docs-eyebrow">01</span><h3>Learning intent</h3><p>Required judgement, behaviour or decision.</p></div>
-        <div class="docs-card" style="cursor:default;"><span class="docs-eyebrow">02</span><h3>Learning experience</h3><p>Native or custom interaction that elicits deliberate learner action.</p></div>
-        <div class="docs-card" style="cursor:default;"><span class="docs-eyebrow">03</span><h3>Identity context</h3><p>Governed learner, session and registration context where available.</p></div>
-        <div class="docs-card" style="cursor:default;"><span class="docs-eyebrow">04</span><h3>xAPI adapter</h3><p>Constructs a constrained statement from an authorised pattern.</p></div>
-        <div class="docs-card" style="cursor:default;"><span class="docs-eyebrow">05</span><h3>Trusted delivery</h3><p>Validates actor, activity, template, context and permissions before protected LRS delivery.</p></div>
-        <div class="docs-card" style="cursor:default;"><span class="docs-eyebrow">06</span><h3>LRS evidence</h3><p>Stored, queried and evaluated against the declared purpose.</p></div>
-      </div>
-      <div class="docs-note"><strong>Failure isolation:</strong> xAPI transport failure must not erase the learner response, alter learning feedback, block progression or fabricate an actor.</div>
-    </div>
-
-    <div class="docs-module" id="authorisation">
-      <h2>Evidence authorisation</h2>
-      <p>Before instrumentation is authorised, the design should be able to trace:</p>
-      <ol>
-        <li><strong>Required decision:</strong> what must the learner be able to judge or do?</li>
-        <li><strong>Learning design:</strong> why is this practice necessary?</li>
-        <li><strong>Experience:</strong> what deliberate action expresses the decision?</li>
-        <li><strong>Evidence:</strong> what minimum statement is meaningful?</li>
-        <li><strong>Evaluation:</strong> what finding could this evidence responsibly support?</li>
-        <li><strong>Change:</strong> what improvement may follow from that finding?</li>
-      </ol>
-      <div class="docs-note"><strong>Do not instrument by default.</strong> Routine informational blocks and presentation-only explanations should not emit xAPI merely because they can.</div>
-    </div>
-
-    <div class="docs-module" id="patterns">
-      <h2>Statement pattern library</h2>
-      <p>The source governance library identifies reusable patterns for common evidence needs. Their qualification status belongs to a specific governed proof; this neutral system records the semantic pattern without inheriting an organisation's approval state.</p>
-      <table class="docs-field-table"><thead><tr><th>Pattern</th><th>Evidence semantics</th><th>Key constraint</th></tr></thead><tbody>
-        <tr><td>Likert self-reflection</td><td>Records a learner's self-reported position against a defined measure.</td><td>Self-report is not correctness or demonstrated capability.</td></tr>
-        <tr><td>Single-choice decision</td><td>Records one deliberate choice at a defined decision point.</td><td>Use success only when an approved correctness rule exists.</td></tr>
-        <tr><td>True/false self-report</td><td>Records a binary self-report or declaration.</td><td>Do not infer correctness where the construct is reflective.</td></tr>
-        <tr><td>Multiple-response choice</td><td>Records a deliberate set of selected response IDs.</td><td>Use stable IDs and deterministic response ordering.</td></tr>
-        <tr><td>Course rating + optional comment</td><td>Records rating evidence and, where approved, optional qualitative feedback.</td><td>Free text requires explicit privacy, retention and access governance.</td></tr>
-        <tr><td>Completion evidence</td><td>May support an already-authoritative completion outcome.</td><td>Must not create a competing completion truth.</td></tr>
-        <tr><td>Media engagement</td><td>Observes governed video events and coverage.</td><td>Coverage is not attention, understanding or course completion.</td></tr>
-      </tbody></table>
-    </div>
-
-    <div class="docs-module" id="contract">
-      <h2>Canonical decision-statement contract</h2>
-      <p>One deliberate submission produces one statement. The object is the specific interaction; context preserves the parent experience and course hierarchy.</p>
-      <div class="docs-code"><span class="docs-code__label">Illustrative neutral contract</span><pre><code>{
-  "id": "&lt;UUID retained for any transport retry&gt;",
-  "actor": {
-    "objectType": "Agent",
-    "account": {
-      "homePage": "&lt;approved account namespace&gt;",
-      "name": "&lt;trusted learner identifier&gt;"
-    }
-  },
-  "verb": {
-    "id": "http://adlnet.gov/expapi/verbs/answered",
-    "display": { "en": "answered" }
-  },
-  "object": {
-    "id": "https://example.org/xapi/course/scenario/decision-01",
-    "objectType": "Activity",
-    "definition": {
-      "type": "http://adlnet.gov/expapi/activities/cmi.interaction",
-      "interactionType": "choice",
-      "choices": ["&lt;stable response IDs with descriptions&gt;"]
-    }
-  },
-  "result": {
-    "response": "&lt;stable-response-id&gt;",
-    "completion": true
-  },
-  "context": {
-    "contextActivities": {
-      "parent": [{ "id": "https://example.org/xapi/course/scenario" }],
-      "grouping": [{ "id": "https://example.org/xapi/course" }]
-    }
-  },
+<div class="docs-page-with-sidebar"><nav class="docs-side-nav" aria-label="On this page"><h2>xAPI governance</h2><ul><li><a href="#purpose">Purpose</a></li><li><a href="#status">Status model</a></li><li><a href="#architecture">Architecture</a></li><li><a href="#authorisation">Authorisation</a></li><li><a href="#patterns">Patterns</a></li><li><a href="#contract">Statement contract</a></li><li><a href="#authority">Assessment authority</a></li><li><a href="#identity">Identity & attempts</a></li><li><a href="#delivery">Security & privacy</a></li><li><a href="#video">Video</a></li><li><a href="#qualification">Qualification</a></li><li><a href="#implementation">Implementation boundary</a></li></ul></nav><div>
+<span class="docs-eyebrow">Governance · Evidence</span><h1>Govern meaningful learning evidence</h1><p class="docs-lede">xAPI is used to capture selected learner behaviour when that evidence serves a declared evaluation purpose. Instrumentation begins with learning intent and evidence need, not with the availability of an event, component or endpoint.</p>
+<div class="docs-module" id="purpose"><h2>Purpose and boundary</h2><p>This reference defines implementation-independent governance for adding xAPI evidence to digital learning. It separates reusable evidence rules from organisation-specific identifiers, platforms, credentials, privacy decisions and release approvals.</p><div class="docs-note"><strong>Core principle:</strong> LRS receipt proves that a statement was stored. It does not, by itself, prove learning, understanding, attention, transfer, completion or compliance.</div><div class="docs-grid docs-grid--3"><div class="docs-card" style="cursor:default"><span class="docs-eyebrow">Pattern</span><h3>Reusable contract</h3><p>Defines intended statement semantics and the evidence rule.</p></div><div class="docs-card" style="cursor:default"><span class="docs-eyebrow">Implementation</span><h3>Governed adoption</h3><p>Maps the contract to a named course, platform, registry and delivery boundary.</p></div><div class="docs-card" style="cursor:default"><span class="docs-eyebrow">Qualification</span><h3>Stored evidence</h3><p>Shows that the exact implementation passed its defined positive and negative paths.</p></div></div></div>
+<div class="docs-module" id="status"><h2>Claim and status model</h2><table class="docs-field-table"><thead><tr><th>Status</th><th>Meaning</th><th>Evidence expected</th></tr></thead><tbody><tr><td>Technically qualified</td><td>A defined pattern or implementation passed its stated controlled test.</td><td>Stored statement evidence and expected positive/negative paths.</td></tr><tr><td>Implemented / test</td><td>Present in a governed internal build; not a production claim.</td><td>Inspected source, stable configuration and structural QA.</td></tr><tr><td>Candidate</td><td>Contract or implementation exists but qualification is incomplete.</td><td>Acceptance criteria, test package and stored evidence.</td></tr><tr><td>Decision required</td><td>A governance choice affects semantics, privacy or interoperability.</td><td>Named owner, recorded decision and versioned contract.</td></tr><tr><td>Not production-approved</td><td>A known security, privacy, platform or evidence gate remains open.</td><td>Gate closure and explicit release approval.</td></tr></tbody></table><p><strong>Vocabulary discipline:</strong> implemented, qualified, approved, effective and compliant are separate claims.</p></div>
+<div class="docs-module" id="architecture"><h2>Evidence architecture</h2><div class="docs-grid docs-grid--3"><div class="docs-card" style="cursor:default"><span class="docs-eyebrow">01</span><h3>Learning intent</h3><p>Required judgement, behaviour or decision.</p></div><div class="docs-card" style="cursor:default"><span class="docs-eyebrow">02</span><h3>Experience</h3><p>Interaction that elicits deliberate learner action.</p></div><div class="docs-card" style="cursor:default"><span class="docs-eyebrow">03</span><h3>Identity context</h3><p>Governed learner, session and registration context.</p></div><div class="docs-card" style="cursor:default"><span class="docs-eyebrow">04</span><h3>xAPI adapter</h3><p>Constructs a constrained statement from an authorised pattern.</p></div><div class="docs-card" style="cursor:default"><span class="docs-eyebrow">05</span><h3>Trusted delivery</h3><p>Validates actor, activity, template, context and permissions.</p></div><div class="docs-card" style="cursor:default"><span class="docs-eyebrow">06</span><h3>LRS evidence</h3><p>Stored, queried and evaluated against the declared purpose.</p></div></div><div class="docs-note"><strong>Failure isolation:</strong> xAPI transport failure must not erase the response, alter learning feedback, block progression or fabricate an actor.</div></div>
+<div class="docs-module" id="authorisation"><h2>Evidence authorisation</h2><ol><li><strong>Required decision:</strong> what must the learner be able to judge or do?</li><li><strong>Learning design:</strong> why is this practice necessary?</li><li><strong>Experience:</strong> what deliberate action expresses the decision?</li><li><strong>Evidence:</strong> what minimum statement is meaningful?</li><li><strong>Evaluation:</strong> what finding could this responsibly support?</li><li><strong>Change:</strong> what responsible improvement may follow?</li></ol><div class="docs-note"><strong>Do not instrument by default.</strong> Routine informational blocks and presentation-only explanations should not emit xAPI merely because they can.</div></div>
+<div class="docs-module" id="patterns"><h2>Statement pattern library</h2><p>Pattern qualification belongs to a specific governed proof. The core system records reusable semantics without inheriting an organisation's approval state.</p><table class="docs-field-table"><thead><tr><th>Pattern</th><th>Evidence semantics</th><th>Key constraint</th></tr></thead><tbody><tr><td>Likert self-reflection</td><td>Self-reported position against a defined measure.</td><td>Self-report is not demonstrated capability.</td></tr><tr><td>Single-choice decision</td><td>One deliberate choice at a defined decision point.</td><td>Use success only when an approved correctness rule exists.</td></tr><tr><td>True/false self-report</td><td>Binary self-report or declaration.</td><td>Do not infer correctness where the construct is reflective.</td></tr><tr><td>Multiple-response choice</td><td>A deliberate set of selected response IDs.</td><td>Stable IDs and deterministic ordering.</td></tr><tr><td>Course rating + optional comment</td><td>Rating and, where approved, qualitative feedback.</td><td>Free text requires privacy, retention and access governance.</td></tr><tr><td>Completion evidence</td><td>May support an already-authoritative completion outcome.</td><td>Must not create a competing completion truth.</td></tr><tr><td>Media engagement</td><td>Governed video events and coverage.</td><td>Coverage is not attention, understanding or course completion.</td></tr></tbody></table></div>
+<div class="docs-module" id="contract"><h2>Canonical decision-statement contract</h2><p>One deliberate submission produces one statement. The object is the specific interaction; context preserves its parent experience and course hierarchy.</p><div class="docs-code"><span class="docs-code__label">Illustrative neutral contract</span><pre><code>{
+  "id": "&lt;UUID retained for transport retry&gt;",
+  "actor": {"objectType":"Agent","account":{"homePage":"&lt;approved namespace&gt;","name":"&lt;trusted learner id&gt;"}},
+  "verb": {"id":"http://adlnet.gov/expapi/verbs/answered","display":{"en":"answered"}},
+  "object": {"id":"https://example.org/xapi/course/decision-01","objectType":"Activity","definition":{"type":"http://adlnet.gov/expapi/activities/cmi.interaction","interactionType":"choice"}},
+  "result": {"response":"&lt;stable-response-id&gt;","completion":true},
+  "context": {"contextActivities":{"parent":[{"id":"https://example.org/xapi/course/scenario"}],"grouping":[{"id":"https://example.org/xapi/course"}]}},
   "timestamp": "&lt;ISO 8601&gt;"
-}</code></pre></div>
-      <ul>
-        <li>No statement before a valid deliberate submission.</li>
-        <li><code>success</code> appears only when an approved correctness rule exists.</li>
-        <li>Multi-response IDs use a governed deterministic representation.</li>
-        <li>Each valid learner retry is new evidence; a transport retry reuses the same statement UUID.</li>
-        <li>Prefer built-in xAPI properties to custom extensions.</li>
-        <li>Do not rewrite established semantic IRIs merely because their original host or organisation changes.</li>
-      </ul>
-    </div>
-
-    <div class="docs-module" id="authority">
-      <h2>Assessment and completion authority</h2>
-      <div class="docs-grid docs-grid--2">
-        <div class="docs-card" style="cursor:default;"><h3>Formative and reflective evidence</h3><p>xAPI may capture decisions, practice attempts, self-reported confidence and governed feedback for evaluation.</p></div>
-        <div class="docs-card" style="cursor:default;"><h3>Formal result</h3><p>The named assessment and platform status model remains authoritative for score, pass, completion and compliance unless governance explicitly establishes otherwise.</p></div>
-      </div>
-      <div class="docs-note">Learners should be told when formative responses and retries are recorded as analytics, what they are used for and whether they affect assessment.</div>
-    </div>
-
-    <div class="docs-module" id="identity">
-      <h2>Identity, attempts and registration</h2>
-      <table class="docs-field-table"><thead><tr><th>Concern</th><th>Governance rule</th></tr></thead><tbody>
-        <tr><td>Actor</td><td>Use a trusted governed learner identity. If the required identity cannot be resolved, retain the learning interaction but do not fabricate governed evidence.</td></tr>
-        <tr><td>Attempt</td><td>Define what constitutes a valid learner attempt and whether attempt numbering must survive reload or resume.</td></tr>
-        <tr><td>Transport retry</td><td>Retry delivery with the same statement UUID; do not create a new learner attempt.</td></tr>
-        <tr><td>Registration</td><td>Use a reliable registration when available, or explicitly document its omission and analytical consequences.</td></tr>
-        <tr><td>Launch</td><td>Define whether launch means package/course entry or first governed interaction; do not leave the semantic boundary accidental.</td></tr>
-      </tbody></table>
-    </div>
-
-    <div class="docs-module" id="delivery">
-      <h2>Delivery, security and privacy</h2>
-      <table class="docs-field-table"><thead><tr><th>Concern</th><th>Production expectation</th></tr></thead><tbody>
-        <tr><td>Credential</td><td>No reusable LRS credential in learner-delivered assets.</td></tr>
-        <tr><td>Actor trust</td><td>Validate actor/account and permitted context at a trusted boundary.</td></tr>
-        <tr><td>Template control</td><td>Use a machine-validatable contract where conformance is claimed and retain a release gate.</td></tr>
-        <tr><td>Free text</td><td>Approve purpose, notice, retention, access, deletion and reporting before collection, or do not collect it.</td></tr>
-        <tr><td>Evidence integrity</td><td>Qualify duplicate behaviour, retries and negative paths, not only successful delivery.</td></tr>
-      </tbody></table>
-    </div>
-
-    <div class="docs-module" id="video">
-      <h2>Video Profile alignment</h2>
-      <p>Video engagement is a separate evidence pattern. A standard embedded player should not be described as Video Profile instrumented unless its events and statements have been deliberately implemented and qualified.</p>
-      <table class="docs-field-table"><thead><tr><th>Event family</th><th>Typical evidence</th><th>Interpretation boundary</th></tr></thead><tbody>
-        <tr><td>Initialized</td><td>Statement identity, timestamp, media length and governed session context.</td><td>Player/session start only.</td></tr>
-        <tr><td>Played / paused</td><td>Current time, progress and played segments according to the adopted template.</td><td>Observed playback behaviour.</td></tr>
-        <tr><td>Seeked</td><td>Time from, time to and video Activity context.</td><td>Navigation behaviour, not comprehension.</td></tr>
-        <tr><td>Completed / terminated</td><td>Time, progress, played segments, length and threshold context.</td><td>Media coverage/completion, not course completion or understanding.</td></tr>
-      </tbody></table>
-      <div class="docs-note">The source library records Video Profile v1.0.3 as the inspected baseline. Adoption of any Profile/version is an implementation governance decision and should be validated before conformance is claimed.</div>
-    </div>
-
-    <div class="docs-module" id="qualification">
-      <h2>Qualification gate</h2>
-      <p>Course-level qualification belongs to the exact exported package and build identifier that passes the complete evidence path.</p>
-      <div class="docs-grid docs-grid--2">
-        <div class="docs-card" style="cursor:default;"><h3>Positive path</h3><ul><li>Authenticated launch.</li><li>Stable actor across governed events.</li><li>Expected correct/incorrect or reflective attempts.</li><li>Expected evidence stored once.</li><li>Platform completion state remains correct.</li></ul></div>
-        <div class="docs-card" style="cursor:default;"><h3>Negative & resilience path</h3><ul><li>No actor: no fabricated governed statement.</li><li>No valid submission: no attempt.</li><li>LRS unavailable: learning feedback and progression continue.</li><li>Transport retry: same statement UUID.</li><li>Reload/back does not create accidental evidence.</li><li>Unregistered or malformed activity is rejected at the trusted boundary.</li></ul></div>
-      </div>
-      <h3>Permanent evidence bundle</h3>
-      <ul><li>release/package hash and exact source version;</li><li>sanitised stored statements and query evidence;</li><li>positive and negative-path results;</
+}</code></pre></div><ul><li>No statement before a valid deliberate submission.</li><li><code>success</code> appears only when an approved correctness rule exists.</li><li>Use stable response IDs and a governed deterministic representation for multiple responses.</li><li>Each valid learner retry is new evidence; a transport retry reuses the same statement UUID.</li><li>Prefer built-in xAPI properties to custom extensions.</li><li>Do not rewrite established semantic IRIs merely because their original host or organisation changes.</li></ul></div>
+<div class="docs-module" id="authority"><h2>Assessment and completion authority</h2><div class="docs-grid docs-grid--2"><div class="docs-card" style="cursor:default"><h3>Formative and reflective evidence</h3><p>xAPI may capture decisions, practice attempts, self-reported confidence and governed feedback for evaluation.</p></div><div class="docs-card" style="cursor:default"><h3>Formal result</h3><p>The named assessment and platform status model remains authoritative for score, pass, completion and compliance unless governance explicitly establishes otherwise.</p></div></div><div class="docs-note">Learners should be told when formative responses and retries are recorded as analytics, what they are used for and whether they affect assessment.</div></div>
+<div class="docs-module" id="identity"><h2>Identity, attempts and registration</h2><table class="docs-field-table"><tbody><tr><th>Actor</th><td>Use a trusted governed learner identity. If it cannot be resolved, retain the learning interaction but do not fabricate governed evidence.</td></tr><tr><th>Attempt</th><td>Define a valid learner attempt and whether numbering must survive reload or resume.</td></tr><tr><th>Transport retry</th><td>Retry delivery with the same statement UUID; do not create a new learner attempt.</td></tr><tr><th>Registration</th><td>Use a reliable registration when available, or document its omission and analytical consequences.</td></tr><tr><th>Launch</th><td>Define whether launch means package/course entry or first governed interaction.</td></tr></tbody></table></div>
+<div class="docs-module" id="delivery"><h2>Delivery, security and privacy</h2><table class="docs-field-table"><thead><tr><th>Concern</th><th>Production expectation</th></tr></thead><tbody><tr><td>Credential</td><td>No reusable LRS credential in learner-delivered assets.</td></tr><tr><td>Actor trust</td><td>Validate actor/account and permitted context at a trusted boundary.</td></tr><tr><td>Template control</td><td>Use a machine-validatable contract where conformance is claimed and retain a release gate.</td></tr><tr><td>Free text</td><td>Approve purpose, notice, retention, access, deletion and reporting before collection, or do not collect it.</td></tr><tr><td>Evidence integrity</td><td>Qualify duplicate behaviour, retries and negative paths, not only successful delivery.</td></tr></tbody></table></div>
+<div class="docs-module" id="video"><h2>Video Profile alignment</h2><p>Video engagement is a separate evidence pattern. A standard embedded player is not Video Profile instrumented unless its events and statements have been deliberately implemented and qualified.</p><table class="docs-field-table"><thead><tr><th>Event family</th><th>Typical evidence</th><th>Interpretation boundary</th></tr></thead><tbody><tr><td>Initialized</td><td>Statement identity, timestamp, media length and session context.</td><td>Player/session start only.</td></tr><tr><td>Played / paused</td><td>Current time, progress and played segments.</td><td>Observed playback behaviour.</td></tr><tr><td>Seeked</td><td>Time from, time to and Video activity context.</td><td>Navigation behaviour, not comprehension.</td></tr><tr><td>Completed / terminated</td><td>Time, progress, played segments, length and threshold context.</td><td>Media coverage/completion, not course completion or understanding.</td></tr></tbody></table><div class="docs-note">The source library records Video Profile v1.0.3 as its inspected baseline. Adoption of any Profile/version remains an implementation governance decision and should be validated before conformance is claimed.</div></div>
+<div class="docs-module" id="qualification"><h2>Qualification gate</h2><p>Course-level qualification belongs to the exact exported package and build identifier that passes the complete evidence path.</p><div class="docs-grid docs-grid--2"><div class="docs-card" style="cursor:default"><h3>Positive path</h3><ul><li>Authenticated launch.</li><li>Stable actor.</li><li>Expected attempts.</li><li>Expected evidence stored once.</li><li>Platform completion remains correct.</li></ul></div><div class="docs-card" style="cursor:default"><h3>Negative & resilience path</h3><ul><li>No actor: no fabricated statement.</li><li>No valid submission: no attempt.</li><li>LRS unavailable: learning continues.</li><li>Transport retry: same UUID.</li><li>Reload/back creates no accidental evidence.</li><li>Malformed or unregistered activity is rejected at the trusted boundary.</li></ul></div></div><h3>Permanent evidence bundle</h3><ul><li>release/package hash and exact source version;</li><li>sanitised stored statements and query evidence;</li><li>positive and negative-path results;</li><li>activity registry and profile/template validation output;</li><li>browser/accessibility checks for transmitting interactions;</li><li>security/privacy approval and production transport decision.</li></ul></div>
+<div class="docs-module" id="implementation"><h2>Core versus implementation</h2><p>The neutral design system owns the evidence principles, semantic pattern contracts, qualification model and governance requirements. A named implementation owns its identifiers, actor namespace, platform integration, approved patterns, registry, privacy decisions, credentials, LRS boundary and release evidence.</p><div class="docs-note"><strong>Do not universalise implementation detail.</strong> Organisation-specific course IDs, scenario IDs, account namespaces, approval states and stakeholder decisions remain in that organisation's implementation documentation.</div></div>
+</div></div>
+{% endblock %}
