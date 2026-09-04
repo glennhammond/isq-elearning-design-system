@@ -18,6 +18,7 @@
     ['Implementations', 'implementations/index.html', '/implementations/'],
     ['Applications', 'applications/index.html', '/applications/'],
     ['Resources', 'resources/index.html', '/resources/'],
+    ['xAPI', 'xapi/index.html', '/xapi/'],
     ['Governance', 'governance/index.html', '/governance/'],
     ['Changelog', 'changelog/index.html', '/changelog/']
   ];
