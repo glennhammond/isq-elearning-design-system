@@ -4,9 +4,7 @@
   var nav = document.querySelector('.docs-primary-nav');
   if (!nav) return;
 
-  // Generated pages on this review branch pre-date the restored navigation template.
-  // Reconcile them in the browser so the full established design-system IA remains
-  // discoverable now; the source template carries the same links for future builds.
+  // Reconcile generated navigation with the current design-system IA.
   var searchInput = document.querySelector('[data-docs-search-input]');
   var base = searchInput ? (searchInput.getAttribute('data-base') || '') : '';
   var path = window.location.pathname;
@@ -21,6 +19,7 @@
     ['Implementations', 'implementations/index.html', '/implementations/'],
     ['Applications', 'applications/index.html', '/applications/'],
     ['Resources', 'resources/index.html', '/resources/'],
+    ['xAPI', 'xapi/index.html', '/xapi/'],
     ['Governance', 'governance/index.html', '/governance/'],
     ['Changelog', 'changelog/index.html', '/changelog/']
   ];
